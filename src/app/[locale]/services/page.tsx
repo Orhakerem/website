@@ -127,7 +127,7 @@ export default function ServicesPage() {
             >
               {t.hero.titleLine1}
               <br />
-              <span className="text-secondary">{t.hero.titleLine2}</span>
+              <span className="text-secondary">{' '}{t.hero.titleLine2}</span>
             </motion.h1>
 
             <motion.div
@@ -192,13 +192,13 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header section with modern design */}
           <div className="services-grid-header text-center mb-20" data-animate="fade-up">
-            <h1 className="font-head text-2xl md:text-6xl font-bold text-black mb-6 leading-tight" data-animate="text">
+            <h2 className="font-head text-2xl md:text-6xl font-bold text-black mb-6 leading-tight" data-animate="text">
               {t.grid.titleLine1}
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary">
                 {t.grid.titleLine2}
               </span>
-            </h1>
+            </h2>
             <p className="text-black/70 text-sm md:text-xl max-w-2xl mx-auto leading-relaxed">
               {t.grid.subheading}
             </p>

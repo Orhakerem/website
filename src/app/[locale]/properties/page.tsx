@@ -84,9 +84,9 @@ function PropertyCard({
       <div className="property-card-content pointer-events-none px-6 py-4 flex flex-col relative z-20">
         {/* Title */}
         <div className="property-card-copy mb-4 pointer-events-none">
-          <h3 className="line-clamp-2 font-head text-xl font-bold text-black">
+          <h2 className="line-clamp-2 font-head text-xl font-bold text-black">
             {card.title}
-          </h3>
+          </h2>
         </div>
 
         {/* Property Stats - Compact */}

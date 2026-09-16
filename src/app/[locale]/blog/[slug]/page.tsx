@@ -242,7 +242,7 @@ export default function BlogPostPage({ params }: { params: { locale: string; slu
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((related) => (
-            <PostCard key={related.slug} post={related} locale={locale} />
+            <PostCard key={related.slug} post={related} locale={locale} headingLevel="h3" />
             ))}
           </div>
         </section>
