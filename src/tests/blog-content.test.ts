@@ -13,6 +13,8 @@ const NEW_POST_SLUGS = [
   'three-day-tel-aviv-itinerary-beach-carmel-market-jaffa',
   'private-events-tel-aviv-intimate-celebrations',
   'book-tel-aviv-apartment-directly-with-confidence',
+  'short-term-seasonal-rentals-tel-aviv',
+  'small-jewish-celebrations-venue-tel-aviv',
 ] as const;
 
 const UPDATED_POST_SLUGS = [
@@ -62,6 +64,20 @@ const EXPECTED_INTERNAL_DESTINATIONS: Record<(typeof NEW_POST_SLUGS)[number], st
     '/reservation',
     '/blog/long-term-monthly-stays-tel-aviv',
     '/blog/book-direct-vs-airbnb-or-hakerem',
+  ],
+  'short-term-seasonal-rentals-tel-aviv': [
+    '/blog/long-term-monthly-stays-tel-aviv',
+    '/blog/book-tel-aviv-apartment-directly-with-confidence',
+    '/properties/cozy-studio',
+    '/properties',
+    '/reservation',
+  ],
+  'small-jewish-celebrations-venue-tel-aviv': [
+    '/blog/private-events-tel-aviv-intimate-celebrations',
+    '/events',
+    '/blog/shabbat-friendly-stays-tel-aviv',
+    '/properties/penthouse-jacuzzi',
+    '/contact',
   ],
 };
 

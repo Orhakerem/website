@@ -13,6 +13,8 @@ export const FULLY_TRANSLATED_BLOG_SLUGS = [
   'long-term-monthly-stays-tel-aviv',
   'book-direct-vs-airbnb-or-hakerem',
   'things-to-do-carmel-market-banana-beach-tel-aviv',
+  'short-term-seasonal-rentals-tel-aviv',
+  'small-jewish-celebrations-venue-tel-aviv',
 ] as const;
 
 export function hasBlogTranslation(locale: Locale, slug: string): boolean {
