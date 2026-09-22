@@ -208,9 +208,9 @@ export default function TestimonialsCarousel() {
               {/* Guest Info */}
               <div className="text-center">
                 <div className="home-testimonials-guest inline-block p-6 bg-gradient-to-br from-cream to-white rounded-2xl shadow-lg border border-secondary/20">
-                  <h4 className="font-head text-xl md:text-2xl font-bold text-primary mb-2">
+                  <h3 className="font-head text-xl md:text-2xl font-bold text-primary mb-2">
                     {testimonials[currentIndex].name}
-                  </h4>
+                  </h3>
                   <div className="flex items-center justify-center text-sm text-primary/60">
                     <span>{testimonials[currentIndex].date}</span>
                   </div>

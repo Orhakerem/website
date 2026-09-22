@@ -972,10 +972,11 @@ export default function PropertyDetailsClient({
         {/* Left content column */}
         <div className="min-w-0">
           {/* Responsive editorial header */}
+          {/* Single H1 for the page: mobile scale below lg, desktop scale from lg up. */}
+          <h1 className="mt-2 font-head text-2xl font-bold text-black leading-tight lg:mt-0 lg:text-4xl">
+            {text.title}
+          </h1>
           <div className="lg:hidden pb-4">
-            <h1 className="mt-2 font-head text-2xl font-bold text-black leading-tight">
-              {text.title}
-            </h1>
             <p className="mt-2 text-sm text-black/70 leading-relaxed">
               {text.description}
             </p>
@@ -997,9 +998,6 @@ export default function PropertyDetailsClient({
 
           {/* 2. Title + property type subtitle (desktop) */}
           <header className="hidden lg:block">
-            <h1 className="font-head text-3xl md:text-4xl font-bold text-black leading-tight">
-              {text.title}
-            </h1>
             <p className="mt-3 text-black/70">
               {t.ui.facts.typeIn(text.propertyType, text.location)}
             </p>
@@ -1020,7 +1018,7 @@ export default function PropertyDetailsClient({
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-primary/5 text-black">
                   <highlight.icon className="h-4 w-4" />
                 </div>
-                <h3 className="text-sm font-semibold text-black leading-snug">{highlight.title}</h3>
+                <p className="text-sm font-semibold text-black leading-snug">{highlight.title}</p>
               </div>
             ))}
           </section>

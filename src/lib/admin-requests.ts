@@ -7,8 +7,7 @@ import {
 } from './admin-quote-calculations';
 import { getBookablePropertyIdFromListingId, getBookablePropertyTitle } from './bookable-properties';
 import { addNights } from './booking-dates';
-import { eventCleaningFee, getVenueRentals } from './event-pricing-data';
-import { getPricingNightKind } from './pricing-date-helpers';
+import { eventCleaningFee, getVenueRental } from './event-pricing-data';
 import { DEFAULT_RESERVATION_QUOTE, type ReservationQuoteData } from './reservation-quote';
 import {
   ADMIN_REQUEST_SOURCE_TYPES,
@@ -140,14 +139,13 @@ function formatShekelAmount(amount: number | string | null | undefined) {
   }).format(parsedAmount)} ₪`;
 }
 
-function getEventPriceBreakdown(eventDate: string) {
-  const kind = getPricingNightKind(eventDate);
-  const rental = getVenueRentals('en').find((candidate) => candidate.id === kind) ?? getVenueRentals('en')[0];
-  const venuePrice = rental?.price ?? 0;
+function getEventPriceBreakdown() {
+  const rental = getVenueRental('en');
+  const venuePrice = rental.price;
   const total = venuePrice + eventCleaningFee;
 
   return {
-    rentalLabel: rental?.label ?? 'Venue rental',
+    rentalLabel: rental.label,
     venuePrice,
     cleaningFee: eventCleaningFee,
     total,
@@ -285,7 +283,7 @@ export function buildEventRequestSummary(
   event: EventRequestRow,
   status: AdminRequestStatusRow | null = null,
 ): AdminCustomerRequestSummary {
-  const price = getEventPriceBreakdown(event.event_date);
+  const price = getEventPriceBreakdown();
 
   return {
     sourceType: 'event_request',
@@ -321,7 +319,7 @@ export function buildQuoteDraftFromAdminRequest(
   const totalAmount = reservation ? formatShekelAmount(reservation.total_price) : '';
   const title = reservation ? getReservationTitle(reservation) : request.title;
   const unit = reservation?.nights ? `${reservation.nights} ${Number(reservation.nights) === 1 ? 'night' : 'nights'}` : '';
-  const eventPrice = event ? getEventPriceBreakdown(event.event_date) : null;
+  const eventPrice = event ? getEventPriceBreakdown() : null;
 
   return calculateAdminQuote({
     ...DEFAULT_RESERVATION_QUOTE,

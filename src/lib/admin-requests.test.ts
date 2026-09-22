@@ -141,13 +141,13 @@ test('buildEventRequestSummary prices event requests from the public event prici
   assert.equal(quote.checkInDate, '03 / 09 / 2026');
   assert.equal(quote.checkOutDate, '04 / 09 / 2026');
   assert.deepEqual(quote.lineItems, [
-    { description: 'Birthday dinner event venue rental', unit: 'Weekend Venue Rental', amount: '4,500 ₪' },
+    { description: 'Birthday dinner event venue rental', unit: 'Venue Rental', amount: '4,500 ₪' },
     { description: 'Cleaning fee', unit: '-', amount: '750 ₪' },
   ]);
   assert.equal(quote.total, '5,250 ₪');
 });
 
-test('prices a weekday event at the same venue rate plus cleaning', () => {
+test('prices any event date at the same venue rate plus cleaning', () => {
   const request = buildEventRequestSummary({
     id: 'event-weekday-1',
     event_type: 'Private dinner',
@@ -170,7 +170,7 @@ test('prices a weekday event at the same venue rate plus cleaning', () => {
   assert.deepEqual(quote.lineItems, [
     {
       description: 'Private dinner event venue rental',
-      unit: 'Weekday Venue Rental',
+      unit: 'Venue Rental',
       amount: '4,500 ₪',
     },
     { description: 'Cleaning fee', unit: '-', amount: '750 ₪' },

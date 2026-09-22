@@ -7,11 +7,17 @@ import { blogMessages } from '@/i18n/messages/blog';
 interface PostCardProps {
   post: Post;
   locale: Locale;
+  /**
+   * Heading level for the card title. `h2` on the blog index, where cards are
+   * top-level sections; `h3` under the "More from the blog" h2 on a post page.
+   */
+  headingLevel?: 'h2' | 'h3';
 }
 
-export default function PostCard({ post, locale }: PostCardProps) {
+export default function PostCard({ post, locale, headingLevel = 'h2' }: PostCardProps) {
   const { frontmatter, slug, content } = post;
   const t = blogMessages[locale];
+  const Heading = headingLevel;
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_8px_32px_rgba(83,45,36,0.08)] border border-primary/10 transition-transform duration-300 hover:-translate-y-1">
@@ -44,9 +50,9 @@ export default function PostCard({ post, locale }: PostCardProps) {
           ))}
         </div>
 
-        <h2 className="mb-2 font-head text-lg font-bold leading-snug text-black line-clamp-2 md:text-xl">
+        <Heading className="mb-2 font-head text-lg font-bold leading-snug text-black line-clamp-2 md:text-xl">
           {frontmatter.title}
-        </h2>
+        </Heading>
 
         <p className="mb-4 flex-1 text-sm leading-relaxed text-black/65 line-clamp-3">
           {frontmatter.description}

@@ -20,7 +20,7 @@ const enSeo: Record<BookablePropertyId, PropertySeoMeta> = {
   'penthouse-jacuzzi': {
     title: 'Luxury Penthouse with Private Jacuzzi & Sea Views | Tel Aviv | Or Hakerem',
     description:
-      'Spacious 3-bedroom luxury penthouse in Kerem HaTeimanim, Tel Aviv. Private rooftop jacuzzi, BBQ terrace, panoramic sea views. Steps from Carmel Market & Banana Beach. Book direct and save 15%.',
+      'Spacious 3-bedroom penthouse with private rooftop jacuzzi, BBQ terrace and panoramic sea views. Book direct and save 15%.',
     keywords:
       'penthouse jacuzzi Tel Aviv, luxury apartments Tel Aviv, luxury penthouse Kerem HaTeimanim, sea view apartment Tel Aviv, BBQ terrace rental Tel Aviv, rooftop apartment Tel Aviv, luxury short-term rental Tel Aviv, vacation rental Tel Aviv',
     image: '/penthouse/1-jacuzzi-angle.JPEG',
@@ -33,9 +33,9 @@ const enSeo: Record<BookablePropertyId, PropertySeoMeta> = {
     priceTo: 3900,
   },
   'cozy-studio': {
-    title: 'Renovated Studio Apartment 2 Min from Beach | Kerem HaTeimanim, Tel Aviv | Or Hakerem',
+    title: 'Renovated Studio Apartment 2 Min from Beach | Tel Aviv | Or Hakerem',
     description:
-      'Charming renovated studio in a historic Ottoman building in Kerem HaTeimanim, Tel Aviv. 2 minutes from Banana Beach and Carmel Market. Perfect for short, medium, or long stays. Book direct and save 15%.',
+      'Renovated studio in a historic Ottoman building, 2 minutes from Banana Beach and Carmel Market. Book direct and save 15%.',
     keywords:
       'studio apartment Tel Aviv, short-term rental Tel Aviv, vacation rental Tel Aviv, short-term rental Carmel Market, historic building apartment Tel Aviv, studio near beach Tel Aviv, cozy apartment Kerem HaTeimanim, long-term rental Tel Aviv',
     image: '/studio/lit_angle_1.jpg',
@@ -53,7 +53,7 @@ const frSeo: Record<BookablePropertyId, PropertySeoMeta> = {
   'penthouse-jacuzzi': {
     title: 'Penthouse de luxe avec jacuzzi privé et vue mer | Tel Aviv | Or Hakerem',
     description:
-      "Penthouse de luxe de 3 chambres à Kerem HaTeimanim, Tel Aviv. Jacuzzi privé sur le toit, terrasse barbecue, vue mer panoramique. À deux pas du marché du Carmel et de Banana Beach. Réservez en direct et économisez 15 %.",
+      "Penthouse de 3 chambres avec jacuzzi privé sur le toit, terrasse barbecue et vue mer. Réservez en direct, 15 % de remise.",
     keywords:
       'penthouse avec jacuzzi Tel Aviv, appartement de luxe vue mer Tel Aviv, location appartement de luxe Israël, terrasse avec barbecue Tel Aviv, appartement rooftop Tel Aviv, location vacances haut de gamme Tel Aviv, Kerem HaTeimanim',
     image: '/penthouse/1-jacuzzi-angle.JPEG',
@@ -65,9 +65,9 @@ const frSeo: Record<BookablePropertyId, PropertySeoMeta> = {
     priceTo: 3900,
   },
   'cozy-studio': {
-    title: 'Studio rénové à 2 min de la plage | Kerem HaTeimanim, Tel Aviv | Or Hakerem',
+    title: 'Studio rénové à 2 min de la plage | Tel Aviv | Or Hakerem',
     description:
-      "Charmant studio rénové dans un bâtiment historique ottoman à Kerem HaTeimanim, Tel Aviv. À 2 minutes de Banana Beach et du marché du Carmel. Parfait pour les séjours courts, moyens ou longs. Réservez en direct et économisez 15 %.",
+      "Studio rénové dans un bâtiment ottoman, à 2 minutes de Banana Beach et du marché du Carmel. Réservez en direct, -15 %.",
     keywords:
       'studio à louer Tel Aviv, location courte durée Tel Aviv, appartement pas cher Tel Aviv centre, studio proche plage Tel Aviv, appartement cosy Tel Aviv, location longue durée Tel Aviv, Kerem HaTeimanim',
     image: '/studio/lit_angle_1.jpg',
@@ -84,7 +84,7 @@ const heSeo: Record<BookablePropertyId, PropertySeoMeta> = {
   'penthouse-jacuzzi': {
     title: 'פנטהאוז יוקרה עם ג׳קוזי פרטי ונוף לים | תל אביב | אור הכרם',
     description:
-      'פנטהאוז יוקרה מרווח עם 3 חדרי שינה בכרם התימנים, תל אביב. ג׳קוזי פרטי על הגג, מרפסת מנגל, נוף פנורמי לים. צעדים ספורים משוק הכרמל ומבננה ביץ׳. הזמינו ישירות וחסכו 15%.',
+      'פנטהאוז מרווח עם 3 חדרי שינה, ג׳קוזי פרטי על הגג, מרפסת מנגל ונוף פנורמי לים. הזמינו ישירות וחסכו 15%.',
     keywords: 'פנטהאוז עם ג׳קוזי תל אביב, דירת יוקרה נוף לים, פנטהאוז כרם התימנים, מרפסת עם מנגל תל אביב, דירת גג תל אביב, 2 דקות לים, לב תל אביב',
     image: '/penthouse/1-jacuzzi-angle.JPEG',
     imageAlt: 'מרפסת גג של פנטהאוז יוקרה עם ג׳קוזי פרטי ונוף לים בתל אביב, אור הכרם',
@@ -95,9 +95,9 @@ const heSeo: Record<BookablePropertyId, PropertySeoMeta> = {
     priceTo: 3900,
   },
   'cozy-studio': {
-    title: 'סטודיו משופץ 2 דקות מהים | כרם התימנים, תל אביב | אור הכרם',
+    title: 'סטודיו משופץ 2 דקות מהים | תל אביב | אור הכרם',
     description:
-      'סטודיו משופץ ומקסים בבניין היסטורי מתקופת האימפריה העות׳מאנית בכרם התימנים, תל אביב. 2 דקות מבננה ביץ׳ ומשוק הכרמל. מושלם לשהיות קצרות, בינוניות וארוכות. הזמינו ישירות וחסכו 15%.',
+      'סטודיו משופץ בבניין עות׳מאני היסטורי, 2 דקות מבננה ביץ׳ ומשוק הכרמל. הזמינו ישירות וחסכו 15%.',
     keywords: 'סטודיו להשכרה תל אביב, דירה קרובה לים תל אביב, השכרה לטווח קצר שוק הכרמל, בניין היסטורי תל אביב, סטודיו כרם התימנים, 2 דקות לים',
     image: '/studio/lit_angle_1.jpg',
     imageAlt: 'סטודיו משופץ ונעים בבניין היסטורי עות׳מאני, כרם התימנים תל אביב',

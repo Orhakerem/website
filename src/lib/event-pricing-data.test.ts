@@ -6,10 +6,10 @@ import { LOCALES } from '@/i18n/config';
 import {
   eventCleaningFee,
   eventVenueRentalPrice,
-  getVenueRentals,
+  getVenueRental,
 } from './event-pricing-data';
 
-test('uses one venue price for weekday and weekend events in every locale', () => {
+test('exposes a single venue price in every locale', () => {
   assert.equal(eventVenueRentalPrice, 4500);
 
   const cleaningSuffixByLocale = {
@@ -19,22 +19,12 @@ test('uses one venue price for weekday and weekend events in every locale', () =
   } as const;
 
   for (const locale of LOCALES) {
-    const rentals = getVenueRentals(locale);
+    const rental = getVenueRental(locale);
 
-    assert.deepEqual(
-      rentals.map(({ id, price }) => ({ id, price })),
-      [
-        { id: 'weekday', price: 4500 },
-        { id: 'weekend', price: 4500 },
-      ],
-    );
-    assert.deepEqual(
-      rentals.map(({ priceSuffix }) => priceSuffix),
-      [
-        cleaningSuffixByLocale[locale],
-        cleaningSuffixByLocale[locale],
-      ],
-    );
+    assert.equal(rental.id, 'venue');
+    assert.equal(rental.price, 4500);
+    assert.equal(rental.priceSuffix, cleaningSuffixByLocale[locale]);
+    assert.ok(rental.label.length > 0);
   }
 });
 

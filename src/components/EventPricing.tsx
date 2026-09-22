@@ -1,4 +1,4 @@
-import { getVenueRentals } from '@/lib/event-pricing-data';
+import { getVenueRental } from '@/lib/event-pricing-data';
 import type { Locale } from '@/i18n/config';
 import type { EventsMessages } from '@/i18n/messages/events';
 
@@ -8,12 +8,12 @@ interface EventPricingProps {
 }
 
 export default function EventPricing({ locale, t }: EventPricingProps) {
-  const venueRentals = getVenueRentals(locale);
+  const rental = getVenueRental(locale);
 
   return (
     <section
       id="pricing"
-      className="events-pricing-section py-8 md:py-20 mb-8 md:mb-20"
+      className="events-pricing-section mb-6 md:mb-10"
       data-animate="fade-up"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,41 +35,38 @@ export default function EventPricing({ locale, t }: EventPricingProps) {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {venueRentals.map((rental) => (
-            <article
-              key={rental.id}
-              className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-secondary/30 hover:shadow-2xl transition-shadow"
-              data-animate="scale"
-            >
-              <h3 className="font-head text-lg md:text-3xl font-bold text-black">
-                {rental.label}
-              </h3>
-              <div className="my-6">
-                <div className="flex items-baseline gap-1 flex-wrap" dir="ltr">
-                  <span className="font-head text-5xl md:text-6xl font-bold text-black">
-                    {rental.price.toLocaleString('en-US')}
-                  </span>
-                  <span className="font-head text-3xl md:text-4xl font-bold text-black">
-                    ₪
-                  </span>
-                </div>
-                <span className="block text-black/70 text-sm mt-2">
-                  {rental.priceSuffix}
+        <div className="max-w-xl mx-auto">
+          <article
+            className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-secondary/30 hover:shadow-2xl transition-shadow"
+            data-animate="scale"
+          >
+            <h3 className="font-head text-lg md:text-3xl font-bold text-black">
+              {rental.label}
+            </h3>
+            <div className="my-6">
+              <div className="flex items-baseline gap-1 flex-wrap" dir="ltr">
+                <span className="font-head text-5xl md:text-6xl font-bold text-black">
+                  {rental.price.toLocaleString('en-US')}
+                </span>
+                <span className="font-head text-3xl md:text-4xl font-bold text-black">
+                  ₪
                 </span>
               </div>
-              <ul className="space-y-2 text-black/80">
-                {rental.features.map((feature) => (
-                  <li key={feature} className="flex gap-2">
-                    <span className="text-tertiary" aria-hidden>
-                      •
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+              <span className="block text-black/70 text-sm mt-2">
+                {rental.priceSuffix}
+              </span>
+            </div>
+            <ul className="space-y-2 text-black/80">
+              {rental.features.map((feature) => (
+                <li key={feature} className="flex gap-2">
+                  <span className="text-tertiary" aria-hidden>
+                    •
+                  </span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </div>
     </section>

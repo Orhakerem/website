@@ -13,8 +13,7 @@ import LiquidGlassCTA from '@/components/LiquidGlassCTA';
 import { useBackToTopVisibility } from '@/hooks/useBackToTopVisibility';
 import { formatIsoDate } from '@/lib/booking-dates';
 import type { CalendarSyncStatus } from '@/lib/bookable-properties';
-import { eventCleaningFee, getVenueRentals } from '@/lib/event-pricing-data';
-import { getPricingNightKind } from '@/lib/pricing-date-helpers';
+import { eventCleaningFee, getVenueRental } from '@/lib/event-pricing-data';
 import { trackMetaLead } from '@/lib/meta-events';
 import { trackGaLead } from '@/lib/ga-events';
 import { useLocale } from '@/i18n/useLocale';
@@ -33,7 +32,7 @@ export default function EventsClient({
   const t = eventsMessages[locale];
   const eventTypes = t.eventTypes;
   const venueAmenityGroups = t.venues.amenityGroups;
-  const venueRentals = getVenueRentals(locale);
+  const venueRental = getVenueRental(locale);
   const [showForm, setShowForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
@@ -42,16 +41,11 @@ export default function EventsClient({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const eventQuote = eventDate
-    ? (() => {
-        const kind = getPricingNightKind(eventDate);
-        const rental = venueRentals.find((r) => r.id === kind)!;
-        return {
-          label: rental.label,
-          venuePrice: rental.price,
-          cleaningFee: eventCleaningFee,
-          total: rental.price + eventCleaningFee,
-        };
-      })()
+    ? {
+        venuePrice: venueRental.price,
+        cleaningFee: eventCleaningFee,
+        total: venueRental.price + eventCleaningFee,
+      }
     : null;
 
   useEffect(() => {
@@ -157,7 +151,7 @@ export default function EventsClient({
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 md:pt-10 pb-8 md:pb-20">
 
         <EventPricing locale={locale} t={t.pricing} />
 
@@ -188,9 +182,6 @@ export default function EventsClient({
 
               {eventQuote ? (
                 <div className="mt-6 bg-white rounded-[10px] p-6 border border-primary/10 shadow-sm">
-                  <h3 className="font-head text-lg md:text-xl font-bold text-black mb-4">
-                    {eventQuote.label}
-                  </h3>
                   <div className="space-y-2 text-sm md:text-base text-black/80">
                     <div className="flex items-center justify-between gap-4">
                       <span>{t.availability.venueRental}</span>
@@ -231,7 +222,7 @@ export default function EventsClient({
 
 
         {/* Event Spaces Section - Flat editorial */}
-        <section id="venues" className="events-venues-section py-20 md:py-24 mb-8 md:mb-10" data-animate="fade-up">
+        <section id="venues" className="events-venues-section mb-6 md:mb-10" data-animate="fade-up">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center" data-animate="fade-up">
