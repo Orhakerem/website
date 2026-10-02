@@ -143,7 +143,7 @@ function Navbar() {
             })}
             <LocaleSwitcher className="nav-locale-floating" />
             <a
-              href="https://wa.me/972585778891?text=Hi%20I%20am%20interested%20in%20your%20properties"
+              href="https://wa.me/message/KWYBTW2MTGO2M1"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-whatsapp-floating"
