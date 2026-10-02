@@ -99,7 +99,7 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
                   +33 6 51 17 99 25
                 </a>
                 <a 
-                  href="https://wa.me/972585778891"
+                  href="https://wa.me/message/KWYBTW2MTGO2M1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-secondary to-secondary-light px-5 py-2.5 font-semibold text-black shadow-lg transition-all duration-300"

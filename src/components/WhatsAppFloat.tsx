@@ -4,7 +4,7 @@ import { useLocale } from '@/i18n/useLocale';
 import { trackGaOutboundContact } from '@/lib/ga-events';
 
 const WHATSAPP_URL =
-  'https://wa.me/972585778891?text=Hi%20I%20am%20interested%20in%20your%20properties';
+  'https://wa.me/message/KWYBTW2MTGO2M1';
 
 /**
  * Client wrapper for the floating WhatsApp CTA. The root layout is a server

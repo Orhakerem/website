@@ -16,7 +16,7 @@ const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/or_hakerem/', Icon: Instagram },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/orhakerem/', Icon: Linkedin },
   { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61583829025542', Icon: Facebook },
-  { label: 'WhatsApp', href: 'https://wa.me/972585778891', Icon: MessageCircle },
+  { label: 'WhatsApp', href: 'https://wa.me/message/KWYBTW2MTGO2M1', Icon: MessageCircle },
 ];
 
 export default function Footer() {
@@ -119,7 +119,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="https://wa.me/972585778891"
+                  href="https://wa.me/message/KWYBTW2MTGO2M1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
