@@ -46,9 +46,6 @@ const en = {
     callout:
       'Our Kerem HaTeimanim apartments are especially valued by travelers who want a central stay without losing the texture of the neighborhood. Or Hakerem is one of the few boutique properties in Tel Aviv offering Shabbat-friendly accommodations and tailored Jewish event experiences. For guests looking for Shabbat-friendly stays in Tel Aviv, we combine practical support with a calm, premium atmosphere and tailored solutions for Jewish events, including optional kosher services.',
   },
-  host: {
-    kicker: 'Meet Your Host',
-  },
   locationStory: {
     kicker: 'Location Story',
     heading: 'Rooted in Kerem HaTeimanim',
@@ -118,9 +115,6 @@ const fr: AboutMessages = {
     callout:
       "Nos appartements de Kerem HaTeimanim sont particulièrement appréciés des voyageurs qui souhaitent un séjour central sans perdre l'authenticité du quartier. Or Hakerem est l'une des rares propriétés boutique de Tel Aviv à proposer des hébergements adaptés au Shabbat et des expériences sur mesure pour les événements juifs. Pour les voyageurs en quête de séjours Shabbat-friendly à Tel Aviv, nous combinons un accompagnement pratique avec une atmosphère calme et haut de gamme, et des solutions sur mesure pour les événements juifs, y compris des services casher optionnels.",
   },
-  host: {
-    kicker: 'Rencontrez votre hôte',
-  },
   locationStory: {
     kicker: 'L’histoire du lieu',
     heading: 'Enraciné à Kerem HaTeimanim',
@@ -184,9 +178,6 @@ const he: AboutMessages = {
     ],
     callout:
       'הדירות שלנו בכרם התימנים אהובות במיוחד על מטיילים המעוניינים בשהות מרכזית מבלי לוותר על אופי השכונה. אור הכרם הוא אחד הנכסים הבוטיקיים הבודדים בתל אביב שמציעים אירוח ידידותי לשבת וחוויות אירועים יהודיים מותאמות אישית. לאורחים המחפשים שהיות ידידותיות לשבת בתל אביב, אנחנו משלבים תמיכה מעשית עם אווירה רגועה ופרימיום, ופתרונות מותאמים לאירועים יהודיים, כולל שירותי כשרות אופציונליים.',
-  },
-  host: {
-    kicker: 'הכירו את המארח',
   },
   locationStory: {
     kicker: 'הסיפור של המקום',
