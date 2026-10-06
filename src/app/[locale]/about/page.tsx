@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import { MapPin, Shield, UtensilsCrossed } from 'lucide-react';
 
 import { createCanonicalUrl, SITE_URL } from '@/app/seo';
 import LiquidGlassCTA from '@/components/LiquidGlassCTA';
-import { HOST, getHostText } from '@/lib/host';
 import { isLocale, localizePath, type Locale } from '@/i18n/config';
 import { aboutMessages } from '@/i18n/messages/about';
 
@@ -12,7 +10,6 @@ const VALUE_POINT_ICONS = [MapPin, Shield, UtensilsCrossed];
 export default function AboutPage({ params }: { params: { locale: string } }) {
   const locale: Locale = isLocale(params.locale) ? params.locale : 'en';
   const t = aboutMessages[locale];
-  const hostText = getHostText(locale);
   const url = createCanonicalUrl(localizePath(locale, '/about'));
   const structuredData = {
     '@context': 'https://schema.org',
@@ -129,44 +126,6 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
               <p className="text-sm md:text-lg leading-relaxed text-black/80">
                 {t.distinct.callout}
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="host" className="scroll-mt-24 py-8 md:py-16" data-animate="fade-up">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 md:gap-10 rounded-3xl bg-white p-5 md:p-10 shadow-xl border border-primary/10 md:grid-cols-[0.8fr_1.2fr] md:items-center">
-            <div className="relative mx-auto aspect-square w-40 md:w-full overflow-hidden rounded-3xl border border-primary/10 bg-cream">
-              <Image
-                src={HOST.image}
-                alt={HOST.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 768px) 40vw, 160px"
-              />
-            </div>
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
-                {t.host.kicker}
-              </span>
-              <h2 className="mt-2 md:mt-4 font-head text-xl md:text-4xl font-bold text-black">
-                {HOST.name}
-              </h2>
-              <p className="mt-1 text-sm md:text-base font-semibold uppercase tracking-[0.18em] text-tertiary">
-                {hostText.jobTitle}
-              </p>
-              <p className="mt-3 md:mt-6 text-sm md:text-lg leading-relaxed text-black/80">
-                {hostText.bio}
-              </p>
-              <a
-                href={HOST.sameAs[0]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 md:mt-6 inline-flex items-center text-sm md:text-base font-semibold text-primary underline underline-offset-4 hover:text-primary-light"
-              >
-                {hostText.connectOnLinkedIn}
-              </a>
             </div>
           </div>
         </div>

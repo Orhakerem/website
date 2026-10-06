@@ -16,6 +16,7 @@ export const BUSINESS_NAP = {
 export const SOCIAL_PROFILES = [
   GOOGLE_BUSINESS_PROFILE_URL,
   'https://www.instagram.com/or_hakerem/',
+  'https://www.tiktok.com/@or.hakerem',
   'https://www.facebook.com/profile.php?id=61583829025542',
   'https://www.linkedin.com/company/orhakerem/',
 ] as const;
