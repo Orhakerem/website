@@ -233,7 +233,24 @@ export default function CookieConsent() {
               </span>
               <div>
                 <p className="font-head text-base font-semibold text-black">{t.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-black/70">
+                {/*
+                  Two paragraphs, one per breakpoint, swapped in CSS rather than
+                  by measuring the viewport in JS: that keeps server and client
+                  markup identical. The short copy keeps both named services and
+                  the policy link — only the sentence listing the three options
+                  is dropped, since the buttons below already state them.
+                */}
+                <p className="mt-1 text-sm leading-relaxed text-black/70 sm:hidden">
+                  {t.bodyShortBeforeLink}
+                  <Link
+                    href={localizePath(locale, '/privacy')}
+                    className="font-semibold text-primary underline underline-offset-2 hover:text-primary-light"
+                  >
+                    {t.privacyPolicy}
+                  </Link>
+                  {t.bodyShortAfterLink}
+                </p>
+                <p className="mt-1 hidden text-sm leading-relaxed text-black/70 sm:block">
                   {t.bodyBeforeLink}
                   <Link
                     href={localizePath(locale, '/privacy')}
