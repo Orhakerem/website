@@ -323,6 +323,30 @@
     margin: 0;
     padding: 0;
     overflow-x: clip;
+    /*
+      The navbar is position:fixed, so without this a focused form field can be
+      scrolled to y=0 and sit underneath it — where the logo's link to "/" covers
+      the left ~120px. Tapping the top of such a field navigated home and threw
+      away everything the visitor had typed. Keep this above the navbar height.
+    */
+    scroll-padding-top: 150px;
+  }
+
+  @media (max-width: 768px) {
+    html {
+      scroll-padding-top: 115px;
+    }
+  }
+
+  /*
+    The date grid is a full screen tall on a phone. Collapsed until the visitor
+    taps Check-in or Check-out, so the name/email/phone fields are reachable
+    without scrolling past it. Desktop keeps the calendar open.
+  */
+  @media (max-width: 768px) {
+    .booking-calendar-panel[data-revealed='false'] {
+      display: none;
+    }
   }
 
   img {
@@ -560,6 +584,18 @@
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
     isolation: isolate;
+  }
+
+  /*
+    Solid variant for submit buttons sitting on white cards. The translucent
+    glass fill measures 1.44:1 against a white card (WCAG 1.4.11 asks 3:1 for
+    UI components), so the primary CTA read as a disabled control. The opaque
+    fill plus a 4.4:1 ring restores the affordance; the glass variant used over
+    imagery is untouched.
+  */
+  .liquid-glass-btn--solid {
+    background: linear-gradient(180deg, rgb(216, 176, 132), rgb(198, 154, 106));
+    box-shadow: inset 0 0 0 1px rgba(150, 112, 70, 0.85);
   }
 
   .liquid-glass-btn:hover:not(:disabled) {

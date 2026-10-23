@@ -70,6 +70,13 @@ export default function BookingRangeCalendar({
   const [activeField, setActiveField] = useState<ActiveField>(() =>
     value.checkIn ? 'checkOut' : 'checkIn',
   );
+  /*
+    On mobile the grid is rendered but hidden until the visitor taps Check-in or
+    Check-out: expanded by default it costs a full screen before the name, email
+    and phone fields are reachable. Initialising from `value` keeps server and
+    client markup identical, and desktop is unaffected (CSS-only collapse).
+  */
+  const [calendarRevealed, setCalendarRevealed] = useState<boolean>(() => Boolean(value.checkIn));
   const [month, setMonth] = useState<Date>(() =>
     startOfMonthUtc(createDateFromIso(value.checkIn ?? todayIso)),
   );
@@ -121,6 +128,8 @@ export default function BookingRangeCalendar({
     undefined;
 
   const handleFieldFocus = (field: ActiveField) => {
+    setCalendarRevealed(true);
+
     if (field === 'checkOut' && !displayValue.checkIn) {
       setActiveField('checkIn');
       setMonth(todayMonth);
@@ -345,7 +354,10 @@ export default function BookingRangeCalendar({
           </p>
         ) : null}
 
-        <div className="px-3 pt-4 pb-2 sm:px-6 sm:pt-6">
+        <div
+          className="booking-calendar-panel px-3 pt-4 pb-2 sm:px-6 sm:pt-6"
+          data-revealed={calendarRevealed ? 'true' : 'false'}
+        >
           <div className="mb-3 flex items-center justify-between px-1 sm:mb-4">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-black/55">
               {navHintLabel}

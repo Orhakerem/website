@@ -829,7 +829,7 @@ export default function PropertyDetailsClient({
                   </div>
 
                   <div className="relative">
-                    <LiquidGlassButton type="submit" className="w-full" disabled={isSubmitting}>
+                    <LiquidGlassButton type="submit" className="liquid-glass-btn--solid w-full" disabled={isSubmitting}>
                       <Calendar className="w-6 h-6 me-3" />
                       <span>{isSubmitting ? t.ui.form.sending : t.ui.form.bookNow}</span>
                     </LiquidGlassButton>

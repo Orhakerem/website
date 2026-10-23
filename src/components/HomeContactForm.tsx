@@ -121,7 +121,7 @@ export default function HomeContactForm({ theme = 'dark' }: HomeContactFormProps
 
           <div className="text-center">
             {isLight ? (
-              <LiquidGlassButton type="submit" disabled={isSubmitting}>
+              <LiquidGlassButton type="submit" className="liquid-glass-btn--solid" disabled={isSubmitting}>
                 {isSubmitting ? t.sending : t.send}
                 <Send className="w-4 h-4" />
               </LiquidGlassButton>

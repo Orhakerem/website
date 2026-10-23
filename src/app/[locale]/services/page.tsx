@@ -364,7 +364,7 @@ export default function ServicesPage() {
                     >
                       {t.form.cancel}
                     </LiquidGlassButton>
-                    <LiquidGlassButton type="submit" size="sm" disabled={isSubmitting}>
+                    <LiquidGlassButton type="submit" className="liquid-glass-btn--solid" size="sm" disabled={isSubmitting}>
                       <span className="me-2">
                         {isSubmitting ? t.form.sending : t.form.submit}
                       </span>
