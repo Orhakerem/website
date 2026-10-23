@@ -213,7 +213,7 @@ export default function CookieConsent() {
           role="dialog"
           aria-modal="false"
           aria-label={t.dialogAria}
-          className="fixed bottom-24 start-3 end-3 z-50 rounded-2xl border border-primary/10 bg-white p-4 shadow-xl sm:bottom-5 sm:start-5 sm:end-auto sm:max-w-xl sm:p-5"
+          className="fixed bottom-3 start-3 end-3 z-[10000] rounded-2xl border border-primary/10 bg-white p-4 shadow-xl sm:bottom-5 sm:start-5 sm:end-auto sm:max-w-xl sm:p-5"
         >
           {canDismiss && (
             <button
@@ -328,30 +328,40 @@ export default function CookieConsent() {
                 </div>
               </>
             ) : (
-              <div className="grid gap-2 sm:grid-cols-3">
-                <button
-                  type="button"
-                  onClick={() => finish(EMPTY_CONSENT_PREFERENCES)}
-                  className="rounded-full border border-primary/20 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
-                >
-                  {t.rejectAll}
-                </button>
+              /*
+                Reject and Accept share one row and identical styling, so
+                refusing stays exactly as easy as consenting. Customize sits
+                below as a secondary control: stacking all three full-width
+                made the banner 412px tall on a 375x812 phone — half the
+                screen — and gave the most prominent button to the option
+                that commits to nothing.
+              */
+              <div className="flex flex-col gap-2">
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => finish(EMPTY_CONSENT_PREFERENCES)}
+                    className="rounded-full border border-primary/20 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
+                  >
+                    {t.rejectAll}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => finish({ analytics: true, marketing: true })}
+                    className="rounded-full border border-primary/20 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
+                  >
+                    {t.acceptAll}
+                  </button>
+                </div>
                 <button
                   type="button"
                   onClick={() => {
                     setDraft(preferencesRef.current);
                     setCustomizing(true);
                   }}
-                  className="rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                  className="rounded-full px-4 py-2 text-sm font-semibold text-primary underline underline-offset-2 transition-colors hover:bg-primary/5"
                 >
                   {t.customize}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => finish({ analytics: true, marketing: true })}
-                  className="rounded-full border border-primary/20 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/5"
-                >
-                  {t.acceptAll}
                 </button>
               </div>
             )}
