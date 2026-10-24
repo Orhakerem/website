@@ -10,7 +10,7 @@ import { BOOKABLE_PROPERTIES } from './bookable-properties';
 import type { PricingAdjustmentRuleType } from './pricing-adjustments';
 import { reservationQuoteSchema, type ReservationQuoteData } from './reservation-quote';
 import type { PricingDayType } from './pricing-engine';
-import type { SeasonType } from './pricing-seasons';
+import { BASE_SEASON_TYPES, SEASON_TYPES, type SeasonType } from './pricing-seasons';
 
 export const ADMIN_PRICING_RULE_TYPES = [
   'last_minute',
@@ -187,7 +187,6 @@ export interface AdminPricingSupabaseClient {
 }
 
 const DAY_TYPES = ['weekday', 'weekend'] as const;
-const SEASON_TYPES = ['current', 'low', 'high'] as const;
 const LISTING_IDS = Object.values(BOOKABLE_PROPERTIES).map((property) => property.listingId);
 const LISTING_ID_SET = new Set<string>(LISTING_IDS);
 
@@ -525,7 +524,7 @@ export function assertListingPricingCoverage(
     throw new Error(`${listingTitle} pricing must keep at least one active tier.`);
   }
 
-  for (const seasonType of SEASON_TYPES) {
+  for (const seasonType of BASE_SEASON_TYPES) {
     for (const dayType of DAY_TYPES) {
       assertTierCoverageForCombination(listingTitle, seasonType, dayType, activeTiers);
     }

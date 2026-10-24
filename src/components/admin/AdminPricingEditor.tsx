@@ -195,6 +195,12 @@ const SEASON_OPTIONS = [
   { value: 'current', label: 'Current' },
   { value: 'low', label: 'Low' },
   { value: 'high', label: 'High' },
+  { value: 'p1', label: 'P1' },
+  { value: 'p2', label: 'P2' },
+  { value: 'p3', label: 'P3' },
+  { value: 'p4', label: 'P4' },
+  { value: 'p5', label: 'P5' },
+  { value: 'p6', label: 'P6' },
 ] as const;
 
 const DAY_OPTIONS = [

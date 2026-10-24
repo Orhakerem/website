@@ -15,7 +15,9 @@ import {
 } from './pricing-adjustments';
 import {
   fetchActiveSeasonRules,
+  isPeriodSeasonType,
   resolveSeasonTypeForDate,
+  SEASON_TYPES,
   type SeasonRules,
   type SeasonType,
 } from './pricing-seasons';
@@ -143,8 +145,8 @@ function normalizeNightCount(value: number | string | null, fieldName: string) {
 }
 
 function normalizeSeasonType(value: string): SeasonType {
-  if (value === 'current' || value === 'low' || value === 'high') {
-    return value;
+  if ((SEASON_TYPES as readonly string[]).includes(value)) {
+    return value as SeasonType;
   }
 
   throw new RangeError(`Unsupported pricing_tiers.season_type: ${value}`);
@@ -258,12 +260,23 @@ export function buildPricingBreakdown(
   const nightlyBreakdown = nights.map<NightlyPricingBreakdown>((date) => {
     const dayType = getPricingNightKind(date);
     const seasonType = resolveSeasonTypeForDate(date, seasonRules);
-    const pricingTier = selectPricingTier(pricingTiers, {
+    const tierOptions = {
       listingId: listing.id,
-      seasonType,
       dayType,
       totalNights: nights.length,
-    });
+    };
+    let pricingTier: PricingTier;
+
+    try {
+      pricingTier = selectPricingTier(pricingTiers, { ...tierOptions, seasonType });
+    } catch (error) {
+      // Period seasons (p1..p6) are global; a listing that has no tiers for one prices it as 'current'.
+      if (!(error instanceof PricingTierNotFoundError) || !isPeriodSeasonType(seasonType)) {
+        throw error;
+      }
+
+      pricingTier = selectPricingTier(pricingTiers, { ...tierOptions, seasonType: 'current' });
+    }
     const selectedAdjustments = selectPricingAdjustmentRules(pricingAdjustmentRules, {
       listingId: listing.id,
       nightDate: date,
