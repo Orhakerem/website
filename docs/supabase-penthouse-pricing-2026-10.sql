@@ -23,13 +23,14 @@ begin
                and pg_get_constraintdef(c.oid) ilike '%season_type%' loop
       execute format('alter table public.%I drop constraint %I', t, r.conname);
     end loop;
-    execute format('alter table public.%I add constraint %I check (season_type in (''current'',''low'',''high'',''p1'',''p2'',''p3'',''p4'',''p5'',''p6''))', t, t||'_season_type_check');
+    execute format('alter table public.%I add constraint %I check (season_type in (''current'',''low'',''high'',''p1'',''p2'',''p3'',''p4'',''p5'',''p6'',''p7''))', t, t||'_season_type_check');
   end loop;
 end $$;
 
 -- 2. Re-runnable: remove only what this script creates.
 delete from public.season_periods where season_type in ('p1','p2','p3','p4','p5','p6');
-delete from public.pricing_tiers where listing_id='penthouse' and season_type in ('p1','p2','p3','p4','p5','p6');
+delete from public.season_date_overrides where season_type='p7';
+delete from public.pricing_tiers where listing_id='penthouse' and season_type in ('p1','p2','p3','p4','p5','p6','p7');
 delete from public.pricing_adjustment_rules where listing_id='penthouse' and name like 'OH Penthouse P%';
 
 -- 3. Deactivate (not delete) the old generic penthouse duration rules (they would compete).
@@ -60,6 +61,14 @@ insert into public.pricing_tiers (listing_id, season_type, day_type, min_nights,
   ('penthouse','p5','weekend',1,null,2500,true,0),
   ('penthouse','p6','weekday',1,null,2200,true,0),
   ('penthouse','p6','weekend',1,null,2300,true,0);
+
+-- 5b. New Year nights (Thu 2026-12-31, Fri 2027-01-01): direct price 2800/night via season 'p7'.
+insert into public.season_date_overrides (date, season_type, note, is_active) values
+  ('2026-12-31','p7','New Year direct price 2800',true),
+  ('2027-01-01','p7','New Year direct price 2800',true);
+insert into public.pricing_tiers (listing_id, season_type, day_type, min_nights, max_nights, target_price, is_active, priority) values
+  ('penthouse','p7','weekday',1,null,2800,true,0),
+  ('penthouse','p7','weekend',1,null,2800,true,0);
 
 -- 6. Duration discounts (basis points, applied to every night by total stay length).
 insert into public.pricing_adjustment_rules (listing_id, name, rule_type, is_active, priority, adjustment_basis_points, starts_on, ends_on, min_nights, max_nights) values
@@ -106,10 +115,11 @@ insert into public.pricing_adjustment_rules (listing_id, name, rule_type, is_act
   ('penthouse','OH Penthouse P6 duree >= 21 nuits','duration',true,0,-2727,'2027-03-23','2027-04-19',21,27),
   ('penthouse','OH Penthouse P6 duree >= 28 nuits','duration',true,0,-3182,'2027-03-23','2027-04-19',28,null);
 
--- 7. Checks (expect 6 / 12 / 42 / 2 inactive).
+-- 7. Checks (expect 6 / 14 / 42 / 2 inactive / 2 overrides).
 select count(*) as periods from public.season_periods where season_type like 'p_';
 select count(*) as tiers from public.pricing_tiers where listing_id='penthouse' and season_type like 'p_';
 select count(*) as rules from public.pricing_adjustment_rules where listing_id='penthouse' and name like 'OH Penthouse P%';
 select name, is_active from public.pricing_adjustment_rules where listing_id='penthouse' and name like 'Penthouse %discount';
+select count(*) as overrides from public.season_date_overrides where season_type='p7';
 
 commit;

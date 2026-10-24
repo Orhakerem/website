@@ -1037,3 +1037,30 @@ test('a base season without tiers still throws PricingTierNotFoundError', () => 
     PricingTierNotFoundError,
   );
 });
+
+test('a p7 date override beats the surrounding period for New Year nights', () => {
+  const listing = { id: 'penthouse', cleaningFee: 0, currency: 'ILS' } satisfies PricingListing;
+  const tiers: PricingTier[] = [
+    { listingId: 'penthouse', seasonType: 'p2', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 2500 },
+    { listingId: 'penthouse', seasonType: 'p2', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 2300 },
+    { listingId: 'penthouse', seasonType: 'p7', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 2800 },
+    { listingId: 'penthouse', seasonType: 'p7', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 2800 },
+  ];
+  const seasonRules: SeasonRules = {
+    dateOverrides: [
+      { date: '2026-12-31', seasonType: 'p7' },
+      { date: '2027-01-01', seasonType: 'p7' },
+    ],
+    periods: [{ name: 'OH P2', seasonType: 'p2', startDate: '2026-12-15', endDate: '2027-01-02' }],
+  };
+  const quote = (checkIn: string, checkOut: string) =>
+    buildPricingBreakdown(
+      { listingId: 'penthouse', checkIn, checkOut, quoteDate: '2026-10-24' },
+      listing,
+      tiers,
+      seasonRules,
+    );
+
+  // 2026-12-30 Wed (p2 weekday 2300), 12-31 Thu + 01-01 Fri (p7 2800), 01-02 Sat (p2 weekday 2300).
+  assert.equal(quote('2026-12-30', '2027-01-03').night_total, 2300 + 2800 + 2800 + 2300);
+});

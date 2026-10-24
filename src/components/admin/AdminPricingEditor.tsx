@@ -201,6 +201,7 @@ const SEASON_OPTIONS = [
   { value: 'p4', label: 'P4' },
   { value: 'p5', label: 'P5' },
   { value: 'p6', label: 'P6' },
+  { value: 'p7', label: 'P7 (New Year)' },
 ] as const;
 
 const DAY_OPTIONS = [

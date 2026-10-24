@@ -4,9 +4,9 @@ import { compareIsoDates, isIsoDateString } from './booking-dates';
 import { PricingDataFetchError } from './pricing-errors';
 
 // 'current' | 'low' | 'high' are the base seasons every listing must price.
-// 'p1'..'p6' are dated pricing periods; a listing without tiers for one falls back to 'current'.
+// 'p1'..'p7' are dated pricing periods; a listing without tiers for one falls back to 'current'.
 export const BASE_SEASON_TYPES = ['current', 'low', 'high'] as const;
-export const PERIOD_SEASON_TYPES = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'] as const;
+export const PERIOD_SEASON_TYPES = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'] as const;
 export const SEASON_TYPES = [...BASE_SEASON_TYPES, ...PERIOD_SEASON_TYPES] as const;
 
 export type SeasonType = (typeof SEASON_TYPES)[number];
