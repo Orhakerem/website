@@ -15,6 +15,9 @@ export const FULLY_TRANSLATED_BLOG_SLUGS = [
   'things-to-do-carmel-market-banana-beach-tel-aviv',
   'short-term-seasonal-rentals-tel-aviv',
   'small-jewish-celebrations-venue-tel-aviv',
+  'kerem-hateimanim-history-vineyard-before-tel-aviv',
+  'kerem-hateimanim-street-names-yemenite-history',
+  'carmel-market-history-from-kerem-stalls',
 ] as const;
 
 export function hasBlogTranslation(locale: Locale, slug: string): boolean {

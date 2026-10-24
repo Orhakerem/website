@@ -15,6 +15,9 @@ const NEW_POST_SLUGS = [
   'book-tel-aviv-apartment-directly-with-confidence',
   'short-term-seasonal-rentals-tel-aviv',
   'small-jewish-celebrations-venue-tel-aviv',
+  'kerem-hateimanim-history-vineyard-before-tel-aviv',
+  'kerem-hateimanim-street-names-yemenite-history',
+  'carmel-market-history-from-kerem-stalls',
 ] as const;
 
 const UPDATED_POST_SLUGS = [
@@ -78,6 +81,27 @@ const EXPECTED_INTERNAL_DESTINATIONS: Record<(typeof NEW_POST_SLUGS)[number], st
     '/blog/shabbat-friendly-stays-tel-aviv',
     '/properties/penthouse-jacuzzi',
     '/contact',
+  ],
+  'kerem-hateimanim-history-vineyard-before-tel-aviv': [
+    '/blog/kerem-hateimanim-neighborhood-guide',
+    '/blog/kerem-hateimanim-street-names-yemenite-history',
+    '/blog/how-far-is-kerem-hateimanim-from-the-beach',
+    '/properties',
+    '/reservation',
+  ],
+  'kerem-hateimanim-street-names-yemenite-history': [
+    '/blog/kerem-hateimanim-history-vineyard-before-tel-aviv',
+    '/blog/carmel-market-history-from-kerem-stalls',
+    '/blog/kerem-hateimanim-neighborhood-guide',
+    '/about',
+    '/properties',
+  ],
+  'carmel-market-history-from-kerem-stalls': [
+    '/blog/things-to-do-carmel-market-banana-beach-tel-aviv',
+    '/blog/kerem-hateimanim-history-vineyard-before-tel-aviv',
+    '/blog/kerem-hateimanim-neighborhood-guide',
+    '/about',
+    '/properties',
   ],
 };
 
