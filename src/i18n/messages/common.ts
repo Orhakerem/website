@@ -51,6 +51,12 @@ const en = {
       'With your permission, we use Google Analytics to measure website traffic and the Meta Pixel to measure advertising effectiveness. You can accept all, reject all, or choose each service separately. See our ',
     privacyPolicy: 'Privacy Policy',
     bodyAfterLink: ' for details.',
+    // Shown instead of the long copy below 640px, where the paragraph was most
+    // of the banner's height. Keeps both named services and the policy link;
+    // drops the sentence describing the three options, which the buttons state.
+    bodyShortBeforeLink:
+      'With your permission, we use Google Analytics (traffic) and the Meta Pixel (ads). See our ',
+    bodyShortAfterLink: '.',
     rejectAll: 'Reject all',
     customize: 'Customize',
     acceptAll: 'Accept all',
@@ -124,6 +130,9 @@ const fr: CommonMessages = {
       "Avec votre accord, nous utilisons Google Analytics pour mesurer l’audience et le Pixel Meta pour mesurer l’efficacité de nos publicités. Vous pouvez tout accepter, tout refuser ou choisir chaque service séparément. Consultez notre ",
     privacyPolicy: 'politique de confidentialité',
     bodyAfterLink: ' pour plus de détails.',
+    bodyShortBeforeLink:
+      'Avec votre accord, nous utilisons Google Analytics (audience) et le Pixel Meta (publicité). Voir notre ',
+    bodyShortAfterLink: '.',
     rejectAll: 'Tout refuser',
     customize: 'Personnaliser',
     acceptAll: 'Tout accepter',
@@ -195,6 +204,9 @@ const he: CommonMessages = {
       'בהסכמתכם, אנו משתמשים ב‑Google Analytics כדי למדוד את השימוש באתר וב‑Meta Pixel כדי למדוד את יעילות הפרסום שלנו. תוכלו לאשר הכול, לדחות הכול או לבחור כל שירות בנפרד. ראו את ',
     privacyPolicy: 'מדיניות הפרטיות',
     bodyAfterLink: ' שלנו לפרטים נוספים.',
+    bodyShortBeforeLink:
+      'בהסכמתכם, אנו משתמשים ב‑Google Analytics (מדידת שימוש) וב‑Meta Pixel (פרסום). ראו את ',
+    bodyShortAfterLink: ' שלנו.',
     rejectAll: 'דחיית הכול',
     customize: 'התאמה אישית',
     acceptAll: 'אישור הכול',

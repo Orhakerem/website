@@ -519,7 +519,7 @@ export default function EventsClient({
                     <LiquidGlassButton
                       type="submit"
                       size="sm"
-                      className="flex-1"
+                      className="flex-1 liquid-glass-btn--solid"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? t.form.sending : t.form.send}

@@ -103,6 +103,8 @@ test('all locales provide accept, reject, and granular controls', () => {
     'rejectAll',
     'customize',
     'acceptAll',
+    'bodyShortBeforeLink',
+    'bodyShortAfterLink',
     'analyticsTitle',
     'marketingTitle',
     'back',
