@@ -944,3 +944,123 @@ function createMockSupabase(
     },
   };
 }
+
+test('period seasons p1..p6 price week and weekend nights with per-period duration discounts', () => {
+  const listing = { id: 'penthouse', cleaningFee: 0, currency: 'ILS' } satisfies PricingListing;
+  const tiers: PricingTier[] = [
+    { listingId: 'penthouse', seasonType: 'current', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 2500 },
+    { listingId: 'penthouse', seasonType: 'current', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 2500 },
+    { listingId: 'penthouse', seasonType: 'p3', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 1900 },
+    { listingId: 'penthouse', seasonType: 'p3', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 2300 },
+  ];
+  const seasonRules: SeasonRules = {
+    dateOverrides: [],
+    periods: [
+      { name: 'OH P3', seasonType: 'p3', startDate: '2027-01-03', endDate: '2027-02-14' },
+    ],
+  };
+  const durationRule = (id: string, basisPoints: number, minNights: number, maxNights: number | null) =>
+    ({
+      id,
+      listingId: 'penthouse',
+      name: id,
+      ruleType: 'duration',
+      isActive: true,
+      priority: 0,
+      adjustmentBasisPoints: basisPoints,
+      minDaysBeforeCheckIn: null,
+      maxDaysBeforeCheckIn: null,
+      minNights,
+      maxNights,
+      seasonType: null,
+      dayType: null,
+      startsOn: '2027-01-03',
+      endsOn: '2027-02-14',
+    }) satisfies PricingAdjustmentRule;
+  const rules = [
+    durationRule('p3-2', -526, 2, 2),
+    durationRule('p3-7', -1579, 7, 13),
+  ];
+  const quote = (checkIn: string, checkOut: string) =>
+    buildPricingBreakdown(
+      { listingId: 'penthouse', checkIn, checkOut, quoteDate: '2026-10-24' },
+      listing,
+      tiers,
+      seasonRules,
+      rules,
+    );
+
+  // 2027-01-05 is a Tuesday, 2027-01-07 a Thursday.
+  assert.equal(quote('2027-01-05', '2027-01-06').night_total, 1900);
+  assert.equal(quote('2027-01-07', '2027-01-08').night_total, 2300);
+  // Wed + Thu nights, 2-night discount applies to every night.
+  assert.equal(quote('2027-01-06', '2027-01-08').night_total, Number(((1900 + 2300) * (1 - 0.0526)).toFixed(2)));
+  // Sat -> Sat: 5 weekday nights (Sat..Wed) + Thu + Fri weekend, 7-night discount on all.
+  assert.equal(
+    quote('2027-01-09', '2027-01-16').night_total,
+    Number((5 * 1900 * (1 - 0.1579) + 2 * 2300 * (1 - 0.1579)).toFixed(2)),
+  );
+});
+
+test('a listing without period-season tiers prices period seasons as current', () => {
+  const listing = { id: 'studio', cleaningFee: 0, currency: 'ILS' } satisfies PricingListing;
+  const tiers: PricingTier[] = [
+    { listingId: 'studio', seasonType: 'current', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 500 },
+    { listingId: 'studio', seasonType: 'current', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 600 },
+  ];
+  const seasonRules: SeasonRules = {
+    dateOverrides: [],
+    periods: [{ name: 'OH P3', seasonType: 'p3', startDate: '2027-01-03', endDate: '2027-02-14' }],
+  };
+  const breakdown = buildPricingBreakdown(
+    { listingId: 'studio', checkIn: '2027-01-05', checkOut: '2027-01-08', quoteDate: '2026-10-24' },
+    listing,
+    tiers,
+    seasonRules,
+  );
+
+  assert.equal(breakdown.night_total, 500 + 500 + 600);
+  assert.equal(breakdown.nightly_breakdown[0].season_type, 'p3');
+});
+
+test('a base season without tiers still throws PricingTierNotFoundError', () => {
+  const listing = { id: 'studio', cleaningFee: 0, currency: 'ILS' } satisfies PricingListing;
+
+  assert.throws(
+    () =>
+      buildPricingBreakdown(
+        { listingId: 'studio', checkIn: '2027-01-05', checkOut: '2027-01-06', quoteDate: '2026-10-24' },
+        listing,
+        [],
+        { dateOverrides: [], periods: [] },
+      ),
+    PricingTierNotFoundError,
+  );
+});
+
+test('a p7 date override beats the surrounding period for New Year nights', () => {
+  const listing = { id: 'penthouse', cleaningFee: 0, currency: 'ILS' } satisfies PricingListing;
+  const tiers: PricingTier[] = [
+    { listingId: 'penthouse', seasonType: 'p2', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 2500 },
+    { listingId: 'penthouse', seasonType: 'p2', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 2300 },
+    { listingId: 'penthouse', seasonType: 'p7', dayType: 'weekend', minNights: 1, maxNights: null, targetPrice: 2800 },
+    { listingId: 'penthouse', seasonType: 'p7', dayType: 'weekday', minNights: 1, maxNights: null, targetPrice: 2800 },
+  ];
+  const seasonRules: SeasonRules = {
+    dateOverrides: [
+      { date: '2026-12-31', seasonType: 'p7' },
+      { date: '2027-01-01', seasonType: 'p7' },
+    ],
+    periods: [{ name: 'OH P2', seasonType: 'p2', startDate: '2026-12-15', endDate: '2027-01-02' }],
+  };
+  const quote = (checkIn: string, checkOut: string) =>
+    buildPricingBreakdown(
+      { listingId: 'penthouse', checkIn, checkOut, quoteDate: '2026-10-24' },
+      listing,
+      tiers,
+      seasonRules,
+    );
+
+  // 2026-12-30 Wed (p2 weekday 2300), 12-31 Thu + 01-01 Fri (p7 2800), 01-02 Sat (p2 weekday 2300).
+  assert.equal(quote('2026-12-30', '2027-01-03').night_total, 2300 + 2800 + 2800 + 2300);
+});

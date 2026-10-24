@@ -3,7 +3,17 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { compareIsoDates, isIsoDateString } from './booking-dates';
 import { PricingDataFetchError } from './pricing-errors';
 
-export type SeasonType = 'current' | 'low' | 'high';
+// 'current' | 'low' | 'high' are the base seasons every listing must price.
+// 'p1'..'p7' are dated pricing periods; a listing without tiers for one falls back to 'current'.
+export const BASE_SEASON_TYPES = ['current', 'low', 'high'] as const;
+export const PERIOD_SEASON_TYPES = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'] as const;
+export const SEASON_TYPES = [...BASE_SEASON_TYPES, ...PERIOD_SEASON_TYPES] as const;
+
+export type SeasonType = (typeof SEASON_TYPES)[number];
+
+export function isPeriodSeasonType(value: SeasonType) {
+  return (PERIOD_SEASON_TYPES as readonly string[]).includes(value);
+}
 
 export interface SeasonDateOverride {
   date: string;
@@ -34,7 +44,7 @@ interface SeasonPeriodRow {
   season_type: string;
 }
 
-const SEASON_TYPES = new Set<SeasonType>(['current', 'low', 'high']);
+const SEASON_TYPE_SET = new Set<string>(SEASON_TYPES);
 
 function assertIsoDate(value: string, fieldName: string): void {
   if (!isIsoDateString(value)) {
@@ -43,7 +53,7 @@ function assertIsoDate(value: string, fieldName: string): void {
 }
 
 function normalizeSeasonType(value: string): SeasonType {
-  if (SEASON_TYPES.has(value as SeasonType)) {
+  if (SEASON_TYPE_SET.has(value)) {
     return value as SeasonType;
   }
 

@@ -3,7 +3,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { compareIsoDates, createDateFromIso, isIsoDateString } from './booking-dates';
 import { PricingDataFetchError } from './pricing-errors';
 import type { PricingNightKind } from './pricing-date-helpers';
-import type { SeasonType } from './pricing-seasons';
+import { SEASON_TYPES, type SeasonType } from './pricing-seasons';
 
 export type PricingAdjustmentRuleType = 'last_minute' | 'early_booking' | 'duration';
 
@@ -72,7 +72,7 @@ const RULE_TYPES = new Set<PricingAdjustmentRuleType>([
   'duration',
 ]);
 const DAY_TYPES = new Set<PricingNightKind>(['weekday', 'weekend']);
-const SEASON_TYPES = new Set<SeasonType>(['current', 'low', 'high']);
+const SEASON_TYPE_SET = new Set<string>(SEASON_TYPES);
 const DAY_IN_MS = 24 * 60 * 60 * 1000;
 
 async function getSupabaseClient() {
@@ -113,7 +113,7 @@ function normalizeSeasonType(value: string | null): SeasonType | null {
     return null;
   }
 
-  if (SEASON_TYPES.has(value as SeasonType)) {
+  if (SEASON_TYPE_SET.has(value)) {
     return value as SeasonType;
   }
 
