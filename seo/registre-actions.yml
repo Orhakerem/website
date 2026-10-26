@@ -1,0 +1,214 @@
+# Registre des actions — Or Hakerem
+#
+# Chantiers ouverts qui ne sont pas terminés. Ce fichier est lu et redaté à
+# CHAQUE cycle mensuel par l'agent `rapport` (étape 11). `scripts/seo-check.mjs`
+# échoue si une entrée non terminée n'a pas été relancée pendant le cycle courant,
+# et le rapport mensuel ne peut pas sortir tant que le script échoue.
+#
+# etat        : bloque | en-cours | fait
+# responsable : proprietaire | claude
+# Une entrée `fait` est supprimée au cycle suivant, pas archivée ici.
+
+cycle_courant: 2026-10
+
+actions:
+  - id: gbp-validation
+    action: Fiche Google Business Profile revendiquée et validée
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: fait
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: null
+    impact: eleve
+    note: >-
+      Vérifié le 26/10/2026 : fiche validée à 100 %, code magasin
+      15592430914507669223, 331 interactions clients. Prérequis levé.
+      À supprimer de ce registre au cycle de décembre.
+
+  - id: gbp-reponses-avis
+    action: Répondre aux 4 avis Google, dont aucun n'a de réponse
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-07
+    impact: eleve
+    note: >-
+      3 avis positifs : réponse à ma charge (autorisation du 26/10).
+      1 avis négatif de Daniel T (il y a 11 semaines, nuisance sonore type
+      boîte de nuit) : réponse à faire valider avant publication — exception
+      explicite du régime de publication.
+
+  - id: gbp-publications
+    action: Tenir un rythme de 2 à 4 publications par mois sur la fiche
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: eleve
+    note: Aucune publication à ce jour. Premier lot au cycle de novembre.
+
+  - id: utm
+    action: Poser les liens UTM (bio Instagram, WhatsApp, signature e-mail, QR, fiche Google)
+    document: docs/utm-links.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: eleve
+    note: >-
+      45,9 % du trafic est « Direct » et en hausse de 211 %. Provenance
+      inconnue. Les liens sont prêts depuis le 25/08 et n'ont jamais été posés.
+
+  - id: citations-annuaires
+    action: Créer les comptes et soumettre les citations d'annuaires locaux
+    document: docs/local-citations.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: moyen
+    note: >-
+      Exige création de comptes et vérification postale/SMS : hors de ce que
+      je fais. Une citation existe déjà sans action de notre part (easy.co.il).
+
+  - id: netlinking
+    action: Exécuter la campagne de netlinking — 5 contacts par semaine
+    document: docs/backlink-opportunities.md
+    responsable: proprietaire
+    etat: en-cours
+    ouvert_depuis: 2026-08-09
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: eleve
+    note: >-
+      1 contact sur 38 depuis août. DR 3, aucun domaine référent légitime.
+      Seul levier structurel restant sur l'autorité.
+
+  - id: collecte-avis
+    action: Mettre en place une sollicitation d'avis conforme aux règles Google
+    document: null
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: eleve
+    note: >-
+      4 avis en tout. Le filtrage préalable des avis (review gating) est
+      interdit par Google : la sollicitation doit viser tous les clients.
+
+  - id: entite-concurrente
+    action: Instruire la collision de marque avec « Hakerem Luxury Apartments »
+    document: null
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      hakeremluxuryapartments.co.il est une entreprise distincte au nom très
+      proche. La requête `hakerem luxury apartments` (152 impressions,
+      position 5,3) est probablement leur marque, pas la nôtre. L'audit d'août
+      attribuait le mauvais classement de marque à une « collision d'entité » :
+      voici le candidat. À confirmer avant d'en tirer une conclusion.
+
+  - id: gbp-entite
+    action: Trancher l'entité portée par la fiche — une seule fiche ou deux
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: eleve
+    note: >-
+      Google exclut nommément les biens en location des fiches éligibles : la
+      fiche doit porter l'activité de gestion ou l'espace événementiel, jamais
+      un appartement. Une seconde fiche pour l'événementiel exige un nom
+      différent ET une signalétique permanente distincte, photographiable.
+      Question à trancher : existe-t-il une enseigne permanente au nom de
+      l'entreprise sur place ? La réponse décide aussi de la parade en cas de
+      revérification vidéo. Décision par défaut : une seule fiche.
+
+  - id: gbp-horaires
+    action: Déclarer des horaires d'accueil réels sur la fiche et dans le schema
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: eleve
+    note: >-
+      Aucune déclaration d'horaires n'existe : ni openingHours ni
+      openingHoursSpecification dans tout le dépôt, aucun champ d'horaires dans
+      le LodgingBusiness. Double conséquence : l'éligibilité repose sur un
+      contact en personne PENDANT LES HORAIRES DÉCLARÉS, et le logo ne
+      s'affiche sur la fiche que si nom, adresse, catégories, téléphone et
+      horaires sont tous renseignés. Ne pas récupérer le « 24/7 » de
+      services.ts, qui décrit la réactivité de la conciergerie et non l'accès
+      aux locaux.
+
+  - id: gbp-categories
+    action: Relever les libellés exacts des catégories dans le sélecteur et les poser
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      Google ne publie pas la liste des catégories ; les listes tierces sont
+      indicatives et plusieurs libellés candidats n'ont pas pu être confirmés.
+      Cible : principale de type agence de location saisonnière (préserve le
+      format Offre, qu'une catégorie d'hôtellerie supprime), plus la catégorie
+      d'espace événementiel. Pas de catégorie-mot-clé (conciergerie, tourisme).
+
+  - id: nap-telephone
+    action: Trancher quel numéro est cliquable et l'aligner sur les données structurées
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      Les données structurées ne déclarent que +972585778891. Or le seul lien
+      tel: de la page contact est le numéro français (+33651179925,
+      contact/page.tsx:95), que le CTA d'accueil utilise aussi. Un visiteur qui
+      clique pour appeler joint un numéro que Google ne connaît pas. Soit le
+      français devient un contactPoint déclaré, soit l'israélien devient
+      cliquable sur la page contact et dans le CTA d'accueil (ailleurs — pied
+      de page, pages de confidentialité dans les trois langues — l'israélien
+      est bien cliquable). Un TROISIÈME numéro, +972 52 686 9791, traîne dans
+      README.md:148 : ni le canonique ni le français, signalé erroné dès
+      SEO-AUDIT-2026-08.md:265, corrigé dans llms.txt et jamais dans le
+      README. À supprimer. Accessoirement, l'adresse est écrite de six façons
+      différentes dans le dépôt.
+
+  - id: gbp-attribution
+    action: Persister les paramètres UTM sur la ligne de réservation Supabase
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: moyen
+    note: >-
+      Le clic marqué atterrit sur le site, mais la conversion est insérée côté
+      serveur dans la table reservations. Les UTM seuls ne relieront jamais les
+      deux : il faut capter les paramètres côté client dans
+      BookingRangeCalendar et les persister sur la ligne au moment de l'envoi.
+      Sans ce développement on mesure des clics venus de la fiche, jamais des
+      réservations. C'est un travail de code, pas un réglage de fiche.

@@ -1,0 +1,75 @@
+# Report de cycle — Or Hakerem
+#
+# UNIQUEMENT ce qui est propre au mois suivant. Le procédé vit dans
+# SEO-PLAN-MENSUEL.md ; ce fichier ne contient que de l'état.
+#
+# Règles, contrôlées par le vérificateur de l'étape 12 :
+#   1. Rien de générique. « Surveiller les conversions » n'a pas sa place ici.
+#   2. Chaque entrée porte une échéance ou un seuil.
+#   3. Les entrées résolues sont SUPPRIMÉES, pas archivées.
+#   4. Plafond de 10 entrées. Au-delà, le cycle accumule du retard : le signaler.
+
+cycle: 2026-11
+etabli_le: 2026-10-26
+etabli_par: mise-en-place
+
+a_trancher:
+  - id: home-title-2026-09-22
+    quoi: Verdict définitif sur le retour arrière du title de la page d'accueil
+    echeance: 2026-11-17
+    contexte: >-
+      Deux baisses consécutives — 16→10 puis 18→9 clics — à impressions et
+      position stables. Le seuil de retour arrière est franchi. Voir
+      seo/baselines.yml.
+
+  - id: avis-negatif-daniel-t
+    quoi: Faire valider la réponse à l'avis négatif avant publication
+    echeance: 2026-11-07
+    contexte: >-
+      Avis de Daniel T, 11 semaines, nuisance sonore type boîte de nuit.
+      Exception explicite au régime de publication : ne pas publier sans accord.
+
+a_surveiller:
+  - quoi: generate_lead après les correctifs formulaires du 24/10
+    seuil: "si toujours 0 sur 28 j au 20/11, rouvrir le diagnostic du tunnel"
+    contexte: >-
+      Au 25/10, le seul generate_lead enregistré était un test. Les correctifs
+      n'avaient que 2 jours de recul.
+
+  - quoi: Cluster plage après réécriture des titles et descriptions
+    mesurer_le: 2026-12-20
+    contexte: >-
+      7 requêtes entre les positions 4,2 et 9,7 à zéro clic. L'article existe.
+      Correctif de présentation uniquement, aucune rédaction.
+
+  - quoi: Trafic « Direct » après la pose des UTM
+    seuil: "si Direct reste au-dessus de 40 % des sessions au 20/12, les UTM n'ont pas été posés"
+    contexte: 45,9 % des sessions, +211 % sur un mois, provenance inconnue.
+
+a_poursuivre:
+  - quoi: Publications Google Business Profile — premier lot
+    echeance: 2026-11-30
+    contexte: >-
+      Aucune publication à ce jour. Rythme cible 2 à 4 par mois. Trois des
+      quatre brouillons rédigés en août sont publiables en l'état : quartiers,
+      itinéraire 3 jours, événements privés — les URL de destination renvoient
+      200 (vérifié le 26/10) et l'approbation préalable est levée. Libellés
+      trilingues dans l'historique Git de
+      docs/google-business-profile-publication-plan.md, commit 442145b.
+      Le 4e (réservation directe) est à réécrire : il repose sur l'allégation
+      « jusqu'à 15 % moins cher », qui relève de l'exception du régime.
+
+  - quoi: Photo de l'extérieur de l'immeuble avec enseigne visible
+    echeance: 2026-11-30
+    contexte: >-
+      Elle manque à la bibliothèque. Google l'appelle explicitement (« une
+      photo de l'extérieur aide les clients à trouver l'établissement ») et
+      elle sert de preuve de signalétique en cas de revérification vidéo, qui
+      est le risque réel sur une fiche d'hébergement courte durée.
+
+ecartes:
+  - sujet: Petits événements et célébrations juives
+    motif: >-
+      Cannibalisation confirmée avec private-events-tel-aviv-intimate-celebrations.
+      26 impressions, 0 clic après un mois. Ne pas reproposer ce sujet tel quel ;
+      à rejuger fin novembre avant toute fusion ou suppression.
