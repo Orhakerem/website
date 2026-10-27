@@ -514,7 +514,7 @@ C'est un chantier de contenu à part, pas un motif de blocage de publication.
 |---|---|---|---|
 | Avis | Âge | Langue | État au 27 octobre |
 |---|---|---|---|
-| **Daniel T.** — 1★, *Local Guide, 218 avis, 93 photos* | 12 sem. | anglais | 🔴 **en attente** — exception §1 |
+| **Daniel T.** — 1★, *Local Guide, 218 avis, 93 photos* | 12 sem. | anglais | ⛔ **pas de réponse — décision du propriétaire** |
 | **Yoann M.** — 5★ | 13 sem. | français | ✅ **répondu le 27/10** |
 | **Julian Levit** — 5★ | 16 sem. | anglais | ✅ **répondu le 27/10** |
 | **adi ziv** — 5★ | 26 sem. | hébreu | ✅ **répondu le 27/10** |
@@ -522,14 +522,37 @@ C'est un chantier de contenu à part, pas un motif de blocage de publication.
 Chaque réponse a été écrite **dans la langue de l'avis**, personnalisée sur un
 détail propre au séjour, sans remerciement générique et sans offre commerciale.
 
-⚠️ **Daniel T. est un Local Guide avec 218 avis** : son 1 étoile a un poids
-d'affichage supérieur à la moyenne, et c'est lui qui tient la note à 4,0. La
-formulation — « se comporte comme une boîte de nuit au milieu d'un quartier
-résidentiel » — suggère un **voisin gêné par les événements, pas un client**.
-À établir avant de choisir entre répondre et signaler : un avis émanant de
+### L'avis de Daniel T. — décision arrêtée le 27 octobre
+
+**Le propriétaire a établi qu'il s'agit d'un voisin n'ayant jamais séjourné, et
+a décidé de ne pas y répondre.** Décision à respecter : ne pas rouvrir le sujet
+ni reproposer de brouillon aux cycles suivants.
+
+Ce que cela change par rapport à la règle générale : la recommandation
+habituelle — toujours répondre à un avis négatif — vaut pour un **client**
+mécontent, parce que la réponse s'adresse au prospect suivant plus qu'à l'auteur.
+Face à un différend de voisinage, une réponse publique ouvre un fil visible sur
+un sujet qui n'est pas celui du prospect, et peut l'alimenter. Se taire est ici
+défendable.
+
+**Reste ouvert, et non engagé : signaler l'avis à Google.** Un avis émanant de
 quelqu'un qui n'a jamais séjourné ne reflète pas une expérience authentique au
-sens des règles Google. Mais signaler à tort se retourne contre l'établissement,
-et l'absence de réponse est le pire des trois.
+sens des règles. Deux réserves à peser : Daniel T. est **Local Guide avec
+218 avis**, profil que Google maintient plus volontiers ; et un signalement
+visant un riverain identifiable peut envenimer une relation de voisinage, ce qui
+est un risque d'exploitation réel pour une activité événementielle en immeuble
+résidentiel. → action au registre, en attente d'un arbitrage explicite.
+
+### La vraie réponse est arithmétique
+
+À **4 avis**, un seul 1 étoile pèse **25 % de l'échantillon** et tient la note à
+4,0 à lui seul. À 20 avis, le même avis redevient du bruit et la note remonte
+mécaniquement au-dessus de 4,7 sans qu'aucun avis ne soit retiré.
+
+Faire supprimer un avis est incertain, lent et ne se reproduit pas. Collecter
+des avis est certain, répétable et compose dans le temps. **C'est le levier n°1
+du dossier**, devant les publications — dont l'effet sur le classement n'est pas
+démontré — et devant toute optimisation technique restante.
 
 Trois mois sans réponse à un avis de cette nature est le plus mauvais signal
 possible, pour Google comme pour le prochain lecteur. Google cite d'ailleurs la
