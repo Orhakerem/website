@@ -124,38 +124,39 @@ actions:
     action: Trancher l'entité portée par la fiche — une seule fiche ou deux
     document: docs/google-business-profile-publication-plan.md
     responsable: proprietaire
-    etat: bloque
+    etat: fait
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
-    echeance: 2026-11-30
+    derniere_relance: 2026-10-27
+    echeance: null
     impact: eleve
     note: >-
-      Google exclut nommément les biens en location des fiches éligibles : la
-      fiche doit porter l'activité de gestion ou l'espace événementiel, jamais
-      un appartement. Une seconde fiche pour l'événementiel exige un nom
-      différent ET une signalétique permanente distincte, photographiable.
-      Question à trancher : existe-t-il une enseigne permanente au nom de
-      l'entreprise sur place ? La réponse décide aussi de la parade en cas de
-      revérification vidéo. Décision par défaut : une seule fiche.
+      TRANCHÉ le 27/10 : une enseigne permanente au nom de l'entreprise existe
+      sur place. Conséquences : (1) l'élément 2 d'une revérification vidéo est
+      satisfaisable — filmer l'enseigne, pas un intérieur de logement ;
+      (2) l'éligibilité est démontrable, l'entité portée par la fiche reste
+      l'activité de gestion / l'espace événementiel, jamais un appartement ;
+      (3) UNE SEULE FICHE. Une seconde fiche pour l'événementiel exigerait un
+      nom différent ET une seconde enseigne permanente distincte : à rouvrir
+      seulement si cette seconde enseigne existe.
+      À supprimer de ce registre au cycle de décembre.
 
   - id: gbp-horaires
-    action: Déclarer des horaires d'accueil réels sur la fiche et dans le schema
+    action: Reporter les horaires d'accueil sur la fiche Google
     document: docs/google-business-profile-publication-plan.md
-    responsable: proprietaire
-    etat: bloque
+    responsable: claude
+    etat: en-cours
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-10-27
     echeance: 2026-11-30
     impact: eleve
     note: >-
-      Aucune déclaration d'horaires n'existe : ni openingHours ni
-      openingHoursSpecification dans tout le dépôt, aucun champ d'horaires dans
-      le LodgingBusiness. Double conséquence : l'éligibilité repose sur un
-      contact en personne PENDANT LES HORAIRES DÉCLARÉS, et le logo ne
-      s'affiche sur la fiche que si nom, adresse, catégories, téléphone et
-      horaires sont tous renseignés. Ne pas récupérer le « 24/7 » de
-      services.ts, qui décrit la réactivité de la conciergerie et non l'accès
-      aux locaux.
+      Horaires obtenus le 27/10 : dimanche-jeudi 08:00-19:00, vendredi
+      08:00-12:00, samedi fermé (Shabbat). CÔTÉ SITE : FAIT — BUSINESS_HOURS
+      et openingHoursSpecification dans business-schema.ts, vérifiés dans le
+      JSON-LD servi, couverts par deux tests. RESTE : les déclarer sur la fiche
+      elle-même, ce qui est un des points de contrôle de l'affichage du logo et
+      ce qui rend l'éligibilité démontrable (contact en personne PENDANT LES
+      HORAIRES DÉCLARÉS). Couvert par l'autorisation permanente.
 
   - id: gbp-categories
     action: Relever les libellés exacts des catégories dans le sélecteur et les poser
@@ -176,25 +177,22 @@ actions:
   - id: nap-telephone
     action: Trancher quel numéro est cliquable et l'aligner sur les données structurées
     document: docs/google-business-profile-publication-plan.md
-    responsable: proprietaire
-    etat: bloque
+    responsable: claude
+    etat: fait
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
-    echeance: 2026-11-30
+    derniere_relance: 2026-10-27
+    echeance: null
     impact: moyen
     note: >-
-      Les données structurées ne déclarent que +972585778891. Or le seul lien
-      tel: de la page contact est le numéro français (+33651179925,
-      contact/page.tsx:95), que le CTA d'accueil utilise aussi. Un visiteur qui
-      clique pour appeler joint un numéro que Google ne connaît pas. Soit le
-      français devient un contactPoint déclaré, soit l'israélien devient
-      cliquable sur la page contact et dans le CTA d'accueil (ailleurs — pied
-      de page, pages de confidentialité dans les trois langues — l'israélien
-      est bien cliquable). Un TROISIÈME numéro, +972 52 686 9791, traîne dans
-      README.md:148 : ni le canonique ni le français, signalé erroné dès
-      SEO-AUDIT-2026-08.md:265, corrigé dans llms.txt et jamais dans le
-      README. À supprimer. Accessoirement, l'adresse est écrite de six façons
-      différentes dans le dépôt.
+TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
+      la page contact expose maintenant +33651179925 et +972585778891 en liens
+      tel: dans les trois locales (convention du pied de page : numéro, point
+      médian, code pays), le français est déclaré comme second contactPoint
+      dans business-schema.ts, et le troisième numéro erroné de README.md:148
+      (+972 52 686 9791, signalé dès SEO-AUDIT-2026-08.md:265) est supprimé.
+      Un test vérifie désormais que tout numéro rendu cliquable est déclaré
+      dans les données structurées.
+      À supprimer de ce registre au cycle de décembre.
 
   - id: gbp-attribution
     action: Persister les paramètres UTM sur la ligne de réservation Supabase

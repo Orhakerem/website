@@ -6,6 +6,7 @@ import { ArrowLeft, Home } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import { isLocale, localizePath, type Locale } from '@/i18n/config';
 import { contactMessages } from '@/i18n/messages/contact';
+import { BUSINESS_NAP } from '@/lib/business-schema';
 import { trackGaOutboundContact } from '@/lib/ga-events';
 
 export default function ContactPage({ params }: { params: { locale: string } }) {
@@ -91,12 +92,19 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
               </div>
               <h3 className="font-head text-base md:text-xl font-bold text-black mb-2">{t.otherWays.phoneTitle}</h3>
               <div className="space-y-3">
-                <a 
-                  href="tel:+33651179925"
+                <a
+                  href={`tel:${BUSINESS_NAP.telephoneFr}`}
                   className="block font-medium text-black/80"
                   dir="ltr"
                 >
-                  +33 6 51 17 99 25
+                  +33 6 51 17 99 25 <span className="text-black/40">·</span> FR
+                </a>
+                <a
+                  href={`tel:${BUSINESS_NAP.telephone}`}
+                  className="block font-medium text-black/80"
+                  dir="ltr"
+                >
+                  +972 58 577 8891 <span className="text-black/40">·</span> IL
                 </a>
                 <a 
                   href="https://wa.me/message/KWYBTW2MTGO2M1"

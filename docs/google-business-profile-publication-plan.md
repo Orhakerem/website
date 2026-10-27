@@ -77,8 +77,21 @@ Sans enseigne distincte, la seconde fiche sera traitée comme un doublon et
 masquée. En l'absence de cette signalétique, **une seule fiche**, et l'offre
 événementielle est portée par une catégorie secondaire et les services.
 
-**Décision : une seule fiche**, jusqu'à ce que l'existence d'une signalétique
-permanente distincte soit établie. → action `gbp-entite` au registre.
+**Décision, tranchée le 27 octobre : une seule fiche.**
+
+Une **enseigne permanente au nom de l'entreprise existe sur place** — point
+confirmé par le propriétaire. Trois conséquences, toutes favorables :
+
+1. **L'éligibilité est démontrable.** L'enseigne est précisément la preuve
+   d'existence que Google demande, et elle manque à la plupart des
+   hébergements courte durée.
+2. **La parade en cas de revérification vidéo existe** (§15) : on filme
+   l'enseigne et le lieu avec personnel, jamais l'intérieur d'un logement.
+3. **Une seule fiche reste la bonne configuration.** Une seconde fiche pour
+   l'événementiel exigerait un **nom différent** *et* une **seconde enseigne
+   permanente distincte**. À rouvrir uniquement si cette seconde enseigne
+   existe ; sinon l'offre événementielle reste portée par une catégorie
+   secondaire et les services.
 
 ### La voie Google Vacation Rentals, pour les logements
 
@@ -241,10 +254,18 @@ canonique ni le français. Il avait été signalé comme erroné dès
 `SEO-AUDIT-2026-08.md:265` — la correction a été faite dans `public/llms.txt`
 mais **jamais dans le README**, qui est resté deux mois avec un numéro faux.
 
-→ À trancher : soit le français devient un `contactPoint` déclaré, soit
-l'israélien devient cliquable sur la page contact et dans le CTA d'accueil. Et
-le numéro du README est à supprimer dans tous les cas.
-Action `nap-telephone` au registre.
+### Tranché le 27 octobre : les deux numéros sont cliquables — et appliqué
+
+| Ce qui a changé | Où |
+|---|---|
+| Les **deux** numéros sont désormais des liens `tel:` sur la page contact, dans les trois locales | `src/app/[locale]/contact/page.tsx` — convention du pied de page : numéro, point médian, code pays (`· FR` / `· IL`) |
+| Le français est déclaré comme **second `contactPoint`** (`areaServed: 'FR'`) | `src/lib/business-schema.ts` |
+| Le **troisième numéro erroné est supprimé** | `README.md` |
+| Un test exige que **tout numéro rendu cliquable soit déclaré** dans les données structurées | `src/tests/business-schema.test.ts` |
+
+Le `telephone` de premier niveau du `LodgingBusiness` reste l'israélien : c'est
+celui de la fiche Google, et c'est lui qui porte la cohérence NAP. Le français
+est un point de contact supplémentaire, pas un numéro concurrent.
 
 **Note.** La cohérence NAP n'est **pas** un motif de suspension documenté par
 Google — la page sur le classement local demande des informations complètes et
@@ -257,9 +278,28 @@ exigence de qualité et de confiance, pas comme un risque de sanction.
 
 ## 6. Horaires d'ouverture — à créer de zéro
 
-**Aucune déclaration d'horaires n'existe nulle part.** Ni `openingHours` ni
+### Horaires d'accueil — obtenus le 27 octobre
+
+| Jour | Horaires |
+|---|---|
+| Dimanche → jeudi | **08:00 – 19:00** |
+| Vendredi | **08:00 – 12:00** |
+| Samedi (Shabbat) | **fermé** |
+
+**Côté site : fait.** `BUSINESS_HOURS` et `openingHoursSpecification` sont
+déclarés dans `src/lib/business-schema.ts`, présents dans le JSON-LD servi
+(vérifié sur le rendu), et couverts par deux tests — dont un qui exige que les
+**sept jours** soient couverts exactement une fois, parce qu'un jour manquant se
+lit comme « horaires inconnus », ce qu'on est précisément en train de corriger.
+Un jour fermé s'exprime par `opens === closes`, convention que Google lit.
+
+**Côté fiche : reste à faire**, couvert par l'autorisation permanente du §1.
+
+### Ce qui manquait avant
+
+Aucune déclaration d'horaires n'existait nulle part : ni `openingHours` ni
 `openingHoursSpecification` dans le dépôt, aucun champ d'horaires dans le
-`LodgingBusiness` de `src/lib/business-schema.ts:24-62`.
+`LodgingBusiness` de `src/lib/business-schema.ts`.
 
 C'est bloquant à deux titres :
 1. l'éligibilité repose sur un contact en personne **pendant les horaires
@@ -280,8 +320,7 @@ Les seules données horaires existantes sont l'arrivée à 15:00 et le départ �
 `src/lib/faq-data.tsx:83` (en), `:231` (fr), `:378` (he). Ce ne sont pas des
 horaires d'ouverture : elles vont dans les attributs d'hébergement (§7).
 
-→ action `gbp-horaires` au registre : obtenir les horaires réels d'accueil, les
-déclarer sur la fiche **et** dans `business-schema.ts`.
+→ action `gbp-horaires` au registre : il ne reste que le report sur la fiche.
 
 ---
 
@@ -729,4 +768,5 @@ citations :**
 | 26 oct. 2026 | Faits de la société vérifiés sur pièces — 5 orthographes d'adresse, 2 téléphones, 0 horaires, 4,9/5 non adossée |
 | 26 oct. 2026 | Bonnes pratiques reprises sur documentation Google — éligibilité, règle des noms bilingues d'août 2026, suppression des Q&R |
 | 26 oct. 2026 | Verrou d'approbation levé ; les quatre brouillons d'août deviennent publiables (URL vérifiées 200) |
+| 27 oct. 2026 | Trois arbitrages rendus par le propriétaire : enseigne permanente **oui** (→ une seule fiche, parade de revérification acquise), horaires d'accueil obtenus, **les deux** numéros cliquables. Côté site : posé, vérifié sur le rendu, testé |
 | 26 oct. 2026 | Document audité par un vérificateur neuf : 18 corrections appliquées. Trois erreurs de fond de ma part — six orthographes d'adresse et non cinq, un **troisième** numéro de téléphone jamais corrigé dans le README, et un motif de blocage du brouillon 4 que j'avais posé à tort |
