@@ -345,7 +345,19 @@ devant les publications.
 | `scripts/seo-check.mjs` | Contrôle bloquant des trois défauts | ✅ créé et testé |
 | `docs/agents-seo.md` | Briefs des douze agents et grilles de leurs vérificateurs | ✅ créé |
 | `docs/google-business-profile-publication-plan.md` | Reprise du document d'août | ✅ réécrit |
-| `~/.claude/scheduled-tasks/seo-mensuel-orhakerem/SKILL.md` | La tâche planifiée elle-même — procédé, accès, régime de publication et **décisions arrêtées** | ✅ armée, 1er du mois à 9h |
+| `~/.claude/scheduled-tasks/seo-mensuel-orhakerem/SKILL.md` | La tâche planifiée elle-même — procédé, accès, régime de publication et **décisions arrêtées** | ✅ armée, 1er du mois à 9h, mode permissif |
+
+Le mode permissif a une conséquence qu'il faut nommer : **plus rien n'arrête le
+cycle à l'exécution**. Les garde-fous ne sont plus techniques, ils sont dans le
+texte de la tâche — les quatre exceptions, les décisions arrêtées, l'interdiction
+de fusionner sur `main` sans accord. C'est désormais la qualité de ces
+instructions qui tient lieu de barrière, et c'est pour ça qu'elles sont écrites
+comme des règles et non comme des conseils.
+
+Corollaire : le cycle **ne se bloque jamais sur une question**. Il fait tout ce
+qui n'en dépend pas, met le reste de côté, et regroupe les arbitrages en tête du
+rapport sous « Ce sur quoi j'ai besoin de toi ». Sans cette règle, une seule
+question en suspens un dimanche matin gèlerait le mois entier.
 
 **Trois destinations pour ce qu'un cycle apprend, à ne pas mélanger** — c'est ce
 qui fait que la tâche s'enrichit au lieu de se répéter :
