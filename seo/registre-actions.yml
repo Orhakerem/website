@@ -27,19 +27,24 @@ actions:
       À supprimer de ce registre au cycle de décembre.
 
   - id: gbp-reponses-avis
-    action: Répondre aux 4 avis Google, dont aucun n'a de réponse
+    action: Répondre à l'avis négatif de Daniel T
     document: docs/google-business-profile-publication-plan.md
-    responsable: claude
+    responsable: proprietaire
     etat: bloque
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-10-27
     echeance: 2026-11-07
     impact: eleve
     note: >-
-      3 avis positifs : réponse à ma charge (autorisation du 26/10).
-      1 avis négatif de Daniel T (il y a 11 semaines, nuisance sonore type
-      boîte de nuit) : réponse à faire valider avant publication — exception
-      explicite du régime de publication.
+      Les 3 avis positifs ont reçu une réponse le 27/10, chacun dans la langue
+      de l'avis : Yoann M (français), Julian Levit (anglais), adi ziv
+      (hébreu). Reste l'avis négatif, qui relève de l'exception du régime de
+      publication. Daniel T est un LOCAL GUIDE avec 218 avis et 93 photos :
+      son 1 étoile a un poids d'affichage supérieur à la moyenne. Avis en
+      anglais, 12 semaines : « A terrible place who acts like a club in the
+      middle of a residential neighborhood ». La formulation suggère un
+      VOISIN gêné par les événements, pas un client — à établir avant de
+      choisir entre répondre et signaler. Brouillon soumis le 27/10.
 
   - id: gbp-publications
     action: Tenir un rythme de 2 à 4 publications par mois sur la fiche
@@ -144,7 +149,7 @@ actions:
     action: Reporter les horaires d'accueil sur la fiche Google
     document: docs/google-business-profile-publication-plan.md
     responsable: claude
-    etat: en-cours
+    etat: fait
     ouvert_depuis: 2026-10-26
     derniere_relance: 2026-10-27
     echeance: 2026-11-30
@@ -153,10 +158,13 @@ actions:
       Horaires obtenus le 27/10 : dimanche-jeudi 08:00-19:00, vendredi
       08:00-12:00, samedi fermé (Shabbat). CÔTÉ SITE : FAIT — BUSINESS_HOURS
       et openingHoursSpecification dans business-schema.ts, vérifiés dans le
-      JSON-LD servi, couverts par deux tests. RESTE : les déclarer sur la fiche
-      elle-même, ce qui est un des points de contrôle de l'affichage du logo et
-      ce qui rend l'éligibilité démontrable (contact en personne PENDANT LES
-      HORAIRES DÉCLARÉS). Couvert par l'autorisation permanente.
+      JSON-LD servi, couverts par deux tests. CÔTÉ FICHE : FAIT le 27/10 et
+      déjà en ligne (« Ouvert · Ferme à 19:00 »). La fiche ne manquait pas
+      d'horaires : elle déclarait « Ouvert 24h/24 » du dimanche au jeudi, ce
+      qui est FAUX et pire qu'une absence — le « 24/7 » de la conciergerie
+      avait fui dans un champ structuré. Vendredi était à 18:00 au lieu de
+      12:00. Samedi et les fêtes (Roch Hachana, Yom Kippour) étaient déjà
+      corrects. À supprimer de ce registre au cycle de décembre.
 
   - id: gbp-categories
     action: Relever les libellés exacts des catégories dans le sélecteur et les poser

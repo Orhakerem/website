@@ -231,7 +231,7 @@ synthétisées.
 **Et une correction d'ampleur sur nos propres données :** l'adresse est écrite de
 **six façons différentes** dans le dépôt, un **troisième numéro de téléphone**
 erroné traîne dans le `README.md` depuis l'audit d'août, **aucun fichier ne
-déclare d'horaires** (ce qui empêche l'affichage du logo et rend l'éligibilité non
+déclarait d'horaires** (ce qui empêche l'affichage du logo et rend l'éligibilité non
 démontrable), et le **4,9/5 affiché sur la page propriétés n'est adossé à aucun
 `aggregateRating`**. Cinq actions nouvelles au registre : `gbp-entite`,
 `gbp-horaires`, `gbp-categories`, `nap-telephone`, `gbp-attribution`.
@@ -307,6 +307,32 @@ une conclusion.
 
 **🟢 Une citation d'annuaire existe déjà** sans action de notre part :
 `easy.co.il` publie une fiche Or Hakerem en hébreu.
+
+### 5.5 Intervention du 27 octobre — ce qui a changé sur la fiche
+
+| Action | État |
+|---|---|
+| Horaires corrigés : dim.–jeu. 08:00–19:00, ven. 08:00–12:00, sam. fermé | ✅ **en ligne** |
+| Réponse à Yoann M. (français), Julian Levit (anglais), adi ziv (hébreu) | ✅ **publiées** |
+| Réponse à l'avis négatif de Daniel T. | 🔴 en attente — exception |
+
+**Deux découvertes qui corrigent des rapports antérieurs :**
+
+**La fiche ne manquait pas d'horaires : elle en déclarait de faux.**
+« Ouvert 24h/24 » du dimanche au jeudi — le « 24/7 » de la conciergerie avait
+fui dans un champ structuré. Google présentait l'établissement comme ouvert à
+3h du matin. C'est plus dommageable qu'une absence d'horaires.
+
+**🔴 La note Google réelle est 4,0 sur 4 avis**, pas 4,9. Le site affiche
+« 4.9/5 — Verified guest rating » : il ne s'agit donc pas d'une note simplement
+non adossée, mais d'une note qui **contredit** la note publique de Google.
+
+**Et la collision de marque est bien plus large que mesurée.** Le SERP de marque
+contient cinq entités au nom quasi identique, dont **HaKerem Luxury Apartments :
+9,4/10 sur 166 avis** sur Booking. Contre nos 4 avis à 4,0. Cet écart explique
+le mauvais classement de marque bien mieux que n'importe quel facteur technique
+— ce qui fait de la **collecte d'avis le levier le plus rentable du dossier**,
+devant les publications.
 
 ## 6. Fichiers de la mise en place
 

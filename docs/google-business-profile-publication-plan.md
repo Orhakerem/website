@@ -170,8 +170,11 @@ ou pour décrire des caractéristiques.
 | Secondaire | *Serviced apartment* / location saisonnière | Couvre l'intention « appartement » |
 | À exclure | Conciergerie, agence de voyage, tourisme | Catégories-mots-clés, interdites |
 
-Les libellés exacts doivent être **relevés dans le sélecteur** : les listes
-tierces sont indicatives et certaines chaînes n'ont pas pu être confirmées.
+✅ **Vérifié le 27 octobre : la catégorie principale est déjà
+« Agence de location d'appartements à court terme ».** C'est exactement le type
+agence recommandé ici — l'arbitrage était donc déjà appliqué sans qu'on le sache.
+Reste à relever les libellés exacts des catégories **secondaires** dans le
+sélecteur, notamment pour l'offre événementielle.
 → action `gbp-categories` au registre.
 
 ### Le compromis à connaître : catégorie d'hébergement = perte des publications « Offre »
@@ -223,7 +226,7 @@ d'horaires.
 | `35 Hakovshim Street, Kerem HaTeimanim, Tel Aviv-Yafo 6329302, Israel` | `public/llms.txt:9` | `k` minuscule, `Street` au lieu de `St`, quartier ajouté |
 | `Hakovshim Street 35` | `src/lib/faq-data.tsx:48` | ordre inversé |
 | `HaKovshim 35, Tel Aviv-Jaffa` | `src/components/MapEmbed.tsx:9` (URL-encodé) | `Jaffa` au lieu de `Yafo` |
-| `hakovshim 35, tel aviv, 6329302` | la fiche Google elle-même | tout en minuscules |
+| `HaKovshim St 35, Tel Aviv-Yafo, 6329302` | la fiche Google elle-même | **conforme** — un relevé antérieur la disait en minuscules, c'était faux (vérifié le 27/10) |
 
 Les formes traduites en texte courant (française, hébraïque) sont **légitimes** —
 Google rend d'ailleurs l'adresse dans la locale du visiteur. Ce qui doit être
@@ -293,7 +296,19 @@ déclarés dans `src/lib/business-schema.ts`, présents dans le JSON-LD servi
 lit comme « horaires inconnus », ce qu'on est précisément en train de corriger.
 Un jour fermé s'exprime par `opens === closes`, convention que Google lit.
 
-**Côté fiche : reste à faire**, couvert par l'autorisation permanente du §1.
+**Côté fiche : fait le 27 octobre, et déjà en ligne** — la fiche affiche
+« Ouvert · Ferme à 19:00 ».
+
+🔴 **Le diagnostic initial était incomplet, et la réalité était pire.** La fiche
+ne manquait pas d'horaires : elle déclarait **« Ouvert 24h/24 » du dimanche au
+jeudi**. C'est le « 24/7 » de la conciergerie qui avait fui dans un champ
+structuré — Google présentait donc l'établissement comme ouvert un jeudi à 3h du
+matin. Des horaires faux sont plus dommageables qu'une absence d'horaires :
+ils produisent des visites et des appels à des moments où personne ne répond.
+
+Vendredi était à 18:00 au lieu de 12:00. **Samedi et les fêtes** (Roch Hachana,
+Yom Kippour) **étaient déjà correctement configurés en « Fermé »** — ça, c'était
+bien fait.
 
 ### Ce qui manquait avant
 
@@ -497,10 +512,24 @@ C'est un chantier de contenu à part, pas un motif de blocage de publication.
 
 | Avis | Âge | Contenu | Action |
 |---|---|---|---|
-| Daniel T. | 11 semaines | négatif sévère — « un endroit horrible qui se comporte comme une boîte de nuit au milieu d'un quartier résidentiel » | **exception §1** — réponse soumise avant publication |
-| Yoann M. | — | 10/10 | réponse à ma charge |
-| Julian Levit | — | positif | réponse à ma charge |
-| adi ziv | — | positif | réponse à ma charge |
+| Avis | Âge | Langue | État au 27 octobre |
+|---|---|---|---|
+| **Daniel T.** — 1★, *Local Guide, 218 avis, 93 photos* | 12 sem. | anglais | 🔴 **en attente** — exception §1 |
+| **Yoann M.** — 5★ | 13 sem. | français | ✅ **répondu le 27/10** |
+| **Julian Levit** — 5★ | 16 sem. | anglais | ✅ **répondu le 27/10** |
+| **adi ziv** — 5★ | 26 sem. | hébreu | ✅ **répondu le 27/10** |
+
+Chaque réponse a été écrite **dans la langue de l'avis**, personnalisée sur un
+détail propre au séjour, sans remerciement générique et sans offre commerciale.
+
+⚠️ **Daniel T. est un Local Guide avec 218 avis** : son 1 étoile a un poids
+d'affichage supérieur à la moyenne, et c'est lui qui tient la note à 4,0. La
+formulation — « se comporte comme une boîte de nuit au milieu d'un quartier
+résidentiel » — suggère un **voisin gêné par les événements, pas un client**.
+À établir avant de choisir entre répondre et signaler : un avis émanant de
+quelqu'un qui n'a jamais séjourné ne reflète pas une expérience authentique au
+sens des règles Google. Mais signaler à tort se retourne contre l'établissement,
+et l'absence de réponse est le pire des trois.
 
 Trois mois sans réponse à un avis de cette nature est le plus mauvais signal
 possible, pour Google comme pour le prochain lecteur. Google cite d'ailleurs la
@@ -669,7 +698,7 @@ l'exception §1.
 | Allégation | Emplacement | Problème |
 |---|---|---|
 | « note parfaite de **10 étoiles sur Booking.com** » | `src/lib/host.ts:7,29` | Booking.com note sur 10, pas en étoiles. Un « 10 parfait » est vérifiable et donc réfutable. **La chaîne la plus risquée du dépôt.** |
-| **4,9/5** affiché, « Verified guest rating » | `src/i18n/messages/properties.ts:33-34` (fr `:112`, he `:189`) | **Aucun `aggregateRating`, `ratingValue` ni `reviewCount` dans tout le dépôt.** Note visible sans source, sans nombre d'avis, sans balisage. |
+| **4,9/5** affiché, « Verified guest rating » | `src/i18n/messages/properties.ts:33-34` (fr `:112`, he `:189`) | 🔴 **Pire que « non adossé » : la note Google réelle est 4,0 sur 4 avis** (vérifié le 27/10). Le site affiche donc une note qui **contredit** la note publique, et aucun `aggregateRating`, `ratingValue` ni `reviewCount` n'existe dans le dépôt pour l'étayer. À retirer ou à remplacer par la note réelle. |
 | « professionnels de la garde d'enfants **certifiés**, **24/7** » | `src/i18n/messages/services.ts:26,96,164` | Certification invérifiable concernant des tiers, plus une disponibilité permanente |
 | « réponse sous 24 h **garantie** » | `src/i18n/messages/propertyDetails.ts:62`, `:375` (fr), `:676` (he) | Une garantie, dans les trois langues |
 | « jusqu'à **15 %** moins cher qu'en passant par les plateformes » | `public/llms.txt:7,24` · `properties.ts:37,72,116,151,193,228` · `property-seo.ts` ×6 · **5 articles de blog** | Comparaison de prix à étayer. C'est l'allégation la plus répandue du site |
@@ -747,13 +776,25 @@ peuvent ne rien donner.
 **Trois obstacles identifiés le 26 octobre, à traiter avant d'ajouter des
 citations :**
 
-- **`hakeremluxuryapartments.co.il`** — « Hakerem Luxury Apartments » apparaît
-  dans le SERP de marque. La requête `hakerem luxury apartments` (152
-  impressions, position 5,3) est probablement **leur** marque et non la nôtre, ce
-  qui change la lecture de cette ligne dans tous les rapports antérieurs. À
-  instruire avant toute conclusion.
-- **Booking.com, Agoda, `telavivhotelsisrael.com`** publient chacun une page sur
-  le penthouse ou « Hakerem apartment » et captent une part du trafic de marque.
+- 🔴 **La collision de marque est bien plus large que mesurée.** Le SERP de
+  `Or Hakerem Tel Aviv`, relevé le 27 octobre, contient **cinq entités
+  concurrentes au nom quasi identique**, dont une bien mieux établie que nous :
+
+  | Entité | Où | Signal |
+  |---|---|---|
+  | **HaKerem Luxury Apartments** | Booking.com | **9,4/10 sur 166 avis** |
+  | HaKerem Luxury Apartments | Planet of Hotels | 9,4/10 · 166 avis · 392–482 $ |
+  | `hakeremluxuryapartments.co.il` | site propre | page Contact en 3ᵉ position |
+  | The HaKerem City Hideaway | Airbnb | 5,0 sur 13 avis |
+  | HAKEREM RESIDENCES | `gov-nadlan.co.il` | promotion immobilière |
+
+  **166 avis à 9,4/10 contre nos 4 avis à 4,0.** La requête
+  `hakerem luxury apartments` (152 impressions, position 5,3) est donc
+  très probablement **leur** marque et non la nôtre : cette ligne doit être
+  retirée de la lecture des rapports antérieurs. Et l'écart de volume d'avis
+  explique une part du mauvais classement de marque bien mieux que n'importe
+  quel facteur technique — ce qui fait de la **collecte d'avis** le levier le
+  plus rentable du dossier, devant les publications.
 - **Ne jamais soumettre une URL de campagne** ou d'article comme site de
   l'entreprise dans une citation : toujours `https://www.orhakerem.com/`.
 
@@ -768,5 +809,7 @@ citations :**
 | 26 oct. 2026 | Faits de la société vérifiés sur pièces — 5 orthographes d'adresse, 2 téléphones, 0 horaires, 4,9/5 non adossée |
 | 26 oct. 2026 | Bonnes pratiques reprises sur documentation Google — éligibilité, règle des noms bilingues d'août 2026, suppression des Q&R |
 | 26 oct. 2026 | Verrou d'approbation levé ; les quatre brouillons d'août deviennent publiables (URL vérifiées 200) |
+| 27 oct. 2026 | **Fiche modifiée** : horaires corrigés (le « 24h/24 » était faux) et **en ligne** ; **3 avis positifs répondus**, chacun dans sa langue |
+| 27 oct. 2026 | Relevé sur la fiche : note réelle **4,0/4 avis**, catégorie déjà conforme, adresse correctement casée, création le 20/10/2024, 332 interactions |
 | 27 oct. 2026 | Trois arbitrages rendus par le propriétaire : enseigne permanente **oui** (→ une seule fiche, parade de revérification acquise), horaires d'accueil obtenus, **les deux** numéros cliquables. Côté site : posé, vérifié sur le rendu, testé |
 | 26 oct. 2026 | Document audité par un vérificateur neuf : 18 corrections appliquées. Trois erreurs de fond de ma part — six orthographes d'adresse et non cinq, un **troisième** numéro de téléphone jamais corrigé dans le README, et un motif de blocage du brouillon 4 que j'avais posé à tort |
