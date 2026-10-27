@@ -345,7 +345,13 @@ devant les publications.
 | `scripts/seo-check.mjs` | Contrôle bloquant des trois défauts | ✅ créé et testé |
 | `docs/agents-seo.md` | Briefs des douze agents et grilles de leurs vérificateurs | ✅ créé |
 | `docs/google-business-profile-publication-plan.md` | Reprise du document d'août | ✅ réécrit |
-| `~/.claude/scheduled-tasks/seo-mensuel-orhakerem/SKILL.md` | La tâche planifiée elle-même — procédé, accès, régime de publication et **décisions arrêtées** | ✅ armée, 1er du mois à 9h, mode permissif |
+| `~/.claude/scheduled-tasks/seo-mensuel-orhakerem/SKILL.md` | La tâche planifiée elle-même — procédé, accès, régime de publication et **décisions arrêtées** | ✅ armée, **4 du mois à 7h**, mode permissif |
+
+**Pourquoi le 4 et non le 1er.** Search Console publie ses données avec deux à
+trois jours de retard : un cycle lancé le 1er travaille sur un mois précédent
+incomplet, amputé précisément de ses derniers jours. Le 4 garantit une fenêtre
+complète. Accessoirement, c'est un jour ouvré — la tâche est locale et exige que
+la machine soit allumée et réveillée.
 
 Le mode permissif a une conséquence qu'il faut nommer : **plus rien n'arrête le
 cycle à l'exécution**. Les garde-fous ne sont plus techniques, ils sont dans le
