@@ -345,6 +345,21 @@ devant les publications.
 | `scripts/seo-check.mjs` | Contrôle bloquant des trois défauts | ✅ créé et testé |
 | `docs/agents-seo.md` | Briefs des douze agents et grilles de leurs vérificateurs | ✅ créé |
 | `docs/google-business-profile-publication-plan.md` | Reprise du document d'août | ✅ réécrit |
+| `~/.claude/scheduled-tasks/seo-mensuel-orhakerem/SKILL.md` | La tâche planifiée elle-même — procédé, accès, régime de publication et **décisions arrêtées** | ✅ armée, 1er du mois à 9h |
+
+**Trois destinations pour ce qu'un cycle apprend, à ne pas mélanger** — c'est ce
+qui fait que la tâche s'enrichit au lieu de se répéter :
+
+| Ce qui est appris | Où ça va |
+|---|---|
+| État propre au mois suivant — un seuil, un verdict à rendre, un sujet écarté | `seo/prochain-cycle.yml` |
+| Un chantier ouvert, son responsable, son échéance | `seo/registre-actions.yml` |
+| **Une décision arrêtée, ou un changement du procédé** | **la tâche elle-même** |
+
+La troisième est la plus facile à oublier. Sans elle, un arbitrage rendu une fois
+est reproposé le mois suivant — ce qui use la confiance dans le dispositif plus
+sûrement qu'une erreur. Exemple déjà consigné : la décision du 27 octobre de ne
+pas répondre à l'avis de Daniel T.
 
 Le contrôle a été vérifié dans les deux sens : il passe sur le cycle de mise en
 place d'octobre, et il **bloque** sur novembre tant que les douze actions

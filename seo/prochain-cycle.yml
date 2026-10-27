@@ -22,13 +22,6 @@ a_trancher:
       position stables. Le seuil de retour arrière est franchi. Voir
       seo/baselines.yml.
 
-  - id: avis-negatif-daniel-t
-    quoi: Faire valider la réponse à l'avis négatif avant publication
-    echeance: 2026-11-07
-    contexte: >-
-      Avis de Daniel T, 11 semaines, nuisance sonore type boîte de nuit.
-      Exception explicite au régime de publication : ne pas publier sans accord.
-
 a_surveiller:
   - quoi: generate_lead après les correctifs formulaires du 24/10
     seuil: "si toujours 0 sur 28 j au 20/11, rouvrir le diagnostic du tunnel"
@@ -47,6 +40,17 @@ a_surveiller:
     contexte: 45,9 % des sessions, +211 % sur un mois, provenance inconnue.
 
 a_poursuivre:
+  - quoi: Dispositif de collecte d'avis — priorité n°1 du cycle
+    echeance: 2026-11-30
+    contexte: >-
+      4 avis, note 4,0. Le concurrent homonyme HaKerem Luxury Apartments
+      affiche 9,4/10 sur 166 avis. À 4 avis, un seul 1 étoile pèse 25 % de
+      l'échantillon ; à 20 avis il redevient du bruit et la note remonte
+      au-dessus de 4,7 sans qu'aucun avis ne soit retiré. Préparer le
+      dispositif conforme — lien court, QR, relance trilingue APRÈS le départ,
+      à tous les clients sans filtrage préalable, sans incitation. La pose
+      relève du propriétaire. Voir action collecte-avis au registre.
+
   - quoi: Publications Google Business Profile — premier lot
     echeance: 2026-11-30
     contexte: >-
