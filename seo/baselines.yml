@@ -1,0 +1,91 @@
+# Baselines — Or Hakerem
+#
+# Toute modification d'un élément qui PERFORME déjà (title, meta description,
+# H1, structure d'une page qui reçoit du trafic) crée une entrée ici AVANT la
+# modification, avec son seuil de retour arrière et la date à laquelle le
+# verdict devra tomber.
+#
+# `mesures` = relevés successifs, purement factuels.
+# `verdict` = la décision, une seule par baseline : confirme | retour-arriere
+# `verdict_attendu_le` = date ferme. `scripts/seo-check.mjs` bloque si elle est
+# échue et que le verdict est encore null. Pas de report possible.
+
+baselines:
+  - id: home-title-2026-09-22
+    url: /
+    element: title
+    avant: "Luxury Apartments in Tel Aviv | Or Hakerem | Kerem HaTeimanim"
+    apres: "Luxury Apartments in Tel Aviv | Or Hakerem"
+    date: 2026-09-22
+    motif: >-
+      Retrait du suffixe « Kerem HaTeimanim » — requête en position 17,5 pour
+      0,4 % de CTR, jugée non méritante d'un tiers du title.
+    metriques_avant:
+      source: gsc
+      clics: 16
+      impressions: 386
+      ctr: 4.1
+      position: 6.5
+    seuil_retour_arriere: "clics -25 % ou plus à impressions ±15 % sur 28 j"
+    mesures:
+      - date: 2026-10-20
+        source: gsc
+        clics: 10
+        impressions: 296
+        position: 6.7
+        constat: "clics -37,5 %, impressions -23 %, position stable"
+      - date: 2026-10-24
+        source: gsc
+        clics: 9
+        impressions: 324
+        position: 6.6
+        constat: >-
+          Deuxième baisse consécutive, cette fois à impressions ET position
+          stables. L'explication saisonnière ne tient plus.
+    verdict: null
+    verdict_attendu_le: 2026-11-17
+    note: >-
+      Seuil franchi sur les deux mesures. Verdict attendu : retour-arriere.
+      À trancher au cycle de novembre, étape 5.
+
+  - id: studio-title-2026-09-22
+    url: /properties/cozy-studio
+    element: title
+    avant: "Renovated Studio Apartment 2 Min from Beach | Kerem HaTeimanim, Tel Aviv | Or Hakerem"
+    apres: "Renovated Studio Apartment 2 Min from Beach | Tel Aviv | Or Hakerem"
+    date: 2026-09-22
+    motif: "Title à 85 caractères, tronqué dans les SERP."
+    metriques_avant:
+      source: gsc
+      clics: 0
+      impressions: 5
+      position: 18.0
+    seuil_retour_arriere: "aucun — la page ne performait pas, rien à protéger"
+    mesures: []
+    verdict: confirme
+    verdict_attendu_le: 2026-11-17
+    note: "Rien à protéger : le title précédent était tronqué et sans clic."
+
+  - id: meta-descriptions-2026-09-22
+    url: "*"
+    element: meta-description
+    avant: "42 descriptions de 126 à 229 caractères"
+    apres: "42 descriptions ≤ 125 caractères"
+    date: 2026-09-22
+    motif: "Affichage entier sur mobile sans troncature."
+    metriques_avant:
+      source: gsc
+      clics: 37
+      impressions: 2840
+      ctr: 1.3
+      position: 12.7
+    seuil_retour_arriere: "CTR global en baisse sur 2 cycles consécutifs"
+    mesures:
+      - date: 2026-10-20
+        source: gsc
+        clics: 48
+        impressions: 1890
+        ctr: 2.5
+        constat: "CTR global +92 %, mais non attribuable à ce seul changement"
+    verdict: confirme
+    verdict_attendu_le: 2026-10-20

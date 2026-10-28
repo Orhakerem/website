@@ -10,8 +10,33 @@ export const BUSINESS_NAP = {
   postalCode: '6329302',
   addressCountry: 'IL',
   telephone: '+972585778891',
+  telephoneFr: '+33651179925',
   email: 'keremliving@gmail.com',
 } as const;
+
+/**
+ * Reception hours, Israel week: Sunday-Thursday full days, Friday morning only,
+ * closed on Shabbat. A closed day is expressed as opens === closes, which is the
+ * convention Google reads for local business hours.
+ */
+export const BUSINESS_HOURS = [
+  {
+    days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    opens: '08:00',
+    closes: '19:00',
+  },
+  { days: ['Friday'], opens: '08:00', closes: '12:00' },
+  { days: ['Saturday'], opens: '00:00', closes: '00:00' },
+] as const;
+
+function getOpeningHoursSpecification() {
+  return BUSINESS_HOURS.map((slot) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: slot.days.map((day) => `https://schema.org/${day}`),
+    opens: slot.opens,
+    closes: slot.closes,
+  }));
+}
 
 export const SOCIAL_PROFILES = [
   GOOGLE_BUSINESS_PROFILE_URL,
@@ -51,12 +76,22 @@ export function getBusinessStructuredData(locale: Locale, description: string) {
       name: 'Tel Aviv-Yafo',
       address: { '@type': 'PostalAddress', addressCountry: 'IL' },
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: BUSINESS_NAP.telephone,
-      contactType: 'customer service',
-      availableLanguage: ['English', 'French', 'Hebrew'],
-    },
+    openingHoursSpecification: getOpeningHoursSpecification(),
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: BUSINESS_NAP.telephone,
+        contactType: 'customer service',
+        availableLanguage: ['English', 'French', 'Hebrew'],
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: BUSINESS_NAP.telephoneFr,
+        contactType: 'customer service',
+        areaServed: 'FR',
+        availableLanguage: ['French'],
+      },
+    ],
     sameAs: SOCIAL_PROFILES,
     parentOrganization: { '@id': `${SITE_URL}/#organization` },
   };

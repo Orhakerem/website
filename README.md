@@ -145,7 +145,7 @@ This project is proprietary and confidential. All rights reserved.
 ## 📞 Contact
 
 - **Email**: keremliving@gmail.com
-- **Phone**: +33 6 51 17 99 25 / +972 52 686 9791
+- **Phone**: +972 58 577 8891 (canonique, déclaré dans les données structurées) / +33 6 51 17 99 25 (France)
 - **Instagram**: [@or_hakerem](https://www.instagram.com/or_hakerem/)
 
 ---

@@ -1,0 +1,229 @@
+# Registre des actions — Or Hakerem
+#
+# Chantiers ouverts qui ne sont pas terminés. Ce fichier est lu et redaté à
+# CHAQUE cycle mensuel par l'agent `rapport` (étape 11). `scripts/seo-check.mjs`
+# échoue si une entrée non terminée n'a pas été relancée pendant le cycle courant,
+# et le rapport mensuel ne peut pas sortir tant que le script échoue.
+#
+# etat        : bloque | en-cours | fait
+# responsable : proprietaire | claude
+# Une entrée `fait` est supprimée au cycle suivant, pas archivée ici.
+
+cycle_courant: 2026-10
+
+actions:
+  - id: gbp-validation
+    action: Fiche Google Business Profile revendiquée et validée
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: fait
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: null
+    impact: eleve
+    note: >-
+      Vérifié le 26/10/2026 : fiche validée à 100 %, code magasin
+      15592430914507669223, 331 interactions clients. Prérequis levé.
+      À supprimer de ce registre au cycle de décembre.
+
+  - id: gbp-reponses-avis
+    action: Avis négatif de Daniel T — décider de signaler ou de laisser
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-27
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      Les 3 avis positifs ont reçu une réponse le 27/10, chacun dans la langue
+      de l'avis : Yoann M (français), Julian Levit (anglais), adi ziv (hébreu).
+      DÉCISION DU PROPRIÉTAIRE le 27/10 : NE PAS RÉPONDRE à l'avis de
+      Daniel T. Motif donné : c'est un voisin, il n'a jamais séjourné.
+      Ne pas rouvrir ce point ni proposer de brouillon aux cycles suivants.
+      Reste ouvert UNIQUEMENT le choix de signaler l'avis à Google au motif
+      qu'il ne reflète pas une expérience authentique — action non engagée,
+      en attente d'un arbitrage explicite. Noter que Daniel T est Local Guide
+      (218 avis, 93 photos), ce qui pèse à la fois sur l'affichage de l'avis
+      et sur la probabilité que Google le maintienne.
+
+  - id: gbp-publications
+    action: Tenir un rythme de 2 à 4 publications par mois sur la fiche
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: eleve
+    note: Aucune publication à ce jour. Premier lot au cycle de novembre.
+
+  - id: utm
+    action: Poser les liens UTM (bio Instagram, WhatsApp, signature e-mail, QR, fiche Google)
+    document: docs/utm-links.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: eleve
+    note: >-
+      45,9 % du trafic est « Direct » et en hausse de 211 %. Provenance
+      inconnue. Les liens sont prêts depuis le 25/08 et n'ont jamais été posés.
+
+  - id: citations-annuaires
+    action: Créer les comptes et soumettre les citations d'annuaires locaux
+    document: docs/local-citations.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-08-25
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: moyen
+    note: >-
+      Exige création de comptes et vérification postale/SMS : hors de ce que
+      je fais. Une citation existe déjà sans action de notre part (easy.co.il).
+
+  - id: netlinking
+    action: Exécuter la campagne de netlinking — 5 contacts par semaine
+    document: docs/backlink-opportunities.md
+    responsable: proprietaire
+    etat: en-cours
+    ouvert_depuis: 2026-08-09
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: eleve
+    note: >-
+      1 contact sur 38 depuis août. DR 3, aucun domaine référent légitime.
+      Seul levier structurel restant sur l'autorité.
+
+  - id: collecte-avis
+    action: Mettre en place une sollicitation d'avis conforme aux règles Google
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-27
+    echeance: 2026-12-31
+    impact: critique
+    note: >-
+      DEVENU LE LEVIER N°1 DU DOSSIER. 4 avis en tout, note 4,0. Le concurrent
+      homonyme HaKerem Luxury Apartments affiche 9,4/10 sur 166 avis : l'écart
+      de volume explique le mauvais classement de marque mieux que tout
+      facteur technique. Et à 4 avis, un seul 1 étoile pèse 25 % de
+      l'échantillon — la réponse structurelle n'est pas de faire retirer un
+      avis, c'est d'en collecter assez pour qu'il redevienne du bruit.
+      Le filtrage préalable (review gating) est interdit par Google : la
+      sollicitation doit viser TOUS les clients, sans incitation, après le
+      départ, jamais sur place. Sanction possible : dépublication des avis
+      existants et avertissement public sur la fiche.
+
+  - id: entite-concurrente
+    action: Instruire la collision de marque avec « Hakerem Luxury Apartments »
+    document: null
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      hakeremluxuryapartments.co.il est une entreprise distincte au nom très
+      proche. La requête `hakerem luxury apartments` (152 impressions,
+      position 5,3) est probablement leur marque, pas la nôtre. L'audit d'août
+      attribuait le mauvais classement de marque à une « collision d'entité » :
+      voici le candidat. À confirmer avant d'en tirer une conclusion.
+
+  - id: gbp-entite
+    action: Trancher l'entité portée par la fiche — une seule fiche ou deux
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: fait
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-27
+    echeance: null
+    impact: eleve
+    note: >-
+      TRANCHÉ le 27/10 : une enseigne permanente au nom de l'entreprise existe
+      sur place. Conséquences : (1) l'élément 2 d'une revérification vidéo est
+      satisfaisable — filmer l'enseigne, pas un intérieur de logement ;
+      (2) l'éligibilité est démontrable, l'entité portée par la fiche reste
+      l'activité de gestion / l'espace événementiel, jamais un appartement ;
+      (3) UNE SEULE FICHE. Une seconde fiche pour l'événementiel exigerait un
+      nom différent ET une seconde enseigne permanente distincte : à rouvrir
+      seulement si cette seconde enseigne existe.
+      À supprimer de ce registre au cycle de décembre.
+
+  - id: gbp-horaires
+    action: Reporter les horaires d'accueil sur la fiche Google
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: fait
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-27
+    echeance: 2026-11-30
+    impact: eleve
+    note: >-
+      Horaires obtenus le 27/10 : dimanche-jeudi 08:00-19:00, vendredi
+      08:00-12:00, samedi fermé (Shabbat). CÔTÉ SITE : FAIT — BUSINESS_HOURS
+      et openingHoursSpecification dans business-schema.ts, vérifiés dans le
+      JSON-LD servi, couverts par deux tests. CÔTÉ FICHE : FAIT le 27/10 et
+      déjà en ligne (« Ouvert · Ferme à 19:00 »). La fiche ne manquait pas
+      d'horaires : elle déclarait « Ouvert 24h/24 » du dimanche au jeudi, ce
+      qui est FAUX et pire qu'une absence — le « 24/7 » de la conciergerie
+      avait fui dans un champ structuré. Vendredi était à 18:00 au lieu de
+      12:00. Samedi et les fêtes (Roch Hachana, Yom Kippour) étaient déjà
+      corrects. À supprimer de ce registre au cycle de décembre.
+
+  - id: gbp-categories
+    action: Relever les libellés exacts des catégories dans le sélecteur et les poser
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      Google ne publie pas la liste des catégories ; les listes tierces sont
+      indicatives et plusieurs libellés candidats n'ont pas pu être confirmés.
+      Cible : principale de type agence de location saisonnière (préserve le
+      format Offre, qu'une catégorie d'hôtellerie supprime), plus la catégorie
+      d'espace événementiel. Pas de catégorie-mot-clé (conciergerie, tourisme).
+
+  - id: nap-telephone
+    action: Trancher quel numéro est cliquable et l'aligner sur les données structurées
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: fait
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-27
+    echeance: null
+    impact: moyen
+    note: >-
+TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
+      la page contact expose maintenant +33651179925 et +972585778891 en liens
+      tel: dans les trois locales (convention du pied de page : numéro, point
+      médian, code pays), le français est déclaré comme second contactPoint
+      dans business-schema.ts, et le troisième numéro erroné de README.md:148
+      (+972 52 686 9791, signalé dès SEO-AUDIT-2026-08.md:265) est supprimé.
+      Un test vérifie désormais que tout numéro rendu cliquable est déclaré
+      dans les données structurées.
+      À supprimer de ce registre au cycle de décembre.
+
+  - id: gbp-attribution
+    action: Persister les paramètres UTM sur la ligne de réservation Supabase
+    document: docs/google-business-profile-publication-plan.md
+    responsable: claude
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-10-26
+    echeance: 2026-12-31
+    impact: moyen
+    note: >-
+      Le clic marqué atterrit sur le site, mais la conversion est insérée côté
+      serveur dans la table reservations. Les UTM seuls ne relieront jamais les
+      deux : il faut capter les paramètres côté client dans
+      BookingRangeCalendar et les persister sur la ligne au moment de l'envoi.
+      Sans ce développement on mesure des clics venus de la fiche, jamais des
+      réservations. C'est un travail de code, pas un réglage de fiche.
