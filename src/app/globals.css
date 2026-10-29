@@ -344,7 +344,7 @@
     without scrolling past it. Desktop keeps the calendar open.
   */
   @media (max-width: 768px) {
-    .booking-calendar-panel[data-revealed='false'] {
+    .booking-calendar-panel[data-collapsible='true'][data-revealed='false'] {
       display: none;
     }
   }

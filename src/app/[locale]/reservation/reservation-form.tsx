@@ -398,6 +398,7 @@ export default function ReservationForm({
           onClearDates={clearPriceEstimate}
           blockedDates={selectedBlockedDates}
           availabilityStatus={selectedAvailabilityStatus}
+          collapseOnMobile
         />
 
         <AccommodationPriceSummary
