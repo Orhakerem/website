@@ -1,4 +1,31 @@
-# Rapport SEO — cycle 2026-11 — **interrompu à l'étape 4**
+# Rapport SEO — cycle 2026-11 — **interrompu à l'étape 6**
+
+## Mise à jour — deux refus consécutifs à l'étape 6 (diagnostic)
+
+Tu as donné ton accord : l'étape 4 a été reprise par un troisième producteur,
+puis jugée **CONFORME**. Le relevé est figé (commit `1e42e29`).
+L'étape 6 a ensuite été refusée deux fois de suite, et la règle arrête le cycle.
+
+**Motifs du second refus — limités, aucune nouvelle collecte nécessaire :**
+- le commit `3f8a0fc` (gabarit d'article, 16/09) a été écarté parce qu'il serait
+  « postérieur à septembre », alors qu'il date de septembre. Écrire « peu
+  probable » plutôt que « exclu » ;
+- pour la page `/blog` (position 9,5 → 26,1), la v2 ne cite pas les commits
+  `9009e5c` (meta description réécrite le 16/09) et `3f8a0fc` ; elle doit aussi
+  séparer ce cas de l'article plage.
+
+**Ce que le diagnostic établit déjà, chiffres vérifiés :** les 10 contradictions
+avec les cycles précédents (dont : 1 seule conversion réelle dans la fenêtre du
+26/10, et non 4 ; la réécriture du title plage n'a jamais eu lieu) ; la demande de
+location de luxe en hébreu (227 impressions, position ~50), seule demande sans page
+dédiée ; 2 conversions réelles en octobre, toutes deux via les assistants IA.
+
+**Recommandation :** un producteur neuf qui corrige seulement ces deux points,
+puis la suite du cycle.
+
+---
+
+# (état précédent) — interrompu à l'étape 4
 
 **Date :** 4 novembre 2026, cycle automatique de 7h, repris le même jour
 **Mois analysé :** octobre 2026 — *collecté, pas encore analysé*
