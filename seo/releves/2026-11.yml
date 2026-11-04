@@ -372,7 +372,7 @@ ga4:
   pages_destination:
     source: ga4
     ecarte: true
-    motif_ecart: "Dimension page de destination non fiable : filtrée sur google / organic (vérif. GA4 du 04/11), /he 4 sessions vs 10 clics gsc, et les 7 pages à ≥ 1 clic gsc (/he, /fr/blog/short-term-…, /he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-…) totalisent 23 clics gsc vs 4 sessions ga4 (×5,75 ; ×3,3 même en leur attribuant les 3 (not set) organiques). Inversement /he/properties, /properties, /reservation, /contact, /properties/cozy-studio reçoivent des sessions organiques ga4 sans clic gsc. Ne pas utiliser ces lignes par page (ni les durées par page) pour conclure."
+    motif_ecart: "Dimension page de destination non fiable : filtrée sur google / organic (vérif. GA4 du 04/11), /he 4 sessions vs 10 clics gsc, et les 9 pages d'octobre à ≥ 1 clic gsc dont les clics gsc dépassent ×2 les sessions ga4 google / organic (/he, /fr/blog/short-term-…, /he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-…, /blog/shabbat-friendly-stays-tel-aviv, /faq) totalisent 19 clics gsc vs 4 sessions ga4 (×4,75 ; ×2,7 même en leur attribuant les 3 (not set) organiques). Inversement /he/properties, /properties, /reservation, /contact, /properties/cozy-studio reçoivent des sessions organiques ga4 sans clic gsc. Ne pas utiliser ces lignes par page (ni les durées par page) pour conclure."
     periode: {oct: "2026-10-01..2026-10-31", sep: "2026-09-01..2026-09-30"}
     lignes:
       - {page: "/", source: ga4, oct: {sessions: 35, duree_s: 59, cles: 0}, sep: {sessions: 27, duree_s: 34, cles: 0}}
@@ -464,12 +464,12 @@ ga4:
     - "contact_outbound : 9 événements en octobre mais seulement 2 comptés comme événements clés (25 et 26/10, AI Assistant). Les occurrences du 03 au 23/10 ne sont pas comptées comme clés : l'événement semble avoir été marqué comme clé entre le 23 et le 25/10."
     - "5 des 7 événements clés d'octobre sont des tests du 23/10 (4 ads_conversion_Demande_de_devis_1 + 1 generate_lead). Événements clés réels présumés : 2, contre 3 en septembre."
     - "Les événements clés Direct (2) et Organic Search (3) d'octobre viennent tous du 23/10, donc tous des tests probables."
-    - "Événements clés par page de destination en octobre : /reservation 4, /events 1, /faq 1, /contact 1. Les 5 tests du 23/10 et les 2 clés réelles s'y répartissent, mais l'attribution exacte par page n'a pas été vérifiée."
+    - "Événements clés par page de destination en octobre : /reservation 4, /events 1, /faq 1, /contact 1. Les 5 tests du 23/10 et les 2 clés réelles s'y répartissent, mais l'attribution exacte par page n'a pas été vérifiée. (dimension écartée — ne pas conclure)"
     - "Direct : 42,4 % des sessions en octobre, contre 25,3 % en septembre (56 sessions contre 19)."
     - "AI Assistant : taux d'engagement de 56,25 % en octobre contre 94,44 % en septembre ; durée de 26 s contre 47 s."
-    - "/properties/penthouse-jacuzzi : 12 sessions à 9 s ; (not set) : 9 sessions à 4 s."
+    - "/properties/penthouse-jacuzzi : 12 sessions à 9 s ; (not set) : 9 sessions à 4 s. (dimension écartée — ne pas conclure)"
     - "Aucun purchase sur octobre ni septembre."
-    - "Intégrité (ajout agent integrite) : la dimension page de destination de ga4 n'est pas fiable en octobre. Filtrée sur google / organic, /he compte 4 sessions pour 10 clics gsc, et 7 pages totalisant 23 clics gsc ne reçoivent que 4 sessions ga4 (×5,75) ; à l'inverse /he/properties, /properties, /reservation, /contact et /properties/cozy-studio ont des sessions organiques sans clic gsc. Hypothèse non vérifiée : page de destination enregistrée après une redirection ou une navigation client (langue, /he → /he/properties). pages_destination et pages_moins_15s_oct sont écartés."
+    - "Intégrité (ajout agent integrite) : la dimension page de destination de ga4 n'est pas fiable en octobre. Filtrée sur google / organic, /he compte 4 sessions pour 10 clics gsc, et les 9 pages à ≥ 1 clic gsc dont les clics dépassent ×2 les sessions google / organic totalisent 19 clics gsc pour 4 sessions ga4 (×4,75 ; ×2,7 avec les 3 (not set) organiques) ; à l'inverse /he/properties, /properties, /reservation, /contact et /properties/cozy-studio ont des sessions organiques sans clic gsc. Hypothèse non vérifiée : page de destination enregistrée après une redirection ou une navigation client (langue, /he → /he/properties). pages_destination et pages_moins_15s_oct sont écartés."
 
 offsite:
   # Fragment collecte-offsite — cycle SEO 2026-11 (fusion par l'agent integrite)
@@ -627,9 +627,9 @@ recoupements:
     cas_ga4_inferieur_a_gsc_oct:
       - {page: "/he", gsc_clics: 10, ga4_sessions_google_organic: 4, rapport: "×2,5", source: "gsc + ga4"}
       - {page: "/fr/blog/short-term-seasonal-rentals-tel-aviv", gsc_clics: 2, ga4_sessions_google_organic: 0, source: "gsc + ga4"}
-      - {page: "/he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-monthly-stays-…", gsc_clics: "1 chacune", ga4_sessions_google_organic: 0, source: "gsc + ga4"}
-      - {page: "ensemble des 7 pages ci-dessus", gsc_clics: 23, ga4_sessions_google_organic: 4, rapport: "×5,75 ; ×3,3 en ajoutant les 3 (not set) google / organic", source: "gsc + ga4"}
-    explication_not_set: "Rejetée : seules 3 des 9 sessions (not set) sont google / organic ; elles ne peuvent pas absorber les 19 arrivées manquantes."
+      - {page: "/he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-monthly-stays-…, /blog/shabbat-friendly-stays-tel-aviv, /faq", gsc_clics: "1 chacune", ga4_sessions_google_organic: 0, source: "gsc + ga4"}
+      - {page: "ensemble des 9 pages ci-dessus = pages d'octobre à ≥ 1 clic gsc dont les clics gsc dépassent ×2 les sessions ga4 google / organic (exclues : /, /blog/kerem-hateimanim-neighborhood-guide, /blog/tel-aviv-on-shabbat-…, /fr, /events, /he/properties/penthouse-jacuzzi, /blog, /services)", gsc_clics: 19, ga4_sessions_google_organic: 4, rapport: "×4,75 ; ×2,7 en ajoutant les 3 (not set) google / organic", source: "gsc + ga4"}
+    explication_not_set: "Rejetée : seules 3 des 9 sessions (not set) sont google / organic ; elles ne peuvent pas absorber les 15 arrivées manquantes (19 clics gsc − 4 sessions sur les 9 pages ; il en resterait 12)."
     verdict: "écart > ×2 persistant sur la métrique comparable — drapeau posé (integrite_donnees: true) ; ga4 écarté sur le seul périmètre pages_destination et pages_moins_15s_oct (décision a). Les totaux concordent (50 vs 47 = ×1,06) : c'est la répartition par page de ga4 qui est en cause, pas le volume."
   - id: gbp-clics-site_vs_ga4-sessions-fiche
     comparable: false
@@ -670,7 +670,7 @@ recoupements:
     comparable: false
     reserve_definition: "ga4 /events tous canaux (dont eventsmanager.facebook.com) vs clics gsc"
     a: {source: gsc, metrique: "clics /events", oct: 2}
-    b: {source: ga4, metrique: "sessions page de destination /events", oct: 30}
+    b: {source: ga4, metrique: "sessions page de destination /events (dimension écartée — ne pas conclure)", oct: 30}
     verdict: "non comparable — pas de drapeau"
   - id: controles-internes
     comparable: true
@@ -679,7 +679,7 @@ recoupements:
       - {source: gsc, controle: "somme des clics par page oct (51) vs total (50)", resultat: "écart d'agrégation GSC, normal"}
       - {source: gsc, controle: "clics de requêtes listées oct 2/50, sep 8/49", resultat: "requêtes anonymisées majoritaires — les lignes de requêtes ne représentent pas le trafic"}
       - {source: ga4, controle: "somme sources/supports oct (133) vs total (132)", resultat: "écart de cardinalité GA4"}
-      - {source: ga4, controle: "événements clés : par événement 2+1+4+0, par jour 5+1+1, par page 4+1+1+1", resultat: "7 partout"}
+      - {source: ga4, controle: "événements clés : par événement 2+1+4+0, par jour 5+1+1, par page 4+1+1+1 (dimension écartée — ne pas conclure)", resultat: "7 partout"}
       - {source: ga4, controle: "carte d'accueil 143 sessions / 9 clés", resultat: "fenêtre glissante différente, non utilisée"}
 
 # ── Réserves des vérificateurs (à lire avant toute conclusion) ────────────
