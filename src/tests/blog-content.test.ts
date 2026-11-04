@@ -18,6 +18,8 @@ const NEW_POST_SLUGS = [
   'kerem-hateimanim-history-vineyard-before-tel-aviv',
   'kerem-hateimanim-street-names-yemenite-history',
   'carmel-market-history-from-kerem-stalls',
+  'luxury-apartment-vs-hotel-suite-tel-aviv',
+  'hanukkah-tel-aviv-sufganiyot-candle-lighting',
 ] as const;
 
 const UPDATED_POST_SLUGS = [
@@ -102,6 +104,22 @@ const EXPECTED_INTERNAL_DESTINATIONS: Record<(typeof NEW_POST_SLUGS)[number], st
     '/blog/kerem-hateimanim-neighborhood-guide',
     '/about',
     '/properties',
+  ],
+  'luxury-apartment-vs-hotel-suite-tel-aviv': [
+    '/properties/penthouse-jacuzzi',
+    '/blog/penthouse-vs-studio-which-or-hakerem-apartment',
+    '/blog/long-term-monthly-stays-tel-aviv',
+    '/blog/where-to-stay-in-tel-aviv-neighborhoods-guide',
+    '/properties',
+    '/reservation',
+  ],
+  'hanukkah-tel-aviv-sufganiyot-candle-lighting': [
+    '/blog/tel-aviv-on-shabbat-what-is-open-getting-around',
+    '/blog/shabbat-friendly-stays-tel-aviv',
+    '/blog/carmel-market-history-from-kerem-stalls',
+    '/blog/best-time-to-visit-tel-aviv',
+    '/properties/penthouse-jacuzzi',
+    '/reservation',
   ],
 };
 

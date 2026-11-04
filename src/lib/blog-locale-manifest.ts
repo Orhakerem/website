@@ -18,6 +18,8 @@ export const FULLY_TRANSLATED_BLOG_SLUGS = [
   'kerem-hateimanim-history-vineyard-before-tel-aviv',
   'kerem-hateimanim-street-names-yemenite-history',
   'carmel-market-history-from-kerem-stalls',
+  'luxury-apartment-vs-hotel-suite-tel-aviv',
+  'hanukkah-tel-aviv-sufganiyot-candle-lighting',
 ] as const;
 
 export function hasBlogTranslation(locale: Locale, slug: string): boolean {
