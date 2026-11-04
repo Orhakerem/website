@@ -247,3 +247,9 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
       écrite, et elle se déclenchera à chaque cycle tant que rien ne change.
       Retirer l'événement est un réglage GA4 : il faut l'accord du propriétaire.
       Le cycle reprend dès que l'arbitrage est rendu.
+      04/11 : ACCORD DONNÉ pour le retrait, mais le RETRAIT EST IMPOSSIBLE.
+      Dans GA4, l'option « Ne plus marquer comme événement clé » est désactivée
+      pour `purchase`, et son étoile est grisée : c'est un événement clé par
+      défaut, verrouillé par Google. Rien n'a été modifié. Seule issue restante :
+      préciser la règle de la sentinelle (exclure les événements clés jamais
+      déclenchés) dans la tâche planifiée, ce qui demande un nouvel accord.

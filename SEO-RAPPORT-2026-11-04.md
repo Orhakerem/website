@@ -44,6 +44,12 @@ registre (`ga4-purchase-cle`, échéance 10/11). Rien n'a été modifié dans GA
    autre mois. Je ne l'ai pas modifiée moi-même : c'est ta règle, et c'est moi
    qu'elle arrête.
 
+> **Mise à jour du 04/11, après ton accord pour le retrait :** il est
+> **impossible**. Dans GA4, l'option « Ne plus marquer comme événement clé »
+> est désactivée pour `purchase`, et son étoile est grisée. C'est un événement
+> clé par défaut que Google verrouille. Je n'ai rien modifié. **Seule la
+> recommandation 2 reste possible** : préciser la règle dans la tâche.
+
 Ensuite, **relance la tâche** (`seo-mensuel-orhakerem` → exécuter maintenant).
 Elle repartira de zéro sur le mois d'octobre complet. Avant le 10/11, il reste
 assez de marge pour tenir l'échéance du 17/11 sur le title d'accueil.
