@@ -227,3 +227,23 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
       BookingRangeCalendar et les persister sur la ligne au moment de l'envoi.
       Sans ce développement on mesure des clics venus de la fiche, jamais des
       réservations. C'est un travail de code, pas un réglage de fiche.
+
+  - id: ga4-purchase-cle
+    action: Arbitrer l'alerte sentinelle — retirer `purchase` des événements clés GA4, ou exclure de la règle les événements jamais déclenchés
+    document: ANALYTICS-AUDIT-2026-08-25.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-11-04
+    derniere_relance: 2026-11-04
+    echeance: 2026-11-10
+    impact: critique
+    note: >-
+      A INTERROMPU LE CYCLE 2026-11 à l'étape 0. `purchase` est déclaré
+      événement clé dans la propriété 521216501, à 0 sur 30 j et jamais
+      déclenché depuis la création (vérifié le 04/11 sur la plage maximale). Le
+      site n'a pas de tunnel d'achat et ne l'émettra jamais : l'audit du 25/08
+      (lignes 87-97) recommandait déjà de le retirer. Rien n'est cassé, mais la
+      règle « événement clé à 0 sur 30 j = alerte » s'applique telle qu'elle est
+      écrite, et elle se déclenchera à chaque cycle tant que rien ne change.
+      Retirer l'événement est un réglage GA4 : il faut l'accord du propriétaire.
+      Le cycle reprend dès que l'arbitrage est rendu.
