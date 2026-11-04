@@ -8,8 +8,13 @@
 # etat        : bloque | en-cours | fait
 # responsable : proprietaire | claude
 # Une entrée `fait` est supprimée au cycle suivant, pas archivée ici.
+#
+# ATTENTION FORMAT : toute ligne de note doit rester indentée. Une ligne qui
+# commence en colonne 0 arrête la lecture du bloc `actions` par seo-check.mjs
+# (c'était le cas de nap-telephone jusqu'au 05/11 : gbp-attribution et
+# ga4-purchase-cle échappaient au contrôle).
 
-cycle_courant: 2026-10
+cycle_courant: 2026-11
 
 actions:
   - id: gbp-validation
@@ -32,7 +37,7 @@ actions:
     responsable: proprietaire
     etat: bloque
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-27
+    derniere_relance: 2026-11-05
     echeance: 2026-11-30
     impact: moyen
     note: >-
@@ -46,17 +51,33 @@ actions:
       en attente d'un arbitrage explicite. Noter que Daniel T est Local Guide
       (218 avis, 93 photos), ce qui pèse à la fois sur l'affichage de l'avis
       et sur la probabilité que Google le maintienne.
+      05/11 (cycle 2026-11) : relevé GBP du 04/11 — aucun avis positif sans
+      réponse, aucun nouvel avis en octobre, Daniel T non touché. Le choix du
+      signalement reste ouvert ; rappelé au registre reconduit du rapport
+      SEO-RAPPORT-2026-11-04.md.
 
   - id: gbp-publications
     action: Tenir un rythme de 2 à 4 publications par mois sur la fiche
     document: docs/google-business-profile-publication-plan.md
     responsable: claude
-    etat: bloque
+    etat: en-cours
     ouvert_depuis: 2026-08-25
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-11-05
     echeance: 2026-11-30
     impact: eleve
-    note: Aucune publication à ce jour. Premier lot au cycle de novembre.
+    note: >-
+      Une seule publication, d'il y a environ trois mois, jusqu'au 03/11 (relevé gbp).
+      05/11 (cycle 2026-11) : 2 publications « Nouveauté » publiées le 04/11 —
+      EN « guide des quartiers » (bouton En savoir plus) vers
+      /blog/where-to-stay-in-tel-aviv-neighborhoods-guide, HE « événements
+      privés » (bouton Réserver) vers
+      /he/blog/private-events-tel-aviv-intimate-celebrations. Un refus du
+      vérificateur : UTM en utm_source=google&utm_medium=organic, contraire à
+      docs/utm-links.md. URL corrigée le 05/11 avec l'accord du propriétaire
+      (google_business_profile / referral / gbp / post_2026-11_<slug>), les
+      deux publications sont repassées « En attente » d'examen Google ; 2e
+      vérificateur CONFORME. Bas de la cible atteint (2) ; à vérifier au cycle
+      2026-12 qu'elles sont bien en ligne et en compter les clics.
 
   - id: utm
     action: Poser les liens UTM (bio Instagram, WhatsApp, signature e-mail, QR, fiche Google)
@@ -64,12 +85,17 @@ actions:
     responsable: proprietaire
     etat: bloque
     ouvert_depuis: 2026-08-25
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-11-05
     echeance: 2026-11-30
     impact: eleve
     note: >-
       45,9 % du trafic est « Direct » et en hausse de 211 %. Provenance
       inconnue. Les liens sont prêts depuis le 25/08 et n'ont jamais été posés.
+      05/11 (cycle 2026-11) : Direct = 56 des 132 sessions d'octobre, soit
+      42,4 % (19 sur 75, 25,3 % en septembre ; ga4). Côté fiche, seules les
+      2 publications du 04/11 portent un UTM conforme ; le bouton « Site web »
+      et le lien de réservation n'ont pas été vérifiés (voir gbp-utm-boutons).
+      Instagram, WhatsApp, signature et QR : rien de signalé comme posé.
 
   - id: citations-annuaires
     action: Créer les comptes et soumettre les citations d'annuaires locaux
@@ -77,12 +103,15 @@ actions:
     responsable: proprietaire
     etat: bloque
     ouvert_depuis: 2026-08-25
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-11-05
     echeance: 2026-12-31
     impact: moyen
     note: >-
       Exige création de comptes et vérification postale/SMS : hors de ce que
       je fais. Une citation existe déjà sans action de notre part (easy.co.il).
+      05/11 (cycle 2026-11) : aucune nouvelle citation signalée. easy.co.il
+      apparaît 2e sur la recherche « Or Hakerem » du 04/11 (serp, indicatif).
+      Rappelé au registre reconduit du rapport.
 
   - id: netlinking
     action: Exécuter la campagne de netlinking — 5 contacts par semaine
@@ -90,12 +119,16 @@ actions:
     responsable: proprietaire
     etat: en-cours
     ouvert_depuis: 2026-08-09
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-11-05
     echeance: 2026-12-31
     impact: eleve
     note: >-
       1 contact sur 38 depuis août. DR 3, aucun domaine référent légitime.
       Seul levier structurel restant sur l'autorité.
+      05/11 (cycle 2026-11) : Ahrefs au 04/11 — DR 2,8 (variation d'arrondi,
+      pas une chute), 936 domaines référents (945 au 01/10, −9), 1 668
+      backlinks. Aucun nouveau contact signalé ce cycle. Rappelé au registre
+      reconduit du rapport.
 
   - id: collecte-avis
     action: Mettre en place une sollicitation d'avis conforme aux règles Google
@@ -103,7 +136,7 @@ actions:
     responsable: proprietaire
     etat: bloque
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-27
+    derniere_relance: 2026-11-05
     echeance: 2026-12-31
     impact: critique
     note: >-
@@ -117,15 +150,20 @@ actions:
       sollicitation doit viser TOUS les clients, sans incitation, après le
       départ, jamais sur place. Sanction possible : dépublication des avis
       existants et avertissement public sur la fiche.
+      05/11 (cycle 2026-11) : toujours 4 avis, note 4,0, aucun nouvel avis en
+      octobre (gbp, 04/11). Sur la recherche « hakerem », l'aperçu IA affiche
+      Hakerem Luxury Apartments 4,9 sur 54 avis contre Or Hakerem 4,0 sur 4
+      (serp, indicatif). Dispositif toujours non posé ; rappelé au registre
+      reconduit du rapport.
 
   - id: entite-concurrente
     action: Instruire la collision de marque avec « Hakerem Luxury Apartments »
-    document: null
+    document: seo/releves/2026-11.yml
     responsable: claude
-    etat: bloque
+    etat: en-cours
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
-    echeance: 2026-11-30
+    derniere_relance: 2026-11-05
+    echeance: 2026-12-31
     impact: moyen
     note: >-
       hakeremluxuryapartments.co.il est une entreprise distincte au nom très
@@ -133,6 +171,18 @@ actions:
       position 5,3) est probablement leur marque, pas la nôtre. L'audit d'août
       attribuait le mauvais classement de marque à une « collision d'entité » :
       voici le candidat. À confirmer avant d'en tirer une conclusion.
+      05/11 (cycle 2026-11) : SERP de marque du 04/11 (session connectée,
+      indicative, écartée comme source de position). « Or Hakerem » :
+      orhakerem.com 1er avec 6 sitelinks et panneau de connaissance (4,0, 4
+      avis), mais le concurrent occupe Booking (4e), son site (5e et 12e),
+      Agoda (6e), Skyscanner (7e) et Tripadvisor (9e). « hakerem » :
+      ha-kerem.co.il 1er, hakeremluxuryapartments.co.il 2e, orhakerem.com 3e.
+      GSC octobre : `hakerem luxury apartments` 36 impressions, position 5,9,
+      0 clic (47 et 2 clics en septembre) ; `or hakerem` 0 impression (14 en
+      septembre). Collision confirmée qualitativement ; décision du diagnostic :
+      ne pas optimiser sur `hakerem` ni `hakerem luxury apartments`. Reste à
+      trancher anonymisation ou perte réelle sur `or hakerem` : re-mesure sur
+      3 mois au cycle 2026-12, d'où l'échéance portée au 31/12.
 
   - id: gbp-entite
     action: Trancher l'entité portée par la fiche — une seule fiche ou deux
@@ -179,9 +229,9 @@ actions:
     action: Relever les libellés exacts des catégories dans le sélecteur et les poser
     document: docs/google-business-profile-publication-plan.md
     responsable: claude
-    etat: bloque
+    etat: en-cours
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-11-05
     echeance: 2026-11-30
     impact: moyen
     note: >-
@@ -190,6 +240,13 @@ actions:
       Cible : principale de type agence de location saisonnière (préserve le
       format Offre, qu'une catégorie d'hôtellerie supprime), plus la catégorie
       d'espace événementiel. Pas de catégorie-mot-clé (conciergerie, tourisme).
+      05/11 (cycle 2026-11) : catégorie principale relevée le 04/11 dans le
+      panneau propriétaire : « Agence de location d'appartements à court
+      terme » (gbp) — conforme à la cible, rien à changer. Les catégories
+      secondaires n'apparaissent pas dans ce panneau et n'ont PAS été vues :
+      l'espace événementiel reste à vérifier dans l'éditeur de catégories.
+      Ajouter une catégorie est une modification de fiche : à faire seulement
+      après lecture des secondaires et accord si elle manque.
 
   - id: nap-telephone
     action: Trancher quel numéro est cliquable et l'aligner sur les données structurées
@@ -201,7 +258,7 @@ actions:
     echeance: null
     impact: moyen
     note: >-
-TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
+      TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
       la page contact expose maintenant +33651179925 et +972585778891 en liens
       tel: dans les trois locales (convention du pied de page : numéro, point
       médian, code pays), le français est déclaré comme second contactPoint
@@ -217,7 +274,7 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
     responsable: claude
     etat: bloque
     ouvert_depuis: 2026-10-26
-    derniere_relance: 2026-10-26
+    derniere_relance: 2026-11-05
     echeance: 2026-12-31
     impact: moyen
     note: >-
@@ -227,6 +284,11 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
       BookingRangeCalendar et les persister sur la ligne au moment de l'envoi.
       Sans ce développement on mesure des clics venus de la fiche, jamais des
       réservations. C'est un travail de code, pas un réglage de fiche.
+      05/11 (cycle 2026-11) : non commencé. Les 2 publications du 04/11
+      portent désormais un UTM conforme, ce qui rend ce chantier utile dès
+      maintenant. Il échappait au contrôle de seo-check.mjs jusqu'au 05/11
+      (ligne mal indentée dans nap-telephone, corrigée) : premier contrôle
+      effectif ce cycle.
 
   - id: ga4-purchase-cle
     action: Arbitrer l'alerte sentinelle — retirer `purchase` des événements clés GA4, ou exclure de la règle les événements jamais déclenchés
@@ -258,3 +320,112 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
       à 0 est une alerte (docs/agents-seo.md, étape 0, et décision consignée
       dans la tâche planifiée). Cycle 2026-11 relancé le même jour.
       À supprimer de ce registre au cycle de décembre.
+
+  # --- Ajoutées au cycle 2026-11 (05/11) ---------------------------------
+
+  - id: gbp-utm-boutons
+    action: Vérifier l'UTM réel du bouton « Site web » et du lien de réservation de la fiche, et les aligner sur docs/utm-links.md
+    document: docs/utm-links.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-11-05
+    derniere_relance: 2026-11-05
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      05/11 (cycle 2026-11) : ouvert après la correction des 2 publications.
+      Le relevé du 04/11 indique seulement « orhakerem.com » comme site ; l'URL
+      réelle du bouton et celle du lien de réservation n'ont pas été lues. Si
+      elles sont en organic ou sans UTM, les 10 clics vers le site d'octobre
+      (gbp) se confondent avec google / organic ou (direct) dans GA4. Corriger
+      est une modification de fiche : il faut l'accord du propriétaire
+      (question posée en tête du rapport). La lecture seule peut se faire sans
+      accord au prochain passage sur la fiche.
+
+  - id: allegations-15pct-studio
+    action: Retirer les allégations « 15 % », « studio » et « up to 6 » du code et des articles
+    document: src/lib/property-seo.ts
+    responsable: claude
+    etat: en-cours
+    ouvert_depuis: 2026-11-05
+    derniere_relance: 2026-11-05
+    echeance: 2026-12-31
+    impact: moyen
+    note: >-
+      05/11 (cycle 2026-11) : repéré hors périmètre à l'étape 7, qui n'a
+      corrigé que les pages qu'elle touchait. Restent : remise « 15 % » dans
+      les descriptions fr et he du penthouse et dans les 3 descriptions du
+      cozy-studio (src/lib/property-seo.ts l. 38, 56, 70, 87, 100) ;
+      « studio » dans les titles, keywords et descriptions du cozy-studio
+      (le bien est un 1 chambre), les keywords et la description de
+      /fr/properties (src/i18n/messages/seo.ts l. 122-124) ; l'article
+      penthouse-vs-studio annonce « up to 6 » invités (property-seo dit 7) et
+      présente le 2e bien comme un studio ; short-term-seasonal EN dit « cosy
+      studio ». Baseline OBLIGATOIRE avant chaque modification d'une page qui
+      performe (seo/baselines.yml) ; renommer le slug cozy-studio est hors
+      sujet (URL indexée).
+
+  - id: ga4-page-destination
+    action: Diagnostiquer pourquoi la dimension « page de destination » de GA4 diverge de GSC
+    document: seo/releves/2026-11.yml
+    responsable: claude
+    etat: en-cours
+    ouvert_depuis: 2026-11-05
+    derniere_relance: 2026-11-05
+    echeance: 2026-12-03
+    impact: moyen
+    note: >-
+      05/11 (cycle 2026-11) : dimension écartée du relevé 2026-11
+      (integrite_donnees: true). /he : 10 clics gsc pour 4 sessions
+      google / organic ; 9 pages à 19 clics gsc pour 4 sessions (×4,75) ;
+      inversement des sessions organiques sans clic sur /he/properties,
+      /properties, /reservation, /contact. Hypothèses non vérifiées :
+      redirection de langue, navigation côté client (page_view émis après
+      changement de route). Échéance : avant la collecte du cycle 2026-12,
+      faute de quoi la dimension restera écartée un 2e mois.
+
+  - id: gbp-photo-exterieure
+    action: Prendre et ajouter à la fiche une photo de l'extérieur de l'immeuble, enseigne visible
+    document: docs/google-business-profile-publication-plan.md
+    responsable: proprietaire
+    etat: bloque
+    ouvert_depuis: 2026-10-26
+    derniere_relance: 2026-11-05
+    echeance: 2026-11-30
+    impact: moyen
+    note: >-
+      Google demande une photo de l'extérieur (« une photo de l'extérieur aide
+      les clients à trouver l'établissement »), et elle sert de preuve de
+      signalétique en cas de revérification vidéo, risque réel sur une fiche
+      d'hébergement courte durée. Il faut la prendre sur place.
+      05/11 (cycle 2026-11) : transférée de seo/prochain-cycle.yml (entrée
+      a_poursuivre ouverte le 26/10) au registre par l'étape 12, parce que
+      c'est un chantier et non un état du mois. Toujours absente : 9 médias
+      propriétaire sur la fiche au 04/11 (gbp), aucune photo d'enseigne
+      signalée. Rappelée au registre reconduit du rapport.
+
+  - id: article-restaurants-reprise
+    action: Reprendre l'article kerem-hateimanim-yemenite-restaurants avec des sources récentes
+    document: seo/brouillons/kerem-hateimanim-yemenite-restaurants/MOTIFS.md
+    responsable: claude
+    etat: en-cours
+    ouvert_depuis: 2026-11-05
+    derniere_relance: 2026-11-05
+    echeance: 2026-12-04
+    impact: faible
+    note: >-
+      05/11 (cycle 2026-11) : reporté au cycle 2026-12 par décision du
+      propriétaire après 3 refus à l'étape 9 (présents sans source, sources
+      de 2012, 2016 et 2018). Brouillon en/fr/he rangé dans seo/brouillons/
+      (commit 2c300b8), non publié. Avant reprise : vérifier quelles adresses
+      existent encore, avec une source datée de 2025-2026 ou une vérification
+      d'adresse (règle ajoutée à la tâche planifiée : une source qui décrit des
+      commerces doit dater de moins de 3 ans). Demande gsc quasi nulle
+      (`kerem hateimanim restaurants` 1 impression en octobre) : sujet retenu
+      au titre de la règle de citation de la presse locale. Échéance alignée
+      sur seo/prochain-cycle.yml (a_trancher, 04/12 : reprise si au moins 4 des
+      7 adresses sont confirmées actives, sinon abandon du sujet).
+      Seuil repris de seo/prochain-cycle.yml le 05/11, où l'entrée est
+      supprimée comme doublon : reprise seulement si au moins 4 des 7
+      adresses de MOTIFS.md sont confirmées par une source 2025-2026, sinon
+      le sujet passe en écartés.
