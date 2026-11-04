@@ -42,11 +42,51 @@ baselines:
         constat: >-
           Deuxième baisse consécutive, cette fois à impressions ET position
           stables. L'explication saisonnière ne tient plus.
-    verdict: null
+      - date: 2026-11-04
+        source: gsc
+        periode: "2026-10-04..2026-10-31 (28 j), URL exacte https://www.orhakerem.com/"
+        clics: 12
+        impressions: 315
+        ctr: 3.8
+        position: 6.0
+        comparaison_28j_precedents:
+          periode: "2026-09-06..2026-10-03"
+          clics: 15
+          impressions: 328
+          ctr: 4.6
+          position: 6.8
+        constat: >-
+          Vs metriques_avant (16 / 386 / 4,1 % / 6,5) : clics -25,0 %,
+          impressions -18,4 %, CTR -0,3 pt, position 6,5 → 6,0 (meilleure).
+          Vs 28 j précédents : clics -20 %, impressions -4 %, CTR -0,8 pt,
+          position 6,8 → 6,0. Seuil littéral non franchi sur cette mesure
+          (clics -25 % atteint vs avant, mais impressions hors de la bande
+          ±15 % ; vs période précédente, clics -20 % seulement). Troisième
+          relevé consécutif sous metriques_avant en clics et en CTR.
+    verdict: retour-arriere
     verdict_attendu_le: 2026-11-17
     note: >-
-      Seuil franchi sur les deux mesures. Verdict attendu : retour-arriere.
-      À trancher au cycle de novembre, étape 5.
+      Tranché le 2026-11-04 (aucun cycle avant l'échéance du 17/11).
+      Trois relevés GSC post-changement, tous sous l'état d'avant en clics
+      (10, 9, 12 contre 16) et en CTR (3,4 %, 2,8 %, 3,8 % contre 4,1 %),
+      alors que la position est stable ou meilleure (6,7 ; 6,6 ; 6,0 contre
+      6,5). Un CTR inférieur à position égale ou meilleure n'est pas
+      saisonnier : c'est la présentation (le title) qui rend moins.
+      La part saisonnière existe et est dite : la fenêtre de référence
+      (25/08–21/09) couvre Roch Hachana et Yom Kippour, la fenêtre mesurée
+      (04/10–31/10) est entièrement post-Souccot ; la baisse d'impressions
+      (-18,4 %) peut en relever, et sur ce seul relevé l'écart de CTR
+      (-0,3 pt) est faible, à effectif de 12 clics. Données donc ambiguës,
+      et le seuil littéral n'est franchi sur aucun relevé (impressions
+      -23 %, -16 %, -18 % : toujours hors de la bande ±15 %). Règle de
+      prudence appliquée : l'élément performait avant, il a baissé sur
+      trois relevés, il revient à son état antérieur. Coût du retour faible
+      (suffixe de 19 caractères, title de 61 caractères, non tronqué).
+      À restaurer : src/i18n/messages/seo.ts ligne 26 (en.home.title),
+      'Luxury Apartments in Tel Aviv | Or Hakerem | Kerem HaTeimanim'.
+      Les variantes fr (ligne 106) et he (ligne 187), raccourcies dans le
+      même commit 9009e5c, ne sont pas couvertes par cette baseline (URL /
+      seule) : leur sort relève de l'étape suivante.
 
   - id: studio-title-2026-09-22
     url: /properties/cozy-studio
