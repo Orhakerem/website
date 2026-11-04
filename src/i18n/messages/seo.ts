@@ -23,7 +23,7 @@ type SeoCatalog = {
 
 const en: SeoCatalog = {
   home: {
-    title: 'Luxury Apartments in Tel Aviv | Or Hakerem',
+    title: 'Luxury Apartments in Tel Aviv | Or Hakerem | Kerem HaTeimanim',
     description:
       'Luxury short-term apartments in the heart of Tel Aviv. Book direct with Or Hakerem for boutique stays and attentive hosting.',
     keywords:
@@ -37,9 +37,9 @@ const en: SeoCatalog = {
       'About Or Hakerem, luxury apartments Tel Aviv, boutique stays Tel Aviv, Kerem HaTeimanim apartments, Shabbat friendly stays Tel Aviv, Tel Aviv luxury stay, boutique event venue Tel Aviv',
   },
   properties: {
-    title: 'Luxury Apartments in Tel Aviv | Or Hakerem Properties',
+    title: 'Tel Aviv Rentals: Jacuzzi Penthouse & 1-Bedroom | Or Hakerem',
     description:
-      'A penthouse with private jacuzzi and a cosy studio in central Tel Aviv, both steps from the beach and Carmel Market.',
+      'Two rentals in Kerem HaTeimanim, Tel Aviv: a 3-bedroom penthouse with private jacuzzi and a renovated 1-bedroom apartment.',
     keywords: 'luxury apartments Tel Aviv, penthouse jacuzzi Tel Aviv, studio apartment Tel Aviv, Kerem HaTeimanim properties',
   },
   services: {
@@ -184,8 +184,8 @@ const fr: SeoCatalog = {
 
 const he: SeoCatalog = {
   home: {
-    title: 'דירות יוקרה בתל אביב | אור הכרם',
-    description: 'דירות פרימיום להשכרה לטווח קצר ושהיות בוטיקיות בתל אביב. גלו את אור הכרם בכרם התימנים לאירוח יוקרתי, אירועים ואירוח קשוב.',
+    title: 'אור הכרם | אירוח בוטיקי ואירועים בכרם התימנים, תל אביב',
+    description: 'אור הכרם בכרם התימנים, תל אביב: שהיות קצרות בדירות בוטיק, אירועים פרטיים ושירותי קונסיירז׳, ליד הים ושוק הכרמל.',
     keywords: 'דירות יוקרה בתל אביב, דירות נופש בתל אביב, השכרה לטווח קצר תל אביב, כרם התימנים, לב תל אביב, 2 דקות לים, שוק הכרמל, אירוח בוטיקי תל אביב',
   },
   about: {
@@ -194,8 +194,8 @@ const he: SeoCatalog = {
     keywords: 'אודות אור הכרם, דירות יוקרה כרם התימנים, לב תל אביב, אירוח ידידותי לשבת תל אביב, מקום אירועים בוטיקי, שוק הכרמל',
   },
   properties: {
-    title: 'דירות יוקרה בתל אביב | הנכסים של אור הכרם',
-    description: 'עיינו בדירות היוקרה שלנו בכרם התימנים, תל אביב: פנטהאוז עם ג׳קוזי פרטי וסטודיו נעים, שניהם צעדים ספורים מהים ומשוק הכרמל.',
+    title: 'דירות יוקרה להשכרה בתל אביב | פנטהאוז ודירה | אור הכרם',
+    description: 'דירות יוקרה להשכרה לטווח קצר בכרם התימנים: פנטהאוז עם ג׳קוזי פרטי ודירת חדר שינה משופצת, ליד הים ושוק הכרמל.',
     keywords: 'דירות יוקרה בתל אביב, פנטהאוז עם ג׳קוזי תל אביב, סטודיו להשכרה תל אביב, נכסים כרם התימנים, 2 דקות מהים, שוק הכרמל',
   },
   services: {

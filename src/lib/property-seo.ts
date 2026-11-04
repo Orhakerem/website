@@ -18,9 +18,9 @@ export interface PropertySeoMeta {
 
 const enSeo: Record<BookablePropertyId, PropertySeoMeta> = {
   'penthouse-jacuzzi': {
-    title: 'Luxury Penthouse with Private Jacuzzi & Sea Views | Tel Aviv | Or Hakerem',
+    title: '3-Bedroom Jacuzzi Penthouse in Tel Aviv | Or Hakerem',
     description:
-      'Spacious 3-bedroom penthouse with private rooftop jacuzzi, BBQ terrace and panoramic sea views. Book direct and save 15%.',
+      'Rent a 3-bedroom penthouse for up to 7 guests in Kerem HaTeimanim, with private rooftop jacuzzi, BBQ terrace and sea views.',
     keywords:
       'penthouse jacuzzi Tel Aviv, luxury apartments Tel Aviv, luxury penthouse Kerem HaTeimanim, sea view apartment Tel Aviv, BBQ terrace rental Tel Aviv, rooftop apartment Tel Aviv, luxury short-term rental Tel Aviv, vacation rental Tel Aviv',
     image: '/penthouse/1-jacuzzi-angle.JPEG',
