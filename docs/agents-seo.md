@@ -57,7 +57,12 @@ limites: [ ... ]      # ce qui n'a pas pu être relevé, et pourquoi
 > Puis effectue ces cinq contrôles et rapporte chacun :
 > 1. GSC ({PROPRIETE_GSC}) → Sécurité et actions manuelles. Toute entrée est une alerte.
 > 2. GSC → Indexation → Pages. Alerte si les pages indexées ont baissé de plus de 10 %.
-> 3. GA4 ({PROPRIETE_GA4}) → Admin → Événements. Alerte si un événement clé est à zéro sur 30 jours.
+> 3. GA4 ({PROPRIETE_GA4}) → Admin → Événements. Alerte si un événement clé **qui
+>    s'est déjà déclenché au moins une fois** est à zéro sur 30 jours. Un
+>    événement clé jamais déclenché sur toute l'historique n'est pas une alerte :
+>    relève-le en anomalie. C'est le cas de `purchase`, événement e-commerce par
+>    défaut que GA4 verrouille comme événement clé et que ce site n'émet pas
+>    (arbitrage du propriétaire, 04/11/2026).
 > 4. `curl` sur `/`, `/properties`, `/reservation`, `/events` en production. Alerte si autre chose que 200.
 > 5. GSC → Sitemaps. Alerte si la dernière lecture date de plus de 30 jours.
 >

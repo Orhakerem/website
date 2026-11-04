@@ -230,9 +230,9 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
 
   - id: ga4-purchase-cle
     action: Arbitrer l'alerte sentinelle — retirer `purchase` des événements clés GA4, ou exclure de la règle les événements jamais déclenchés
-    document: ANALYTICS-AUDIT-2026-08-25.md
+    document: docs/agents-seo.md
     responsable: proprietaire
-    etat: bloque
+    etat: fait
     ouvert_depuis: 2026-11-04
     derniere_relance: 2026-11-04
     echeance: 2026-11-10
@@ -253,3 +253,8 @@ TRANCHÉ le 27/10 : les DEUX numéros sont cliquables. Appliqué —
       défaut, verrouillé par Google. Rien n'a été modifié. Seule issue restante :
       préciser la règle de la sentinelle (exclure les événements clés jamais
       déclenchés) dans la tâche planifiée, ce qui demande un nouvel accord.
+      TRANCHÉ le 04/11 : la règle de la sentinelle est précisée, avec
+      l'accord du propriétaire. Seul un événement clé déjà déclenché qui tombe
+      à 0 est une alerte (docs/agents-seo.md, étape 0, et décision consignée
+      dans la tâche planifiée). Cycle 2026-11 relancé le même jour.
+      À supprimer de ce registre au cycle de décembre.
