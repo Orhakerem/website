@@ -220,6 +220,9 @@ baselines:
     mesures: []
     verdict: null
     verdict_attendu_le: 2027-01-04
+    note: >-
+      Facteur confondant : article HE luxury-apartment-vs-hotel-suite-tel-aviv
+      publié pendant la fenêtre, avec un lien vers /he/properties.
 
   - id: he-properties-description-2026-11-04
     url: /he/properties
@@ -239,6 +242,9 @@ baselines:
     mesures: []
     verdict: null
     verdict_attendu_le: 2027-01-04
+    note: >-
+      Facteur confondant : article HE luxury-apartment-vs-hotel-suite-tel-aviv
+      publié pendant la fenêtre, avec un lien vers /he/properties.
 
   - id: properties-title-2026-11-04
     url: /properties
