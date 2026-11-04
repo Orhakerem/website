@@ -690,13 +690,16 @@ reste.
 
 | Élément de la fiche | URL |
 |---|---|
-| Bouton site | `?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=website_button` |
-| Lien de réservation | `?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=booking_link` |
-| Publication | `?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=post_<aaaa-mm>_<slug>` |
-| Publication événement | `?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=event_<slug>` |
+| Bouton site | `?utm_source=google_business_profile&utm_medium=referral&utm_campaign=gbp&utm_content=website_button` |
+| Lien de réservation | `?utm_source=google_business_profile&utm_medium=referral&utm_campaign=gbp&utm_content=booking_link` |
+| Publication | `?utm_source=google_business_profile&utm_medium=referral&utm_campaign=gbp&utm_content=post_<aaaa-mm>_<slug>` |
+| Publication événement | `?utm_source=google_business_profile&utm_medium=referral&utm_campaign=gbp&utm_content=event_<slug>` |
 
-`utm_medium=organic` plutôt que `local` : le trafic reste honnêtement classé, et
-l'isolement s'obtient par un **groupe de canaux personnalisé GA4** indexé sur
+> Tableau aligné sur docs/utm-links.md le 05/11/2026 (les quatre lignes, et non plus le seul gabarit « Publication ») — organic faisait tomber ces clics dans Organic Search.
+
+`utm_medium=referral` plutôt que `organic` : organic ferait classer ces clics en
+Organic Search et les mêlerait au SEO (voir docs/utm-links.md). L'isolement
+s'obtient en plus par un **groupe de canaux personnalisé GA4** indexé sur
 `utm_campaign=gbp`. Lecture dans GA4 : Acquisition → **Campagnes manuelles**.
 
 ### ⚠️ La boucle n'est pas fermée, et c'est un travail de code
@@ -836,3 +839,5 @@ citations :**
 | 27 oct. 2026 | Relevé sur la fiche : note réelle **4,0/4 avis**, catégorie déjà conforme, adresse correctement casée, création le 20/10/2024, 332 interactions |
 | 27 oct. 2026 | Trois arbitrages rendus par le propriétaire : enseigne permanente **oui** (→ une seule fiche, parade de revérification acquise), horaires d'accueil obtenus, **les deux** numéros cliquables. Côté site : posé, vérifié sur le rendu, testé |
 | 26 oct. 2026 | Document audité par un vérificateur neuf : 18 corrections appliquées. Trois erreurs de fond de ma part — six orthographes d'adresse et non cinq, un **troisième** numéro de téléphone jamais corrigé dans le README, et un motif de blocage du brouillon 4 que j'avais posé à tort |
+| 4 nov. 2026 | Deux publications « Actualité » mises en ligne : EN « Choosing where to stay… » (CTA En savoir plus → /blog/where-to-stay-in-tel-aviv-neighborhoods-guide) et HE « קל יותר לתכנן חגיגה אינטימית… » (CTA Réserver → /he/blog/private-events-tel-aviv-intimate-celebrations), marquées à tort `utm_source=google&utm_medium=organic` |
+| 5 nov. 2026 | **URL des deux publications corrigées** sur autorisation du propriétaire (champ URL du bouton seul, sans suppression) : `utm_source=google_business_profile&utm_medium=referral&utm_campaign=gbp`, nouvelles URL vérifiées 200. Repassées « En attente » d'examen Google. Gabarit §13 « Publication » aligné sur docs/utm-links.md. Puis tout le tableau UTM du §13 aligné sur docs/utm-links.md (bouton site, lien de réservation, publication événement : `utm_source=google_business_profile&utm_medium=referral`), paragraphe de justification réécrit ; document seul, aucune modification de la fiche |
