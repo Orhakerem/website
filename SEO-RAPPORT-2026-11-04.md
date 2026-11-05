@@ -74,7 +74,7 @@ Toutes ces erreurs viennent du rapport du 26/10 ou de `prochain-cycle.yml`. Chaq
 | | Fait | Chiffres et source |
 |---|---|---|
 | 🔴 | **Aucune conversion venue de Google n'est démontrée en octobre.** Les 2 seuls événements clés réels présumés viennent de ChatGPT, les 25 et 26/10. | 7 événements clés, dont 5 tests du 23/10 (ga4) |
-| 🔴 | **Les pages commerciales anglaises ne reçoivent aucun clic, alors qu'elles sont en page 1-2.** Leurs titles ont été corrigés ce cycle, mais en preview seulement. | `/properties` 78 impressions, position 9,7 ; penthouse 52 impressions, position 11,0 ; 0 clic (gsc) |
+| 🔴 | **Les pages commerciales anglaises ne reçoivent aucun clic, alors qu'elles sont en page 1-2.** Leurs titles ont été corrigés ce cycle et sont en production depuis le 05/11 (verdict au 04/01/2027). | `/properties` 78 impressions, position 9,7 ; penthouse 52 impressions, position 11,0 ; 0 clic (gsc) |
 | 🟠 | **Les impressions baissent de 26 % et la position recule de 11,3 à 16,2.** Deux URL concentrent la baisse (voir C3 et C4). | 2 971 → 2 196 (gsc) |
 | 🟢 | **Les clics tiennent et plusieurs pages progressent.** | 49 → 50 clics ; `/he` 6 → 10 ; guide de quartier 3 → 6 ; article Shabbat 0 → 4 (gsc) |
 
@@ -177,7 +177,7 @@ Facteur confondant noté sur les n° 4 et 5 : le nouvel article HE renvoie vers 
 
 **Liens entrants** (`96fec84`, puis `27613a9`) : `short-term-seasonal-rentals` → article luxe, et `small-jewish-celebrations` → Hanoukka, dans les trois langues. Deux liens ont été retirés après un refus à l'étape 10 : ils faisaient dépasser à leurs articles le plafond de 6 liens internes.
 
-**En preview seulement, en attente de main :** les 6 URL d'articles, les 12 modifications et les liens entrants. Tout est en production depuis le 05/11 (fusion `987f805`). Les publications de la fiche sont en attente d'examen par Google depuis la correction d'URL du 05/11.
+**Les 6 URL d'articles, les 12 modifications et les liens entrants** : tout est en production depuis le 05/11 (fusion `987f805`). Les publications de la fiche sont en attente d'examen par Google depuis la correction d'URL du 05/11.
 
 ---
 
