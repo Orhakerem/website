@@ -47,20 +47,20 @@ insert into public.season_periods (name, season_type, start_date, end_date, is_a
   ('OH P5','p5','2027-02-22','2027-03-22',true),
   ('OH P6','p6','2027-03-23','2027-04-19',true);
 
--- 5. Base nightly price per period and day type (Thu+Fri = weekend).
+-- 5. Base nightly price per period and day type (Thu+Fri = weekend). Flat grid since 2026-11-06: 1600 weekday / 2500 weekend.
 insert into public.pricing_tiers (listing_id, season_type, day_type, min_nights, max_nights, target_price, is_active, priority) values
-  ('penthouse','p1','weekday',1,null,1950,true,0),
-  ('penthouse','p1','weekend',1,null,2300,true,0),
-  ('penthouse','p2','weekday',1,null,2300,true,0),
+  ('penthouse','p1','weekday',1,null,1600,true,0),
+  ('penthouse','p1','weekend',1,null,2500,true,0),
+  ('penthouse','p2','weekday',1,null,1600,true,0),
   ('penthouse','p2','weekend',1,null,2500,true,0),
-  ('penthouse','p3','weekday',1,null,1900,true,0),
-  ('penthouse','p3','weekend',1,null,2300,true,0),
-  ('penthouse','p4','weekday',1,null,2000,true,0),
+  ('penthouse','p3','weekday',1,null,1600,true,0),
+  ('penthouse','p3','weekend',1,null,2500,true,0),
+  ('penthouse','p4','weekday',1,null,1600,true,0),
   ('penthouse','p4','weekend',1,null,2500,true,0),
-  ('penthouse','p5','weekday',1,null,1900,true,0),
+  ('penthouse','p5','weekday',1,null,1600,true,0),
   ('penthouse','p5','weekend',1,null,2500,true,0),
-  ('penthouse','p6','weekday',1,null,2200,true,0),
-  ('penthouse','p6','weekend',1,null,2300,true,0);
+  ('penthouse','p6','weekday',1,null,1600,true,0),
+  ('penthouse','p6','weekend',1,null,2500,true,0);
 
 -- 5b. New Year nights (Thu 2026-12-31, Fri 2027-01-01): direct price 2800/night via season 'p7'.
 insert into public.season_date_overrides (date, season_type, note, is_active) values
