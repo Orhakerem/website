@@ -1,7 +1,7 @@
 # Rapport SEO — cycle 2026-11
 
 **Mois analysé :** octobre 2026 (01/10 → 31/10) comparé à septembre 2026 (01/09 → 30/09)
-**Cycle :** lancé le 04/11 à 7h par la tâche planifiée, interrompu trois fois, repris en session avec toi les 04 et 05/11, clos le 05/11
+**Cycle :** lancé le 04/11 à 7h par la tâche planifiée, interrompu à plusieurs reprises, repris en session avec toi les 04 et 05/11, clos le 05/11, **en production depuis le 05/11** (`987f805`)
 **Sources :** relevé figé `seo/releves/2026-11.yml` (GSC `sc-domain:orhakerem.com`, GA4 `521216501`, Ahrefs, fiche Google), diagnostic validé `seo/releves/2026-11.diagnostic.md`, `git log`
 **Rapport précédent :** `SEO-RAPPORT-2026-10-26.md`
 **Contrôle :** `node scripts/seo-check.mjs --cycle 2026-11` → **aucun blocage** (1 avertissement attendu : `integrite_donnees: true`)
@@ -10,15 +10,29 @@
 
 ## Ce sur quoi j'ai besoin de toi
 
-### 1. Tu me donnes l'accord pour fusionner dev → main ?
+### ✅ Fusion sur main — faite le 05/11 avec ton accord
 
-| | |
-|---|---|
-| **Ce qui est bloqué** | Tout ce qui a été livré sur le site ce cycle est **en preview seulement** : 2 articles en trois langues (6 URL), 12 titles et descriptions, liens entrants. Les 12 baselines posées le 04/11 (verdict le 04/01/2027) mesurent une production qui n'a pas changé tant que main n'est pas fusionnée. L'article Hanoukka doit être indexé avant le 04/12, date de la 1re bougie. |
-| **Ce qui a été fait en attendant** | Le preview a été vérifié sur le HTML servi : https://website-i5nqrgcho-or-hakerem.vercel.app (commit `27613a9`). Le 12/11 est inscrit comme date butoir dans `seo/prochain-cycle.yml`. Passé cette date, la fenêtre de mesure des baselines est amputée d'autant. |
-| **Ce que je recommande** | **Fusionner maintenant.** Ensuite, je vérifie la production et je demande à GSC l'indexation des 6 nouvelles URL et des 8 URL modifiées. |
+Fusion `987f805`, après le verdict CONFORME de la dernière retouche de l'article
+Hanoukka. **La production a été vérifiée sur les pages elles-mêmes**, pas sur le
+statut du build. Les 14 URL nouvelles ou modifiées répondent 200, avec le title
+attendu, une description ≤ 125, un seul h1, des hreflang complets, le RTL en
+hébreu et un canonical sur elles-mêmes. Le sitemap liste les 6 nouvelles URL.
+L'article reporté renvoie 404.
 
-### 2. Je peux corriger l'UTM du bouton « Site web » et du lien de réservation de la fiche s'ils sont en `organic` ?
+**Indexation demandée dans GSC : 11 URL** (les 6 nouvelles, puis `/`,
+`/properties`, `/properties/penthouse-jacuzzi`, `/he/properties`, `/he`).
+Le quota quotidien a ensuite été atteint. **Trois URL restent à soumettre le 06/11 :**
+`/he/blog/where-to-stay-in-tel-aviv-neighborhoods-guide`,
+`/fr/blog/where-to-stay-in-tel-aviv-neighborhoods-guide`,
+`/blog/kerem-hateimanim-neighborhood-guide`.
+
+**Dernière retouche avant fusion — article Hanoukka.** Une vérification du 05/11 a
+montré que Metuka, au 18 rue Herzl, ne figure plus dans la liste officielle des
+boutiques de la marque. Metuka a donc été retirée de la section « à pied ». Seule
+une mention de la presse de 2019 est gardée, datée et sans adresse. Dallal est
+confirmé ouvert par Time Out Israël du 01/04/2026, cité en lien.
+
+### 1. Je peux corriger l'UTM du bouton « Site web » et du lien de réservation de la fiche s'ils sont en `organic` ?
 
 | | |
 |---|---|
@@ -26,7 +40,7 @@
 | **Ce qui a été fait en attendant** | Les 2 publications du 04/11 ont été corrigées le 05/11 (voir « Ce qui a été livré »). Le §13 du plan de publication est aligné sur `docs/utm-links.md`. L'action `gbp-utm-boutons` est ouverte au registre. |
 | **Ce que je recommande** | Je lis les deux URL au prochain passage sur la fiche, sans rien modifier. Si elles sont en `organic` ou sans UTM, tu m'autorises à passer à `utm_source=google_business_profile&utm_medium=referral`, comme pour les publications. C'est une modification de fiche : il faut ton accord. |
 
-### 3. Le `generate_lead` du 01/11 est un vrai contact ou un test ?
+### 2. Le `generate_lead` du 01/11 est un vrai contact ou un test ?
 
 | | |
 |---|---|
@@ -133,7 +147,7 @@ Toutes ces erreurs viennent du rapport du 26/10 ou de `prochain-cycle.yml`. Chaq
 **Correction d'URL du 05/11.** Les deux publications sont parties le 04/11 avec `utm_source=google&utm_medium=organic`, ce qui contredit `docs/utm-links.md`, et le vérificateur les a refusées. Tu as autorisé la modification le 05/11, au titre de l'exception « écraser du contenu publié ». Les deux URL ont été corrigées et les publications sont repassées « En attente » d'examen Google. Le 2e vérificateur est CONFORME. Les deux pages de destination existent déjà en production.
 **Aussi sur la fiche :** aucun avis positif n'est resté sans réponse, l'avis de Daniel T n'a pas été touché (décision arrêtée) et la NAP est cohérente.
 
-### Site : 12 modifications on-page (commit `a86a2cb`, preview seulement)
+### Site : 12 modifications on-page (commit `a86a2cb`, en production le 05/11)
 
 Une baseline a été posée **avant** chaque modification dans `seo/baselines.yml`. Les métriques d'avant viennent de GSC (octobre, ou 28 j pour l'accueil). Le verdict est attendu le **04/01/2027**.
 
@@ -154,7 +168,7 @@ Une baseline a été posée **avant** chaque modification dans `seo/baselines.ym
 
 Facteur confondant noté sur les n° 4 et 5 : le nouvel article HE renvoie vers `/he/properties`.
 
-### Site : 2 articles en trois langues (commit `0669917`, preview seulement)
+### Site : 2 articles en trois langues (commit `0669917`, en production le 05/11)
 
 | Article | Langues | Sources externes | Notes |
 |---|---|---|---|
@@ -163,7 +177,7 @@ Facteur confondant noté sur les n° 4 et 5 : le nouvel article HE renvoie vers 
 
 **Liens entrants** (`96fec84`, puis `27613a9`) : `short-term-seasonal-rentals` → article luxe, et `small-jewish-celebrations` → Hanoukka, dans les trois langues. Deux liens ont été retirés après un refus à l'étape 10 : ils faisaient dépasser à leurs articles le plafond de 6 liens internes.
 
-**En preview seulement, en attente de main :** les 6 URL d'articles, les 12 modifications et les liens entrants. Seules les publications sur la fiche sont publiées, et elles sont en attente d'examen par Google depuis la correction d'URL du 05/11.
+**En preview seulement, en attente de main :** les 6 URL d'articles, les 12 modifications et les liens entrants. Tout est en production depuis le 05/11 (fusion `987f805`). Les publications de la fiche sont en attente d'examen par Google depuis la correction d'URL du 05/11.
 
 ---
 
@@ -181,6 +195,9 @@ Facteur confondant noté sur les n° 4 et 5 : le nouvel article HE renvoie vers 
 ---
 
 ## Dettes repérées hors périmètre
+
+- **`scripts/seo-check.mjs` ne vérifie pas que les fichiers sont du YAML valide.** Le 05/11, `seo/prochain-cycle.yml` est devenu illisible (une ligne parasite, deux lignes fusionnées) et le script a quand même répondu « Aucun blocage ». J'ai fait la réparation (`8c4e6cc`) et je l'ai validée avec Ruby. Il faudrait ajouter au script un contrôle de syntaxe.
+- **Clôture (étape 12) :** quatre passages ont été refusés. Pour la marque `or hakerem`, aucun critère GSC ne tranche entre anonymisation et perte. Sur ta décision, on ne garde qu'une mesure observable (impressions de novembre en requête exacte). Le dernier refus ne portait que sur la syntaxe, que j'ai réparée.
 
 | Dette | Où | Suite |
 |---|---|---|
