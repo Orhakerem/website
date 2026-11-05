@@ -182,7 +182,11 @@ actions:
       septembre). Collision confirmée qualitativement ; décision du diagnostic :
       ne pas optimiser sur `hakerem` ni `hakerem luxury apartments`. Reste à
       trancher anonymisation ou perte réelle sur `or hakerem` : re-mesure sur
-      3 mois au cycle 2026-12, d'où l'échéance portée au 31/12.
+      3 mois au cycle 2026-12, d'où l'échéance portée au 31/12. La mesure et
+      son critère (requête exacte `or hakerem`, CTR de / et /he, part
+      anonymisée) sont dans seo/prochain-cycle.yml (a_surveiller, lectures
+      H1-H7 et marque) ; ce registre ne garde que l'instruction de la
+      collision de marque.
 
   - id: gbp-entite
     action: Trancher l'entité portée par la fiche — une seule fiche ou deux
@@ -422,10 +426,6 @@ actions:
       d'adresse (règle ajoutée à la tâche planifiée : une source qui décrit des
       commerces doit dater de moins de 3 ans). Demande gsc quasi nulle
       (`kerem hateimanim restaurants` 1 impression en octobre) : sujet retenu
-      au titre de la règle de citation de la presse locale. Échéance alignée
-      sur seo/prochain-cycle.yml (a_trancher, 04/12 : reprise si au moins 4 des
-      7 adresses sont confirmées actives, sinon abandon du sujet).
-      Seuil repris de seo/prochain-cycle.yml le 05/11, où l'entrée est
-      supprimée comme doublon : reprise seulement si au moins 4 des 7
-      adresses de MOTIFS.md sont confirmées par une source 2025-2026, sinon
-      le sujet passe en écartés.
+      au titre de la règle de citation de la presse locale. Issue au 04/12 :
+      reprise seulement si au moins 4 des 7 adresses de MOTIFS.md sont
+      confirmées par une source 2025-2026, sinon le sujet passe en écartés.

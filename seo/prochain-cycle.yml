@@ -42,8 +42,8 @@ a_trancher:
       d'octobre ; en dessous, la pente 23 → 11 se poursuit. Sur la même
       période, private-events (3 locales) passe de 14 à 19 impressions avec
       1 clic chaque mois : c'est la page à garder en cas de cannibalisation.
-      Attention : le commit 27613a9 (preview) ajoute dans small-jewish un
-      lien entrant vers hanukkah-tel-aviv-sufganiyot-candle-lighting en en,
+      Attention : lien ajouté par 96fec84, présent en preview (27613a9) :
+      small-jewish porte un lien entrant vers hanukkah-tel-aviv-sufganiyot-candle-lighting en en,
       fr et he. Une fusion devra reporter ces 3 liens ailleurs (par exemple
       dans private-events) en respectant le plafond de 6 liens internes.
 
@@ -70,18 +70,36 @@ a_surveiller:
     mesurer_le: 2026-12-04
     seuil: >-
       si H4 n'est pas confirmé (accueil hors de 9-17 impressions/jour du 03 au
-      08/09), rouvrir la baseline home-title-retour-2026-11-04 ; sur 3 mois
-      (01/09-30/11), si `or hakerem` reste à 0 impression en octobre et en
-      novembre alors que le filtre « contient hakerem » garde plus de 100
-      impressions par mois, conclure à l'anonymisation et non à une perte de
-      marque ; si les deux tombent, la perte est réelle
+      08/09), rouvrir la baseline home-title-retour-2026-11-04 ; marque, sur
+      novembre, trois mesures GSC : M1 `or hakerem` en requête exacte, M2 le
+      CTR cumulé de / et /he (clics / impressions, filtre page), M3 la part
+      anonymisée (clics du site moins somme des clics des requêtes listées,
+      sur clics du site). (A) M1 > 0 impression en novembre : la requête
+      n'est plus masquée ; position ≤ 3 → pas de perte, le 0 d'octobre était
+      un masquage passager, clore ; position > 3 → perte de classement
+      réelle. (B) M1 = 0 et M2 ≥ 3,6 % et M3 ≥ 80 % → anonymisation, pas de
+      perte. (C) M1 = 0 et M2 < 3,6 % → perte réelle. (D) M1 = 0, M2 ≥ 3,6 %
+      et M3 < 80 % → lire les requêtes listées de / et /he : si des requêtes
+      hors marque portent au moins la moitié de leurs clics, perte réelle ;
+      sinon anonymisation. Le filtre « contient hakerem » n'entre pas dans le
+      verdict
     contexte: >-
       Séries journalières GSC du 25/08 au 20/09 (site, article plage, /blog, /),
       filtres « contient hakerem » / « contient kerem » (H6 : 124 impressions et
       0 clic en octobre, 134 et 8 clics en septembre) et inspection d'URL de
       l'article plage (H7), à vérifier à l'étape 4 comme le reste du relevé.
-      `or hakerem` : 6 clics pour 14 impressions en septembre, 0 impression en
-      octobre (diagnostic C6).
+      Marque, relevé 2026-11 : M1 6 clics pour 14 impressions (position 1,5)
+      en septembre, 0 impression en octobre (diagnostic C6) ; M2 23 clics
+      pour 513 impressions en septembre (4,5 %), 22 pour 493 en octobre
+      (4,5 %) ; M3 41/49 (83,7 %) en septembre, 48/50 (96,0 %) en octobre.
+      3,6 % = 80 % du CTR de septembre-octobre ; 80 % = plancher de M3 sur
+      les deux mois. Les 124 impressions d'octobre du filtre « contient
+      hakerem » sont `hakerem` (88, générique, ha-kerem.co.il 1er) et
+      `hakerem luxury apartments` (36, marque du concurrent) : aucune ne vient
+      de notre marque, et une requête anonymisée n'apparaît dans aucun filtre
+      par requête. Cette entrée ne porte que la mesure du cycle 2026-12 et
+      son critère ; l'instruction de la collision de marque reste dans
+      l'action entite-concurrente de seo/registre-actions.yml.
 
   - quoi: Indexation puis impressions de hanukkah-tel-aviv-sufganiyot-candle-lighting (en/fr/he)
     echeance: 2026-11-19
