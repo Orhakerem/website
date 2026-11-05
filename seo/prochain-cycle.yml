@@ -9,71 +9,164 @@
 #   3. Les entrées résolues sont SUPPRIMÉES, pas archivées.
 #   4. Plafond de 10 entrées. Au-delà, le cycle accumule du retard : le signaler.
 
-cycle: 2026-11
-etabli_le: 2026-10-26
-etabli_par: mise-en-place
+cycle: 2026-12
+etabli_le: 2026-11-05
+etabli_par: cloture-2026-11
 
 a_trancher:
-  - id: home-title-2026-09-22
-    quoi: Verdict définitif sur le retour arrière du title de la page d'accueil
-    echeance: 2026-11-17
+  - id: fusion-dev-main-2026-11
+    quoi: Fusionner dev → main pour mettre en production le travail du cycle 2026-11 (accord de Joseph requis)
+    echeance: 2026-11-12
     contexte: >-
-      Deux baisses consécutives — 16→10 puis 18→9 clics — à impressions et
-      position stables. Le seuil de retour arrière est franchi. Voir
-      seo/baselines.yml.
+      Les 2 articles trilingues (6 URL) et les 12 titles/descriptions sont en
+      preview seulement (commit 27613a9). Les 12 baselines posées le 04/11
+      (verdict attendu le 2027-01-04) mesurent donc une production inchangée
+      tant que main n'est pas fusionnée. Au relevé 2026-12, consigner la date
+      réelle de mise en production ; si elle est postérieure au 2026-11-12, la
+      fenêtre de mesure des baselines est amputée d'autant et doit être
+      signalée à l'étape 5. Après fusion : demande d'indexation GSC des 6
+      nouvelles URL et des 8 URL modifiées.
+
+  - id: small-jewish-celebrations-sort
+    quoi: Garder, ou fusionner dans private-events-tel-aviv-intimate-celebrations, l'article small-jewish-celebrations-venue-tel-aviv (en/fr/he)
+    echeance: 2026-12-04
+    seuil: >-
+      au relevé 2026-12, garder si au moins 45 impressions cumulées sur les 3
+      locales du 01/09 au 30/11, ou au moins 1 clic ; sinon fusionner dans
+      private-events-tel-aviv-intimate-celebrations avec redirection 301 des
+      3 URL vers la locale correspondante
+    contexte: >-
+      Relevé 2026-11 (gsc, 3 locales) : 23 impressions en septembre (he 3, fr
+      14, en 6), 11 en octobre (he 6, fr 3, en 2), 0 clic sur les deux mois.
+      45 = 34 déjà acquises + au moins 11 en novembre, soit tenir le niveau
+      d'octobre ; en dessous, la pente 23 → 11 se poursuit. Sur la même
+      période, private-events (3 locales) passe de 14 à 19 impressions avec
+      1 clic chaque mois : c'est la page à garder en cas de cannibalisation.
+      Attention : lien ajouté par 96fec84, présent en preview (27613a9) :
+      small-jewish porte un lien entrant vers hanukkah-tel-aviv-sufganiyot-candle-lighting en en,
+      fr et he. Une fusion devra reporter ces 3 liens ailleurs (par exemple
+      dans private-events) en respectant le plafond de 6 liens internes.
 
 a_surveiller:
-  - quoi: generate_lead après les correctifs formulaires du 24/10
-    seuil: "si toujours 0 sur 28 j au 20/11, rouvrir le diagnostic du tunnel"
+  - quoi: generate_lead réel après les correctifs formulaires du 23/10 (commit ef25896)
+    seuil: >-
+      au 20/11, trois cas : (a) lead du 01/11 confirmé réel → ne pas rouvrir
+      le diagnostic, sans conclure à un tunnel réparé sur un seul lead ;
+      (b) confirmé test et aucun autre generate_lead réel sur 28 j → rouvrir
+      le diagnostic du tunnel ; (c) non qualifié au 20/11 → le traiter comme
+      non probant : il ne compte pas, la branche (b) s'applique sur les autres
+      generate_lead de la fenêtre, et la question est reposée en tête du
+      rapport 2026-12
+    mesurer_le: 2026-11-20
     contexte: >-
-      Au 25/10, le seul generate_lead enregistré était un test. Les correctifs
-      n'avaient que 2 jours de recul.
+      Octobre : 0 lead réel présumé (le seul generate_lead est un test du
+      23/10). Le 01/11 : 1 generate_lead + 1 contact_outbound, réel présumé
+      mais non vérifié. Qualification à demander au propriétaire avant le
+      20/11 : courriel Resend reçu ou ligne `reservations` du 01/11. Le cas
+      (c) applique la règle de prudence du cycle : un lead non vérifié ne
+      ferme pas un diagnostic.
 
-  - quoi: Cluster plage après réécriture des titles et descriptions
-    mesurer_le: 2026-12-20
+  - quoi: Intégrer au relevé 2026-12 les lectures hors relevé H1-H7 et remesurer la marque sur 3 mois
+    mesurer_le: 2026-12-04
+    seuil: >-
+      si H4 n'est pas confirmé (accueil hors de 9-17 impressions/jour du 03 au
+      08/09), rouvrir la baseline home-title-retour-2026-11-04 ; marque, sur
+      novembre, trois mesures GSC : M1 `or hakerem` en requête exacte, M2 le
+      CTR cumulé de / et /he (clics / impressions, filtre page), M3 la part
+      anonymisée (clics du site moins somme des clics des requêtes listées,
+      sur clics du site). (A) M1 > 0 impression en novembre : la requête
+      n'est plus masquée ; position ≤ 3 → pas de perte, le 0 d'octobre était
+      un masquage passager, clore ; position > 3 → perte de classement
+      réelle. (B) M1 = 0 et M2 ≥ 3,6 % et M3 ≥ 80 % → anonymisation, pas de
+      perte. (C) M1 = 0 et M2 < 3,6 % → perte réelle. (D) M1 = 0, M2 ≥ 3,6 %
+      et M3 < 80 % → lire les requêtes listées de / et /he : si des requêtes
+      hors marque portent au moins la moitié de leurs clics, perte réelle ;
+      sinon anonymisation. Le filtre « contient hakerem » n'entre pas dans le
+      verdict
     contexte: >-
-      7 requêtes entre les positions 4,2 et 9,7 à zéro clic. L'article existe.
-      Correctif de présentation uniquement, aucune rédaction.
+      Séries journalières GSC du 25/08 au 20/09 (site, article plage, /blog, /),
+      filtres « contient hakerem » / « contient kerem » (H6 : 124 impressions et
+      0 clic en octobre, 134 et 8 clics en septembre) et inspection d'URL de
+      l'article plage (H7), à vérifier à l'étape 4 comme le reste du relevé.
+      Marque, relevé 2026-11 : M1 6 clics pour 14 impressions (position 1,5)
+      en septembre, 0 impression en octobre (diagnostic C6) ; M2 23 clics
+      pour 513 impressions en septembre (4,5 %), 22 pour 493 en octobre
+      (4,5 %) ; M3 41/49 (83,7 %) en septembre, 48/50 (96,0 %) en octobre.
+      3,6 % = 80 % du CTR de septembre-octobre ; 80 % = plancher de M3 sur
+      les deux mois. Les 124 impressions d'octobre du filtre « contient
+      hakerem » sont `hakerem` (88, générique, ha-kerem.co.il 1er) et
+      `hakerem luxury apartments` (36, marque du concurrent) : aucune ne vient
+      de notre marque, et une requête anonymisée n'apparaît dans aucun filtre
+      par requête. Cette entrée ne porte que la mesure du cycle 2026-12 et
+      son critère ; l'instruction de la collision de marque reste dans
+      l'action entite-concurrente de seo/registre-actions.yml.
 
-  - quoi: Trafic « Direct » après la pose des UTM
-    seuil: "si Direct reste au-dessus de 40 % des sessions au 20/12, les UTM n'ont pas été posés"
-    contexte: 45,9 % des sessions, +211 % sur un mois, provenance inconnue.
+  - quoi: Indexation puis impressions de hanukkah-tel-aviv-sufganiyot-candle-lighting (en/fr/he)
+    echeance: 2026-11-19
+    seuil: >-
+      au 19/11 (7 jours après la mise en production attendue au plus tard le
+      12/11), vérifier dans GSC que les 3 URL sont indexées, sinon demander
+      l'indexation ; au relevé 2027-01, sous 30 impressions cumulées sur les
+      3 locales en décembre, ne plus retenir de sujet calendaire sans requête
+      observée dans GSC
+    mesurer_le: 2027-01-04
+    contexte: >-
+      Le relevé 2026-12 (04/12) tombe le jour de la 1re bougie : trop tard
+      pour un contrôle d'indexation, d'où l'échéance propre. Si la fusion sur
+      main glisse après le 12/11, l'échéance devient mise en production + 7 j.
+      Sujet choisi sur le calendrier : aucune requête Hanoukka, hiver ou
+      décembre dans le relevé 2026-11 (brief 3). Hanoukka 2026 : 04-12/12.
+
+  - quoi: Part du Direct dans les sessions GA4 de novembre
+    seuil: >-
+      si Direct dépasse 40 % des sessions de novembre, c'est un indice, pas
+      une preuve : constater auprès du propriétaire quels liens UTM sont posés
+      (action utm du registre) ; s'ils le sont et que Direct reste au-dessus
+      de 40 %, instruire les autres causes, en comparant la part Direct
+      journalière avant et après le 23/10 (bannière de consentement, 026c32b
+      et a22fbd6) et la part des sessions arrivant par WhatsApp Business
+      (2d8eaff, 02/10)
+    mesurer_le: 2026-12-04
+    contexte: >-
+      Octobre : 56 sessions sur 132 (42,4 %) ; septembre : 19 sur 75 (25,3 %)
+      (ga4, part_direct). Les seuls événements clés Direct d'octobre sont des
+      tests du 23/10. Diagnostic 2026-11 : hausse non attribuable.
+
+  - quoi: Demande plage nommée au relevé 2026-12
+    seuil: >-
+      si au moins 30 impressions sur novembre pour les requêtes plage nommées
+      (dont `חוף ליד שוק הכרמל`), rouvrir la question du title et de la
+      description de how-far-is-kerem-hateimanim-from-the-beach ; sinon, ni
+      réécriture, ni traduction, ni article
+    mesurer_le: 2026-12-04
+    contexte: >-
+      0 impression nommée en octobre, 43 en septembre, environ 21 avant. Le
+      title n'a jamais été réécrit (un seul commit, 8928335, 23/06).
 
 a_poursuivre:
-  - quoi: Dispositif de collecte d'avis — priorité n°1 du cycle
-    echeance: 2026-11-30
+  - quoi: Les deux publications GBP du 04/11 repassées « En attente » après correction des UTM le 05/11
+    echeance: 2026-11-12
+    seuil: si l'une n'est pas « En ligne » au 12/11, relire le motif Google avant tout nouveau lot
     contexte: >-
-      4 avis, note 4,0. Le concurrent homonyme HaKerem Luxury Apartments
-      affiche 9,4/10 sur 166 avis. À 4 avis, un seul 1 étoile pèse 25 % de
-      l'échantillon ; à 20 avis il redevient du bruit et la note remonte
-      au-dessus de 4,7 sans qu'aucun avis ne soit retiré. Préparer le
-      dispositif conforme — lien court, QR, relance trilingue APRÈS le départ,
-      à tous les clients sans filtrage préalable, sans incitation. La pose
-      relève du propriétaire. Voir action collecte-avis au registre.
-
-  - quoi: Publications Google Business Profile — premier lot
-    echeance: 2026-11-30
-    contexte: >-
-      Aucune publication à ce jour. Rythme cible 2 à 4 par mois. Trois des
-      quatre brouillons rédigés en août sont publiables en l'état : quartiers,
-      itinéraire 3 jours, événements privés — les URL de destination renvoient
-      200 (vérifié le 26/10) et l'approbation préalable est levée. Libellés
-      trilingues dans l'historique Git de
-      docs/google-business-profile-publication-plan.md, commit 442145b.
-      Le 4e (réservation directe) est à réécrire : il repose sur l'allégation
-      « jusqu'à 15 % moins cher », qui relève de l'exception du régime.
-
-  - quoi: Photo de l'extérieur de l'immeuble avec enseigne visible
-    echeance: 2026-11-30
-    contexte: >-
-      Elle manque à la bibliothèque. Google l'appelle explicitement (« une
-      photo de l'extérieur aide les clients à trouver l'établissement ») et
-      elle sert de preuve de signalétique en cas de revérification vidéo, qui
-      est le risque réel sur une fiche d'hébergement courte durée.
+      Guide des quartiers (en) et événements privés (he), utm_content
+      post_2026-11_*. Le comptage des clics et le rythme mensuel relèvent de
+      gbp-publications, l'UTM du bouton « Site web » et du lien de
+      réservation de gbp-utm-boutons (registre, échéance 30/11) ; seul le
+      point d'étape du 12/11 est propre à ce cycle.
 
 ecartes:
-  - sujet: Petits événements et célébrations juives
+  - sujet: Petits événements, célébrations juives et événements privés en hébreu
     motif: >-
-      Cannibalisation confirmée avec private-events-tel-aviv-intimate-celebrations.
-      26 impressions, 0 clic après un mois. Ne pas reproposer ce sujet tel quel ;
-      à rejuger fin novembre avant toute fusion ou suppression.
+      Ne pas reproposer de nouvel article : cannibalisation avec
+      private-events-tel-aviv-intimate-celebrations, et demande hébraïque
+      d'octobre (`אירוע פרטי` 19 en position 84,3, `אירועים פרטיים` 10,
+      `אירוע בר מצווה בבוקר` 3) déjà couverte par /he/events et
+      /he/blog/private-events…, qui ne se classent pas. Le sort de
+      small-jewish-celebrations est dans a_trancher.
+
+  - sujet: Nouvel An civil et hiver générique à Tel Aviv
+    motif: >-
+      Aucune requête dans le relevé 2026-11 (seulement `météo tel aviv 15
+      jours` 1 impression) et recoupement direct avec best-time-to-visit-tel-aviv
+      (section Winter) et l'article Hanoukka. Ne pas reproposer en décembre sans
+      requête observée.

@@ -1,0 +1,705 @@
+# Relevé SEO du cycle 2026-11 — figé par l'agent integrite (étape 4)
+# Fusion sans perte des fragments collecte-gsc, collecte-ga4, collecte-offsite.
+cycle: 2026-11
+periode: 2026-10-01 → 2026-10-31 vs 2026-09-01 → 2026-09-30
+fige_le: 2026-11-04
+integrite_donnees: true
+sources_ecartees:
+  - {source: serp, perimetre: "rangs organiques (offsite.serp)", motif: "position réservée à gsc par la table d'autorité ; SERP en session connectée, indicative"}
+  - {source: ga4, perimetre: "ga4 — périmètre pages_destination et pages_moins_15s_oct uniquement", motif: "attribution par page de destination divergente de gsc d'un facteur > 2 même filtrée sur google / organic (voir recoupements gsc-clics-page_vs_ga4-sessions-page-destination) ; totaux, canaux, sources/supports, engagement et événements restent valides"}
+table_autorite_appliquee:
+  clics_impressions_ctr_position: "gsc — conforme (aucune autre source n'en fournit, hors rangs SERP écartés)"
+  sessions_engagement_conversions: "ga4 — conforme"
+  domaines_referents_dr: "ahrefs — conforme"
+  volumes_difficulte: "aucune source ; aucune valeur présente dans les fragments, rien estimé"
+  gbp: "hors table (métriques de fiche) ; conservées avec source: gbp, utilisées seulement en recoupement"
+
+gsc:
+  # Fragment collecte-gsc — cycle SEO 2026-11 (fusion par l'agent integrite)
+  cycle: "2026-11"
+  etape: collecte-gsc
+  propriete: "sc-domain:orhakerem.com"
+  type_recherche: web
+  releve_le: "2026-11-04"
+  ctr_unite: pct
+  note_source: "Lecture interface GSC Performances (valeurs exactes via attribut title des cartes de totaux)"
+
+  totaux_oct:
+    source: gsc
+    periode: "2026-10-01..2026-10-31"
+    clics: 50
+    impressions: 2196
+    ctr: 2.3
+    position: 16.2
+
+  totaux_sep:
+    source: gsc
+    periode: "2026-09-01..2026-09-30"
+    clics: 49
+    impressions: 2971
+    ctr: 1.6
+    position: 11.3
+
+  totaux_3m:
+    source: gsc
+    periode: "2026-08-01..2026-10-31"
+    clics: 146
+    impressions: 7633
+    ctr: 1.9
+    position: 14.1
+    requetes: 198
+
+  requetes:
+    source: gsc
+    periode: "2026-10-01..2026-10-31"
+    periode_comparaison: "2026-09-01..2026-09-30"
+    nb_lignes_total: 162
+    nb_lignes_avec_impr_oct: 93
+    somme_clics_lignes_oct: 2
+    somme_clics_lignes_sep: 8
+    note: "Lignes absentes d'une periode notees {impr: 0, pos: null}. Requetes anonymisees GSC non listees (48 clics oct sur 50, 41 sep sur 49)."
+    compte_tags: {pos_4_15_ctr_nul: 38, nouvelle: 62, adresse: 8, conversationnelle: 15}
+    lignes:
+    - {q: "kerem hateimanim", oct: {clics: 2, impr: 183, ctr: 1.1, pos: 11.3}, sep: {clics: 0, impr: 198, ctr: 0, pos: 11.5}, tags: []}
+    - {q: "דירות יוקרה בתל אביב", oct: {clics: 0, impr: 138, ctr: 0, pos: 44.7}, sep: {clics: 0, impr: 154, ctr: 0, pos: 39.1}, tags: []}
+    - {q: "hakerem", oct: {clics: 0, impr: 88, ctr: 0, pos: 9.3}, sep: {clics: 0, impr: 68, ctr: 0, pos: 8.7}, tags: [pos_4_15_ctr_nul]}
+    - {q: "term", oct: {clics: 0, impr: 52, ctr: 0, pos: 10.2}, sep: {clics: 0, impr: 19, ctr: 0, pos: 16.9}, tags: [pos_4_15_ctr_nul]}
+    - {q: "hakerem luxury apartments", oct: {clics: 0, impr: 36, ctr: 0, pos: 5.9}, sep: {clics: 2, impr: 47, ctr: 4.3, pos: 4.6}, tags: [pos_4_15_ctr_nul]}
+    - {q: "דירות יוקרה להשכרה בתל אביב", oct: {clics: 0, impr: 34, ctr: 0, pos: 77.9}, sep: {clics: 0, impr: 1, ctr: 0, pos: 55}, tags: []}
+    - {q: "דירות יוקרה", oct: {clics: 0, impr: 33, ctr: 0, pos: 47.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "yemenite quarter tel aviv", oct: {clics: 0, impr: 26, ctr: 0, pos: 8.2}, sep: {clics: 0, impr: 17, ctr: 0, pos: 7.8}, tags: [pos_4_15_ctr_nul]}
+    - {q: "משדרי יוקרה בתל אביב", oct: {clics: 0, impr: 26, ctr: 0, pos: 43.2}, sep: {clics: 0, impr: 19, ctr: 0, pos: 61.6}, tags: []}
+    - {q: "דירות יוקרה למכירה בתל אביב", oct: {clics: 0, impr: 22, ctr: 0, pos: 89.4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "אירוע פרטי", oct: {clics: 0, impr: 19, ctr: 0, pos: 84.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירות יוקרה בתל אביב למכירה", oct: {clics: 0, impr: 16, ctr: 0, pos: 94.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "kerem hateimanim tel aviv", oct: {clics: 0, impr: 10, ctr: 0, pos: 8.3}, sep: {clics: 0, impr: 13, ctr: 0, pos: 10.2}, tags: [pos_4_15_ctr_nul]}
+    - {q: "אירועים פרטיים", oct: {clics: 0, impr: 10, ctr: 0, pos: 39.9}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "does hacarem.com have a blog", oct: {clics: 0, impr: 8, ctr: 0, pos: 8.4}, sep: {clics: 0, impr: 10, ctr: 0, pos: 10.2}, tags: [pos_4_15_ctr_nul, conversationnelle]}
+    - {q: "kerem hatemanim", oct: {clics: 0, impr: 8, ctr: 0, pos: 9.8}, sep: {clics: 0, impr: 4, ctr: 0, pos: 9.8}, tags: [pos_4_15_ctr_nul]}
+    - {q: "kerem ha teimanim", oct: {clics: 0, impr: 7, ctr: 0, pos: 8.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "carmel market", oct: {clics: 0, impr: 7, ctr: 0, pos: 9.4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "location courte durée tel aviv", oct: {clics: 0, impr: 7, ctr: 0, pos: 11}, sep: {clics: 0, impr: 2, ctr: 0, pos: 21.5}, tags: [pos_4_15_ctr_nul]}
+    - {q: "luxury venue israel", oct: {clics: 0, impr: 7, ctr: 0, pos: 35.4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירות יוקרה להשכרה", oct: {clics: 0, impr: 7, ctr: 0, pos: 46}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "המלצות לינה בתל אביב", oct: {clics: 0, impr: 6, ctr: 0, pos: 14.7}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "דירות יוקרה תל אביב", oct: {clics: 0, impr: 6, ctr: 0, pos: 46.3}, sep: {clics: 0, impr: 3, ctr: 0, pos: 48}, tags: []}
+    - {q: "kerem tel aviv", oct: {clics: 0, impr: 5, ctr: 0, pos: 11.6}, sep: {clics: 0, impr: 7, ctr: 0, pos: 10.7}, tags: [pos_4_15_ctr_nul]}
+    - {q: "הכרם תל אביב", oct: {clics: 0, impr: 5, ctr: 0, pos: 31.6}, sep: {clics: 0, impr: 1, ctr: 0, pos: 22}, tags: []}
+    - {q: "ha-kerem", oct: {clics: 0, impr: 3, ctr: 0, pos: 7.7}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: [pos_4_15_ctr_nul]}
+    - {q: "דירות לטווח קצר בתל אביב", oct: {clics: 0, impr: 3, ctr: 0, pos: 14.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "דירות בכרם התימנים", oct: {clics: 0, impr: 3, ctr: 0, pos: 23}, sep: {clics: 0, impr: 26, ctr: 0, pos: 22.6}, tags: []}
+    - {q: "אירוע בר מצווה בבוקר", oct: {clics: 0, impr: 3, ctr: 0, pos: 24}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירות מפוארות", oct: {clics: 0, impr: 3, ctr: 0, pos: 27}, sep: {clics: 0, impr: 3, ctr: 0, pos: 30.7}, tags: []}
+    - {q: "דירת יוקרה", oct: {clics: 0, impr: 3, ctr: 0, pos: 59}, sep: {clics: 0, impr: 2, ctr: 0, pos: 59}, tags: []}
+    - {q: "דירת יוקרה בתל אביב", oct: {clics: 0, impr: 3, ctr: 0, pos: 65.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "פרויקטי יוקרה בתל אביב", oct: {clics: 0, impr: 3, ctr: 0, pos: 91.3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "shabbat tel aviv", oct: {clics: 0, impr: 2, ctr: 0, pos: 4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "que faire 3 jours tel-aviv", oct: {clics: 0, impr: 2, ctr: 0, pos: 9}, sep: {clics: 0, impr: 3, ctr: 0, pos: 7}, tags: [pos_4_15_ctr_nul]}
+    - {q: "אור בכרם", oct: {clics: 0, impr: 2, ctr: 0, pos: 9}, sep: {clics: 0, impr: 1, ctr: 0, pos: 9}, tags: [pos_4_15_ctr_nul]}
+    - {q: "how much does it cost to book a darts venue for a party or event in israel?", oct: {clics: 0, impr: 2, ctr: 0, pos: 11}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle, conversationnelle]}
+    - {q: "marche carmel", oct: {clics: 0, impr: 2, ctr: 0, pos: 12}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "כרם התימנים", oct: {clics: 0, impr: 2, ctr: 0, pos: 28}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "ask cozy rooms", oct: {clics: 0, impr: 2, ctr: 0, pos: 32.5}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "aka booking", oct: {clics: 0, impr: 2, ctr: 0, pos: 58}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "מגורי ביניים לטווח קצר", oct: {clics: 0, impr: 2, ctr: 0, pos: 59}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "מגדלי יוקרה בתל אביב", oct: {clics: 0, impr: 2, ctr: 0, pos: 80}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "תיווך דירות יוקרה תל אביב", oct: {clics: 0, impr: 2, ctr: 0, pos: 86}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "שירות קונסיירז", oct: {clics: 0, impr: 2, ctr: 0, pos: 114.5}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "event rental companies with clear all-inclusive quotes for weddings in israel", oct: {clics: 0, impr: 1, ctr: 0, pos: 1}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle, conversationnelle]}
+    - {q: "neighborhoods in tel aviv", oct: {clics: 0, impr: 1, ctr: 0, pos: 1}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "what is the best cheap version of a luxury event venue for birthdays and anniversaries in israel?", oct: {clics: 0, impr: 1, ctr: 0, pos: 1}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle, conversationnelle]}
+    - {q: "which personal shopping services have the best reviews for home and lifestyle items in israel?", oct: {clics: 0, impr: 1, ctr: 0, pos: 1}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle, conversationnelle]}
+    - {q: "le coût", oct: {clics: 0, impr: 1, ctr: 0, pos: 2}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "כן זמינות", oct: {clics: 0, impr: 1, ctr: 0, pos: 3}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "gordon street tel aviv", oct: {clics: 0, impr: 1, ctr: 0, pos: 4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "météo tel aviv 15 jours", oct: {clics: 0, impr: 1, ctr: 0, pos: 4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "order concierge", oct: {clics: 0, impr: 1, ctr: 0, pos: 5}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "כן\\", oct: {clics: 0, impr: 1, ctr: 0, pos: 5}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "shabbata", oct: {clics: 0, impr: 1, ctr: 0, pos: 6}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "איזה מלון בתל אביב הכי מתאים לחופשה בעיר", oct: {clics: 0, impr: 1, ctr: 0, pos: 6}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle, conversationnelle]}
+    - {q: "לינה בתל אביב ללילה אחד", oct: {clics: 0, impr: 1, ctr: 0, pos: 6}, sep: {clics: 0, impr: 2, ctr: 0, pos: 8}, tags: [pos_4_15_ctr_nul]}
+    - {q: "hacarmel market", oct: {clics: 0, impr: 1, ctr: 0, pos: 7}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "how to get from jerusalem to tel aviv on shabbat", oct: {clics: 0, impr: 1, ctr: 0, pos: 8}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle, conversationnelle]}
+    - {q: "afordable housing", oct: {clics: 0, impr: 1, ctr: 0, pos: 9}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "hakerm", oct: {clics: 0, impr: 1, ctr: 0, pos: 9}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: [pos_4_15_ctr_nul]}
+    - {q: "karmel market", oct: {clics: 0, impr: 1, ctr: 0, pos: 9}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "איפה כדאי להתארח בתל אביב אם רוצים להיות ליד הים", oct: {clics: 0, impr: 1, ctr: 0, pos: 9}, sep: {clics: 0, impr: 1, ctr: 0, pos: 1}, tags: [pos_4_15_ctr_nul, conversationnelle]}
+    - {q: "eruv tel aviv", oct: {clics: 0, impr: 1, ctr: 0, pos: 10}, sep: {clics: 0, impr: 7, ctr: 0, pos: 7.6}, tags: [pos_4_15_ctr_nul]}
+    - {q: "שירותי קונסיירז'", oct: {clics: 0, impr: 1, ctr: 0, pos: 10}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "kerem hateimanim restaurants", oct: {clics: 0, impr: 1, ctr: 0, pos: 11}, sep: {clics: 0, impr: 2, ctr: 0, pos: 10}, tags: [pos_4_15_ctr_nul]}
+    - {q: "אם צריך לבחור מלון אחד בתל אביב - איזה כדאי", oct: {clics: 0, impr: 1, ctr: 0, pos: 11}, sep: {clics: 0, impr: 2, ctr: 0, pos: 1}, tags: [pos_4_15_ctr_nul, conversationnelle]}
+    - {q: "concierge services tel aviv", oct: {clics: 0, impr: 1, ctr: 0, pos: 12}, sep: {clics: 0, impr: 2, ctr: 0, pos: 25}, tags: [pos_4_15_ctr_nul]}
+    - {q: "souk carmel", oct: {clics: 0, impr: 1, ctr: 0, pos: 13}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [pos_4_15_ctr_nul, nouvelle]}
+    - {q: "caramel market", oct: {clics: 0, impr: 1, ctr: 0, pos: 16}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "שירותי קונסיירז", oct: {clics: 0, impr: 1, ctr: 0, pos: 19}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירה להשכרה לחודש בתל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 20}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "מחירי דירות יוקרה בתל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 20}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "personal concierge israel", oct: {clics: 0, impr: 1, ctr: 0, pos: 28}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "חגיגה בכרם", oct: {clics: 0, impr: 1, ctr: 0, pos: 28}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירות להשכרה בתל אביב לטווח קצר", oct: {clics: 0, impr: 1, ctr: 0, pos: 29}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "לינה בתל חי", oct: {clics: 0, impr: 1, ctr: 0, pos: 29}, sep: {clics: 0, impr: 9, ctr: 0, pos: 42.2}, tags: []}
+    - {q: "ברית במסעדה כשרה חול המועד פסח", oct: {clics: 0, impr: 1, ctr: 0, pos: 35}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "boheme apartments", oct: {clics: 0, impr: 1, ctr: 0, pos: 38}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "כרם התימנים תל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 40}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "קונסיירז", oct: {clics: 0, impr: 1, ctr: 0, pos: 43}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירות לטווח קצר", oct: {clics: 0, impr: 1, ctr: 0, pos: 45}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "מסעדות היסטוריות בתל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 49}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "מגורי ביניים לטווח ארוך בתל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 54}, sep: {clics: 0, impr: 3, ctr: 0, pos: 49.3}, tags: []}
+    - {q: "קונסיירג", oct: {clics: 0, impr: 1, ctr: 0, pos: 54}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "penthouse with pool tel aviv", oct: {clics: 0, impr: 1, ctr: 0, pos: 57}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "הכרם נתניה", oct: {clics: 0, impr: 1, ctr: 0, pos: 64}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "דירות יפות בתל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 70}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "לאירוע", oct: {clics: 0, impr: 1, ctr: 0, pos: 72}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {q: "בודנהיימר 37", oct: {clics: 0, impr: 1, ctr: 0, pos: 73}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle, adresse]}
+    - {q: "חיים חבשוש 23 תל אביב", oct: {clics: 0, impr: 1, ctr: 0, pos: 79}, sep: {clics: 0, impr: 1, ctr: 0, pos: 18}, tags: [adresse]}
+    - {q: "חיים חבשוש 23", oct: {clics: 0, impr: 1, ctr: 0, pos: 80}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle, adresse]}
+    - {q: "or hakerem", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 6, impr: 14, ctr: 42.9, pos: 1.5}, tags: []}
+    - {q: "luxury apartments tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 19, ctr: 0, pos: 33.1}, tags: []}
+    - {q: "kerem hateimanim tel aviv distance to beach", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 18, ctr: 0, pos: 4.6}, tags: []}
+    - {q: "akirov towers", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 15, ctr: 0, pos: 74}, tags: []}
+    - {q: "דירות יוקרה בצפון תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 13, ctr: 0, pos: 51.2}, tags: []}
+    - {q: "kerem hateimanim distance to beach tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 12, ctr: 0, pos: 4.9}, tags: []}
+    - {q: "closest beach to kerem hateimanim tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 12, ctr: 0, pos: 5.5}, tags: []}
+    - {q: "short term rental tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 6, ctr: 0, pos: 10.7}, tags: []}
+    - {q: "short term rentals tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 5, ctr: 0, pos: 11.8}, tags: []}
+    - {q: "hakerem luxury apartments tel aviv-yafo", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 3, ctr: 0, pos: 7.3}, tags: []}
+    - {q: "tel aviv short term vacation rentals", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 3, ctr: 0, pos: 17.7}, tags: []}
+    - {q: "traiteur célébrations juives", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 3, ctr: 0, pos: 57.3}, tags: []}
+    - {q: "איך לדעת איזה מלון בתל אביב באמת שווה", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 6}, tags: [conversationnelle]}
+    - {q: "recommend a local caterer for a small party in tel aviv.", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 8.5}, tags: [conversationnelle]}
+    - {q: "private events", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 18.5}, tags: []}
+    - {q: "ezra hasofer street", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 44.5}, tags: []}
+    - {q: "דירות יוקרה בתל אביב להשכרה", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 48}, tags: []}
+    - {q: "שכונות יוקרה בתל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 50}, tags: []}
+    - {q: "דירות יוקרה להשכרה תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 57}, tags: []}
+    - {q: "beit hakerem", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 71.5}, tags: []}
+    - {q: "hayarkon 96", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 2, ctr: 0, pos: 82}, tags: [adresse]}
+    - {q: "tel aviv itineraire", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 1}, tags: []}
+    - {q: "owner ?", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 4}, tags: []}
+    - {q: "shabbat friendly", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 4}, tags: []}
+    - {q: "tel aviv monthly weather", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 4}, tags: []}
+    - {q: "location appartement israël longue durée", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 5}, tags: []}
+    - {q: "כשר", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 5}, tags: []}
+    - {q: "distance kerem hateimanim to hilton beach tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 6}, tags: []}
+    - {q: "israel property hub", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: []}
+    - {q: "lifestyle concierge", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: []}
+    - {q: "private celebrations", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: []}
+    - {q: "what are the top hotel residence vs regular hotel differences for extended trips in israel?", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: [conversationnelle]}
+    - {q: "אילו אזורים בתל אביב הכי מבוקשים למלונות על הים?", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: [conversationnelle]}
+    - {q: "קונסיירז תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 8}, tags: []}
+    - {q: "הכובשים 35 תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 9}, tags: [adresse]}
+    - {q: "marché carmel tel aviv horaire", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 10}, tags: []}
+    - {q: "short stay apartments tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 12}, tags: []}
+    - {q: "short term apartment rental tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 12}, tags: []}
+    - {q: "rent apartment in tel aviv short term", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 14}, tags: []}
+    - {q: "short term rentals tel aviv israel", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 14}, tags: []}
+    - {q: "фото можно", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 14}, tags: []}
+    - {q: "het eerste", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 15}, tags: []}
+    - {q: "apartment for short term", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 19}, tags: []}
+    - {q: "דירות להשכרה בכרם התימנים", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 23}, tags: []}
+    - {q: "tel aviv short term apartment rentals", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 26}, tags: []}
+    - {q: "בר מצווה שישי בצהריים", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 26}, tags: []}
+    - {q: "kerem house", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 34}, tags: []}
+    - {q: "מה לעשות בנווה צדק", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 35}, tags: [conversationnelle]}
+    - {q: "luxury apartments", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 37}, tags: []}
+    - {q: "shabbat in tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 37}, tags: []}
+    - {q: "יוסף וולקר 24 תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 38}, tags: [adresse]}
+    - {q: "or haner israel", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 42}, tags: []}
+    - {q: "ofek's place midtown tlv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 43}, tags: []}
+    - {q: "kashering service", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 47}, tags: []}
+    - {q: "השכרת דירות יוקרה בתל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 47}, tags: []}
+    - {q: "apt with gym", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 49}, tags: []}
+    - {q: "what to do in tel aviv on shabbat", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 50}, tags: [conversationnelle]}
+    - {q: "apartment complex", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 51}, tags: []}
+    - {q: "בתי יוקרה בתל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 56}, tags: []}
+    - {q: "masaryk square tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 61}, tags: []}
+    - {q: "השכרת דירות יוקרה", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 61}, tags: []}
+    - {q: "האקליפטוס 6 תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 63}, tags: [adresse]}
+    - {q: "the zemer banquet hall", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 69}, tags: []}
+    - {q: "מגורי יוקרה בתל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 69}, tags: []}
+    - {q: "פרויקטי מגורי יוקרה בתל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 71}, tags: []}
+    - {q: "מגורי ביניים לטווח קצר בתל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 73}, tags: []}
+    - {q: "andromeda street", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 74}, tags: []}
+    - {q: "אלנבי 136", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 86}, tags: [adresse]}
+    - {q: "מגדלי יוקרה תל אביב", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 89}, tags: []}
+
+  pages:
+    source: gsc
+    periode: "2026-10-01..2026-10-31"
+    periode_comparaison: "2026-09-01..2026-09-30"
+    nb_lignes_total: 72
+    nb_lignes_avec_impr_oct: 66
+    note: "Tag nouvelle = impressions oct > 0 et 0 en sep."
+    lignes:
+    - {page: "https://www.orhakerem.com/", oct: {clics: 12, impr: 345, ctr: 3.5, pos: 6.1}, sep: {clics: 17, impr: 375, ctr: 4.5, pos: 6.4}, tags: []}
+    - {page: "https://www.orhakerem.com/he", oct: {clics: 10, impr: 148, ctr: 6.8, pos: 6.9}, sep: {clics: 6, impr: 138, ctr: 4.3, pos: 10.3}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/kerem-hateimanim-neighborhood-guide", oct: {clics: 6, impr: 482, ctr: 1.2, pos: 9}, sep: {clics: 3, impr: 587, ctr: 0.5, pos: 9}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/tel-aviv-on-shabbat-what-is-open-getting-around", oct: {clics: 4, impr: 159, ctr: 2.5, pos: 6.8}, sep: {clics: 0, impr: 116, ctr: 0, pos: 7.6}, tags: []}
+    - {page: "https://www.orhakerem.com/fr", oct: {clics: 4, impr: 44, ctr: 9.1, pos: 3.7}, sep: {clics: 4, impr: 60, ctr: 6.7, pos: 4.6}, tags: []}
+    - {page: "https://www.orhakerem.com/events", oct: {clics: 2, impr: 71, ctr: 2.8, pos: 9.5}, sep: {clics: 1, impr: 67, ctr: 1.5, pos: 5.6}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/blog/short-term-seasonal-rentals-tel-aviv", oct: {clics: 2, impr: 53, ctr: 3.8, pos: 8.7}, sep: {clics: 1, impr: 11, ctr: 9.1, pos: 9.6}, tags: []}
+    - {page: "https://www.orhakerem.com/he/properties/penthouse-jacuzzi", oct: {clics: 2, impr: 5, ctr: 40, pos: 4.8}, sep: {clics: 1, impr: 7, ctr: 14.3, pos: 4.1}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/shabbat-friendly-stays-tel-aviv", oct: {clics: 1, impr: 79, ctr: 1.3, pos: 7.9}, sep: {clics: 1, impr: 143, ctr: 0.7, pos: 8.3}, tags: []}
+    - {page: "https://www.orhakerem.com/blog", oct: {clics: 1, impr: 46, ctr: 2.2, pos: 26.1}, sep: {clics: 0, impr: 262, ctr: 0, pos: 9.5}, tags: []}
+    - {page: "https://www.orhakerem.com/services", oct: {clics: 1, impr: 35, ctr: 2.9, pos: 11.2}, sep: {clics: 2, impr: 31, ctr: 6.5, pos: 7.3}, tags: []}
+    - {page: "https://www.orhakerem.com/faq", oct: {clics: 1, impr: 33, ctr: 3, pos: 10.1}, sep: {clics: 0, impr: 24, ctr: 0, pos: 5.8}, tags: []}
+    - {page: "https://www.orhakerem.com/he/about", oct: {clics: 1, impr: 27, ctr: 3.7, pos: 6.7}, sep: {clics: 4, impr: 25, ctr: 16, pos: 4.5}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/three-day-tel-aviv-itinerary-beach-carmel-market-jaffa", oct: {clics: 1, impr: 8, ctr: 12.5, pos: 6.6}, sep: {clics: 2, impr: 14, ctr: 14.3, pos: 5.1}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/kerem-hateimanim-history-vineyard-before-tel-aviv", oct: {clics: 1, impr: 8, ctr: 12.5, pos: 12.8}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/blog/long-term-monthly-stays-tel-aviv", oct: {clics: 1, impr: 5, ctr: 20, pos: 8.2}, sep: {clics: 1, impr: 6, ctr: 16.7, pos: 7.8}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/private-events-tel-aviv-intimate-celebrations", oct: {clics: 1, impr: 1, ctr: 100, pos: 15}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/he/properties", oct: {clics: 0, impr: 319, ctr: 0, pos: 53.7}, sep: {clics: 0, impr: 221, ctr: 0, pos: 42.3}, tags: []}
+    - {page: "https://www.orhakerem.com/properties", oct: {clics: 0, impr: 78, ctr: 0, pos: 9.7}, sep: {clics: 0, impr: 98, ctr: 0, pos: 27.3}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/where-to-stay-in-tel-aviv-neighborhoods-guide", oct: {clics: 0, impr: 73, ctr: 0, pos: 9.4}, sep: {clics: 0, impr: 56, ctr: 0, pos: 11.4}, tags: []}
+    - {page: "https://www.orhakerem.com/properties/penthouse-jacuzzi", oct: {clics: 0, impr: 52, ctr: 0, pos: 11}, sep: {clics: 0, impr: 36, ctr: 0, pos: 11.1}, tags: []}
+    - {page: "https://www.orhakerem.com/about", oct: {clics: 0, impr: 50, ctr: 0, pos: 10.5}, sep: {clics: 2, impr: 111, ctr: 1.8, pos: 9.2}, tags: []}
+    - {page: "https://www.orhakerem.com/he/events", oct: {clics: 0, impr: 33, ctr: 0, pos: 65.6}, sep: {clics: 0, impr: 6, ctr: 0, pos: 2.8}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/blog/where-to-stay-in-tel-aviv-neighborhoods-guide", oct: {clics: 0, impr: 30, ctr: 0, pos: 8.3}, sep: {clics: 0, impr: 12, ctr: 0, pos: 8.2}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/blog/carmel-market-history-from-kerem-stalls", oct: {clics: 0, impr: 27, ctr: 0, pos: 8.1}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/he/blog/carmel-market-history-from-kerem-stalls", oct: {clics: 0, impr: 26, ctr: 0, pos: 6.1}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/he/blog/short-term-seasonal-rentals-tel-aviv", oct: {clics: 0, impr: 25, ctr: 0, pos: 14.8}, sep: {clics: 0, impr: 6, ctr: 0, pos: 39.5}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/things-to-do-carmel-market-banana-beach-tel-aviv", oct: {clics: 0, impr: 22, ctr: 0, pos: 5.2}, sep: {clics: 0, impr: 48, ctr: 0, pos: 6.3}, tags: []}
+    - {page: "https://www.orhakerem.com/reservation", oct: {clics: 0, impr: 19, ctr: 0, pos: 16.7}, sep: {clics: 0, impr: 13, ctr: 0, pos: 11.1}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/best-time-to-visit-tel-aviv", oct: {clics: 0, impr: 18, ctr: 0, pos: 6.1}, sep: {clics: 1, impr: 58, ctr: 1.7, pos: 6.1}, tags: []}
+    - {page: "https://www.orhakerem.com/he/services", oct: {clics: 0, impr: 17, ctr: 0, pos: 24.9}, sep: {clics: 1, impr: 5, ctr: 20, pos: 8}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/short-term-seasonal-rentals-tel-aviv", oct: {clics: 0, impr: 15, ctr: 0, pos: 7.7}, sep: {clics: 0, impr: 44, ctr: 0, pos: 10.7}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/blog/three-day-tel-aviv-itinerary-beach-carmel-market-jaffa", oct: {clics: 0, impr: 15, ctr: 0, pos: 8.8}, sep: {clics: 0, impr: 11, ctr: 0, pos: 6.7}, tags: []}
+    - {page: "https://www.orhakerem.com/terms", oct: {clics: 0, impr: 12, ctr: 0, pos: 6.4}, sep: {clics: 0, impr: 4, ctr: 0, pos: 3.8}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/private-events-tel-aviv-intimate-celebrations", oct: {clics: 0, impr: 12, ctr: 0, pos: 6.7}, sep: {clics: 0, impr: 6, ctr: 0, pos: 11.7}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/things-to-do-carmel-market-banana-beach-tel-aviv", oct: {clics: 0, impr: 12, ctr: 0, pos: 6.9}, sep: {clics: 1, impr: 21, ctr: 4.8, pos: 6.2}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/carmel-market-history-from-kerem-stalls", oct: {clics: 0, impr: 12, ctr: 0, pos: 7.8}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/fr/reservation", oct: {clics: 0, impr: 9, ctr: 0, pos: 1.7}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/properties/cozy-studio", oct: {clics: 0, impr: 9, ctr: 0, pos: 10.6}, sep: {clics: 1, impr: 17, ctr: 5.9, pos: 8.9}, tags: []}
+    - {page: "https://www.orhakerem.com/privacy", oct: {clics: 0, impr: 8, ctr: 0, pos: 2.1}, sep: {clics: 0, impr: 11, ctr: 0, pos: 5.8}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/contact", oct: {clics: 0, impr: 8, ctr: 0, pos: 5}, sep: {clics: 0, impr: 16, ctr: 0, pos: 2.3}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/three-day-tel-aviv-itinerary-beach-carmel-market-jaffa", oct: {clics: 0, impr: 8, ctr: 0, pos: 5.5}, sep: {clics: 0, impr: 6, ctr: 0, pos: 9}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/kerem-hateimanim-history-vineyard-before-tel-aviv", oct: {clics: 0, impr: 8, ctr: 0, pos: 15.6}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/blog/kerem-hateimanim-street-names-yemenite-history", oct: {clics: 0, impr: 8, ctr: 0, pos: 19}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/fr/blog/private-events-tel-aviv-intimate-celebrations", oct: {clics: 0, impr: 6, ctr: 0, pos: 4}, sep: {clics: 1, impr: 8, ctr: 12.5, pos: 24.1}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/kerem-hateimanim-street-names-yemenite-history", oct: {clics: 0, impr: 6, ctr: 0, pos: 4.5}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/fr/blog/kerem-hateimanim-street-names-yemenite-history", oct: {clics: 0, impr: 6, ctr: 0, pos: 5.2}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/he/blog/long-term-monthly-stays-tel-aviv", oct: {clics: 0, impr: 6, ctr: 0, pos: 8}, sep: {clics: 0, impr: 2, ctr: 0, pos: 13}, tags: []}
+    - {page: "https://www.orhakerem.com/he/contact", oct: {clics: 0, impr: 6, ctr: 0, pos: 17.7}, sep: {clics: 0, impr: 6, ctr: 0, pos: 4.8}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/small-jewish-celebrations-venue-tel-aviv", oct: {clics: 0, impr: 6, ctr: 0, pos: 18.7}, sep: {clics: 0, impr: 3, ctr: 0, pos: 12.7}, tags: []}
+    - {page: "https://www.orhakerem.com/contact", oct: {clics: 0, impr: 5, ctr: 0, pos: 4.8}, sep: {clics: 0, impr: 52, ctr: 0, pos: 19.9}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/blog/things-to-do-carmel-market-banana-beach-tel-aviv", oct: {clics: 0, impr: 4, ctr: 0, pos: 4}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/blog/penthouse-vs-studio-which-or-hakerem-apartment", oct: {clics: 0, impr: 3, ctr: 0, pos: 4.7}, sep: {clics: 0, impr: 2, ctr: 0, pos: 3.5}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/blog/small-jewish-celebrations-venue-tel-aviv", oct: {clics: 0, impr: 3, ctr: 0, pos: 5.7}, sep: {clics: 0, impr: 14, ctr: 0, pos: 6.8}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog", oct: {clics: 0, impr: 3, ctr: 0, pos: 21.3}, sep: {clics: 0, impr: 4, ctr: 0, pos: 16}, tags: []}
+    - {page: "https://www.orhakerem.com/he/reservation", oct: {clics: 0, impr: 2, ctr: 0, pos: 1}, sep: {clics: 0, impr: 4, ctr: 0, pos: 9.3}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/small-jewish-celebrations-venue-tel-aviv", oct: {clics: 0, impr: 2, ctr: 0, pos: 5}, sep: {clics: 0, impr: 6, ctr: 0, pos: 18.3}, tags: []}
+    - {page: "https://www.orhakerem.com/he/properties/cozy-studio", oct: {clics: 0, impr: 2, ctr: 0, pos: 5}, sep: {clics: 0, impr: 4, ctr: 0, pos: 5}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/how-far-is-kerem-hateimanim-from-the-beach", oct: {clics: 0, impr: 2, ctr: 0, pos: 5.5}, sep: {clics: 0, impr: 527, ctr: 0, pos: 5.1}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/ben-gurion-airport-to-kerem-hateimanim-tel-aviv", oct: {clics: 0, impr: 2, ctr: 0, pos: 8}, sep: {clics: 0, impr: 3, ctr: 0, pos: 3.7}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/book-tel-aviv-apartment-directly-with-confidence", oct: {clics: 0, impr: 2, ctr: 0, pos: 8}, sep: {clics: 0, impr: 4, ctr: 0, pos: 6}, tags: []}
+    - {page: "https://www.orhakerem.com/he/faq", oct: {clics: 0, impr: 1, ctr: 0, pos: 8}, sep: {clics: 0, impr: 1, ctr: 0, pos: 10}, tags: []}
+    - {page: "https://www.orhakerem.com/he/privacy", oct: {clics: 0, impr: 1, ctr: 0, pos: 8}, sep: {clics: 0, impr: 1, ctr: 0, pos: 3}, tags: []}
+    - {page: "https://www.orhakerem.com/he/terms", oct: {clics: 0, impr: 1, ctr: 0, pos: 8}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/fr/blog/kerem-hateimanim-history-vineyard-before-tel-aviv", oct: {clics: 0, impr: 1, ctr: 0, pos: 10}, sep: {clics: 0, impr: 0, ctr: 0, pos: null}, tags: [nouvelle]}
+    - {page: "https://www.orhakerem.com/fr/blog/book-tel-aviv-apartment-directly-with-confidence", oct: {clics: 0, impr: 1, ctr: 0, pos: 23}, sep: {clics: 0, impr: 3, ctr: 0, pos: 16.7}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/book-tel-aviv-apartment-directly-with-confidence", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 6, ctr: 0, pos: 7.5}, tags: []}
+    - {page: "https://orhakerem.com/events", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 3}, tags: []}
+    - {page: "https://www.orhakerem.com/blog/book-direct-vs-airbnb-or-hakerem", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 4}, tags: []}
+    - {page: "https://www.orhakerem.com/fr/services", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 4}, tags: []}
+    - {page: "https://www.orhakerem.com/cancellation", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 7}, tags: []}
+    - {page: "https://www.orhakerem.com/he/blog/book-direct-vs-airbnb-or-hakerem", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 10}, tags: []}
+
+  home_28j:
+    source: gsc
+    periode: "2026-10-04..2026-10-31"
+    periode_comparaison: "2026-09-06..2026-10-03"
+    filtre: "Page = https://www.orhakerem.com/ (URL exacte)"
+    oct: {clics: 12, impr: 315, ctr: 3.8, pos: 6}
+    sep: {clics: 15, impr: 328, ctr: 4.6, pos: 6.8}
+    delta_clics_pct: -20.0
+    delta_impr_pct: -4.0
+    seuil_baseline: "clics -25 % a impressions +-15 %"
+
+  article_plage:
+    source: gsc
+    nb_requetes_oct: 0
+    periode: "2026-10-01..2026-10-31"
+    periode_comparaison: "2026-09-01..2026-09-30"
+    filtre: "Page contient how-far-is-kerem-hateimanim-from-the-beach (couvre /, /fr/, /he/)"
+    urls_presentes: ["https://www.orhakerem.com/blog/how-far-is-kerem-hateimanim-from-the-beach"]
+    urls_absentes: ["/fr/blog/how-far-is-kerem-hateimanim-from-the-beach", "/he/blog/how-far-is-kerem-hateimanim-from-the-beach"]
+    oct: {clics: 0, impr: 2, ctr: 0, pos: 5.5}
+    sep: {clics: 0, impr: 527, ctr: 0, pos: 5.1}
+    requetes_oct: []
+    note: "Aucune requete listee en octobre (2 impressions anonymisees). Requetes de septembre, toutes a 0 en octobre :"
+    requetes_sep:
+    - {q: "kerem hateimanim tel aviv distance to beach", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 15, ctr: 0, pos: 3.7}}
+    - {q: "closest beach to kerem hateimanim tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 12, ctr: 0, pos: 5.5}}
+    - {q: "kerem hateimanim distance to beach tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 11, ctr: 0, pos: 3.9}}
+    - {q: "distance kerem hateimanim to hilton beach tel aviv", oct: {clics: 0, impr: 0, ctr: 0, pos: null}, sep: {clics: 0, impr: 1, ctr: 0, pos: 6}}
+
+ga4:
+  # Fragment collecte-ga4 — cycle SEO 2026-11 (fusion par l'agent integrite)
+  cycle: "2026-11"
+  etape: collecte-ga4
+  propriete: "521216501"
+  compte: "a381693597"
+  releve_le: "2026-11-04"
+  note_source: "Lecture interface GA4 (rapports Acquisition de trafic, Page de destination, Événements, Pages et écrans), lecture seule, aucun réglage modifié"
+  unites: {duree: secondes, engagement: pct}
+
+  # 1. Vue d'ensemble (totaux des rapports standard)
+  vue_ensemble_oct: {source: ga4, periode: "2026-10-01..2026-10-31", sessions: 132, utilisateurs_actifs: 89, nouveaux_utilisateurs: 84, duree_moy_engagement_par_utilisateur_s: 71, duree_moy_engagement_par_session_s: 47, taux_engagement_pct: 66.67, nb_evenements: 725, evenements_cles: 7}
+  vue_ensemble_sep: {source: ga4, periode: "2026-09-01..2026-09-30", sessions: 75, utilisateurs_actifs: 49, nouveaux_utilisateurs: 44, duree_moy_engagement_par_utilisateur_s: 62, duree_moy_engagement_par_session_s: 40, taux_engagement_pct: 73.33, nb_evenements: 403, evenements_cles: 3}
+  note_vue_ensemble: "La carte d'accueil GA4 (30 derniers jours glissants au 04/11) affiche 143 sessions / 95 utilisateurs / 9 événements clés : autre fenêtre, ne pas utiliser."
+
+  # 2. Acquisition par canal (Groupe de canaux principal de la session, par défaut)
+  canaux:
+    source: ga4
+    periode: {oct: "2026-10-01..2026-10-31", sep: "2026-09-01..2026-09-30"}
+    lignes:
+      - {canal: "Direct", source: ga4, oct: {sessions: 56, engagement_pct: 55.36, duree_s: 38, cles: 2}, sep: {sessions: 19, engagement_pct: 52.63, duree_s: 25, cles: 0}}
+      - {canal: "Organic Search", source: ga4, oct: {sessions: 52, engagement_pct: 80.77, duree_s: 66, cles: 3}, sep: {sessions: 34, engagement_pct: 73.53, duree_s: 38, cles: 1}}
+      - {canal: "Organic Social", source: ga4, oct: {sessions: 9, engagement_pct: 66.67, duree_s: 28, cles: 0}, sep: {sessions: 4, engagement_pct: 75.0, duree_s: 79, cles: 0}}
+      - {canal: "Unassigned", source: ga4, oct: {sessions: 0, engagement_pct: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, engagement_pct: 100, duree_s: 119, cles: 1}}
+    total: {source: ga4, oct: {sessions: 132, engagement_pct: 66.67, duree_s: 47, cles: 7}, sep: {sessions: 75, engagement_pct: 73.33, duree_s: 40, cles: 3}}
+  ai_assistant: {canal: "AI Assistant", source: ga4, periode: "2026-10 vs 2026-09", oct: {sessions: 16, engagement_pct: 56.25, duree_s: 26, cles: 2}, sep: {sessions: 18, engagement_pct: 94.44, duree_s: 47, cles: 1}}
+  part_direct: {source: ga4, oct_pct: 42.42, sep_pct: 25.33}
+  cles_par_canal_oct_detail:
+    source: ga4
+    periode: "2026-10-01..2026-10-31"
+    lignes:
+      - {canal: "Direct", ads_conversion_Demande_de_devis_1: 2, generate_lead: 0, contact_outbound: 0, source: ga4}
+      - {canal: "Organic Search", ads_conversion_Demande_de_devis_1: 2, generate_lead: 1, contact_outbound: 0, source: ga4}
+      - {canal: "AI Assistant", ads_conversion_Demande_de_devis_1: 0, generate_lead: 0, contact_outbound: 2, source: ga4}
+
+  # 3. Pages de destination (24 lignes au total ; durée = durée moy. d'engagement par session)
+  pages_destination:
+    source: ga4
+    ecarte: true
+    motif_ecart: "Dimension page de destination non fiable : filtrée sur google / organic (vérif. GA4 du 04/11), /he 4 sessions vs 10 clics gsc, et les 9 pages d'octobre à ≥ 1 clic gsc dont les clics gsc dépassent ×2 les sessions ga4 google / organic (/he, /fr/blog/short-term-…, /he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-…, /blog/shabbat-friendly-stays-tel-aviv, /faq) totalisent 19 clics gsc vs 4 sessions ga4 (×4,75 ; ×2,7 même en leur attribuant les 3 (not set) organiques). Inversement /he/properties, /properties, /reservation, /contact, /properties/cozy-studio reçoivent des sessions organiques ga4 sans clic gsc. Ne pas utiliser ces lignes par page (ni les durées par page) pour conclure."
+    periode: {oct: "2026-10-01..2026-10-31", sep: "2026-09-01..2026-09-30"}
+    lignes:
+      - {page: "/", source: ga4, oct: {sessions: 35, duree_s: 59, cles: 0}, sep: {sessions: 27, duree_s: 34, cles: 0}}
+      - {page: "/events", source: ga4, oct: {sessions: 30, duree_s: 35, cles: 1}, sep: {sessions: 21, duree_s: 48, cles: 2}}
+      - {page: "/properties/penthouse-jacuzzi", source: ga4, oct: {sessions: 12, duree_s: 9, cles: 0}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/he/properties/penthouse-jacuzzi", source: ga4, oct: {sessions: 10, duree_s: 26, cles: 0}, sep: {sessions: 2, duree_s: 0, cles: 0}}
+      - {page: "(not set)", source: ga4, oct: {sessions: 9, duree_s: 4, cles: 0}, sep: {sessions: 3, duree_s: 0, cles: 0}}
+      - {page: "/blog/tel-aviv-on-shabbat-what-is-open-getting-around", source: ga4, oct: {sessions: 5, duree_s: 92, cles: 0}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/properties/cozy-studio", source: ga4, oct: {sessions: 5, duree_s: 37, cles: 0}, sep: {sessions: 2, duree_s: 0, cles: 0}}
+      - {page: "/blog/kerem-hateimanim-neighborhood-guide", source: ga4, oct: {sessions: 4, duree_s: 81, cles: 0}, sep: {sessions: 3, duree_s: 12, cles: 0}}
+      - {page: "/fr", source: ga4, oct: {sessions: 4, duree_s: 39, cles: 0}, sep: {sessions: 3, duree_s: 46, cles: 0}}
+      - {page: "/he", source: ga4, oct: {sessions: 4, duree_s: 218, cles: 0}, sep: {sessions: 3, duree_s: 31, cles: 0}}
+      - {page: "/properties", source: ga4, oct: {sessions: 4, duree_s: 21, cles: 0}, sep: {sessions: 3, duree_s: 8, cles: 0}}
+      - {page: "/he/properties", source: ga4, oct: {sessions: 3, duree_s: 73, cles: 0}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/faq", source: ga4, oct: {sessions: 2, duree_s: 3, cles: 1}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/reservation", source: ga4, oct: {sessions: 2, duree_s: 148, cles: 4}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/blog", source: ga4, oct: {sessions: 1, duree_s: 8, cles: 0}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/blog/best-time-to-visit-tel-aviv", source: ga4, oct: {sessions: 1, duree_s: 0, cles: 0}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/contact", source: ga4, oct: {sessions: 1, duree_s: 144, cles: 1}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/services", source: ga4, oct: {sessions: 1, duree_s: 8, cles: 0}, sep: {sessions: 0, duree_s: 0, cles: 0}}
+      - {page: "/about", source: ga4, oct: {sessions: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, duree_s: 10, cles: 0}}
+      - {page: "/blog/long-term-monthly-stays-tel-aviv", source: ga4, oct: {sessions: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, duree_s: 428, cles: 0}}
+      - {page: "/blog/three-day-tel-aviv-itinerary-beach-carmel-market-jaffa", source: ga4, oct: {sessions: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, duree_s: 10, cles: 0}}
+      - {page: "/fr/blog/private-events-tel-aviv-intimate-celebrations", source: ga4, oct: {sessions: 0, duree_s: 0, cles: 0}, sep: {sessions: 2, duree_s: 111, cles: 0}}
+      - {page: "/he/about", source: ga4, oct: {sessions: 0, duree_s: 0, cles: 0}, sep: {sessions: 2, duree_s: 61, cles: 1}}
+      - {page: "/he/blog/things-to-do-carmel-market-banana-beach-tel-aviv", source: ga4, oct: {sessions: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, duree_s: 22, cles: 0}}
+  pages_moins_15s_oct:
+    source: ga4
+    ecarte: true
+    motif_ecart: "Dérivé de pages_destination (même dimension page de destination ga4), écarté pour le même motif ; voir pages_destination.motif_ecart."
+    periode: "2026-10-01..2026-10-31"
+    lignes:
+      - {page: "/properties/penthouse-jacuzzi", sessions: 12, duree_s: 9, source: ga4}
+      - {page: "(not set)", sessions: 9, duree_s: 4, source: ga4}
+      - {page: "/faq", sessions: 2, duree_s: 3, source: ga4}
+      - {page: "/blog", sessions: 1, duree_s: 8, source: ga4}
+      - {page: "/blog/best-time-to-visit-tel-aviv", sessions: 1, duree_s: 0, source: ga4}
+      - {page: "/services", sessions: 1, duree_s: 8, source: ga4}
+
+  # 4. Événements clés détaillés
+  # Nombre d'événements bruts (rapport Événements) vs comptage « événement clé » (colonne Événements clés filtrée par événement)
+  evenements_cles_oct:
+    source: ga4
+    periode: "2026-10-01..2026-10-31"
+    lignes:
+      - {evenement: contact_outbound, nb_evenements: 9, comptes_comme_cle: 2, tests_probables_evt: 1, reels_presumes_evt: 8, tests_probables_cle: 0, reels_presumes_cle: 2, source: ga4}
+      - {evenement: generate_lead, nb_evenements: 1, comptes_comme_cle: 1, tests_probables_evt: 1, reels_presumes_evt: 0, tests_probables_cle: 1, reels_presumes_cle: 0, source: ga4}
+      - {evenement: ads_conversion_Demande_de_devis_1, nb_evenements: 4, comptes_comme_cle: 4, tests_probables_evt: 4, reels_presumes_evt: 0, tests_probables_cle: 4, reels_presumes_cle: 0, source: ga4}
+      - {evenement: purchase, nb_evenements: 0, comptes_comme_cle: 0, tests_probables_evt: 0, reels_presumes_evt: 0, tests_probables_cle: 0, reels_presumes_cle: 0, source: ga4}
+    total_cles: {source: ga4, total: 7, tests_probables: 5, reels_presumes: 2}
+  evenements_cles_sep: {source: ga4, periode: "2026-09-01..2026-09-30", contact_outbound_evt: 4, generate_lead_evt: 2, ads_conversion_evt: 1, purchase_evt: 0, total_cles: 3}
+  regle_tests: "tests_probables = toutes les occurrences du 2026-10-23 (jour d'injection des tests) ; reels_presumes = le reste"
+  # Ventilation journalière (une requête GA4 par jour ; jours absents = 0 pour les 4 événements)
+  journalier_oct:
+    source: ga4
+    periode: "2026-10-01..2026-10-31"
+    lignes:
+      - {date: "2026-10-03", contact_outbound: 1, cle: 0, statut: reel_presume, source: ga4}
+      - {date: "2026-10-10", contact_outbound: 1, cle: 0, statut: reel_presume, source: ga4}
+      - {date: "2026-10-13", contact_outbound: 1, cle: 0, statut: reel_presume, source: ga4}
+      - {date: "2026-10-14", contact_outbound: 1, cle: 0, statut: reel_presume, source: ga4}
+      - {date: "2026-10-21", contact_outbound: 1, cle: 0, statut: reel_presume, source: ga4}
+      - {date: "2026-10-22", contact_outbound: 1, cle: 0, statut: reel_presume, source: ga4}
+      - {date: "2026-10-23", contact_outbound: 1, generate_lead: 1, ads_conversion_Demande_de_devis_1: 4, cle: 5, statut: test_probable, source: ga4}
+      - {date: "2026-10-25", contact_outbound: 1, cle: 1, canal: "AI Assistant", statut: reel_presume, source: ga4}
+      - {date: "2026-10-26", contact_outbound: 1, cle: 1, canal: "AI Assistant", statut: reel_presume, source: ga4}
+  detail_23_10: {source: ga4, periode: "2026-10-23", sessions: 5, utilisateurs: 4, ads_conversion_utilisateurs: 2, cles_organic_search: 3, cles_direct: 2}
+  hors_fenetre:
+    - {date: "2026-11-01", generate_lead: 1, contact_outbound: 1, source: ga4, note: "hors fenêtre d'octobre ; à reprendre au cycle 2026-12"}
+
+  # 5. Sources / supports de session
+  sources_supports:
+    source: ga4
+    periode: {oct: "2026-10-01..2026-10-31", sep: "2026-09-01..2026-09-30"}
+    lignes:
+      - {source_support: "(direct) / (none)", oct: {sessions: 56, engagement_pct: 55.36, duree_s: 38, cles: 2}, sep: {sessions: 19, engagement_pct: 52.63, duree_s: 25, cles: 0}, source: ga4}
+      - {source_support: "google / organic", oct: {sessions: 47, engagement_pct: 80.85, duree_s: 66, cles: 3}, sep: {sessions: 33, engagement_pct: 72.73, duree_s: 33, cles: 1}, source: ga4}
+      - {source_support: "chatgpt.com / ai-assistant", oct: {sessions: 16, engagement_pct: 56.25, duree_s: 26, cles: 2}, sep: {sessions: 17, engagement_pct: 94.12, duree_s: 45, cles: 1}, source: ga4}
+      - {source_support: "ig / social", oct: {sessions: 6, engagement_pct: 83.33, duree_s: 25, cles: 0}, sep: {sessions: 0, engagement_pct: 0, duree_s: 0, cles: 0}, source: ga4}
+      - {source_support: "bing / organic", oct: {sessions: 4, engagement_pct: 100, duree_s: 86, cles: 0}, sep: {sessions: 0, engagement_pct: 0, duree_s: 0, cles: 0}, source: ga4}
+      - {source_support: "eventsmanager.facebook.com / referral", oct: {sessions: 3, engagement_pct: 33.33, duree_s: 33, cles: 0}, sep: {sessions: 3, engagement_pct: 66.67, duree_s: 101, cles: 0}, source: ga4}
+      - {source_support: "ecosia.org / organic", oct: {sessions: 1, engagement_pct: 0, duree_s: 0, cles: 0}, sep: {sessions: 0, engagement_pct: 0, duree_s: 0, cles: 0}, source: ga4}
+      - {source_support: "chatgpt.com / (none)", oct: {sessions: 0, engagement_pct: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, engagement_pct: 100, duree_s: 119, cles: 1}, source: ga4}
+      - {source_support: "fr.search.yahoo.com / referral", oct: {sessions: 0, engagement_pct: 0, duree_s: 0, cles: 0}, sep: {sessions: 1, engagement_pct: 100, duree_s: 200, cles: 0}, source: ga4}
+      - {source_support: "lm.facebook.com / referral", oct: {sessions: 0}, sep: {sessions: 1, duree_s: 12}, source: ga4}
+    note: "11 lignes au rapport, la 11e (septembre seulement) n'a pas été lue (sortie tronquée). La somme des lignes d'octobre fait 133 pour un total affiché de 132 (écart d'arrondi/cardinalité GA4)."
+
+  anomalies:
+    - "contact_outbound : 9 événements en octobre mais seulement 2 comptés comme événements clés (25 et 26/10, AI Assistant). Les occurrences du 03 au 23/10 ne sont pas comptées comme clés : l'événement semble avoir été marqué comme clé entre le 23 et le 25/10."
+    - "5 des 7 événements clés d'octobre sont des tests du 23/10 (4 ads_conversion_Demande_de_devis_1 + 1 generate_lead). Événements clés réels présumés : 2, contre 3 en septembre."
+    - "Les événements clés Direct (2) et Organic Search (3) d'octobre viennent tous du 23/10, donc tous des tests probables."
+    - "Événements clés par page de destination en octobre : /reservation 4, /events 1, /faq 1, /contact 1. Les 5 tests du 23/10 et les 2 clés réelles s'y répartissent, mais l'attribution exacte par page n'a pas été vérifiée. (dimension écartée — ne pas conclure)"
+    - "Direct : 42,4 % des sessions en octobre, contre 25,3 % en septembre (56 sessions contre 19)."
+    - "AI Assistant : taux d'engagement de 56,25 % en octobre contre 94,44 % en septembre ; durée de 26 s contre 47 s."
+    - "/properties/penthouse-jacuzzi : 12 sessions à 9 s ; (not set) : 9 sessions à 4 s. (dimension écartée — ne pas conclure)"
+    - "Aucun purchase sur octobre ni septembre."
+    - "Intégrité (ajout agent integrite) : la dimension page de destination de ga4 n'est pas fiable en octobre. Filtrée sur google / organic, /he compte 4 sessions pour 10 clics gsc, et les 9 pages à ≥ 1 clic gsc dont les clics dépassent ×2 les sessions google / organic totalisent 19 clics gsc pour 4 sessions ga4 (×4,75 ; ×2,7 avec les 3 (not set) organiques) ; à l'inverse /he/properties, /properties, /reservation, /contact et /properties/cozy-studio ont des sessions organiques sans clic gsc. Hypothèse non vérifiée : page de destination enregistrée après une redirection ou une navigation client (langue, /he → /he/properties). pages_destination et pages_moins_15s_oct sont écartés."
+
+offsite:
+  # Fragment collecte-offsite — cycle SEO 2026-11 (fusion par l'agent integrite)
+  cycle: "2026-11"
+  etape: collecte-offsite
+  mois_analyse: "2026-10"
+  releve_le: "2026-11-04"
+  navigateur: "Browser 1 (deviceId 6906a03c-f222-4edc-b25a-bc2e12dc58c6)"
+
+  ahrefs:
+    source: ahrefs
+    date_releve: "2026-11-04"
+    cible: "orhakerem.com"
+    mode: subdomains   # mode par défaut du projet Ahrefs (domaine + sous-domaines)
+    dr: 2.8
+    domaines_referents: 936
+    backlinks: 1668        # 681 dofollow + 987 nofollow (carte affiche « 1.7K »)
+    repartition: {domaines_referents_dofollow: 337, domaines_referents_nofollow: 599, backlinks_dofollow: 681, backlinks_nofollow: 987, source: ahrefs}
+    backlinks_all_time: "2K (arrondi interface)"
+    domaines_referents_all_time: "1.1K (arrondi interface)"
+    historique:
+      - {date: "2026-09-28", domaines_referents: 896, source: ahrefs}
+      - {date: "2026-10-01", domaines_referents: 945, dr_courbe: 3, source: ahrefs}
+      - {date: "2026-10-24", dr_courbe: 3, source: ahrefs}
+      - {date: "2026-10-26", domaines_referents: 939, source: ahrefs}
+      - {date: "2026-10-27", dr_courbe: 2, source: ahrefs}
+      - {date: "2026-11-04", domaines_referents: 936, source: ahrefs}
+    variation:
+      source: ahrefs
+      vs_ref_2026_10_26: {domaines_referents: -3, backlinks: "1668 vs 1700 (réf. arrondie)", dr: "2.8 vs 3", source: ahrefs}
+      vs_2026_10_01: {domaines_referents: -9, source: ahrefs}
+
+  gbp:
+    source: gbp
+    perimetre: "Métriques propres à la fiche (vues, interactions, avis). Hors table d'autorité : ne remplacent jamais les clics/impressions gsc ni les sessions ga4."
+    date_releve: "2026-11-04"
+    acces: "panneau propriétaire Recherche Google (« Vous gérez cette fiche d'établissement »)"
+    fiche:
+      source: gbp
+      nom_affiche: "Or Hakerem"
+      categorie_affichee: "Agence de location d'appartements à court terme"
+      adresse: "HaKovshim St 35, Tel Aviv-Yafo, 6329302"
+      telephone: "058-577-8891"
+      site: "orhakerem.com"
+      nap_coherente: true
+      nap_trace: {reference: "src/lib/business-schema.ts (BUSINESS_NAP)", nom: "Or Hakerem = BUSINESS_NAME", adresse: "HaKovshim St 35, Tel Aviv-Yafo, 6329302 = streetAddress 35 HaKovshim St / addressLocality Tel Aviv-Yafo / postalCode 6329302", telephone: "058-577-8891 = telephone +972585778891", hors_fiche: "telephoneFr +33651179925 présent dans le schéma du site, absent de la fiche GBP (attendu : la fiche ne porte qu'un numéro)", source: gbp}
+      horaires: {dimanche: "08:00–19:00", lundi: "08:00–19:00", mardi: "08:00–19:00", mercredi: "08:00–19:00", jeudi: "08:00–19:00", vendredi: "08:00–12:00", samedi: "Fermé"}
+    stats_oct:
+      source: gbp
+      periode: "2026-10-01..2026-10-31"
+      vues_utilisateurs_uniques: 183
+      vues_detail: {maps_mobile: 72, recherche_mobile: 68, recherche_ordinateur: 24, maps_ordinateur: 19, source: gbp}
+      recherches: null   # interface : « Vos recherches seront bientôt disponibles »
+      interactions: {total: 41, appels: 0, clics_chat: 0, reservations: 0, itineraires: 31, clics_site: 10, source: gbp}
+      note_methode: "Vues = utilisateurs uniques ; méthode de comptage des itinéraires modifiée par Google (non comparable à l'historique ancien)"
+    interactions_juin_nov_2026: {valeur: 315, source: gbp, bornes: "non affichées par l'interface (libellé « juin-nov 2026 » sans dates exactes)", comparable_stats_oct: false}
+    avis:
+      source: gbp
+      total: 4
+      note_moyenne: 4.0
+      sans_reponse_hors_daniel_t: 0
+      nouveaux_oct: 0
+      liste:
+        - {auteur: "Daniel T", anciennete: "il y a 13 semaines", note: 1, langue: en, reponse: non, source: gbp}
+        - {auteur: "Yoann M", anciennete: "il y a 14 semaines", note: 5, langue: fr, reponse: "oui (il y a 1 semaine)", source: gbp}
+        - {auteur: "Julian Levit", anciennete: "il y a 17 semaines", note: 5, langue: en, reponse: "oui (il y a 1 semaine)", source: gbp}
+        - {auteur: "adi ziv", anciennete: "il y a 27 semaines", note: 5, langue: he, reponse: "oui (il y a 1 semaine)", source: gbp}
+      exclu_volontaire: "Daniel T (1★, en) — sans réponse par décision du propriétaire, non compté"
+    publications:
+      source: gbp
+      publications_oct: 0
+      total_posts: 1
+      dernier_post: "il y a 3 mois"
+    photos:
+      source: gbp
+      medias_proprietaire: 9   # couverture + logo + 7 photos
+      photos_ajoutees_oct: null  # dates d'ajout non affichées dans l'outil propriétaire
+
+  serp:
+    source: serp
+    ecarte: true
+    motif_ecart: "Table d'autorité : la position est réservée à gsc. Les rangs SERP (relevé manuel du 04/11, session connectée, personnalisation possible) ne sont pas une métrique de position du cycle ; conservés uniquement comme observation qualitative (concurrents présents, panneau de connaissance)."
+    date_releve: "2026-11-04"
+    moteur: "google.com hl=fr gl=il, session connectée (personnalisation possible)"
+    or_hakerem:
+      source: serp
+      pack_local: "aucun pack ; panneau de connaissance Or Hakerem (4,0 ★, 4 avis) à droite"
+      organiques:
+        - {rang: 1, domaine: "orhakerem.com", titre: "Appartements de luxe à Tel Aviv", note: "6 sitelinks", source: serp}
+        - {rang: 2, domaine: "easy.co.il", titre: "Or Hakerem - הכובשים 35", source: serp}
+        - {rang: 3, domaine: "instagram.com", titre: "Or Hakerem (@or_hakerem)", source: serp}
+        - {rang: 4, domaine: "booking.com", titre: "HaKerem Luxury Apartments - Tel Aviv-Jaffa", source: serp}
+        - {rang: 5, domaine: "hakeremluxuryapartments.co.il", titre: "Furnished apartments for rent - Hakerem", source: serp}
+        - {rang: 6, domaine: "agoda.com", titre: "Book Hakerem apartment in Tel Aviv", source: serp}
+        - {rang: 7, domaine: "skyscanner.ie", titre: "HaKerem Luxury Apartments, Tel Aviv Hotels", source: serp}
+        - {rang: 8, domaine: "hakerem.net", titre: "EN | קהילת הכרם", page: 2, source: serp}
+        - {rang: 9, domaine: "tripadvisor.co.il", titre: "HAKEREM LUXURY APARTMENTS", page: 2, source: serp}
+        - {rang: 10, domaine: "azorim.co.il", titre: "Beit Hakerem Jerusalem", page: 2, source: serp}
+      hors_top10:
+        - {rang: 11, domaine: "telaviv-israelhotels.com", titre: "Penthouse With Jacuzzi,Bbq 2Mn From Sea Or Hakerem Apartment", page: 2, source: serp}
+        - {rang: 12, domaine: "hakeremluxuryapartments.co.il", titre: "Hakerem: עמוד הבית", page: 2, source: serp}
+      note: "page 2 répète Agoda et Booking en tête (doublons non recomptés)"
+    hakerem:
+      source: serp
+      pack_local: "pas de pack 3 ; aperçu IA listant Hakerem Luxury Apartments (4,9/54), Hakerem Apartment (3,8/18, Booking), Or Hakerem (4,0/4) ; carte unique « HaKerem Tel Aviv-Jaffa »"
+      organiques:
+        - {rang: 1, domaine: "ha-kerem.co.il", titre: "הכרם – הכרויות לדתיים", source: serp}
+        - {rang: 2, domaine: "hakeremluxuryapartments.co.il", titre: "Hakerem: עמוד הבית", source: serp}
+        - {rang: 3, domaine: "orhakerem.com", titre: "Appartements de luxe à Tel Aviv", source: serp}
+        - {rang: 4, domaine: "booking.com", titre: "Hakerem apartment - Tel Aviv-Jaffa", source: serp}
+        - {rang: 5, domaine: "hakerem.net", titre: "EN | קהילת הכרם", source: serp}
+        - {rang: 6, domaine: "hakerem1.co.il", titre: "הכרם - גדולים באירועים קטנים", source: serp}
+        - {rang: 7, domaine: "gov-nadlan.co.il", titre: "HAKEREM RESIDENCES", source: serp}
+        - {rang: 8, domaine: "fr.wikipedia.org", titre: "Beit Hakerem", source: serp}
+      note: "8 résultats organiques seulement en page 1 ; page 2 non relevée"
+
+# ── Contrôle d'intégrité (agent integrite) ────────────────────────────────
+# Règle du facteur 2 : drapeau seulement si deux sources mesurent la même chose
+# (définitions comparables) et divergent de plus d'un facteur 2.
+recoupements:
+  - id: gsc-clics_vs_ga4-sessions-organiques
+    comparable: true
+    reserve_definition: "clic Google web (gsc) vs session google / organic (ga4) : proches mais non identiques (consentement cookies, sessions multiples, Discover/Actualités)"
+    a: {source: gsc, metrique: clics, oct: 50, sep: 49}
+    b: {source: ga4, metrique: "sessions google / organic", oct: 47, sep: 33}
+    b_large: {source: ga4, metrique: "sessions Organic Search (google + bing + ecosia)", oct: 52, sep: 34}
+    rapport: {oct: "50/47 = ×1,06", sep: "49/33 = ×1,48"}
+    verdict: "écart < ×2 — pas de drapeau"
+  - id: gsc-clics-page_vs_ga4-sessions-page-destination
+    comparable: true
+    reserve_definition: "clics gsc par URL vs sessions ga4 par page de destination filtrées sur Source/support de la session = google / organic (même définition que le recoupement des totaux). Effectifs ≤ 14 par page."
+    correction: "Le premier passage concluait « non comparable » : à tort. Un comptage ga4 tous canaux est un majorant des sessions organiques ; s'il est déjà sous gsc, l'écart organique est au moins aussi grand. Mesure refaite en filtrant google / organic."
+    mesure_google_organic:
+      source: ga4
+      periode: "2026-10-01..2026-10-31"
+      releve_le: "2026-11-04"
+      methode: "GA4 > Page de destination, dimension secondaire Source/Support de la session, recherche « google / organic » ; 15 lignes, total 47 sessions (= total google / organic de sources_supports)"
+      lignes:
+        - {page: "/", sessions: 14, gsc_clics: 12, source: ga4}
+        - {page: "/blog/kerem-hateimanim-neighborhood-guide", sessions: 4, gsc_clics: 6, source: ga4}
+        - {page: "/he", sessions: 4, gsc_clics: 10, source: ga4}
+        - {page: "/he/properties/penthouse-jacuzzi", sessions: 4, gsc_clics: 2, source: ga4}
+        - {page: "(not set)", sessions: 3, gsc_clics: null, source: ga4}
+        - {page: "/fr", sessions: 3, gsc_clics: 4, source: ga4}
+        - {page: "/he/properties", sessions: 3, gsc_clics: 0, source: ga4}
+        - {page: "/properties", sessions: 3, gsc_clics: 0, source: ga4}
+        - {page: "/blog/tel-aviv-on-shabbat-what-is-open-getting-around", sessions: 2, gsc_clics: 4, source: ga4}
+        - {page: "/events", sessions: 2, gsc_clics: 2, source: ga4}
+        - {page: "/blog", sessions: 1, gsc_clics: 1, source: ga4}
+        - {page: "/contact", sessions: 1, gsc_clics: 0, source: ga4}
+        - {page: "/properties/cozy-studio", sessions: 1, gsc_clics: 0, source: ga4}
+        - {page: "/reservation", sessions: 1, gsc_clics: 0, source: ga4}
+        - {page: "/services", sessions: 1, gsc_clics: 1, source: ga4}
+      absentes_ga4_organic: "/fr/blog/short-term-seasonal-rentals-tel-aviv (2 clics gsc), /he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-monthly-stays-… (1 clic gsc chacune), /blog/shabbat-friendly-stays-tel-aviv et /faq (1 clic gsc chacune) : 0 session google / organic"
+    cas_ga4_inferieur_a_gsc_oct:
+      - {page: "/he", gsc_clics: 10, ga4_sessions_google_organic: 4, rapport: "×2,5", source: "gsc + ga4"}
+      - {page: "/fr/blog/short-term-seasonal-rentals-tel-aviv", gsc_clics: 2, ga4_sessions_google_organic: 0, source: "gsc + ga4"}
+      - {page: "/he/about, /he/blog/three-day-…, /he/blog/private-events-…, /blog/kerem-hateimanim-history-…, /blog/long-term-monthly-stays-…, /blog/shabbat-friendly-stays-tel-aviv, /faq", gsc_clics: "1 chacune", ga4_sessions_google_organic: 0, source: "gsc + ga4"}
+      - {page: "ensemble des 9 pages ci-dessus = pages d'octobre à ≥ 1 clic gsc dont les clics gsc dépassent ×2 les sessions ga4 google / organic (exclues : /, /blog/kerem-hateimanim-neighborhood-guide, /blog/tel-aviv-on-shabbat-…, /fr, /events, /he/properties/penthouse-jacuzzi, /blog, /services)", gsc_clics: 19, ga4_sessions_google_organic: 4, rapport: "×4,75 ; ×2,7 en ajoutant les 3 (not set) google / organic", source: "gsc + ga4"}
+    explication_not_set: "Rejetée : seules 3 des 9 sessions (not set) sont google / organic ; elles ne peuvent pas absorber les 15 arrivées manquantes (19 clics gsc − 4 sessions sur les 9 pages ; il en resterait 12)."
+    verdict: "écart > ×2 persistant sur la métrique comparable — drapeau posé (integrite_donnees: true) ; ga4 écarté sur le seul périmètre pages_destination et pages_moins_15s_oct (décision a). Les totaux concordent (50 vs 47 = ×1,06) : c'est la répartition par page de ga4 qui est en cause, pas le volume."
+  - id: gbp-clics-site_vs_ga4-sessions-fiche
+    comparable: false
+    reserve_definition: "ga4 n'isole pas les arrivées depuis la fiche (aucune source/support GBP ni UTM dans le relevé) : elles tombent dans google / organic ou (direct). La fiche compte aussi les clics Maps, absents de gsc."
+    a: {source: gbp, metrique: clics_site, oct: 10}
+    b: {source: ga4, metrique: "sessions google / organic (majorant, inclut la fiche)", oct: 47}
+    verdict: "non comparable — pas de drapeau ; borne cohérente (10 ≤ 47)"
+  - id: gbp-clics-site_vs_gsc-clics
+    comparable: false
+    reserve_definition: "gsc (type web) n'inclut pas les clics depuis Google Maps ; la fiche cumule Recherche et Maps"
+    a: {source: gbp, metrique: clics_site, oct: 10}
+    b: {source: gsc, metrique: clics, oct: 50}
+    verdict: "non comparable — pas de drapeau"
+  - id: gbp-interactions_vs_ga4-evenements
+    comparable: false
+    reserve_definition: "interactions de fiche (itinéraires 31, clics site 10, appels 0) vs événements sur le site (contact_outbound 9, événements clés 7) : actions différentes, sur des surfaces différentes"
+    a: {source: gbp, metrique: interactions, oct: 41}
+    b: {source: ga4, metrique: evenements_cles, oct: 7}
+    verdict: "non comparable — pas de drapeau"
+  - id: gbp-interactions-oct_vs_juin-nov
+    comparable: false
+    reserve_definition: "même source ; total juin-nov (315) sans bornes de dates, ne peut pas être rapporté à un mois"
+    verdict: "non comparable — pas de drapeau"
+  - id: ahrefs-dr-carte_vs_courbe
+    comparable: true
+    reserve_definition: "même source (ahrefs) : carte à une décimale, courbe arrondie à l'entier"
+    a: {source: ahrefs, metrique: "DR carte 04/11", valeur: 2.8}
+    b: {source: ahrefs, metrique: "DR courbe depuis 27/10", valeur: 2}
+    rapport: "×1,4"
+    verdict: "écart < ×2, effet d'arrondi — pas de drapeau ; domaines référents 945 (01/10) → 939 (26/10) → 936 (04/11) cohérents"
+  - id: gsc-requete-or-hakerem_vs_serp
+    comparable: false
+    reserve_definition: "gsc octobre (impressions) vs SERP manuelle du 04/11 (rang, session connectée, source écartée) : métrique et période différentes"
+    a: {source: gsc, metrique: "impressions « or hakerem »", oct: 0, sep: 14}
+    b: {source: serp, metrique: "rang orhakerem.com « or hakerem » le 04/11", valeur: 1, ecarte: true}
+    verdict: "non comparable — pas de drapeau ; incohérence apparente qui renforce la réserve gsc (requête de marque à contrôler)"
+  - id: gsc-events_vs_ga4-events
+    comparable: false
+    reserve_definition: "ga4 /events tous canaux (dont eventsmanager.facebook.com) vs clics gsc"
+    a: {source: gsc, metrique: "clics /events", oct: 2}
+    b: {source: ga4, metrique: "sessions page de destination /events (dimension écartée — ne pas conclure)", oct: 30}
+    verdict: "non comparable — pas de drapeau"
+  - id: controles-internes
+    comparable: true
+    verdict: "cohérents, pas de drapeau"
+    lignes:
+      - {source: gsc, controle: "somme des clics par page oct (51) vs total (50)", resultat: "écart d'agrégation GSC, normal"}
+      - {source: gsc, controle: "clics de requêtes listées oct 2/50, sep 8/49", resultat: "requêtes anonymisées majoritaires — les lignes de requêtes ne représentent pas le trafic"}
+      - {source: ga4, controle: "somme sources/supports oct (133) vs total (132)", resultat: "écart de cardinalité GA4"}
+      - {source: ga4, controle: "événements clés : par événement 2+1+4+0, par jour 5+1+1, par page 4+1+1+1 (dimension écartée — ne pas conclure)", resultat: "7 partout"}
+      - {source: ga4, controle: "carte d'accueil 143 sessions / 9 clés", resultat: "fenêtre glissante différente, non utilisée"}
+
+# ── Réserves des vérificateurs (à lire avant toute conclusion) ────────────
+reserves_verification:
+  gsc:
+    - "Requête de marque « or hakerem » : 14 impressions / 6 clics en septembre, 0 en octobre — à contrôler avant de conclure (anonymisation, variante orthographique, ou perte réelle)."
+    - "Article how-far-is-kerem-hateimanim-from-the-beach : 527 → 2 impressions, variantes /fr et /he absentes — ressemble à une désindexation ou une canonicalisation ; vérifier l'inspection d'URL avant d'en faire une baisse de contenu."
+    - "Tag « adresse » limité aux requêtes contenant un numéro de rue : les requêtes d'adresse sans numéro ne sont pas taguées."
+    - "Une URL apex https://orhakerem.com/events (sans www) apparaît en septembre (1 impression) — signal de doublon d'hôte à vérifier."
+  ga4:
+    - "Ventilation réels/tests fondée sur la seule date du 23/10 (jour d'injection des tests) : présomption, pas une preuve."
+    - "Contradiction à corriger dans le rapport : le rapport du 26/10 annonçait « 4 conversions réelles WhatsApp », or contact_outbound n'est compté comme événement clé qu'à partir du 25/10 (cle: 0 avant, marquage non rétroactif). Octobre : 9 contact_outbound bruts (8 réels présumés), 2 seulement comptés comme clés."
+    - "Septembre n'est pas ventilé réels/tests : la comparaison des événements clés (2 réels présumés oct vs 3 sep) est déséquilibrée."
+    - "Petits échantillons (132 sessions, 7 événements clés) : aucune variation ne doit être lue comme tendance."
+    - "Page de destination ga4 écartée (integrite_donnees: true) : ne tirer aucune conclusion par page de ga4 (sessions, durées, pages < 15 s, événements clés par page). Pour le trafic par page, utiliser gsc (clics par URL). Totaux, canaux, sources/supports, engagement et événements ga4 restent valides. La cause (attribution de la page de destination) est à diagnostiquer avant le cycle 2026-12."
+  controle_machine:
+    - "scripts/seo-check.mjs ne contrôle que les lignes « clé: nombre » sans rien après : une ligne terminée par un commentaire (ex. backlinks: 1668  # …, medias_proprietaire: 9  # …) échappe au contrôle de source. Vérifié à la main au 04/11 : les 5 lignes à commentaire du relevé (mode, backlinks, recherches, medias_proprietaire, photos_ajoutees_oct) sont dans un bloc portant source: (ahrefs, gbp). Toute nouvelle ligne de ce type doit être vérifiée à la main."
+    - "Le même contrôle ne lit qu'une fenêtre de ±6 lignes : une source déclarée en tête d'un long bloc peut sortir de la fenêtre sans que la métrique soit sans source, et inversement une source voisine peut masquer une métrique orpheline."
+  offsite:
+    - "NAP cohérente avec src/lib/business-schema.ts (nap_coherente: true tracé dans offsite.gbp.fiche) ; le numéro FR (+33) du schéma n'est pas sur la fiche."
+    - "Ahrefs : DR 3 → 2,8 sur la carte, courbe à 2 depuis le 27/10 — variation dans l'arrondi, ne pas la présenter comme une chute."
+    - "GBP : interactions juin-nov (315) sans bornes de dates — inutilisable en comparaison."
+    - "SERP relevée en session connectée (personnalisation possible) : indicative seulement, écartée comme source de position."

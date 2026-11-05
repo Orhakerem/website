@@ -42,11 +42,51 @@ baselines:
         constat: >-
           Deuxième baisse consécutive, cette fois à impressions ET position
           stables. L'explication saisonnière ne tient plus.
-    verdict: null
+      - date: 2026-11-04
+        source: gsc
+        periode: "2026-10-04..2026-10-31 (28 j), URL exacte https://www.orhakerem.com/"
+        clics: 12
+        impressions: 315
+        ctr: 3.8
+        position: 6.0
+        comparaison_28j_precedents:
+          periode: "2026-09-06..2026-10-03"
+          clics: 15
+          impressions: 328
+          ctr: 4.6
+          position: 6.8
+        constat: >-
+          Vs metriques_avant (16 / 386 / 4,1 % / 6,5) : clics -25,0 %,
+          impressions -18,4 %, CTR -0,3 pt, position 6,5 → 6,0 (meilleure).
+          Vs 28 j précédents : clics -20 %, impressions -4 %, CTR -0,8 pt,
+          position 6,8 → 6,0. Seuil littéral non franchi sur cette mesure
+          (clics -25 % atteint vs avant, mais impressions hors de la bande
+          ±15 % ; vs période précédente, clics -20 % seulement). Troisième
+          relevé consécutif sous metriques_avant en clics et en CTR.
+    verdict: retour-arriere
     verdict_attendu_le: 2026-11-17
     note: >-
-      Seuil franchi sur les deux mesures. Verdict attendu : retour-arriere.
-      À trancher au cycle de novembre, étape 5.
+      Tranché le 2026-11-04 (aucun cycle avant l'échéance du 17/11).
+      Trois relevés GSC post-changement, tous sous l'état d'avant en clics
+      (10, 9, 12 contre 16) et en CTR (3,4 %, 2,8 %, 3,8 % contre 4,1 %),
+      alors que la position est stable ou meilleure (6,7 ; 6,6 ; 6,0 contre
+      6,5). Un CTR inférieur à position égale ou meilleure n'est pas
+      saisonnier : c'est la présentation (le title) qui rend moins.
+      La part saisonnière existe et est dite : la fenêtre de référence
+      (25/08–21/09) couvre Roch Hachana et Yom Kippour, la fenêtre mesurée
+      (04/10–31/10) est entièrement post-Souccot ; la baisse d'impressions
+      (-18,4 %) peut en relever, et sur ce seul relevé l'écart de CTR
+      (-0,3 pt) est faible, à effectif de 12 clics. Données donc ambiguës,
+      et le seuil littéral n'est franchi sur aucun relevé (impressions
+      -23 %, -16 %, -18 % : toujours hors de la bande ±15 %). Règle de
+      prudence appliquée : l'élément performait avant, il a baissé sur
+      trois relevés, il revient à son état antérieur. Coût du retour faible
+      (suffixe de 19 caractères, title de 61 caractères, non tronqué).
+      À restaurer : src/i18n/messages/seo.ts ligne 26 (en.home.title),
+      'Luxury Apartments in Tel Aviv | Or Hakerem | Kerem HaTeimanim'.
+      Les variantes fr (ligne 106) et he (ligne 187), raccourcies dans le
+      même commit 9009e5c, ne sont pas couvertes par cette baseline (URL /
+      seule) : leur sort relève de l'étape suivante.
 
   - id: studio-title-2026-09-22
     url: /properties/cozy-studio
@@ -89,3 +129,272 @@ baselines:
         constat: "CTR global +92 %, mais non attribuable à ce seul changement"
     verdict: confirme
     verdict_attendu_le: 2026-10-20
+
+  # --- Cycle 2026-11, étape 7 (optimisation) — baselines posées le 2026-11-04
+  # AVANT modification. metriques_avant = relevé figé seo/releves/2026-11.yml
+  # (source gsc, pages.lignes, octobre 2026 = 2026-10-01..2026-10-31, sauf
+  # mention contraire).
+
+  - id: home-title-retour-2026-11-04
+    url: /
+    element: title
+    avant: "Luxury Apartments in Tel Aviv | Or Hakerem"
+    apres: "Luxury Apartments in Tel Aviv | Or Hakerem | Kerem HaTeimanim"
+    date: 2026-11-04
+    motif: >-
+      Application du verdict retour-arriere de home-title-2026-09-22 : CTR
+      sous l'état antérieur sur trois relevés à position stable ou meilleure.
+      Restauration exacte du title d'avant 9009e5c (en seul ; fr et he non
+      couverts).
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-04..2026-10-31 (28 j), URL exacte https://www.orhakerem.com/ (home_28j)"
+      clics: 12
+      impressions: 315
+      ctr: 3.8
+      position: 6.0
+    seuil_retour_arriere: "clics ou impressions -25 % à position ±2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: he-home-title-2026-11-04
+    url: /he
+    element: title
+    avant: "דירות יוקרה בתל אביב | אור הכרם"
+    apres: "אור הכרם | אירוח בוטיקי ואירועים בכרם התימנים, תל אביב"
+    date: 2026-11-04
+    motif: >-
+      Différencier /he de /he/properties (titles quasi identiques). /he porte
+      la marque et l'activité ; le cluster « דירות יוקרה … להשכרה » est
+      reporté sur /he/properties.
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 10
+      impressions: 148
+      ctr: 6.8
+      position: 6.9
+    seuil_retour_arriere: "clics ou impressions -25 % à position ±2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: he-home-description-2026-11-04
+    url: /he
+    element: meta-description
+    avant: "דירות פרימיום להשכרה לטווח קצר ושהיות בוטיקיות בתל אביב. גלו את אור הכרם בכרם התימנים לאירוח יוקרתי, אירועים ואירוח קשוב."
+    apres: "אור הכרם בכרם התימנים, תל אביב: שהיות קצרות בדירות בוטיק, אירועים פרטיים ושירותי קונסיירז׳, ליד הים ושוק הכרמל."
+    date: 2026-11-04
+    motif: "Même différenciation que he-home-title-2026-11-04 ; description recentrée sur la marque et les trois activités. Effet de bord : cette chaîne alimente aussi la description du LodgingBusiness JSON-LD de tout le site hébreu (layout.tsx, getBusinessStructuredData)."
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 10
+      impressions: 148
+      ctr: 6.8
+      position: 6.9
+    seuil_retour_arriere: "clics ou impressions -25 % à position ±2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: he-properties-title-2026-11-04
+    url: /he/properties
+    element: title
+    avant: "דירות יוקרה בתל אביב | הנכסים של אור הכרם"
+    apres: "דירות יוקרה להשכרה בתל אביב | פנטהאוז ודירה | אור הכרם"
+    date: 2026-11-04
+    motif: >-
+      Cluster location de luxe en hébreu (règle Q4 : 182 → 227 impressions) ;
+      page à 319 impressions, position 53,7, 0 clic, en concurrence avec /he.
+      Title orienté vers les biens à louer (להשכרה).
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 319
+      ctr: 0
+      position: 53.7
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+    note: >-
+      Facteur confondant : article HE luxury-apartment-vs-hotel-suite-tel-aviv
+      publié pendant la fenêtre, avec un lien vers /he/properties.
+
+  - id: he-properties-description-2026-11-04
+    url: /he/properties
+    element: meta-description
+    avant: "עיינו בדירות היוקרה שלנו בכרם התימנים, תל אביב: פנטהאוז עם ג׳קוזי פרטי וסטודיו נעים, שניהם צעדים ספורים מהים ומשוק הכרמל."
+    apres: "דירות יוקרה להשכרה לטווח קצר בכרם התימנים: פנטהאוז עם ג׳קוזי פרטי ודירת חדר שינה משופצת, ליד הים ושוק הכרמל."
+    date: 2026-11-04
+    motif: "Même motif que he-properties-title-2026-11-04 ; retire « סטודיו » (le bien est un 1 chambre)."
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 319
+      ctr: 0
+      position: 53.7
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+    note: >-
+      Facteur confondant : article HE luxury-apartment-vs-hotel-suite-tel-aviv
+      publié pendant la fenêtre, avec un lien vers /he/properties.
+
+  - id: properties-title-2026-11-04
+    url: /properties
+    element: title
+    avant: "Luxury Apartments in Tel Aviv | Or Hakerem Properties"
+    apres: "Tel Aviv Rentals: Jacuzzi Penthouse & 1-Bedroom | Or Hakerem"
+    date: 2026-11-04
+    motif: >-
+      78 impressions en position 9,7 pour 0 clic (0 clic aussi en septembre) ;
+      title quasi identique à celui de l'accueil. Orientation vers l'offre
+      (les deux biens à louer).
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 78
+      ctr: 0
+      position: 9.7
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: properties-description-2026-11-04
+    url: /properties
+    element: meta-description
+    avant: "A penthouse with private jacuzzi and a cosy studio in central Tel Aviv, both steps from the beach and Carmel Market."
+    apres: "Two rentals in Kerem HaTeimanim, Tel Aviv: a 3-bedroom penthouse with private jacuzzi and a renovated 1-bedroom apartment."
+    date: 2026-11-04
+    motif: "Même motif que properties-title-2026-11-04 ; retire « studio » (le bien est un 1 chambre)."
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 78
+      ctr: 0
+      position: 9.7
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: penthouse-jacuzzi-title-2026-11-04
+    url: /properties/penthouse-jacuzzi
+    element: title
+    avant: "Luxury Penthouse with Private Jacuzzi & Sea Views | Tel Aviv | Or Hakerem"
+    apres: "3-Bedroom Jacuzzi Penthouse in Tel Aviv | Or Hakerem"
+    date: 2026-11-04
+    motif: >-
+      52 impressions en position 11,0 pour 0 clic (11,1 et 0 clic en
+      septembre) ; title de 73 caractères, tronqué. Orientation offre.
+      Effet de bord : le nom de la feuille du BreadcrumbList est dérivé du
+      premier segment du title.
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 52
+      ctr: 0
+      position: 11.0
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: penthouse-jacuzzi-description-2026-11-04
+    url: /properties/penthouse-jacuzzi
+    element: meta-description
+    avant: "Spacious 3-bedroom penthouse with private rooftop jacuzzi, BBQ terrace and panoramic sea views. Book direct and save 15%."
+    apres: "Rent a 3-bedroom penthouse for up to 7 guests in Kerem HaTeimanim, with private rooftop jacuzzi, BBQ terrace and sea views."
+    date: 2026-11-04
+    motif: >-
+      Même motif que penthouse-jacuzzi-title-2026-11-04 ; retire l'allégation
+      de remise « save 15% ». La description alimente aussi le
+      LodgingBusiness.description.
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 52
+      ctr: 0
+      position: 11.0
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: he-blog-where-to-stay-description-2026-11-04
+    url: /he/blog/where-to-stay-in-tel-aviv-neighborhoods-guide
+    element: meta-description
+    avant: "מדריך מעשי לבחירת מקום לינה בתל אביב, המשווה בין כרם התימנים, נווה צדק, רוטשילד ופלורנטין מבחינת גישה לחוף, אוכל, הליכה וערבים בעיר."
+    apres: "איפה ללון בתל אביב ליד הים? השוואה בין כרם התימנים, נווה צדק, רוטשילד ופלורנטין: חוף, אוכל, הליכה וחיי לילה."
+    date: 2026-11-04
+    motif: >-
+      73 impressions en position 9,4 pour 0 clic ; requêtes conversationnelles
+      d'hébergement (המלצות לינה בתל אביב). Description de 132 caractères
+      ramenée sous 125 et ouverte sur la question « ליד הים ».
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 73
+      ctr: 0
+      position: 9.4
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: fr-blog-where-to-stay-description-2026-11-04
+    url: /fr/blog/where-to-stay-in-tel-aviv-neighborhoods-guide
+    element: meta-description
+    avant: "Un guide pratique pour choisir où séjourner à Tel Aviv, comparant Kerem HaTeimanim, Neve Tzedek, Rothschild et Florentin selon l’accès à la plage, la gastronomie, la marche et les soirées."
+    apres: "Où loger à Tel Aviv près de la plage ? Kerem HaTeimanim, Neve Tzedek, Rothschild ou Florentin : plage, marchés, soirées."
+    date: 2026-11-04
+    motif: >-
+      30 impressions en position 8,3 pour 0 clic ; description de 188
+      caractères, tronquée. Réponse directe à « où loger près de la mer ».
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 0
+      impressions: 30
+      ctr: 0
+      position: 8.3
+    seuil_retour_arriere: "impressions -25 % ou position dégradée de plus de 2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04
+
+  - id: blog-kerem-hateimanim-neighborhood-guide-description-2026-11-04
+    url: /blog/kerem-hateimanim-neighborhood-guide
+    element: meta-description
+    avant: "Discover Kerem HaTeimanim — Tel Aviv's most authentic and characterful neighborhood. History, best streets, food, markets, and tips for staying there."
+    apres: "Kerem HaTeimanim, Tel Aviv's Yemenite Quarter: history, best streets, food, Carmel Market and tips for staying there."
+    date: 2026-11-04
+    motif: >-
+      Requêtes quartier en position 4–15 à CTR nul (57 impressions, dont
+      « yemenite quarter tel aviv » 26 en position 8,2) et tête
+      « kerem hateimanim » (183 impressions, position 11,3). Description de
+      150 caractères, tronquée, alignée sur « Yemenite Quarter / Kerem
+      HaTeimanim » ; retire le superlatif « most authentic ».
+    metriques_avant:
+      source: gsc
+      periode: "2026-10-01..2026-10-31"
+      clics: 6
+      impressions: 482
+      ctr: 1.2
+      position: 9.0
+    seuil_retour_arriere: "clics ou impressions -25 % à position ±2 sur 28 j"
+    mesures: []
+    verdict: null
+    verdict_attendu_le: 2027-01-04

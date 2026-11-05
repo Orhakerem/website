@@ -43,6 +43,8 @@ interface BookingRangeCalendarProps {
   onClearDates?: () => void;
   blockedDates?: readonly string[];
   availabilityStatus?: CalendarSyncStatus;
+  /** Mobile only: keep the grid hidden until a date field is tapped. */
+  collapseOnMobile?: boolean;
 }
 
 type ActiveField = 'checkIn' | 'checkOut';
@@ -53,6 +55,7 @@ export default function BookingRangeCalendar({
   onClearDates,
   blockedDates = [],
   availabilityStatus = 'ready',
+  collapseOnMobile = false,
 }: BookingRangeCalendarProps) {
   const locale = useLocale();
   const t = bookingMessages[locale].calendar;
@@ -356,6 +359,7 @@ export default function BookingRangeCalendar({
 
         <div
           className="booking-calendar-panel px-3 pt-4 pb-2 sm:px-6 sm:pt-6"
+          data-collapsible={collapseOnMobile ? 'true' : 'false'}
           data-revealed={calendarRevealed ? 'true' : 'false'}
         >
           <div className="mb-3 flex items-center justify-between px-1 sm:mb-4">

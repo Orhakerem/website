@@ -1,0 +1,20 @@
+metrique,valeur,periode,date_releve,note
+vues_utilisateurs_uniques,183,2026-10-01..2026-10-31,2026-11-04,"visiteurs uniques (une personne comptée une fois par jour) ; source gbp"
+vues_maps_mobile,72,2026-10-01..2026-10-31,2026-11-04,source gbp
+vues_recherche_mobile,68,2026-10-01..2026-10-31,2026-11-04,source gbp
+vues_recherche_ordinateur,24,2026-10-01..2026-10-31,2026-11-04,source gbp
+vues_maps_ordinateur,19,2026-10-01..2026-10-31,2026-11-04,source gbp
+recherches,,2026-10-01..2026-10-31,2026-11-04,"non disponible : interface « Vos recherches seront bientôt disponibles »"
+interactions_total,41,2026-10-01..2026-10-31,2026-11-04,source gbp
+appels,0,2026-10-01..2026-10-31,2026-11-04,source gbp
+clics_chat,0,2026-10-01..2026-10-31,2026-11-04,source gbp
+reservations,0,2026-10-01..2026-10-31,2026-11-04,source gbp
+itineraires,31,2026-10-01..2026-10-31,2026-11-04,"méthode de comptage modifiée par Google : non comparable à l'historique ancien"
+clics_site,10,2026-10-01..2026-10-31,2026-11-04,source gbp
+interactions_juin_nov_2026,315,juin-nov 2026 (bornes non affichées),2026-11-04,"non comparable à stats_oct"
+avis_total,4,cumul au 2026-11-04,2026-11-04,source gbp
+avis_note_moyenne,4.0,cumul au 2026-11-04,2026-11-04,source gbp
+avis_nouveaux,0,2026-10-01..2026-10-31,2026-11-04,source gbp
+publications,0,2026-10-01..2026-10-31,2026-11-04,"total posts 1, dernier il y a 3 mois"
+medias_proprietaire,9,cumul au 2026-11-04,2026-11-04,"couverture + logo + 7 photos"
+photos_ajoutees,,2026-10-01..2026-10-31,2026-11-04,"dates d'ajout non affichées dans l'outil propriétaire"
