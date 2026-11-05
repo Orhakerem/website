@@ -348,6 +348,13 @@ actions:
       est une modification de fiche : il faut l'accord du propriétaire
       (question posée en tête du rapport). La lecture seule peut se faire sans
       accord au prochain passage sur la fiche.
+      LU le 05/11 (lecture seule, aucune modification) : bouton « Site web » =
+      https://www.orhakerem.com/ et lien de réservation =
+      https://www.orhakerem.com/properties/penthouse-jacuzzi, TOUS DEUX SANS
+      AUCUN UTM. Valeurs cibles (docs/utm-links.md, §13 du plan GBP) :
+      ?utm_source=google_business_profile&utm_medium=referral&utm_campaign=gbp
+      avec utm_content=website_button, puis utm_content=booking_link. En attente
+      de l'autorisation du propriétaire pour modifier les deux champs.
 
   - id: allegations-15pct-studio
     action: Retirer les allégations « 15 % », « studio » et « up to 6 » du code et des articles
