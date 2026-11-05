@@ -14,19 +14,6 @@ etabli_le: 2026-11-05
 etabli_par: cloture-2026-11
 
 a_trancher:
-  - id: fusion-dev-main-2026-11
-    quoi: Fusionner dev → main pour mettre en production le travail du cycle 2026-11 (accord de Joseph requis)
-    echeance: 2026-11-12
-    contexte: >-
-      Les 2 articles trilingues (6 URL) et les 12 titles/descriptions sont en
-      preview seulement (commit 27613a9). Les 12 baselines posées le 04/11
-      (verdict attendu le 2027-01-04) mesurent donc une production inchangée
-      tant que main n'est pas fusionnée. Au relevé 2026-12, consigner la date
-      réelle de mise en production ; si elle est postérieure au 2026-11-12, la
-      fenêtre de mesure des baselines est amputée d'autant et doit être
-      signalée à l'étape 5. Après fusion : demande d'indexation GSC des 6
-      nouvelles URL et des 8 URL modifiées.
-
   - id: small-jewish-celebrations-sort
     quoi: Garder, ou fusionner dans private-events-tel-aviv-intimate-celebrations, l'article small-jewish-celebrations-venue-tel-aviv (en/fr/he)
     echeance: 2026-12-04
@@ -48,24 +35,6 @@ a_trancher:
       dans private-events) en respectant le plafond de 6 liens internes.
 
 a_surveiller:
-  - quoi: generate_lead réel après les correctifs formulaires du 23/10 (commit ef25896)
-    seuil: >-
-      au 20/11, trois cas : (a) lead du 01/11 confirmé réel → ne pas rouvrir
-      le diagnostic, sans conclure à un tunnel réparé sur un seul lead ;
-      (b) confirmé test et aucun autre generate_lead réel sur 28 j → rouvrir
-      le diagnostic du tunnel ; (c) non qualifié au 20/11 → le traiter comme
-      non probant : il ne compte pas, la branche (b) s'applique sur les autres
-      generate_lead de la fenêtre, et la question est reposée en tête du
-      rapport 2026-12
-    mesurer_le: 2026-11-20
-    contexte: >-
-      Octobre : 0 lead réel présumé (le seul generate_lead est un test du
-      23/10). Le 01/11 : 1 generate_lead + 1 contact_outbound, réel présumé
-      mais non vérifié. Qualification à demander au propriétaire avant le
-      20/11 : courriel Resend reçu ou ligne `reservations` du 01/11. Le cas
-      (c) applique la règle de prudence du cycle : un lead non vérifié ne
-      ferme pas un diagnostic.
-
   - quoi: Intégrer au relevé 2026-12 les lectures hors relevé H1-H7 et remesurer la marque sur novembre
     mesurer_le: 2026-12-04
     seuil: >-

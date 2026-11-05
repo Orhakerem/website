@@ -40,13 +40,13 @@ confirmé ouvert par Time Out Israël du 01/04/2026, cité en lien.
 | **Ce qui a été fait en attendant** | Les 2 publications du 04/11 ont été corrigées le 05/11 (voir « Ce qui a été livré »). Le §13 du plan de publication est aligné sur `docs/utm-links.md`. L'action `gbp-utm-boutons` est ouverte au registre. |
 | **Ce que je recommande** | Je lis les deux URL au prochain passage sur la fiche, sans rien modifier. Si elles sont en `organic` ou sans UTM, tu m'autorises à passer à `utm_source=google_business_profile&utm_medium=referral`, comme pour les publications. C'est une modification de fiche : il faut ton accord. |
 
-### 2. Le `generate_lead` du 01/11 est un vrai contact ou un test ?
+### ✅ Le `generate_lead` du 01/11 : un vrai contact, confirmé par toi le 05/11
 
-| | |
-|---|---|
-| **Ce qui est bloqué** | Le seuil du 20/11 dans `prochain-cycle.yml`. Selon ta réponse, on rouvre ou non le diagnostic du tunnel de formulaire. |
-| **Ce qui a été fait en attendant** | GA4 montre 1 `generate_lead` et 1 `contact_outbound` le 01/11 (source ga4, `hors_fenetre`). C'est le premier lead depuis les correctifs du 23/10. Il n'est pas vérifié. |
-| **Ce que je recommande** | Regarde si un e-mail Resend est arrivé le 01/11, ou s'il y a une ligne du 01/11 dans la table `reservations`, et dis-le-moi. Tu peux aussi m'autoriser à lire la table Supabase, en lecture seule. |
+C'est le **premier lead de formulaire réel** depuis les correctifs du 23/10.
+Les formulaires aboutissent donc de nouveau. On ne rouvre pas le diagnostic,
+mais un seul lead ne suffit pas à dire que le parcours est réparé : il faudra le
+confirmer sur un second mois. L'entrée correspondante est supprimée de
+`seo/prochain-cycle.yml`, ainsi que celle de la fusion sur main, faite le 05/11.
 
 ---
 
