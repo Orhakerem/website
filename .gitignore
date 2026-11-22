@@ -117,3 +117,6 @@ temp/
 *.sw?
 hero-original.mp4
 events-video-original.mp4
+
+# raw event footage (encoded to public/videos/events by scripts/build-event-videos.mjs)
+/media-src/

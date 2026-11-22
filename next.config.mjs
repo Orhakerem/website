@@ -134,6 +134,16 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // File names are stable across re-encodes, so no `immutable`.
+        source: '/videos/events/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
     ];
   },
 

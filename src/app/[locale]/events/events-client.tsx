@@ -7,12 +7,13 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { sendEmail } from '@/actions/email';
 import BookingSingleDateCalendar from '@/components/BookingSingleDateCalendar';
-import EventPricing from '@/components/EventPricing';
+import EventVideos from '@/components/EventVideos';
 import LiquidGlassButton from '@/components/LiquidGlassButton';
 import LiquidGlassCTA from '@/components/LiquidGlassCTA';
 import { useBackToTopVisibility } from '@/hooks/useBackToTopVisibility';
 import { formatIsoDate } from '@/lib/booking-dates';
 import type { CalendarSyncStatus } from '@/lib/bookable-properties';
+import type { EventVideo } from '@/lib/event-videos';
 import { eventCleaningFee, getVenueRental } from '@/lib/event-pricing-data';
 import { trackMetaLead } from '@/lib/meta-events';
 import { trackGaLead } from '@/lib/ga-events';
@@ -22,11 +23,13 @@ import { eventsMessages } from '@/i18n/messages/events';
 interface EventsClientProps {
   blockedDates: readonly string[];
   availabilityStatus: CalendarSyncStatus;
+  videos: readonly EventVideo[];
 }
 
 export default function EventsClient({
   blockedDates,
   availabilityStatus,
+  videos,
 }: EventsClientProps) {
   const locale = useLocale();
   const t = eventsMessages[locale];
@@ -153,76 +156,8 @@ export default function EventsClient({
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 md:pt-10 pb-8 md:pb-20">
 
-        <EventPricing locale={locale} t={t.pricing} />
-
-        {/* Availability Section - synced to penthouse calendar */}
-        <section id="availability" className="events-availability-section py-6 md:py-10 mb-8 md:mb-12" data-animate="fade-up">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Header */}
-            <div className="text-center mb-5 md:mb-6" data-animate="fade-up">
-              <span className="text-tertiary font-semibold text-sm md:text-base tracking-[0.2em] uppercase block mb-3">
-                {t.availability.kicker}
-              </span>
-              <h2 className="font-head text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight" data-animate="text">
-                {t.availability.heading}
-              </h2>
-              <p className="mt-3 md:mt-6 text-black/80 text-sm md:text-xl leading-relaxed max-w-3xl mx-auto">
-                {t.availability.body}
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              <BookingSingleDateCalendar
-                value={eventDate}
-                blockedDates={blockedDates}
-                availabilityStatus={availabilityStatus}
-                desktopMonths={2}
-                onChange={(nextDate) => setEventDate(nextDate)}
-              />
-
-              {eventQuote ? (
-                <div className="mt-6 bg-white rounded-[10px] p-6 border border-primary/10 shadow-sm">
-                  <div className="space-y-2 text-sm md:text-base text-black/80">
-                    <div className="flex items-center justify-between gap-4">
-                      <span>{t.availability.venueRental}</span>
-                      <span className="whitespace-nowrap" dir="ltr">
-                        {eventQuote.venuePrice.toLocaleString('en-US')} ₪
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-4">
-                      <span>{t.availability.cleaningFee}</span>
-                      <span className="whitespace-nowrap" dir="ltr">
-                        {eventQuote.cleaningFee.toLocaleString('en-US')} ₪
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-4 border-t border-primary/10 pt-3 text-black">
-                      <span className="font-semibold">{t.availability.total}</span>
-                      <span className="font-head text-xl font-bold whitespace-nowrap" dir="ltr">
-                        {eventQuote.total.toLocaleString('en-US')} ₪
-                      </span>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-black/60 text-xs md:text-sm">
-                    {t.availability.priceNote}
-                  </p>
-                </div>
-              ) : null}
-
-              <div className="mt-6 md:mt-8 text-center" data-animate="fade-up">
-                <LiquidGlassButton onClick={() => setShowForm(true)}>
-                  {t.availability.reserveCta}
-                </LiquidGlassButton>
-                <p className="mt-3 text-black/60 text-xs md:text-sm font-medium">
-                  {t.availability.getQuoteCta}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
         {/* Event Spaces Section - Flat editorial */}
-        <section id="venues" className="events-venues-section mb-6 md:mb-10" data-animate="fade-up">
+        <section id="venues" className="mb-10 md:mb-20" data-animate="fade-up">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="text-center" data-animate="fade-up">
@@ -256,40 +191,102 @@ export default function EventsClient({
                 </p>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Event types — flat chips */}
-            <div className="mt-8 md:mt-20 text-center" data-animate="fade-up">
-              <span className="text-black font-semibold text-sm tracking-[0.2em] uppercase block mb-3 md:mb-6">
-                {t.venues.perfectForKicker}
+        <EventVideos videos={videos} t={t.videos} />
+
+        {/* Availability Section - synced to penthouse calendar */}
+        <section id="availability" className="mb-10 md:mb-20" data-animate="fade-up">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <div className="text-center mb-5 md:mb-6" data-animate="fade-up">
+              <span className="text-tertiary font-semibold text-sm md:text-base tracking-[0.2em] uppercase block mb-3">
+                {t.availability.kicker}
               </span>
-              <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto" data-animate-group="cards">
-                {eventTypes.map((event) => (
-                  <span
-                    key={event}
-                    className="rounded-full border border-primary/20 px-4 py-1.5 text-sm text-black/80"
-                  >
-                    {event}
-                  </span>
-                ))}
-              </div>
+              <h2 className="font-head text-2xl md:text-4xl lg:text-5xl font-bold text-black leading-tight" data-animate="text">
+                {t.availability.heading}
+              </h2>
+              <p className="mt-3 md:mt-6 text-black/80 text-sm md:text-xl leading-relaxed max-w-3xl mx-auto">
+                {t.availability.body}
+              </p>
             </div>
 
+            <div className="max-w-3xl mx-auto">
+              <BookingSingleDateCalendar
+                value={eventDate}
+                blockedDates={blockedDates}
+                availabilityStatus={availabilityStatus}
+                desktopMonths={2}
+                onChange={(nextDate) => setEventDate(nextDate)}
+              />
+
+              <div aria-live="polite">
+                {eventQuote ? (
+                  <div className="mt-6 bg-white rounded-[10px] p-6 border border-primary/10 shadow-sm">
+                    <div className="space-y-2 text-sm md:text-base text-black/80">
+                      <div className="flex items-center justify-between gap-4">
+                        <span>{t.availability.venueRental}</span>
+                        <span className="whitespace-nowrap" dir="ltr">
+                          {eventQuote.venuePrice.toLocaleString('en-US')} ₪
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4">
+                        <span>{t.availability.cleaningFee}</span>
+                        <span className="whitespace-nowrap" dir="ltr">
+                          {eventQuote.cleaningFee.toLocaleString('en-US')} ₪
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 border-t border-primary/10 pt-3 text-black">
+                        <span className="font-semibold">{t.availability.total}</span>
+                        <span className="font-head text-xl font-bold whitespace-nowrap" dir="ltr">
+                          {eventQuote.total.toLocaleString('en-US')} ₪
+                        </span>
+                      </div>
+                    </div>
+                    <ul className="mt-4 space-y-1 text-black/60 text-xs md:text-sm">
+                      {venueRental.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <p className="mt-5 text-center text-sm text-black/70">
+                    {t.availability.pickDateHint}
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-6 md:mt-8 text-center" data-animate="fade-up">
+                <LiquidGlassButton onClick={() => setShowForm(true)}>
+                  {t.availability.reserveCta}
+                </LiquidGlassButton>
+                <p className="mt-3 text-black/60 text-xs md:text-sm font-medium">
+                  {t.availability.getQuoteCta}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="amenities" className="mb-10 md:mb-20">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Features & amenities — 3 clusters */}
-            <div className="mt-8 md:mt-20" data-animate="fade-up">
+            <div data-animate="fade-up">
               <div className="text-center mb-5 md:mb-10">
                 <span className="text-black font-semibold text-sm tracking-[0.2em] uppercase block mb-3">
                   {t.venues.amenitiesKicker}
                 </span>
-                <h3 className="font-head text-lg md:text-3xl font-bold text-black">
+                <h2 className="font-head text-2xl md:text-4xl font-bold text-black leading-tight">
                   {t.venues.amenitiesHeading}
-                </h3>
+                </h2>
               </div>
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
                 {venueAmenityGroups.map((group) => (
                   <div key={group.title}>
-                    <h4 className="font-head text-lg font-semibold text-black mb-4">
+                    <h3 className="font-head text-lg font-semibold text-black mb-4">
                       {group.title}
-                    </h4>
+                    </h3>
                     <ul className="space-y-2.5">
                       {group.items.map((item) => (
                         <li key={item} className="flex gap-3 text-black/80 leading-relaxed">
@@ -299,6 +296,27 @@ export default function EventsClient({
                       ))}
                     </ul>
                   </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="perfect-for">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Event types — flat chips */}
+            <div className="text-center" data-animate="fade-up">
+              <h2 className="text-black font-semibold text-sm tracking-[0.2em] uppercase block mb-3 md:mb-6">
+                {t.venues.perfectForKicker}
+              </h2>
+              <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto" data-animate-group="cards">
+                {eventTypes.map((event) => (
+                  <span
+                    key={event}
+                    className="rounded-full border border-primary/20 px-4 py-1.5 text-sm text-black/80"
+                  >
+                    {event}
+                  </span>
                 ))}
               </div>
             </div>
