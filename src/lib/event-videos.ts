@@ -92,6 +92,36 @@ const EVENT_VIDEOS: readonly EventVideoDefinition[] = [
       he: 'ארוחת צהריים עם מזנון וברביקיו במרפסת של אור הכרם בתל אביב.',
     },
   },
+  {
+    slug: 'dj-sunset-session',
+    uploadDate: UPLOAD_DATE,
+    duration: 'PT20S',
+    name: {
+      en: 'DJ set at sunset',
+      fr: 'Set DJ au coucher du soleil',
+      he: 'סט די-ג׳יי בשקיעה',
+    },
+    description: {
+      en: 'A DJ set on the Or Hakerem rooftop in Tel Aviv, from sunset into the night, with views over the city.',
+      fr: "Un set DJ sur le rooftop d'Or Hakerem à Tel Aviv, du coucher du soleil à la nuit, avec vue sur la ville.",
+      he: 'סט די-ג׳יי בגג של אור הכרם בתל אביב, מהשקיעה ועד הלילה, עם נוף לעיר.',
+    },
+  },
+  {
+    slug: 'dj-rooftop-drone',
+    uploadDate: UPLOAD_DATE,
+    duration: 'PT25S',
+    name: {
+      en: 'The rooftop from above',
+      fr: 'Le rooftop vu du ciel',
+      he: 'הגג ממעוף הציפור',
+    },
+    description: {
+      en: 'Drone footage flying in over Kerem HaTeimanim to a DJ set on the Or Hakerem rooftop at dusk.',
+      fr: "Un drone survole le Kerem HaTeimanim jusqu'à un set DJ sur le rooftop d'Or Hakerem, au crépuscule.",
+      he: 'רחפן חולף מעל כרם התימנים אל סט די-ג׳יי בגג של אור הכרם בשעת בין ערביים.',
+    },
+  },
 ];
 
 export function getEventVideos(locale: Locale): EventVideo[] {

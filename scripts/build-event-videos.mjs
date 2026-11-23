@@ -34,6 +34,8 @@ const VIDEOS = [
   { slug: 'rooftop-by-night', end: 17.5, posterAt: 3.6, audio: false, zoom: { keep: 0.71, x: 0.145, y: 0.13 } },
   { slug: 'family-ceremony', posterAt: 4.1, previewStart: 2.2 },
   { slug: 'buffet-barbecue', posterAt: 3.4 },
+  { slug: 'dj-sunset-session', posterAt: 5.5, previewStart: 3, audio: false },
+  { slug: 'dj-rooftop-drone', posterAt: 11, previewStart: 8 },
 ];
 
 const MAX_SECONDS = 30;
