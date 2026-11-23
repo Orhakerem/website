@@ -78,36 +78,6 @@ const EVENT_VIDEOS: readonly EventVideoDefinition[] = [
     },
   },
   {
-    slug: 'sunset-gathering',
-    uploadDate: UPLOAD_DATE,
-    duration: 'PT4S',
-    name: {
-      en: 'Sunset gathering',
-      fr: 'Au coucher du soleil',
-      he: 'מפגש בשקיעה',
-    },
-    description: {
-      en: 'Guests meeting at sunset around the gazebo on the Or Hakerem rooftop.',
-      fr: "Des invités réunis au coucher du soleil autour de la tonnelle, sur le rooftop d'Or Hakerem.",
-      he: 'אורחים נפגשים בשקיעה סביב הגזיבו בגג של אור הכרם.',
-    },
-  },
-  {
-    slug: 'evening-celebration',
-    uploadDate: UPLOAD_DATE,
-    duration: 'PT8S',
-    name: {
-      en: 'Evening celebration',
-      fr: 'Soirée en plein air',
-      he: 'חגיגת ערב',
-    },
-    description: {
-      en: 'An open-air evening celebration on the Or Hakerem rooftop, above the streets of Tel Aviv.',
-      fr: "Une soirée en plein air sur le rooftop d'Or Hakerem, au-dessus des rues de Tel Aviv.",
-      he: 'חגיגת ערב תחת כיפת השמיים בגג של אור הכרם, מעל רחובות תל אביב.',
-    },
-  },
-  {
     slug: 'buffet-barbecue',
     uploadDate: UPLOAD_DATE,
     duration: 'PT8S',

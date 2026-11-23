@@ -88,9 +88,7 @@ function VideoCard({ video, playAria, paused, onOpen }: VideoCardProps) {
           tabIndex={-1}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         />
-        <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-        <span className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 p-4 text-white">
-          <span className="font-head text-base font-semibold leading-snug">{video.name}</span>
+        <span className="absolute inset-x-0 bottom-0 flex justify-end p-4 text-white">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition group-hover:bg-white/35">
             <Play className="h-4 w-4 fill-current" aria-hidden />
           </span>
@@ -254,8 +252,7 @@ export default function EventVideos({ videos, t }: EventVideosProps) {
       >
         {openVideo ? (
           <div className="pointer-events-none flex h-full flex-col items-center justify-center gap-3 p-4">
-            <div className="pointer-events-auto flex w-full max-w-[calc((100dvh-9rem)*9/16)] items-center justify-between gap-3 text-white">
-              <p className="font-head text-lg font-semibold">{openVideo.name}</p>
+            <div className="pointer-events-auto flex w-full max-w-[calc((100dvh-9rem)*9/16)] justify-end text-white">
               <button
                 type="button"
                 onClick={() => setOpenIndex(null)}
