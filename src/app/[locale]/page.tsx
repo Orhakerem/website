@@ -1,6 +1,7 @@
 import FAQ from '@/components/FAQ';
 import Image from 'next/image';
 import HeroAnimatedTitle from '@/components/HeroAnimatedTitle';
+import HomeHeroVideo from '@/components/HomeHeroVideo';
 import LiquidGlassCTA from '@/components/LiquidGlassCTA';
 import HomeContactForm from '@/components/HomeContactForm';
 import { ContactCard } from '@/components/ContactCard';
@@ -24,26 +25,11 @@ export default function Home({ params }: { params: { locale: string } }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(heroVideoSchema) }}
       />
-      {/* Preload the hero poster (the LCP paint) at high priority */}
-      <link rel="preload" as="image" href="/hero-poster.webp" fetchPriority="high" />
       {/* Hero Section with Video Background - No Margin Top */}
       <div className="hero-home relative w-full h-screen overflow-hidden">
         <div className="hero-home-media absolute inset-0">
-          {/* Video Background */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/hero-poster.webp"
-            preload="metadata"
-            className="hero-home-video absolute inset-0 w-full h-full object-cover"
-          >
-            {/* Mobile: lightweight 1080-wide variant */}
-            <source src="/hero-1080.mp4" type="video/mp4" media="(max-width: 768px)" />
-            {/* Desktop */}
-            <source src="/hero.mp4" type="video/mp4" />
-          </video>
+          {/* Poster is the LCP image; the video loads after the page */}
+          <HomeHeroVideo />
           <div className="hero-home-overlay absolute inset-0"></div>
           {/* Fallback for browsers that don't support video */}
           <div className="hero-home-fallback absolute inset-0 bg-primary"></div>
@@ -99,10 +85,10 @@ export default function Home({ params }: { params: { locale: string } }) {
                 src="/studio/Salon_angle_3_Zoom.jpg"
                 alt={t.welcome.imageAlt}
                 fill
-                priority
+                loading="eager"
                 quality={70}
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(max-width: 640px) 45vw, 40vw"
               />
             </div>
           </div>
