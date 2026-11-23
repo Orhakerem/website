@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowUp, ChevronDown, Mail, Phone, X } from 'lucide-react';
+import { ChevronDown, Mail, Phone, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -10,7 +10,6 @@ import BookingSingleDateCalendar from '@/components/BookingSingleDateCalendar';
 import EventVideos from '@/components/EventVideos';
 import LiquidGlassButton from '@/components/LiquidGlassButton';
 import LiquidGlassCTA from '@/components/LiquidGlassCTA';
-import { useBackToTopVisibility } from '@/hooks/useBackToTopVisibility';
 import { formatIsoDate } from '@/lib/booking-dates';
 import type { CalendarSyncStatus } from '@/lib/bookable-properties';
 import type { EventVideo } from '@/lib/event-videos';
@@ -40,7 +39,6 @@ export default function EventsClient({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [eventDate, setEventDate] = useState<string | null>(null);
-  const showBackToTop = useBackToTopVisibility();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const eventQuote = eventDate
@@ -99,10 +97,6 @@ export default function EventsClient({
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -551,17 +545,6 @@ export default function EventsClient({
             </div>
           </div>
         </div>
-      )}
-
-      {/* Back to Top Button */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 rounded-full bg-gradient-to-r from-secondary to-secondary-light p-4 text-black shadow-lg"
-          aria-label={t.backToTopAria}
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
       )}
     </div>
   );

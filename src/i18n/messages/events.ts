@@ -127,7 +127,6 @@ const en = {
     errorGeneric: 'Failed to send event inquiry',
     errorSubmit: 'Failed to submit event request. Please try again.',
   },
-  backToTopAria: 'Back to top',
 };
 
 export type EventsMessages = typeof en;
@@ -259,7 +258,6 @@ const fr: EventsMessages = {
     errorGeneric: "Échec de l'envoi de la demande d'événement",
     errorSubmit: "Échec de l'envoi de la demande. Veuillez réessayer.",
   },
-  backToTopAria: 'Retour en haut',
 };
 
 const he: EventsMessages = {
@@ -389,7 +387,6 @@ const he: EventsMessages = {
     errorGeneric: 'שליחת פניית האירוע נכשלה',
     errorSubmit: 'שליחת בקשת האירוע נכשלה. אנא נסו שוב.',
   },
-  backToTopAria: 'חזרה למעלה',
 };
 
 export const eventsMessages: Record<Locale, EventsMessages> = { en, fr, he };
