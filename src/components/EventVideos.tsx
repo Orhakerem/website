@@ -4,10 +4,14 @@ import { ChevronLeft, ChevronRight, Instagram, Play, X } from 'lucide-react';
 
 import { useEffect, useRef, useState } from 'react';
 
+import TikTokIcon from '@/components/TikTokIcon';
 import type { EventsMessages } from '@/i18n/messages/events';
 import type { EventVideo } from '@/lib/event-videos';
 
-const INSTAGRAM_URL = 'https://www.instagram.com/or_hakerem/';
+const SOCIAL_LINKS = [
+  { label: 'Instagram', href: 'https://www.instagram.com/or_hakerem/', Icon: Instagram },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@or.hakerem', Icon: TikTokIcon },
+];
 
 const ARROW_CLASS =
   'tap-reset flex h-11 w-11 items-center justify-center rounded-full transition disabled:opacity-30';
@@ -221,15 +225,21 @@ export default function EventVideos({ videos, t }: EventVideosProps) {
         >
           <ChevronLeft className="h-5 w-5 rtl:rotate-180" aria-hidden />
         </button>
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-black/80 underline-offset-4 hover:underline"
-        >
-          <Instagram className="h-4 w-4" aria-hidden />
-          {t.instagramCta}
-        </a>
+        <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-medium text-black/80">
+          <span>{t.moreVideosOn}</span>
+          {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 underline-offset-4 hover:underline"
+            >
+              <Icon className="h-4 w-4" aria-hidden="true" />
+              {label}
+            </a>
+          ))}
+        </p>
         <button
           type="button"
           onClick={() => scrollCards(1)}

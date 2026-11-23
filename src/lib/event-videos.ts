@@ -94,7 +94,7 @@ const EVENT_VIDEOS: readonly EventVideoDefinition[] = [
   },
   {
     slug: 'dj-sunset-session',
-    uploadDate: UPLOAD_DATE,
+    uploadDate: '2026-11-23T12:00:00+02:00',
     duration: 'PT20S',
     name: {
       en: 'DJ set at sunset',
@@ -109,7 +109,7 @@ const EVENT_VIDEOS: readonly EventVideoDefinition[] = [
   },
   {
     slug: 'dj-rooftop-drone',
-    uploadDate: UPLOAD_DATE,
+    uploadDate: '2026-11-23T12:00:00+02:00',
     duration: 'PT25S',
     name: {
       en: 'The rooftop from above',

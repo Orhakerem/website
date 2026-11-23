@@ -22,7 +22,7 @@ const staticRoutes: StaticRoute[] = [
   { path: '/properties/cozy-studio', changeFrequency: 'weekly', priority: 0.9, lastModified: '2026-08-10' },
   { path: '/reservation', changeFrequency: 'weekly', priority: 0.8, lastModified: '2026-08-10' },
   { path: '/services', changeFrequency: 'weekly', priority: 0.8, lastModified: '2026-08-10' },
-  { path: '/events', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-11-22' },
+  { path: '/events', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-11-23' },
   { path: '/about', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-07-19' },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-07-06' },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-08-10' },
