@@ -442,9 +442,19 @@
       linear-gradient(180deg, rgba(10, 18, 28, 0.24) 0%, rgba(10, 18, 28, 0.38) 100%);
   }
 
+  .hero-home-poster {
+    z-index: 1;
+  }
+
+  /* Hidden until it actually plays, then fades in over the poster
+     (see HomeHeroVideo). */
   .hero-home-video {
     z-index: 1;
     filter: none !important;
+    opacity: 0 !important;
+  }
+
+  .hero-home-video.hero-home-video--playing {
     opacity: 1 !important;
   }
 
@@ -1027,6 +1037,8 @@
       position: relative !important;
       width: 100%;
       height: auto !important;
+      /* No src until after load: keep the 16:9 box so nothing shifts. */
+      aspect-ratio: 16 / 9;
       object-fit: contain !important;
       object-position: center !important;
       background: transparent !important;
