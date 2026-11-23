@@ -3,7 +3,7 @@ import type { SiteVideo } from '@/lib/site-schema';
 
 type LocalizedText = Record<Locale, string>;
 
-type VideoDefinition = Omit<SiteVideo, 'name' | 'description'> & {
+export type VideoDefinition = Omit<SiteVideo, 'name' | 'description'> & {
   name: LocalizedText;
   description: LocalizedText;
 };
@@ -42,7 +42,7 @@ const EVENTS_HERO: VideoDefinition = {
   },
 };
 
-function localize(definition: VideoDefinition, locale: Locale): SiteVideo {
+export function localizeVideo(definition: VideoDefinition, locale: Locale): SiteVideo {
   return {
     ...definition,
     name: definition.name[locale],
@@ -50,5 +50,5 @@ function localize(definition: VideoDefinition, locale: Locale): SiteVideo {
   };
 }
 
-export const getHomeHeroVideo = (locale: Locale) => localize(HOME_HERO, locale);
-export const getEventsHeroVideo = (locale: Locale) => localize(EVENTS_HERO, locale);
+export const getHomeHeroVideo = (locale: Locale) => localizeVideo(HOME_HERO, locale);
+export const getEventsHeroVideo = (locale: Locale) => localizeVideo(EVENTS_HERO, locale);

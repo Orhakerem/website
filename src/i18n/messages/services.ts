@@ -65,7 +65,6 @@ const en = {
     error: 'Failed to send request. Please try again.',
     messagePrefix: 'Concierge Service Request: ',
   },
-  backToTopAria: 'Back to top',
 };
 
 export type ServicesMessages = typeof en;
@@ -135,7 +134,6 @@ const fr: ServicesMessages = {
     error: "Échec de l'envoi de la demande. Veuillez réessayer.",
     messagePrefix: 'Demande de service de conciergerie : ',
   },
-  backToTopAria: 'Retour en haut',
 };
 
 const he: ServicesMessages = {
@@ -201,7 +199,6 @@ const he: ServicesMessages = {
     error: 'שליחת הבקשה נכשלה. אנא נסו שוב.',
     messagePrefix: 'בקשת שירות קונסיירז׳: ',
   },
-  backToTopAria: 'חזרה למעלה',
 };
 
 export const servicesMessages: Record<Locale, ServicesMessages> = { en, fr, he };

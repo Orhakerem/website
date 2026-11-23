@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 
@@ -13,6 +13,7 @@ import {
   getVideoStructuredData,
   getWebSiteStructuredData,
 } from '../lib/site-schema';
+import { getEventVideos } from '../lib/event-videos';
 import { getEventsHeroVideo, getHomeHeroVideo } from '../lib/site-videos';
 
 const LOCALES = ['en', 'fr', 'he'] as const;
@@ -62,11 +63,12 @@ test('breadcrumb items are absolute, ordered URLs', () => {
   );
 });
 
-test('hero videos are localized and point at files that exist', () => {
+test('site videos are localized and point at files that exist', () => {
   for (const locale of LOCALES) {
     for (const [video, page] of [
       [getHomeHeroVideo(locale), '/'],
       [getEventsHeroVideo(locale), '/events'],
+      ...getEventVideos(locale).map((video) => [video, '/events'] as const),
     ] as const) {
       const schema = getVideoStructuredData(video, page);
 
@@ -90,4 +92,23 @@ test('hero videos are localized and point at files that exist', () => {
 test('hero video copy differs per locale', () => {
   const names = LOCALES.map((locale) => getHomeHeroVideo(locale).name);
   assert.equal(new Set(names).size, LOCALES.length);
+});
+
+test('event videos have unique slugs, a preview, and stay within their weight budget', () => {
+  const videos = getEventVideos('en');
+  assert.equal(new Set(videos.map((video) => video.slug)).size, videos.length);
+
+  const size = (file: string) => statSync(path.join(PUBLIC_DIR, file)).size;
+  for (const video of videos) {
+    assert.ok(size(video.contentPath) <= 5 * 1024 * 1024, video.slug);
+    assert.ok(size(video.previewPath) <= 350 * 1024, video.slug);
+    assert.ok(size(video.thumbnailPath) <= 90 * 1024, video.slug);
+  }
+});
+
+test('event video copy differs per locale', () => {
+  const [en, fr, he] = LOCALES.map((locale) => getEventVideos(locale));
+  en.forEach((video, index) => {
+    assert.equal(new Set([video.name, fr[index].name, he[index].name]).size, LOCALES.length);
+  });
 });

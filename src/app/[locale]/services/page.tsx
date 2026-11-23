@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ArrowUp, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { sendContactEmail } from '@/actions/contact';
 import LiquidGlassButton from '@/components/LiquidGlassButton';
-import { useBackToTopVisibility } from '@/hooks/useBackToTopVisibility';
 import { useLocale } from '@/i18n/useLocale';
 import { servicesMessages } from '@/i18n/messages/services';
 import { trackMetaLead } from '@/lib/meta-events';
@@ -41,7 +40,6 @@ export default function ServicesPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const showBackToTop = useBackToTopVisibility();
 
   useEffect(() => {
     const originalOverflow = document.body.style.overflow;
@@ -90,10 +88,6 @@ export default function ServicesPage() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -376,17 +370,6 @@ export default function ServicesPage() {
             </div>
           </div>
         </div>
-      )}
-
-      {/* Back to Top Button */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 rounded-full bg-gradient-to-r from-secondary to-secondary-light p-4 text-black shadow-lg"
-          aria-label={t.backToTopAria}
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { ArrowUp, Printer } from 'lucide-react';
+import React from 'react';
+import { Printer } from 'lucide-react';
 
 import { useLocale } from '@/i18n/useLocale';
 import { legalMessages } from '@/i18n/messages/legal';
@@ -25,25 +25,10 @@ export default function LegalPageShell({
 }: LegalPageShellProps) {
   const locale = useLocale();
   const t = legalMessages[locale];
-  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const handlePrint = () => {
     window.print();
   };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-cream pt-24 pb-20">
@@ -81,16 +66,6 @@ export default function LegalPageShell({
 
           {children}
         </div>
-
-        {showBackToTop && (
-          <button
-            onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-40 rounded-full bg-gradient-to-r from-secondary to-secondary-light p-4 text-black shadow-lg transition-all duration-300"
-            aria-label={t.backToTopAria}
-          >
-            <ArrowUp className="h-6 w-6" />
-          </button>
-        )}
       </div>
     </div>
   );

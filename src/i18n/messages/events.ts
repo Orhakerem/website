@@ -60,21 +60,26 @@ const en = {
       },
     ],
   },
+  videos: {
+    kicker: 'Real Events',
+    heading: 'See the penthouse in full swing',
+    body: 'Receptions, ceremonies and evenings hosted on our rooftop. Tap a video to watch it full screen.',
+    instagramCta: 'See more on Instagram',
+    playAria: 'Play video',
+    previousAria: 'Previous video',
+    nextAria: 'Next video',
+    closeAria: 'Close video',
+  },
   availability: {
-    kicker: 'Availability',
-    heading: 'Check availability',
+    kicker: 'Availability & Pricing',
+    heading: 'Check your date and price',
     body: 'Pick a date below to see if the venue is available and the rental price for that day.',
+    pickDateHint: 'Choose an available date to see the price.',
     venueRental: 'Venue rental',
     cleaningFee: 'Cleaning fee',
     total: 'Total',
-    priceNote: 'Prices include place location only for events.',
     reserveCta: 'Reserve your event',
     getQuoteCta: 'Get your instant quote',
-  },
-  pricing: {
-    kicker: 'Event Pricing',
-    heading: 'Venue Rental',
-    body: 'Book the space only, then add catering and services if needed.',
   },
   plan: {
     kicker: 'Plan Your Event',
@@ -122,7 +127,6 @@ const en = {
     errorGeneric: 'Failed to send event inquiry',
     errorSubmit: 'Failed to submit event request. Please try again.',
   },
-  backToTopAria: 'Back to top',
 };
 
 export type EventsMessages = typeof en;
@@ -187,21 +191,26 @@ const fr: EventsMessages = {
       },
     ],
   },
+  videos: {
+    kicker: 'Événements vécus',
+    heading: 'Le penthouse en pleine fête',
+    body: 'Réceptions, cérémonies et soirées organisées sur notre rooftop. Touchez une vidéo pour la voir en plein écran.',
+    instagramCta: 'Voir plus sur Instagram',
+    playAria: 'Lire la vidéo',
+    previousAria: 'Vidéo précédente',
+    nextAria: 'Vidéo suivante',
+    closeAria: 'Fermer la vidéo',
+  },
   availability: {
-    kicker: 'Disponibilité',
-    heading: 'Vérifier la disponibilité',
+    kicker: 'Disponibilité & tarif',
+    heading: 'Vérifiez votre date et le prix',
     body: 'Choisissez une date ci-dessous pour voir si le lieu est disponible et connaître le tarif de location pour ce jour.',
+    pickDateHint: 'Choisissez une date disponible pour voir le prix.',
     venueRental: 'Location du lieu',
     cleaningFee: 'Frais de ménage',
     total: 'Total',
-    priceNote: 'Les prix incluent uniquement la location du lieu pour les événements.',
     reserveCta: 'Réservez votre événement',
     getQuoteCta: 'Recevez votre devis instantané',
-  },
-  pricing: {
-    kicker: 'Tarifs événements',
-    heading: 'Location du lieu',
-    body: "Réservez uniquement l'espace, puis ajoutez le traiteur et les services si besoin.",
   },
   plan: {
     kicker: 'Organisez votre événement',
@@ -249,7 +258,6 @@ const fr: EventsMessages = {
     errorGeneric: "Échec de l'envoi de la demande d'événement",
     errorSubmit: "Échec de l'envoi de la demande. Veuillez réessayer.",
   },
-  backToTopAria: 'Retour en haut',
 };
 
 const he: EventsMessages = {
@@ -312,21 +320,26 @@ const he: EventsMessages = {
       },
     ],
   },
+  videos: {
+    kicker: 'אירועים אמיתיים',
+    heading: 'הפנטהאוז בזמן אמת',
+    body: 'קבלות פנים, טקסים וערבים שהתקיימו על הגג שלנו. הקישו על סרטון לצפייה במסך מלא.',
+    instagramCta: 'עוד באינסטגרם',
+    playAria: 'ניגון הסרטון',
+    previousAria: 'הסרטון הקודם',
+    nextAria: 'הסרטון הבא',
+    closeAria: 'סגירת הסרטון',
+  },
   availability: {
-    kicker: 'זמינות',
-    heading: 'בדיקת זמינות',
+    kicker: 'זמינות ומחיר',
+    heading: 'בדקו תאריך ומחיר',
     body: 'בחרו תאריך למטה כדי לבדוק אם המקום פנוי ומה מחיר ההשכרה לאותו יום.',
+    pickDateHint: 'בחרו תאריך פנוי כדי לראות את המחיר.',
     venueRental: 'השכרת המקום',
     cleaningFee: 'דמי ניקיון',
     total: 'סה״כ',
-    priceNote: 'המחירים כוללים רק את השכרת המקום עבור אירועים.',
     reserveCta: 'הזמינו את האירוע שלכם',
     getQuoteCta: 'קבלו הצעת מחיר מיידית',
-  },
-  pricing: {
-    kicker: 'תמחור אירועים',
-    heading: 'השכרת המקום',
-    body: 'הזמינו את המקום בלבד, ולאחר מכן הוסיפו קייטרינג ושירותים לפי הצורך.',
   },
   plan: {
     kicker: 'תכננו את האירוע שלכם',
@@ -374,7 +387,6 @@ const he: EventsMessages = {
     errorGeneric: 'שליחת פניית האירוע נכשלה',
     errorSubmit: 'שליחת בקשת האירוע נכשלה. אנא נסו שוב.',
   },
-  backToTopAria: 'חזרה למעלה',
 };
 
 export const eventsMessages: Record<Locale, EventsMessages> = { en, fr, he };
