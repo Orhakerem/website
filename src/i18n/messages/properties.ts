@@ -75,6 +75,19 @@ const en = {
     viewOnAirbnb: 'View on Airbnb',
     viewOnBooking: 'View on Booking.com',
   },
+  beach45: {
+    kicker: 'Managed by 45Beach',
+    heading: 'The 45Beach studios',
+    body: 'Or Hakerem is managed by 45Beach. Discover its studios at 45 HaYarkon Street, one minute from the beach: each card opens the listing on 45beach.com.',
+    viewAria: (name: string) => `View ${name} on 45beach.com`,
+    guests: 'Guests',
+    beds: 'Beds',
+    size: 'Size',
+    comingSoon: 'Coming soon',
+    airbnb: 'Airbnb',
+    booking: 'Booking.com',
+    allListings: 'See all studios on 45beach.com',
+  },
 };
 
 export type PropertiesMessages = typeof en;
@@ -154,6 +167,19 @@ const fr: PropertiesMessages = {
     viewOnAirbnb: 'Voir sur Airbnb',
     viewOnBooking: 'Voir sur Booking.com',
   },
+  beach45: {
+    kicker: 'Géré par 45Beach',
+    heading: 'Les studios 45Beach',
+    body: 'Or Hakerem est gérée par 45Beach. Découvrez ses studios au 45 rue HaYarkon, à une minute de la plage : chaque fiche ouvre l’annonce sur 45beach.com.',
+    viewAria: (name: string) => `Voir ${name} sur 45beach.com`,
+    guests: 'Voyageurs',
+    beds: 'Lits',
+    size: 'Surface',
+    comingSoon: 'Bientôt disponible',
+    airbnb: 'Airbnb',
+    booking: 'Booking.com',
+    allListings: 'Voir tous les studios sur 45beach.com',
+  },
 };
 
 const he: PropertiesMessages = {
@@ -230,6 +256,19 @@ const he: PropertiesMessages = {
     studioAvailability: 'זמין ב-Airbnb',
     viewOnAirbnb: 'לצפייה ב-Airbnb',
     viewOnBooking: 'לצפייה ב-Booking.com',
+  },
+  beach45: {
+    kicker: 'בניהול 45Beach',
+    heading: 'הסטודיואים של 45Beach',
+    body: 'אור הכרם מנוהלת על ידי 45Beach. גלו את הסטודיואים שלה ברחוב הירקון 45, דקה מהחוף: כל כרטיס פותח את המודעה באתר 45beach.com.',
+    viewAria: (name: string) => `לצפייה ב${name} באתר 45beach.com`,
+    guests: 'אורחים',
+    beds: 'מיטות',
+    size: 'שטח',
+    comingSoon: 'בקרוב',
+    airbnb: 'Airbnb',
+    booking: 'Booking.com',
+    allListings: 'לכל הסטודיואים באתר 45beach.com',
   },
 };
 

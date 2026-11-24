@@ -78,10 +78,10 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
               </div>
               <h3 className="font-head text-base md:text-xl font-bold text-black mb-2">{t.otherWays.emailTitle}</h3>
               <a 
-                href="mailto:keremliving@gmail.com"
+                href="mailto:orhakerem@45beach.com"
                 className="font-medium text-black/80"
               >
-                keremliving@gmail.com
+                orhakerem@45beach.com
               </a>
             </div>
 

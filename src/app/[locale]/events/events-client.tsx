@@ -1,6 +1,7 @@
 'use client';
 
-import { ChevronDown, Mail, Phone, X } from 'lucide-react';
+import { ChevronDown, ExternalLink, Mail, Phone, X } from 'lucide-react';
+import Image from 'next/image';
 import toast from 'react-hot-toast';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -10,6 +11,7 @@ import BookingSingleDateCalendar from '@/components/BookingSingleDateCalendar';
 import EventVideos from '@/components/EventVideos';
 import LiquidGlassButton from '@/components/LiquidGlassButton';
 import LiquidGlassCTA from '@/components/LiquidGlassCTA';
+import { beach45Url } from '@/lib/beach45';
 import { formatIsoDate } from '@/lib/booking-dates';
 import type { CalendarSyncStatus } from '@/lib/bookable-properties';
 import type { EventVideo } from '@/lib/event-videos';
@@ -312,6 +314,54 @@ export default function EventsClient({
                     {event}
                   </span>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 45Beach terrace — Or Hakerem is managed by 45Beach */}
+        <section id="terrace-45beach" className="mt-12 md:mt-24 scroll-mt-32" data-animate="fade-up">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid overflow-hidden rounded-[10px] bg-white shadow-xl md:grid-cols-2">
+              <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[420px]">
+                <Image
+                  src="/45beach/terrace.jpg"
+                  alt={t.beach45Terrace.imageAlt}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-6 md:p-10">
+                <span className="text-secondary font-semibold text-xs md:text-sm tracking-[0.22em] uppercase block mb-3">
+                  {t.beach45Terrace.kicker}
+                </span>
+                <h2 className="font-head text-2xl md:text-4xl font-bold text-black leading-tight">
+                  {t.beach45Terrace.heading}
+                </h2>
+                <p className="mt-3 md:mt-5 text-black/80 text-sm md:text-base leading-relaxed">
+                  {t.beach45Terrace.body}
+                </p>
+                <ul className="mt-5 space-y-2">
+                  {t.beach45Terrace.features.map((feature) => (
+                    <li key={feature} className="flex items-start text-sm md:text-base text-black/80">
+                      <span className="mt-2 me-3 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 md:mt-8">
+                  <LiquidGlassCTA
+                    href={beach45Url(locale, '/events')}
+                    target="_blank"
+                    rel="noopener"
+                    className="liquid-cta--xs liquid-cta--light"
+                  >
+                    <span>{t.beach45Terrace.cta}</span>
+                    <ExternalLink className="w-4 h-4 ms-2" />
+                  </LiquidGlassCTA>
+                </div>
               </div>
             </div>
           </div>

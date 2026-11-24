@@ -40,7 +40,7 @@ Les citations d'annuaires sont le levier standard pour cela : elles créent des 
 | **Pays** | `Israel` |
 | **Adresse complète** | `35 Hakovshim Street, Tel Aviv-Yafo 6329302, Israel` |
 | **Téléphone** | `+972 58 577 8891` (format local : `058-577-8891`) |
-| **E-mail** | `keremliving@gmail.com` |
+| **E-mail** | `orhakerem@45beach.com` (depuis le 24/11/2026, gestion 45Beach) |
 | **Site** | `https://www.orhakerem.com/` |
 | **Coordonnées** | `32.0700843, 34.7640991` |
 | **Quartier** | Kerem HaTeimanim (Yemenite Quarter) |

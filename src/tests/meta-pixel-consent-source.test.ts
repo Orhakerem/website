@@ -141,7 +141,7 @@ for (const locale of ['en', 'fr', 'he'] as const) {
 test('all localized policy headers use the new date', () => {
   const page = source('src/app/[locale]/privacy/page.tsx');
 
-  assert.match(page, /Last updated: 23 July 2026/);
-  assert.match(page, /Dernière mise à jour : 23 juillet 2026/);
-  assert.match(page, /עדכון אחרון: 23 ביולי 2026/);
+  assert.match(page, /Last updated: 24 November 2026/);
+  assert.match(page, /Dernière mise à jour : 24 novembre 2026/);
+  assert.match(page, /עדכון אחרון: 24 בנובמבר 2026/);
 });

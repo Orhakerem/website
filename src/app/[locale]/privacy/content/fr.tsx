@@ -118,16 +118,18 @@ export default function PrivacyContentFr({
           <div className="space-y-4 text-black/80 leading-relaxed">
             <p>
               Or Hakerem (« nous », « notre » ou « l'entreprise ») propose des hébergements de
-              luxe de courte durée à Tel Aviv et exploite le site orhakerem.com. Nous sommes le
-              responsable du traitement des données personnelles décrites dans cette politique.
+              luxe de courte durée à Tel Aviv et exploite le site orhakerem.com. Or Hakerem est gérée
+              par 45Beach (45beach.com, 45 rue HaYarkon, Tel Aviv-Yafo), qui assure pour son compte la
+              gestion du site, des réservations et des demandes. Or Hakerem, sous la gestion de 45Beach,
+              est le responsable du traitement des données personnelles décrites dans cette politique.
             </p>
             <p>
               Vous pouvez nous contacter pour toute question relative à la confidentialité à{' '}
               <a
-                href="mailto:keremliving@gmail.com"
+                href="mailto:orhakerem@45beach.com"
                 className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
               >
-                keremliving@gmail.com
+                orhakerem@45beach.com
               </a>{' '}
               ou par courrier au 35 rue Hakovshim, Tel Aviv, Israël. Si vous réservez via Airbnb,
               votre séjour est également régi par la politique de confidentialité propre à Airbnb.
@@ -341,10 +343,10 @@ export default function PrivacyContentFr({
               <p>
                 Pour exercer l'un de ces droits, écrivez-nous à{' '}
                 <a
-                  href="mailto:keremliving@gmail.com"
+                  href="mailto:orhakerem@45beach.com"
                   className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
                 >
-                  keremliving@gmail.com
+                  orhakerem@45beach.com
                 </a>
                 . Nous répondrons dans les délais requis par la loi applicable.
               </p>
@@ -417,12 +419,24 @@ export default function PrivacyContentFr({
             <address className="mt-4 not-italic space-y-2 text-black/80 leading-relaxed">
               <p>35 rue Hakovshim, Tel Aviv, Israël</p>
               <p>
-                E-mail :{' '}
+                Gérée par{' '}
                 <a
-                  href="mailto:keremliving@gmail.com"
+                  href="https://www.45beach.com/fr"
+                  target="_blank"
+                  rel="noopener"
                   className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
                 >
-                  keremliving@gmail.com
+                  45Beach
+                </a>{' '}
+                — 45 rue HaYarkon, Tel Aviv-Yafo, Israël
+              </p>
+              <p>
+                E-mail :{' '}
+                <a
+                  href="mailto:orhakerem@45beach.com"
+                  className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
+                >
+                  orhakerem@45beach.com
                 </a>
               </p>
               <p dir="ltr">

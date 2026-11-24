@@ -7,6 +7,6 @@ const sourcePath = fileURLToPath(new URL('../app/[locale]/faq/page.tsx', import.
 const source = readFileSync(sourcePath, 'utf8');
 
 test('FAQ contact footer links to the support email address', () => {
-  assert.match(source, /href="mailto:keremliving@gmail\.com"/);
-  assert.match(source, /keremliving@gmail\.com/);
+  assert.match(source, /href="mailto:orhakerem@45beach\.com"/);
+  assert.match(source, /orhakerem@45beach\.com/);
 });

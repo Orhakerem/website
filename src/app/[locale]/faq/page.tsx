@@ -119,10 +119,10 @@ export default function FAQPage() {
           <p className="mt-2 text-sm text-black/65 sm:text-base">
             {t.notFoundBefore}
             <a
-              href="mailto:keremliving@gmail.com"
+              href="mailto:orhakerem@45beach.com"
               className="font-semibold text-black underline-offset-4 hover:underline"
             >
-              keremliving@gmail.com
+              orhakerem@45beach.com
             </a>
             {t.notFoundAfter}
           </p>

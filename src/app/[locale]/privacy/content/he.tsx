@@ -118,15 +118,17 @@ export default function PrivacyContentHe({
           <div className="space-y-4 text-black/80 leading-relaxed">
             <p>
               אור הכרם ("אנחנו" או "החברה") מספקת אירוח יוקרתי לטווח קצר בתל אביב ומפעילה את
-              האתר orhakerem.com. אנחנו הגורם האחראי על הנתונים האישיים המתוארים במדיניות זו.
+              האתר orhakerem.com. אור הכרם מנוהלת על ידי 45Beach (45beach.com, רחוב הירקון 45, תל
+              אביב-יפו), המנהלת בשמה את האתר, ההזמנות והפניות. אור הכרם, בניהול 45Beach, היא הגורם
+              האחראי על הנתונים האישיים המתוארים במדיניות זו.
             </p>
             <p>
               ניתן לפנות אלינו בכל נושא הקשור לפרטיות בכתובת{' '}
               <a
-                href="mailto:keremliving@gmail.com"
+                href="mailto:orhakerem@45beach.com"
                 className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
               >
-                keremliving@gmail.com
+                orhakerem@45beach.com
               </a>{' '}
               או בדואר לכתובת רחוב הכובשים 35, תל אביב, ישראל. אם הזמנתם דרך Airbnb, השהות שלכם
               כפופה גם למדיניות הפרטיות של Airbnb.
@@ -328,10 +330,10 @@ export default function PrivacyContentHe({
               <p>
                 כדי לממש זכויות אלה, שלחו לנו אימייל אל{' '}
                 <a
-                  href="mailto:keremliving@gmail.com"
+                  href="mailto:orhakerem@45beach.com"
                   className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
                 >
-                  keremliving@gmail.com
+                  orhakerem@45beach.com
                 </a>
                 . נשיב תוך פרק הזמן הנדרש על פי הדין החל.
               </p>
@@ -400,12 +402,24 @@ export default function PrivacyContentHe({
             <address className="mt-4 not-italic space-y-2 text-black/80 leading-relaxed">
               <p>רחוב הכובשים 35, תל אביב, ישראל</p>
               <p>
-                אימייל:{' '}
+                בניהול{' '}
                 <a
-                  href="mailto:keremliving@gmail.com"
+                  href="https://www.45beach.com/he"
+                  target="_blank"
+                  rel="noopener"
                   className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
                 >
-                  keremliving@gmail.com
+                  45Beach
+                </a>{' '}
+                — רחוב הירקון 45, תל אביב-יפו, ישראל
+              </p>
+              <p>
+                אימייל:{' '}
+                <a
+                  href="mailto:orhakerem@45beach.com"
+                  className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light"
+                >
+                  orhakerem@45beach.com
                 </a>
               </p>
               <p dir="ltr">

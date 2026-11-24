@@ -2,6 +2,7 @@ import { FileText } from 'lucide-react';
 
 import { createCanonicalUrl } from '@/app/seo';
 import LegalPageShell from '@/components/legal/LegalPageShell';
+import ManagementNotice from '@/components/legal/ManagementNotice';
 import { isLocale, localizePath, type Locale } from '@/i18n/config';
 import CancellationContentEn from './content/en';
 import CancellationContentFr from './content/fr';
@@ -52,6 +53,7 @@ export default function CancellationPage({ params }: { params: { locale: string 
       subtitle={header.subtitle}
       structuredData={structuredData}
     >
+      <ManagementNotice locale={locale} />
       <Content />
     </LegalPageShell>
   );

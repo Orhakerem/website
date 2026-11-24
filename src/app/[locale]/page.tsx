@@ -171,8 +171,8 @@ export default function Home({ params }: { params: { locale: string } }) {
               {
                 icon: Mail,
                 label: t.contact.emailLabel,
-                value: 'keremliving@gmail.com',
-                href: 'mailto:keremliving@gmail.com',
+                value: 'orhakerem@45beach.com',
+                href: 'mailto:orhakerem@45beach.com',
               },
               {
                 icon: Phone,

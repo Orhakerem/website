@@ -1,5 +1,6 @@
 import type { Locale } from '@/i18n/config';
 import { SITE_URL } from '@/app/seo';
+import { BEACH45 } from '@/lib/beach45';
 import { BUSINESS_NAME, BUSINESS_NAP, SOCIAL_PROFILES } from '@/lib/business-schema';
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
@@ -33,6 +34,12 @@ export function getOrganizationStructuredData() {
       addressCountry: BUSINESS_NAP.addressCountry,
     },
     sameAs: SOCIAL_PROFILES,
+    // Or Hakerem keeps its own brand but is managed by 45Beach.
+    parentOrganization: {
+      '@type': 'Organization',
+      name: BEACH45.name,
+      url: BEACH45.site,
+    },
   };
 }
 
