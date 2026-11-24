@@ -1,5 +1,6 @@
 import type { Locale } from '@/i18n/config';
 import { SITE_URL } from '@/app/seo';
+import { CONTACT_EMAIL } from '@/lib/beach45';
 
 export const BUSINESS_NAME = 'Or Hakerem';
 export const GOOGLE_BUSINESS_PROFILE_URL = 'https://www.google.com/maps?cid=11119085925362597877';
@@ -11,7 +12,7 @@ export const BUSINESS_NAP = {
   addressCountry: 'IL',
   telephone: '+972585778891',
   telephoneFr: '+33651179925',
-  email: 'orhakerem@45beach.com',
+  email: CONTACT_EMAIL,
 } as const;
 
 /**
