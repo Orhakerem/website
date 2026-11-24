@@ -162,7 +162,7 @@ export default function PrivacyContentFr({
           <div className="rounded-2xl border border-primary/10 bg-cream/50 p-6 md:p-8">
             <h3 className="font-head text-2xl font-semibold text-black">Les informations que vous nous fournissez</h3>
             <p className="mt-2 text-black/75 leading-relaxed">
-              Nous ne recevons ces informations que lorsque vous choisissez de nous les envoyer via l'un de nos formulaires.
+              Nous ne recevons ces informations que lorsque vous choisissez de nous les envoyer via l'un de nos formulaires ou en nous contactant via Facebook Messenger, Instagram Direct, WhatsApp ou par e-mail.
             </p>
             <div className="mt-6">
               <CardGrid items={dataYouProvide} />

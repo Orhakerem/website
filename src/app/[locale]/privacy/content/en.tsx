@@ -161,7 +161,7 @@ export default function PrivacyContentEn({
           <div className="rounded-2xl border border-primary/10 bg-cream/50 p-6 md:p-8">
             <h3 className="font-head text-2xl font-semibold text-black">Information you provide</h3>
             <p className="mt-2 text-black/75 leading-relaxed">
-              We only receive this information when you choose to send it to us through one of our forms.
+              We only receive this information when you choose to send it to us through one of our forms or by contacting us through Facebook Messenger, Instagram Direct, WhatsApp or email.
             </p>
             <div className="mt-6">
               <CardGrid items={dataYouProvide} />

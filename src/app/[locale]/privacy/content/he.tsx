@@ -161,7 +161,7 @@ export default function PrivacyContentHe({
           <div className="rounded-2xl border border-primary/10 bg-cream/50 p-6 md:p-8">
             <h3 className="font-head text-2xl font-semibold text-black">מידע שאתם מוסרים</h3>
             <p className="mt-2 text-black/75 leading-relaxed">
-              אנחנו מקבלים מידע זה רק כאשר אתם בוחרים לשלוח אותו אלינו דרך אחד הטפסים שלנו.
+              אנחנו מקבלים מידע זה רק כאשר אתם בוחרים לשלוח אותו אלינו דרך אחד הטפסים שלנו או כשאתם פונים אלינו דרך Facebook Messenger, ‏Instagram Direct, ‏WhatsApp או באימייל.
             </p>
             <div className="mt-6">
               <CardGrid items={dataYouProvide} />
