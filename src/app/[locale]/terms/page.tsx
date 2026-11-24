@@ -1,6 +1,7 @@
 import { FileText } from 'lucide-react';
 
 import LegalPageShell from '@/components/legal/LegalPageShell';
+import ManagementNotice from '@/components/legal/ManagementNotice';
 import { isLocale, localizePath, type Locale } from '@/i18n/config';
 import TermsContentEn from './content/en';
 import TermsContentFr from './content/fr';
@@ -35,6 +36,7 @@ export default function TermsPage({ params }: { params: { locale: string } }) {
 
   return (
     <LegalPageShell icon={<FileText className="h-8 w-8 text-white" />} title={header.title} subtitle={header.subtitle}>
+      <ManagementNotice locale={locale} />
       <Content cancellationHref={localizePath(locale, '/cancellation')} />
     </LegalPageShell>
   );

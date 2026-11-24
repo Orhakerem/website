@@ -127,6 +127,19 @@ const en = {
     errorGeneric: 'Failed to send event inquiry',
     errorSubmit: 'Failed to submit event request. Please try again.',
   },
+  beach45Terrace: {
+    kicker: 'Larger celebrations',
+    heading: 'The 45Beach terrace',
+    body: 'Planning a bigger event? Or Hakerem is managed by 45Beach, whose large open-air terrace at 45 HaYarkon Street, one minute from the beach, hosts private celebrations of up to 200 guests.',
+    features: [
+      'Up to 200 guests, in the open air',
+      'One minute on foot from the beach',
+      'Space rental: bring the caterer and suppliers of your choice',
+      'Trusted kosher caterers, decorators and DJs recommended on request',
+    ],
+    cta: 'Discover the 45Beach terrace',
+    imageAlt: '45Beach outdoor space, 45 HaYarkon Street, Tel Aviv',
+  },
 };
 
 export type EventsMessages = typeof en;
@@ -258,6 +271,19 @@ const fr: EventsMessages = {
     errorGeneric: "Échec de l'envoi de la demande d'événement",
     errorSubmit: "Échec de l'envoi de la demande. Veuillez réessayer.",
   },
+  beach45Terrace: {
+    kicker: 'Pour les grandes réceptions',
+    heading: 'La terrasse 45Beach',
+    body: 'Vous préparez un événement de plus grande ampleur ? Or Hakerem est gérée par 45Beach, dont la grande terrasse en plein air au 45 rue HaYarkon, à une minute de la plage, accueille des réceptions privées jusqu’à 200 invités.',
+    features: [
+      'Jusqu’à 200 invités, en plein air',
+      'À une minute à pied de la plage',
+      'Location de l’espace : venez avec le traiteur et les prestataires de votre choix',
+      'Traiteurs casher, décorateurs et DJ de confiance recommandés sur demande',
+    ],
+    cta: 'Découvrir la terrasse 45Beach',
+    imageAlt: 'Espace extérieur 45Beach, 45 rue HaYarkon, Tel Aviv',
+  },
 };
 
 const he: EventsMessages = {
@@ -386,6 +412,19 @@ const he: EventsMessages = {
     success: 'הפנייה נשלחה בהצלחה!',
     errorGeneric: 'שליחת פניית האירוע נכשלה',
     errorSubmit: 'שליחת בקשת האירוע נכשלה. אנא נסו שוב.',
+  },
+  beach45Terrace: {
+    kicker: 'לאירועים גדולים',
+    heading: 'המרפסת של 45Beach',
+    body: 'מתכננים אירוע גדול יותר? אור הכרם מנוהלת על ידי 45Beach, שהמרפסת הגדולה שלה תחת כיפת השמיים ברחוב הירקון 45, דקה מהחוף, מארחת אירועים פרטיים של עד 200 אורחים.',
+    features: [
+      'עד 200 אורחים, תחת כיפת השמיים',
+      'דקה הליכה מהחוף',
+      'השכרת המקום בלבד: מביאים את הקייטרינג והספקים שבחרתם',
+      'המלצות על קייטרינג כשר, מעצבים ודי־ג׳ייז לפי בקשה',
+    ],
+    cta: 'לגלות את המרפסת של 45Beach',
+    imageAlt: 'החלל החיצוני של 45Beach, רחוב הירקון 45, תל אביב',
   },
 };
 

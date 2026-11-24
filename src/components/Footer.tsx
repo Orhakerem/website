@@ -12,6 +12,7 @@ import LocaleSwitcher from '@/i18n/LocaleSwitcher';
 import { OPEN_CONSENT_SETTINGS_EVENT } from '@/lib/consent';
 import { trackGaOutboundContact } from '@/lib/ga-events';
 import TikTokIcon from '@/components/TikTokIcon';
+import { beach45Url } from '@/lib/beach45';
 
 const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/or_hakerem/', Icon: Instagram },
@@ -145,11 +146,11 @@ export default function Footer() {
             <h3 className="font-head text-xs uppercase tracking-[0.18em] text-secondary mb-3">{t.contact}</h3>
             <address className="not-italic space-y-2 text-sm text-white/70">
               <a
-                href="mailto:keremliving@gmail.com"
+                href="mailto:orhakerem@45beach.com"
                 className="flex items-start gap-2 hover:text-white transition-colors"
               >
                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-secondary/80" aria-hidden="true" />
-                <span>keremliving@gmail.com</span>
+                <span>orhakerem@45beach.com</span>
               </a>
               <a
                 href="tel:+33651179925"
@@ -184,7 +185,18 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-secondary/20 py-3">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
-            <p>{t.copyright}</p>
+            <p>
+              {t.copyright}{' '}
+              <span className="text-white/40">·</span> {t.managedBy}{' '}
+              <a
+                href={beach45Url(locale)}
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-white/80 hover:text-white transition-colors"
+              >
+                45Beach
+              </a>
+            </p>
             <nav
               aria-label={t.legalAria}
               className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1"

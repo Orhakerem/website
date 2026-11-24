@@ -11,7 +11,7 @@ export const BUSINESS_NAP = {
   addressCountry: 'IL',
   telephone: '+972585778891',
   telephoneFr: '+33651179925',
-  email: 'keremliving@gmail.com',
+  email: 'orhakerem@45beach.com',
 } as const;
 
 /**

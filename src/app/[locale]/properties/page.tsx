@@ -14,6 +14,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Beach45Listings from '@/components/Beach45Listings';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import LiquidGlassCTA from '@/components/LiquidGlassCTA';
 import { isLocale, localizePath, type Locale } from '@/i18n/config';
@@ -136,6 +137,8 @@ export default function Properties({ params }: { params: { locale: string } }) {
             <PropertyCard key={property.id} property={property} locale={locale} t={t} />
           ))}
         </div>
+
+        <Beach45Listings locale={locale} t={t.beach45} />
 
         <section className="max-w-6xl mx-auto mb-8 md:mb-16" data-animate="fade-up">
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
