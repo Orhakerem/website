@@ -18,6 +18,10 @@ const dataYouProvide = [
     title: 'Demandes concernant les événements',
     body: 'Votre nom, e-mail, numéro de téléphone, mode de contact préféré, type d’événement, date de l’événement, nombre de voyageurs attendus, et tout détail optionnel que vous partagez.',
   },
+  {
+    title: 'Messages que vous nous envoyez',
+    body: 'Lorsque vous nous contactez via Facebook Messenger, Instagram Direct, WhatsApp ou par e-mail, nous recevons votre nom ou nom d’utilisateur tel qu’il apparaît sur ce service, l’identifiant que ce service vous attribue pour notre Page ou notre compte, votre photo de profil lorsqu’elle est disponible, ainsi que le contenu de vos messages et de leurs pièces jointes.',
+  },
 ];
 
 const dataCollectedAutomatically = [
@@ -35,6 +39,7 @@ const howWeUse = [
   'Faire fonctionner, sécuriser, maintenir et améliorer le site',
   "Mesurer l'efficacité de nos publicités et créer des audiences pertinentes lorsque vous y consentez",
   'Respecter nos obligations légales, fiscales et comptables',
+  'Répondre aux messages que vous nous envoyez sur Messenger, Instagram, WhatsApp ou par e-mail, et conserver l’historique de nos échanges',
 ];
 
 const legalBases = [
@@ -59,11 +64,11 @@ const legalBases = [
 const processors = [
   {
     title: 'Resend',
-    body: 'Envoie les notifications par e-mail générées par nos formulaires de contact, de réservation et d’événement.',
+    body: 'Envoie les notifications par e-mail générées par nos formulaires de contact, de réservation et d’événement, ainsi que les e-mails que nous vous envoyons depuis notre outil de gestion de la relation client.',
   },
   {
     title: 'Supabase',
-    body: 'Stocke de manière sécurisée les demandes de réservation afin que nous puissions gérer et suivre votre réservation.',
+    body: 'Stocke de manière sécurisée les demandes de réservation afin que nous puissions gérer et suivre votre réservation. Il stocke également l’historique des conversations de notre outil de gestion de la relation client, hébergé dans l’Union européenne (Francfort).',
   },
   {
     title: 'Google Analytics (Google LLC)',
@@ -75,11 +80,19 @@ const processors = [
   },
   {
     title: 'Meta Platforms',
-    body: "Fournit le Pixel Meta. Selon la finalité, Meta peut traiter certaines données pour notre compte ou agir avec nous en qualité de responsable conjoint pour la collecte et la transmission de données d’événement utilisées pour le ciblage et l’amélioration publicitaires.",
+    body: "Fournit le Pixel Meta. Selon la finalité, Meta peut traiter certaines données pour notre compte ou agir avec nous en qualité de responsable conjoint pour la collecte et la transmission de données d’événement utilisées pour le ciblage et l’amélioration publicitaires. Meta achemine également les messages que vous échangez avec nous sur Facebook Messenger et Instagram Direct.",
+  },
+  {
+    title: 'WhatsApp (Meta)',
+    body: 'Achemine les messages que vous échangez avec nous sur WhatsApp.',
   },
   {
     title: 'Vercel',
     body: 'Héberge le site et traite les journaux de serveur et de sécurité standards.',
+  },
+  {
+    title: 'Hostinger',
+    body: 'Héberge nos boîtes de réception e-mail.',
   },
 ];
 
@@ -89,6 +102,7 @@ const dataRetention = [
   'Les données analytiques sont conservées selon les paramètres de conservation de Google Analytics.',
   'Les données de conversion et de remarketing Google Ads sont conservées selon les durées définies par Google, et l’appartenance à une liste de remarketing expire au terme de la durée maximale autorisée par Google Ads.',
   'Selon les Conditions des outils Meta Business, Meta peut conserver les données d’événement pendant deux ans au maximum et les audiences créées à partir de ces données jusqu’à leur suppression dans les outils du compte.',
+  'Les conversations reçues via Messenger, Instagram, WhatsApp ou par e-mail sont conservées le temps nécessaire au traitement de votre demande et de toute réservation qui en découle, plus une période de suivi raisonnable. Elles sont supprimées dans les 30 jours suivant une demande de suppression, à l’exception des documents que la loi nous oblige à conserver.',
 ];
 
 const gdprRights = [
@@ -104,9 +118,11 @@ const gdprRights = [
 export default function PrivacyContentFr({
   termsHref,
   cancellationHref,
+  dataDeletionHref,
 }: {
   termsHref: string;
   cancellationHref: string;
+  dataDeletionHref: string;
 }) {
   return (
     <>
@@ -146,7 +162,7 @@ export default function PrivacyContentFr({
           <div className="rounded-2xl border border-primary/10 bg-cream/50 p-6 md:p-8">
             <h3 className="font-head text-2xl font-semibold text-black">Les informations que vous nous fournissez</h3>
             <p className="mt-2 text-black/75 leading-relaxed">
-              Nous ne recevons ces informations que lorsque vous choisissez de nous les envoyer via l'un de nos formulaires.
+              Nous ne recevons ces informations que lorsque vous choisissez de nous les envoyer via l'un de nos formulaires ou en nous contactant via Facebook Messenger, Instagram Direct, WhatsApp ou par e-mail.
             </p>
             <div className="mt-6">
               <CardGrid items={dataYouProvide} />
@@ -252,6 +268,28 @@ export default function PrivacyContentFr({
       </section>
 
       <section className="mb-10" data-animate="fade-up">
+        <h2 className="font-head text-3xl font-bold text-black">Messages reçus via les plateformes de Meta</h2>
+        <div className="mt-3 h-px w-full bg-gradient-to-r from-secondary to-transparent"></div>
+
+        <div className="mt-8 rounded-2xl border border-primary/10 bg-white p-6 md:p-8">
+          <p className="text-black/80 leading-relaxed">
+            Nous utilisons un outil privé de gestion de la relation client pour lire et traiter, en
+            un seul endroit, les messages envoyés aux Pages Facebook, aux comptes Instagram, au
+            numéro WhatsApp et aux adresses e-mail de 45Beach et d’Or Hakerem. Les données reçues des
+            plateformes de Meta (Facebook, Instagram et WhatsApp) servent uniquement à vous répondre
+            et à conserver l’historique de nos échanges avec vous. Nous ne les vendons pas, nous ne
+            les utilisons ni à des fins publicitaires ni pour du profilage, et nous ne les partageons
+            avec personne d’autre que les prestataires listés ci-dessous. Vous pouvez nous demander de
+            les supprimer à tout moment — consultez nos{' '}
+            <Link href={dataDeletionHref} className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light">
+              Instructions de suppression des données
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-10" data-animate="fade-up">
         <h2 className="font-head text-3xl font-bold text-black">Base légale du traitement</h2>
         <div className="mt-3 h-px w-full bg-gradient-to-r from-secondary to-transparent"></div>
 
@@ -348,7 +386,11 @@ export default function PrivacyContentFr({
                 >
                   orhakerem@45beach.com
                 </a>
-                . Nous répondrons dans les délais requis par la loi applicable.
+                . Nous répondrons dans les délais requis par la loi applicable. Pour les données reçues via Facebook, Instagram ou WhatsApp, vous pouvez également suivre nos{' '}
+                <Link href={dataDeletionHref} className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light">
+                  Instructions de suppression des données
+                </Link>
+                .
               </p>
             </div>
           </div>

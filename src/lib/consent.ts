@@ -3,6 +3,8 @@ export const CONSENT_POLICY_VERSION = '2026-07-23';
 export const CONSENT_STORAGE_KEY = 'or-hakerem-consent-v2';
 export const LEGACY_CONSENT_STORAGE_KEY = 'cookie-consent';
 export const OPEN_CONSENT_SETTINGS_EVENT = 'open-cookie-settings';
+/** Fired by CookieConsent after each preference update (detail: ConsentPreferences), so /cookies can reflect it. */
+export const CONSENT_CHANGED_EVENT = 'cookie-consent-changed';
 
 export type ConsentPreferences = {
   analytics: boolean;
