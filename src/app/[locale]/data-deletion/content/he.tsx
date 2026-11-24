@@ -13,7 +13,7 @@ export default function DataDeletionContentHe({ privacyHref }: { privacyHref: st
       <section className="mb-10" data-animate="fade-up" data-delay="1">
         <div className="rounded-2xl border border-primary/10 bg-cream/50 p-6 md:p-8">
           <p className="text-black/80 leading-relaxed">
-            אור הכרם משתמשת במידע שאתם משתפים איתנו דרך Facebook Messenger, ‏Instagram Direct ו-WhatsApp אך ורק כדי להשיב להודעות שלכם ולשמור את היסטוריית ההתכתבות שלנו. תוכלו לבקש מאיתנו למחוק אותו בכל עת.
+            אור הכרם מנוהלת על ידי 45Beach, המפעילה של האתר orhakerem.com והגורם האחראי על עיבוד הנתונים. אור הכרם משתמשת במידע שאתם משתפים איתנו דרך Facebook Messenger, ‏Instagram Direct ו-WhatsApp אך ורק כדי להשיב להודעות שלכם ולשמור את היסטוריית ההתכתבות שלנו. תוכלו לבקש מאיתנו למחוק אותו בכל עת.
           </p>
         </div>
       </section>

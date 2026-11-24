@@ -134,10 +134,10 @@ export default function PrivacyContentFr({
           <div className="space-y-4 text-black/80 leading-relaxed">
             <p>
               Or Hakerem (« nous », « notre » ou « l'entreprise ») propose des hébergements de
-              luxe de courte durée à Tel Aviv et exploite le site orhakerem.com. Or Hakerem est gérée
-              par 45Beach (45beach.com, 45 rue HaYarkon, Tel Aviv-Yafo), qui assure pour son compte la
-              gestion du site, des réservations et des demandes. Or Hakerem, sous la gestion de 45Beach,
-              est le responsable du traitement des données personnelles décrites dans cette politique.
+              luxe de courte durée à Tel Aviv. Or Hakerem est gérée par 45Beach (45beach.com, 45 rue
+              HaYarkon, Tel Aviv-Yafo), qui exploite le site orhakerem.com et assure pour son compte la
+              gestion des réservations et des demandes. 45Beach est l’exploitant du site et le
+              responsable du traitement des données personnelles décrites dans cette politique.
             </p>
             <p>
               Vous pouvez nous contacter pour toute question relative à la confidentialité à{' '}
@@ -313,7 +313,7 @@ export default function PrivacyContentFr({
             Nous ne vendons pas vos données personnelles. Selon le service et la finalité, les tiers
             peuvent traiter les données pour notre compte, agir comme responsables indépendants ou
             agir avec nous en qualité de responsables conjoints. Pour certains traitements des
-            outils Meta Business soumis au RGPD, Or Hakerem et Meta Platforms Ireland Limited sont
+            outils Meta Business soumis au RGPD, 45Beach et Meta Platforms Ireland Limited sont
             responsables conjoints de la collecte et de la transmission des données d’événement.
             Pour en savoir plus, consultez les{' '}
             <a
@@ -490,7 +490,7 @@ export default function PrivacyContentFr({
                 <a href="tel:+33651179925" className="font-semibold text-primary hover:text-primary-light">
                   +33 6 51 17 99 25
                 </a>{' '}
-                (FR)
+                (numéro de contact pour la France)
               </p>
             </address>
           </div>

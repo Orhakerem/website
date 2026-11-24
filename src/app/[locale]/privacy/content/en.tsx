@@ -133,9 +133,9 @@ export default function PrivacyContentEn({
           <div className="space-y-4 text-black/80 leading-relaxed">
             <p>
               Or Hakerem (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;the company&rdquo;) provides short-term
-              luxury accommodation in Tel Aviv and operates the website at orhakerem.com. Or Hakerem is
-              managed by 45Beach (45beach.com, 45 HaYarkon Street, Tel Aviv-Yafo), which handles the
-              website, bookings and requests on its behalf. Or Hakerem, as managed by 45Beach, is the
+              luxury accommodation in Tel Aviv. Or Hakerem is managed by 45Beach (45beach.com, 45
+              HaYarkon Street, Tel Aviv-Yafo), which operates the website at orhakerem.com and handles
+              bookings and requests on its behalf. 45Beach is the operator of the website and the
               controller responsible for the personal data described in this policy.
             </p>
             <p>
@@ -305,7 +305,7 @@ export default function PrivacyContentEn({
           <p className="text-black/80 leading-relaxed">
             We do not sell your personal data. Depending on the service and purpose, third parties
             may process data on our behalf, act as independent controllers, or act jointly with us
-            as controllers. For certain Meta Business Tools processing under the GDPR, Or Hakerem
+            as controllers. For certain Meta Business Tools processing under the GDPR, 45Beach
             and Meta Platforms Ireland Limited are joint controllers for collecting and
             transmitting Event Data. More information is available in the{' '}
             <a
@@ -479,7 +479,7 @@ export default function PrivacyContentEn({
                 <a href="tel:+33651179925" className="font-semibold text-primary hover:text-primary-light">
                   +33 6 51 17 99 25
                 </a>{' '}
-                (FR)
+                (contact number for France)
               </p>
             </address>
           </div>

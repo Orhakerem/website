@@ -133,10 +133,10 @@ export default function PrivacyContentHe({
         <div className="mt-8 rounded-2xl border border-primary/10 bg-white p-6 md:p-8">
           <div className="space-y-4 text-black/80 leading-relaxed">
             <p>
-              אור הכרם ("אנחנו" או "החברה") מספקת אירוח יוקרתי לטווח קצר בתל אביב ומפעילה את
-              האתר orhakerem.com. אור הכרם מנוהלת על ידי 45Beach (45beach.com, רחוב הירקון 45, תל
-              אביב-יפו), המנהלת בשמה את האתר, ההזמנות והפניות. אור הכרם, בניהול 45Beach, היא הגורם
-              האחראי על הנתונים האישיים המתוארים במדיניות זו.
+              אור הכרם ("אנחנו" או "החברה") מספקת אירוח יוקרתי לטווח קצר בתל אביב. אור הכרם מנוהלת
+              על ידי 45Beach (45beach.com, רחוב הירקון 45, תל אביב-יפו), המפעילה את האתר orhakerem.com
+              ומנהלת בשמה את ההזמנות והפניות. 45Beach היא המפעילה של האתר והגורם האחראי על הנתונים
+              האישיים המתוארים במדיניות זו.
             </p>
             <p>
               ניתן לפנות אלינו בכל נושא הקשור לפרטיות בכתובת{' '}
@@ -301,7 +301,7 @@ export default function PrivacyContentHe({
           <p className="text-black/80 leading-relaxed">
             איננו מוכרים את הנתונים האישיים שלכם. בהתאם לשירות ולמטרה, צדדים שלישיים עשויים לעבד
             נתונים עבורנו, לפעול כאחראים עצמאיים או לפעול יחד איתנו כאחראים משותפים. עבור עיבודים
-            מסוימים של כלי Meta Business הכפופים ל-GDPR, אור הכרם ו-Meta Platforms Ireland Limited
+            מסוימים של כלי Meta Business הכפופים ל-GDPR, 45Beach ו-Meta Platforms Ireland Limited
             הן אחראיות משותפות לאיסוף ולהעברת נתוני אירועים. למידע נוסף, ראו את{' '}
             <a
               href="https://www.facebook.com/legal/terms/businesstools/preview"
@@ -471,7 +471,7 @@ export default function PrivacyContentHe({
                 <a href="tel:+33651179925" className="font-semibold text-primary hover:text-primary-light">
                   +33 6 51 17 99 25
                 </a>{' '}
-                (צרפת)
+                (מספר ליצירת קשר בצרפת)
               </p>
             </address>
           </div>

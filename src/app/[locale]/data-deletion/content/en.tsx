@@ -13,7 +13,7 @@ export default function DataDeletionContentEn({ privacyHref }: { privacyHref: st
       <section className="mb-10" data-animate="fade-up" data-delay="1">
         <div className="rounded-2xl border border-primary/10 bg-cream/50 p-6 md:p-8">
           <p className="text-black/80 leading-relaxed">
-            Or Hakerem uses the information you share with us through Facebook Messenger, Instagram Direct and WhatsApp only to answer your messages and to keep the history of our exchanges. You can ask us to delete it at any time.
+            Or Hakerem is managed by 45Beach, the operator of orhakerem.com and the data controller. Or Hakerem uses the information you share with us through Facebook Messenger, Instagram Direct and WhatsApp only to answer your messages and to keep the history of our exchanges. You can ask us to delete it at any time.
           </p>
         </div>
       </section>
