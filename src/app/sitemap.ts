@@ -27,8 +27,10 @@ const staticRoutes: StaticRoute[] = [
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-07-06' },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-08-10' },
   { path: '/terms', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-19' },
-  { path: '/privacy', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-26' },
+  { path: '/privacy', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-11-24' },
   { path: '/cancellation', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-07' },
+  { path: '/data-deletion', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-11-24' },
+  { path: '/cookies', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-11-24' },
 ];
 
 function languagesFor(path: string, locales: readonly (typeof ENABLED_LOCALES)[number][] = ENABLED_LOCALES) {

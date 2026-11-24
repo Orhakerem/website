@@ -102,6 +102,8 @@ const nextConfig = {
       '/terms',
       '/privacy',
       '/cancellation',
+      '/data-deletion',
+      '/cookies',
       '/admin',
       '/admin/:path*',
     ];

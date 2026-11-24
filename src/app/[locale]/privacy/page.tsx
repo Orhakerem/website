@@ -10,7 +10,7 @@ import PrivacyContentHe from './content/he';
 
 const PRIVACY_CONTENT: Record<
   Locale,
-  (props: { termsHref: string; cancellationHref: string }) => JSX.Element
+  (props: { termsHref: string; cancellationHref: string; dataDeletionHref: string }) => JSX.Element
 > = {
   en: PrivacyContentEn,
   fr: PrivacyContentFr,
@@ -67,6 +67,7 @@ export default function PrivacyPage({ params }: { params: { locale: string } }) 
       <Content
         termsHref={localizePath(locale, '/terms')}
         cancellationHref={localizePath(locale, '/cancellation')}
+        dataDeletionHref={localizePath(locale, '/data-deletion')}
       />
     </LegalPageShell>
   );
