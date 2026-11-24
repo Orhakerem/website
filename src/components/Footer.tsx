@@ -219,6 +219,12 @@ export default function Footer() {
               <span aria-hidden="true" className="text-white/30">
                 ·
               </span>
+              <Link href={localizePath(locale, '/data-deletion')} className="hover:text-white transition-colors">
+                {t.dataDeletion}
+              </Link>
+              <span aria-hidden="true" className="text-white/30">
+                ·
+              </span>
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new Event(OPEN_CONSENT_SETTINGS_EVENT))}

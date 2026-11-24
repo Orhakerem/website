@@ -18,6 +18,8 @@ type SeoCatalog = {
   terms: PageSeo;
   privacy: PageSeo;
   cancellation: PageSeo;
+  dataDeletion: PageSeo;
+  cookies: PageSeo;
   blog: PageSeo;
 };
 
@@ -92,6 +94,15 @@ const en: SeoCatalog = {
     description:
       "Or Hakerem's cancellation and refund policy: deposit schedule, non-refundable conditions and voucher terms.",
     keywords: 'cancellation policy Tel Aviv, refund policy short-term rental, Or Hakerem booking terms, Tel Aviv apartment cancellation',
+  },
+  dataDeletion: {
+    title: 'Data Deletion Instructions | Or Hakerem Tel Aviv',
+    description:
+      'How to ask Or Hakerem to delete the data received through Facebook Messenger, Instagram Direct, WhatsApp or email.',
+  },
+  cookies: {
+    title: 'Cookie Settings | Or Hakerem Tel Aviv',
+    description: 'Which cookies Or Hakerem uses (Google Analytics 4, Meta Pixel) and how to change your choices.',
   },
   blog: {
     title: 'Tel Aviv Travel Blog | Or Hakerem',
@@ -174,6 +185,15 @@ const fr: SeoCatalog = {
       "Politique d’annulation et de remboursement d’Or Hakerem : acomptes, cas non remboursables et bons d’achat.",
     keywords: "politique d'annulation Tel Aviv, remboursement location Israël, conditions de réservation, Or Hakerem",
   },
+  dataDeletion: {
+    title: 'Instructions de suppression des données | Or Hakerem Tel Aviv',
+    description:
+      'Comment demander à Or Hakerem de supprimer les données reçues via Facebook Messenger, Instagram Direct, WhatsApp ou par e-mail.',
+  },
+  cookies: {
+    title: 'Paramètres des cookies | Or Hakerem Tel Aviv',
+    description: 'Les cookies utilisés par Or Hakerem (Google Analytics 4, Pixel Meta) et comment modifier vos choix.',
+  },
   blog: {
     title: 'Blog voyage Tel Aviv | Or Hakerem',
     description:
@@ -236,6 +256,14 @@ const he: SeoCatalog = {
     title: 'מדיניות ביטולים והחזרים | אור הכרם תל אביב',
     description: 'קראו את מדיניות הביטולים וההחזרים של אור הכרם לשהיות קצרות בתל אביב, כולל לוח מקדמות, מקרים ללא החזר ותנאי שוברים.',
     keywords: 'מדיניות ביטולים תל אביב, החזר כספי השכרת דירה, תנאי הזמנה, אור הכרם',
+  },
+  dataDeletion: {
+    title: 'הוראות מחיקת מידע | אור הכרם תל אביב',
+    description: 'כיצד לבקש מאור הכרם למחוק את המידע שהתקבל דרך Facebook Messenger, ‏Instagram Direct, ‏WhatsApp או באימייל.',
+  },
+  cookies: {
+    title: 'הגדרות עוגיות | אור הכרם תל אביב',
+    description: 'באילו עוגיות אור הכרם משתמשת (Google Analytics 4, ‏Meta Pixel) וכיצד לשנות את הבחירות שלכם.',
   },
   blog: {
     title: 'בלוג טיולים תל אביב | אור הכרם',

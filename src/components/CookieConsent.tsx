@@ -10,6 +10,7 @@ import { localizePath } from '@/i18n/config';
 import { commonMessages } from '@/i18n/messages/common';
 import { useLocale } from '@/i18n/useLocale';
 import {
+  CONSENT_CHANGED_EVENT,
   CONSENT_STORAGE_KEY,
   EMPTY_CONSENT_PREFERENCES,
   LEGACY_CONSENT_STORAGE_KEY,
@@ -100,6 +101,7 @@ export default function CookieConsent() {
       preferencesRef.current = next;
       setPreferences(next);
       setDraft(next);
+      window.dispatchEvent(new CustomEvent<ConsentPreferences>(CONSENT_CHANGED_EVENT, { detail: next }));
 
       if (!persist) return;
 

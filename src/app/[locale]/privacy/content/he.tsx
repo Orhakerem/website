@@ -18,6 +18,10 @@ const dataYouProvide = [
     title: 'פניות לגבי אירועים',
     body: 'השם שלכם, אימייל, מספר טלפון, דרך התקשרות מועדפת, סוג האירוע, תאריך האירוע, מספר אורחים צפוי, וכל פרט אופציונלי נוסף שתשתפו.',
   },
+  {
+    title: 'הודעות שאתם שולחים לנו',
+    body: 'כשאתם פונים אלינו דרך Facebook Messenger, ‏Instagram Direct, ‏WhatsApp או באימייל, אנו מקבלים את השם או שם המשתמש שלכם כפי שהוא מופיע בשירות זה, את המזהה שהשירות מקצה לכם עבור הדף או החשבון שלנו, את תמונת הפרופיל שלכם כשהיא זמינה, ואת תוכן ההודעות והקבצים המצורפים.',
+  },
 ];
 
 const dataCollectedAutomatically = [
@@ -35,6 +39,7 @@ const howWeUse = [
   'תפעול, אבטחה, תחזוקה ושיפור האתר',
   'מדידת יעילות הפרסום ויצירת קהלים רלוונטיים כאשר אתם מסכימים לכך',
   'עמידה בהתחייבויותינו המשפטיות, המיסויות והחשבונאיות',
+  'מענה להודעות שאתם שולחים לנו ב-Messenger, ב-Instagram, ב-WhatsApp או באימייל, ושמירת היסטוריית השיחות שלנו',
 ];
 
 const legalBases = [
@@ -59,11 +64,11 @@ const legalBases = [
 const processors = [
   {
     title: 'Resend',
-    body: 'שולח את הודעות האימייל שנוצרות על ידי טפסי יצירת הקשר, ההזמנה והאירועים שלנו.',
+    body: 'שולח את הודעות האימייל שנוצרות על ידי טפסי יצירת הקשר, ההזמנה והאירועים שלנו, וכן את הודעות האימייל שאנו שולחים לכם מכלי ניהול הלקוחות שלנו.',
   },
   {
     title: 'Supabase',
-    body: 'שומר באופן מאובטח את בקשות ההזמנה כדי שנוכל לנהל ולעקוב אחר ההזמנה שלכם.',
+    body: 'שומר באופן מאובטח את בקשות ההזמנה כדי שנוכל לנהל ולעקוב אחר ההזמנה שלכם. הוא גם שומר את היסטוריית השיחות של כלי ניהול הלקוחות שלנו, המאוחסנת באיחוד האירופי (פרנקפורט).',
   },
   {
     title: '(Google LLC) Google Analytics',
@@ -75,11 +80,19 @@ const processors = [
   },
   {
     title: 'Meta Platforms',
-    body: 'מספקת את Meta Pixel. בהתאם למטרה, Meta עשויה לעבד נתונים עבורנו או לפעול יחד איתנו כאחראית משותפת לאיסוף ולהעברת נתוני אירועים המשמשים למיקוד ולשיפור פרסום.',
+    body: 'מספקת את Meta Pixel. בהתאם למטרה, Meta עשויה לעבד נתונים עבורנו או לפעול יחד איתנו כאחראית משותפת לאיסוף ולהעברת נתוני אירועים המשמשים למיקוד ולשיפור פרסום. היא גם מעבירה את ההודעות שאתם מחליפים איתנו ב-Facebook Messenger וב-Instagram Direct.',
+  },
+  {
+    title: 'WhatsApp (Meta)',
+    body: 'מעביר את ההודעות שאתם מחליפים איתנו ב-WhatsApp.',
   },
   {
     title: 'Vercel',
     body: 'מארח את האתר ומעבד יומני שרת ואבטחה סטנדרטיים.',
+  },
+  {
+    title: 'Hostinger',
+    body: 'מארח את תיבות האימייל שלנו.',
   },
 ];
 
@@ -89,6 +102,7 @@ const dataRetention = [
   'נתוני אנליטיקה נשמרים בהתאם להגדרות השמירה של Google Analytics.',
   'נתוני המרות ורימרקטינג של Google Ads נשמרים לפרקי הזמן שנקבעו על ידי Google, וההשתייכות לרשימת רימרקטינג פוקעת בתום משך הזמן המרבי המותר ב-Google Ads.',
   'בהתאם לתנאי כלי Meta Business, Meta עשויה לשמור נתוני אירועים למשך עד שנתיים, וקהלים שנוצרו מהם עד למחיקתם באמצעות כלי החשבון.',
+  'שיחות המתקבלות דרך Messenger, ‏Instagram, ‏WhatsApp או באימייל נשמרות כל עוד הן נחוצות לטיפול בפנייתכם ובכל הזמנה הנובעת ממנה, בתוספת תקופת מעקב סבירה. הן נמחקות תוך 30 יום מקבלת בקשת מחיקה, למעט רשומות שאנו מחויבים לשמור על פי חוק.',
 ];
 
 const gdprRights = [
@@ -104,9 +118,11 @@ const gdprRights = [
 export default function PrivacyContentHe({
   termsHref,
   cancellationHref,
+  dataDeletionHref,
 }: {
   termsHref: string;
   cancellationHref: string;
+  dataDeletionHref: string;
 }) {
   return (
     <>
@@ -244,6 +260,26 @@ export default function PrivacyContentHe({
       </section>
 
       <section className="mb-10" data-animate="fade-up">
+        <h2 className="font-head text-3xl font-bold text-black">הודעות המתקבלות דרך הפלטפורמות של Meta</h2>
+        <div className="mt-3 h-px w-full bg-gradient-to-r from-secondary to-transparent"></div>
+
+        <div className="mt-8 rounded-2xl border border-primary/10 bg-white p-6 md:p-8">
+          <p className="text-black/80 leading-relaxed">
+            אנו משתמשים בכלי פרטי לניהול לקוחות כדי לקרוא ולענות, במקום אחד, להודעות הנשלחות לדפי
+            הפייסבוק, לחשבונות האינסטגרם, למספר הוואטסאפ ולכתובות האימייל של 45Beach ושל אור הכרם.
+            מידע המתקבל מהפלטפורמות של Meta (Facebook, ‏Instagram ו-WhatsApp) משמש אך ורק כדי להשיב
+            לכם ולשמור את היסטוריית השיחות שלנו איתכם. איננו מוכרים אותו, איננו משתמשים בו לפרסום או
+            ליצירת פרופילים, ואיננו משתפים אותו עם איש מלבד נותני השירות המפורטים להלן. תוכלו לבקש
+            מאיתנו למחוק אותו בכל עת — ראו את{' '}
+            <Link href={dataDeletionHref} className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light">
+              הוראות מחיקת המידע
+            </Link>{' '}
+            שלנו.
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-10" data-animate="fade-up">
         <h2 className="font-head text-3xl font-bold text-black">הבסיס המשפטי לעיבוד</h2>
         <div className="mt-3 h-px w-full bg-gradient-to-r from-secondary to-transparent"></div>
 
@@ -335,7 +371,11 @@ export default function PrivacyContentHe({
                 >
                   orhakerem@45beach.com
                 </a>
-                . נשיב תוך פרק הזמן הנדרש על פי הדין החל.
+                . נשיב תוך פרק הזמן הנדרש על פי הדין החל. לגבי מידע שהתקבל דרך Facebook, ‏Instagram או WhatsApp, תוכלו גם לפעול לפי{' '}
+                <Link href={dataDeletionHref} className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-primary-light">
+                  הוראות מחיקת המידע
+                </Link>{' '}
+                שלנו.
               </p>
             </div>
           </div>
