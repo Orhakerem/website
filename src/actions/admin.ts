@@ -3,7 +3,7 @@
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-import { saveAdminQuoteHistory } from '@/actions/admin-pricing';
+import { saveAdminQuoteHistory } from '@/actions/admin-quote-history';
 import { MissingAdminAuthEnvError, verifyCredentials } from '@/lib/admin-auth';
 import {
   checkAdminLoginRateLimit,

@@ -13,7 +13,6 @@ const ADMIN_NAV_ITEMS: readonly AdminNavItem[] = [
   { href: '/admin', label: 'Dashboard' },
   { href: '/admin/requests', label: 'Requests' },
   { href: '/admin/devis', label: 'Quotes' },
-  { href: '/admin/pricing', label: 'Pricing' },
   { href: '/admin/calendar', label: 'Calendar' },
 ];
 

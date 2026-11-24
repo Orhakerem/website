@@ -1,4 +1,4 @@
-import { saveAdminQuoteHistoryEntry, type SaveAdminQuoteHistoryInput } from './admin-pricing';
+import { saveAdminQuoteHistoryEntry, type SaveAdminQuoteHistoryInput } from './admin-quote-history';
 import type { AdminRequestSourceInput } from './admin-request-status';
 import { markAdminRequestQuoteSent } from './admin-requests';
 import { buildReservationPdfAttachment } from './reservation-email-attachments';
