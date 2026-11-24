@@ -46,19 +46,11 @@
 --
 -- Requires the src/lib/pricing-engine.ts fix that filters pricing_tiers on
 -- is_active = true (merged to main in PR #36). Without that fix, the `delete`
--- below is still correct, but deactivating a tier from /admin/pricing
--- afterwards would silently keep charging the old rate.
+-- below is still correct, but a tier deactivated afterwards (is_active =
+-- false) would silently keep charging the old rate.
 --
--- Equivalent manual steps in /admin/pricing (no SQL access required):
---   1. Listing price matrix -> set "Base price" to 2500 (Penthouse) /
---      500 (Studio). Keep exactly 6 tier rows per listing (Current/Low/High
---      x Weekday/Weekend), each with Min nights = 1, Max nights empty,
---      Nightly price = 2500 / 500, Active checked. Save.
---   2. Pricing adjustment rules -> remove every existing "duration" rule for
---      these listings, then add the 4 rules inserted below. The two monthly
---      rules must have Min nights = 28 and Max nights EMPTY (basis points:
---      -1000 = -10%, -1800 = -18%, -1200 = -12%, -1500 = -15%).
---   3. Confirm with the pricing simulator on the same page.
+-- The /admin/pricing editor has been removed from the back office: pricing
+-- tiers, seasons and adjustment rules are now edited in Supabase only.
 --
 -- NOTE: "last_minute" / "early_booking" rules are NOT touched by this script.
 -- Adjustments of different rule types stack additively (see

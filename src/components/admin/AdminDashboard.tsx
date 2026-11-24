@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import type { AdminDashboardSummary } from '@/lib/admin-pricing';
+import type { AdminDashboardSummary } from '@/lib/admin-quote-history';
 
 interface AdminDashboardProps {
   summary: AdminDashboardSummary;
@@ -20,12 +20,6 @@ const DASHBOARD_CARDS = [
     description: 'Prepare and send the branded reservation invoice email to the customer.',
   },
   {
-    href: '/admin/pricing',
-    eyebrow: 'Pricing',
-    title: 'Pricing editor',
-    description: 'Manage listing rates, seasons, date overrides, and adjustment rules.',
-  },
-  {
     href: '/admin/calendar',
     eyebrow: 'Calendar',
     title: 'Multi-calendar',
@@ -36,7 +30,7 @@ const DASHBOARD_CARDS = [
 export default function AdminDashboard({ summary }: AdminDashboardProps) {
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {DASHBOARD_CARDS.map((card) => (
           <Link
             key={card.href}
@@ -56,46 +50,9 @@ export default function AdminDashboard({ summary }: AdminDashboardProps) {
 
       {summary.unavailableReason ? (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-950">
-          Pricing dashboard data is unavailable: {summary.unavailableReason}
+          Dashboard data is unavailable: {summary.unavailableReason}
         </div>
       ) : null}
-
-      <section className="rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
-        <div className="grid gap-3 sm:grid-cols-4">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary/60">
-              Tiers
-            </p>
-            <p className="mt-1 font-head text-3xl font-light text-black">
-              {summary.pricingTierCount}
-            </p>
-          </div>
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary/60">
-              Seasons
-            </p>
-            <p className="mt-1 font-head text-3xl font-light text-black">
-              {summary.activeSeasonCount}
-            </p>
-          </div>
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary/60">
-              Dates
-            </p>
-            <p className="mt-1 font-head text-3xl font-light text-black">
-              {summary.specialDateCount}
-            </p>
-          </div>
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary/60">
-              Rules
-            </p>
-            <p className="mt-1 font-head text-3xl font-light text-black">
-              {summary.activeAdjustmentRuleCount}
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
