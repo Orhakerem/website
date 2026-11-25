@@ -28,7 +28,7 @@ import {
   type ReservationRequestRow,
 } from '@/lib/admin-requests';
 import { sendCustomerQuoteFromRequest } from '@/lib/customer-quote-delivery';
-import { type CrmLeadResult, sendLeadToCrm } from '@/lib/crm-leads';
+import { type CrmLeadResult, sendLeadToCrm, siteSendsOwnQuote } from '@/lib/crm-leads';
 
 function getSafeValidationErrorMessage(error: ZodError) {
   return error.issues[0]?.message ?? 'Please check the reservation details and try again.';
@@ -193,9 +193,9 @@ export async function sendEmail(formData: FormData) {
         };
       }
 
-      // The CRM took the quote on (it e-mails it to the visitor with the PDF and the terms):
-      // do not send a second one from here.
-      if (crmLead?.sent && crmLead.crmSendsQuote) {
+      // The CRM took the quote on (it e-mails it to the visitor with the PDF and the terms),
+      // or probably did (it answered too late): do not send a second one from here.
+      if (crmLead && !siteSendsOwnQuote(crmLead)) {
         return {
           success: true,
           message: 'Email sent successfully!'
@@ -378,9 +378,9 @@ export async function sendEmail(formData: FormData) {
         };
       }
 
-      // The CRM took the quote on (it e-mails it to the visitor with the PDF and the terms):
-      // do not send a second one from here.
-      if (crmLead?.sent && crmLead.crmSendsQuote) {
+      // The CRM took the quote on (it e-mails it to the visitor with the PDF and the terms),
+      // or probably did (it answered too late): do not send a second one from here.
+      if (crmLead && !siteSendsOwnQuote(crmLead)) {
         return {
           success: true,
           message: 'Email sent successfully!'

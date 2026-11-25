@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { buildCrmLeadBody, sendLeadToCrm, type CrmLead } from './crm-leads';
+import { buildCrmLeadBody, sendLeadToCrm, siteSendsOwnQuote, type CrmLead } from './crm-leads';
 
 const RESERVATION: CrmLead = {
   kind: 'reservation',
@@ -140,4 +140,31 @@ test('sendLeadToCrm: reports when the CRM takes the automatic quote on', async (
     const result = await sendLeadToCrm(RESERVATION, { env, fetchImpl: answer(body, 200) });
     assert.deepEqual(result, { sent: true, status: 200, crmSendsQuote: false }, body);
   }
+});
+
+test('a timeout is reported as such; the site then leaves the quote to the CRM', async () => {
+  const env = { CRM_LEADS_API_KEY: 'k' };
+  const original = console.error;
+  console.error = () => {};
+  try {
+    const timedOut = await sendLeadToCrm(RESERVATION, {
+      env,
+      timeoutMs: 20,
+      fetchImpl: (_url, init) =>
+        new Promise((_resolve, reject) => {
+          init?.signal?.addEventListener('abort', () => reject(init.signal?.reason));
+        }),
+    });
+    assert.deepEqual(timedOut, { sent: false, reason: 'timeout' });
+  } finally {
+    console.error = original;
+  }
+
+  // One quote, never two and never none when the CRM is certainly out.
+  assert.equal(siteSendsOwnQuote({ sent: true, status: 201, crmSendsQuote: true }), false);
+  assert.equal(siteSendsOwnQuote({ sent: true, status: 200, crmSendsQuote: false }), true);
+  assert.equal(siteSendsOwnQuote({ sent: false, reason: 'timeout' }), false);
+  assert.equal(siteSendsOwnQuote({ sent: false, reason: 'network' }), true);
+  assert.equal(siteSendsOwnQuote({ sent: false, reason: 'http_500' }), true);
+  assert.equal(siteSendsOwnQuote({ sent: false, reason: 'not_configured' }), true);
 });

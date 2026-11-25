@@ -7,7 +7,8 @@
 //
 // The CRM also e-mails the automatic quote to the visitor (PDF + terms). Its answer says so
 // (`autoQuote: 'pending'`), and the site then does not send its own: one quote, not two. When
-// the CRM cannot be reached, or does not take the quote on, the site sends its own as before.
+// the CRM is certainly out (not configured, refused, unreachable) or does not take the quote
+// on, the site sends its own as before; after a timeout it does not (see siteSendsOwnQuote).
 //
 // Environment (server only):
 //   CRM_LEADS_API_KEY  CRM API key with scope `leads:write`, bound to this brand. Unset → skipped.
@@ -15,7 +16,8 @@
 
 export const CRM_BRAND = 'orhakerem';
 const DEFAULT_CRM_URL = 'https://admin.45beach.com';
-const DEFAULT_TIMEOUT_MS = 5000;
+// Long enough for a cold start of the CRM (its answer has been seen to take more than 5 s).
+const DEFAULT_TIMEOUT_MS = 15_000;
 
 export type CrmLeadKind = 'reservation' | 'event' | 'general';
 
@@ -48,7 +50,25 @@ export type CrmLeadResult =
       /** True when the CRM answered that it will e-mail the quote to the visitor itself. */
       crmSendsQuote: boolean;
     }
-  | { sent: false; reason: 'not_configured' | 'network' | `http_${number}` };
+  | {
+      sent: false;
+      /**
+       * `timeout` is ambiguous: the CRM may well have received the request and be answering
+       * late (it then e-mails the quote itself). The other reasons are definite failures.
+       */
+      reason: 'not_configured' | 'network' | 'timeout' | `http_${number}`;
+    };
+
+/**
+ * Should the site e-mail its own automatic quote? Only when it is certain the CRM will not:
+ * the CRM is not configured, refused the request, could not be reached, or answered without
+ * taking the quote on. After a timeout the CRM most likely has the request and sends the
+ * quote; sending one from here too would give the visitor two.
+ */
+export function siteSendsOwnQuote(result: CrmLeadResult): boolean {
+  if (result.sent) return !result.crmSendsQuote;
+  return result.reason !== 'timeout';
+}
 
 const CONTACT_METHODS = new Set(['email', 'phone', 'whatsapp']);
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -128,7 +148,8 @@ export async function sendLeadToCrm(lead: CrmLead, options: CrmLeadOptions = {})
     }
     return { sent: true, status: response.status, crmSendsQuote: await readsAutoQuotePending(response) };
   } catch (error) {
-    console.error(`[crm-leads] could not reach the CRM (${error instanceof Error ? error.name : 'error'})`);
-    return { sent: false, reason: 'network' };
+    const name = error instanceof Error ? error.name : 'error';
+    console.error(`[crm-leads] could not reach the CRM (${name})`);
+    return { sent: false, reason: name === 'TimeoutError' || name === 'AbortError' ? 'timeout' : 'network' };
   }
 }
