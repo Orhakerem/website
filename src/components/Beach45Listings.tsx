@@ -63,11 +63,13 @@ function ListingCard({ listing, locale, t }: { listing: Beach45Listing } & Props
               <dt className="sr-only">{t.beds}</dt>
               <dd>{listing.beds}</dd>
             </div>
-            <div className="flex items-center gap-1.5">
-              <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
-              <dt className="sr-only">{t.size}</dt>
-              <dd dir="ltr">{listing.sizeSqm} m²</dd>
-            </div>
+            {listing.sizeSqm !== null ? (
+              <div className="flex items-center gap-1.5">
+                <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
+                <dt className="sr-only">{t.size}</dt>
+                <dd dir="ltr">{listing.sizeSqm} m²</dd>
+              </div>
+            ) : null}
           </dl>
         ) : null}
       </div>

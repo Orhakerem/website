@@ -41,6 +41,7 @@ export type Beach45Listing = {
   image: string | null;
   guests: number | null;
   beds: number | null;
+  /** Floor area in m²; `null` hides it on the card. */
   sizeSqm: number | null;
   airbnb: string;
   /** Booking.com page of the studio — to be filled in once the links are available. */
@@ -201,19 +202,20 @@ export const BEACH45_LISTINGS: Beach45Listing[] = [
     },
   },
   {
-    // Not published on 45beach.com yet: set `slug`, `image` and the figures once its page is live.
     number: 11,
-    slug: null,
+    slug: 'studio-terrace-11',
+    // The 45beach.com page only has a placeholder visual for now: set the cover once the real photos are published.
     image: null,
-    guests: null,
-    beds: null,
+    guests: 2,
+    beds: 1,
+    // Size not published yet (neither on 45beach.com nor on Airbnb).
     sizeSqm: null,
     airbnb: 'https://airbnb.com/h/the45-studio-11',
     booking: null,
     text: {
-      en: { name: 'Studio 11', tagline: 'Coming soon on 45beach.com' },
-      fr: { name: 'Studio 11', tagline: 'Bientôt sur 45beach.com' },
-      he: { name: 'סטודיו 11', tagline: 'בקרוב באתר 45beach.com' },
+      en: { name: 'Studio 11 with Terrace', tagline: 'Very large terrace · double bed' },
+      fr: { name: 'Studio 11 avec terrasse', tagline: 'Très grande terrasse · lit double' },
+      he: { name: 'סטודיו 11 עם טרסה', tagline: 'טרסה גדולה במיוחד · מיטה זוגית' },
     },
   },
 ];
