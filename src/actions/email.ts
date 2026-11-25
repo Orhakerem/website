@@ -28,7 +28,7 @@ import {
   type ReservationRequestRow,
 } from '@/lib/admin-requests';
 import { sendCustomerQuoteFromRequest } from '@/lib/customer-quote-delivery';
-import { sendLeadToCrm } from '@/lib/crm-leads';
+import { type CrmLeadResult, sendLeadToCrm } from '@/lib/crm-leads';
 
 function getSafeValidationErrorMessage(error: ZodError) {
   return error.issues[0]?.message ?? 'Please check the reservation details and try again.';
@@ -136,12 +136,13 @@ export async function sendEmail(formData: FormData) {
       }
 
       let eventRequest: AdminCustomerRequestSummary;
+      let crmLead: CrmLeadResult | null = null;
 
       try {
         const savedEvent = await saveEventRequest(validatedData);
         eventRequest = buildEventRequestSummary(savedEvent.request);
         // The team handles requests in the CRM: copy it there (best effort, never blocks).
-        await sendLeadToCrm({
+        crmLead = await sendLeadToCrm({
           kind: 'event',
           guestName: validatedData.name,
           guestEmail: validatedData.email,
@@ -189,6 +190,15 @@ export async function sendEmail(formData: FormData) {
         return {
           success: false,
           error: error.message
+        };
+      }
+
+      // The CRM took the quote on (it e-mails it to the visitor with the PDF and the terms):
+      // do not send a second one from here.
+      if (crmLead?.sent && crmLead.crmSendsQuote) {
+        return {
+          success: true,
+          message: 'Email sent successfully!'
         };
       }
 
@@ -295,6 +305,7 @@ export async function sendEmail(formData: FormData) {
       }
 
       let reservationRequest: AdminCustomerRequestSummary;
+      let crmLead: CrmLeadResult | null = null;
 
       try {
         const savedReservation = await savePendingReservationRequest({
@@ -310,7 +321,7 @@ export async function sendEmail(formData: FormData) {
           savedReservation.request as ReservationRequestRow,
         );
         // The team handles requests in the CRM: copy it there (best effort, never blocks).
-        await sendLeadToCrm({
+        crmLead = await sendLeadToCrm({
           kind: 'reservation',
           guestName: validatedData.name,
           guestEmail: validatedData.email,
@@ -364,6 +375,15 @@ export async function sendEmail(formData: FormData) {
         return {
           success: false,
           error: error.message
+        };
+      }
+
+      // The CRM took the quote on (it e-mails it to the visitor with the PDF and the terms):
+      // do not send a second one from here.
+      if (crmLead?.sent && crmLead.crmSendsQuote) {
+        return {
+          success: true,
+          message: 'Email sent successfully!'
         };
       }
 
