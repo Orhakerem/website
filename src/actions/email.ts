@@ -28,6 +28,7 @@ import {
   type ReservationRequestRow,
 } from '@/lib/admin-requests';
 import { sendCustomerQuoteFromRequest } from '@/lib/customer-quote-delivery';
+import { sendLeadToCrm } from '@/lib/crm-leads';
 
 function getSafeValidationErrorMessage(error: ZodError) {
   return error.issues[0]?.message ?? 'Please check the reservation details and try again.';
@@ -139,6 +140,20 @@ export async function sendEmail(formData: FormData) {
       try {
         const savedEvent = await saveEventRequest(validatedData);
         eventRequest = buildEventRequestSummary(savedEvent.request);
+        // The team handles requests in the CRM: copy it there (best effort, never blocks).
+        await sendLeadToCrm({
+          kind: 'event',
+          guestName: validatedData.name,
+          guestEmail: validatedData.email,
+          guestPhone: validatedData.phone,
+          contactMethod: validatedData.contactMethod,
+          message: validatedData.message,
+          eventType: validatedData.eventType,
+          eventDate: validatedData.checkIn,
+          guestCountLabel: validatedData.guestCount,
+          siteListingId: 'penthouse',
+          externalRef: `event_request:${savedEvent.request.id}`,
+        });
       } catch (error) {
         console.error('Event request persistence failed:', error);
         return {
@@ -294,6 +309,21 @@ export async function sendEmail(formData: FormData) {
         reservationRequest = buildReservationRequestSummary(
           savedReservation.request as ReservationRequestRow,
         );
+        // The team handles requests in the CRM: copy it there (best effort, never blocks).
+        await sendLeadToCrm({
+          kind: 'reservation',
+          guestName: validatedData.name,
+          guestEmail: validatedData.email,
+          guestPhone: validatedData.phone,
+          contactMethod: validatedData.contactMethod,
+          checkIn: validatedData.checkIn,
+          checkOut: validatedData.checkOut,
+          guestsCount: validatedData.guestsCount,
+          siteListingId: listingId,
+          totalPrice: savedReservation.request.total_price,
+          currency: savedReservation.request.currency,
+          externalRef: `reservation:${savedReservation.request.id}`,
+        });
       } catch (error) {
         console.error('Reservation persistence failed:', error);
 
