@@ -79,7 +79,7 @@ test('sendLeadToCrm: posts the body with the bearer key to the CRM', async () =>
       return new Response('{"data":{}}', { status: 201 });
     },
   });
-  assert.deepEqual(result, { sent: true, status: 201 });
+  assert.deepEqual(result, { sent: true, status: 201, crmSendsQuote: false });
   assert.equal(calls.length, 1);
   assert.equal(calls[0].url, 'https://crm.example.test/api/v1/leads');
   assert.equal(calls[0].init.method, 'POST');
@@ -93,7 +93,7 @@ test('sendLeadToCrm: posts the body with the bearer key to the CRM', async () =>
       return new Response('{}', { status: 200 });
     },
   });
-  assert.deepEqual(defaults, { sent: true, status: 200 });
+  assert.deepEqual(defaults, { sent: true, status: 200, crmSendsQuote: false });
   assert.equal(calls[1].url, 'https://admin.45beach.com/api/v1/leads');
 });
 
@@ -124,5 +124,20 @@ test('sendLeadToCrm: a refusal or an outage never throws', async () => {
   assert.equal(logged.length, 2);
   for (const line of logged) {
     assert.ok(!line.includes('dana@example.test') && !line.includes('Dana'), 'logs carry no visitor data');
+  }
+});
+
+test('sendLeadToCrm: reports when the CRM takes the automatic quote on', async () => {
+  const env = { CRM_LEADS_API_KEY: 'k' };
+  const answer = (body: string, status = 201) => async () => new Response(body, { status });
+  assert.deepEqual(await sendLeadToCrm(RESERVATION, { env, fetchImpl: answer('{"data":{"id":"x","autoQuote":"pending"}}') }), {
+    sent: true,
+    status: 201,
+    crmSendsQuote: true,
+  });
+  // A replay, a request the CRM does not quote, an older CRM, a broken body: the site keeps its own quote.
+  for (const body of ['{"data":{"id":"x","autoQuote":null}}', '{"data":{"id":"x"}}', '{"data":null}', 'not json', '']) {
+    const result = await sendLeadToCrm(RESERVATION, { env, fetchImpl: answer(body, 200) });
+    assert.deepEqual(result, { sent: true, status: 200, crmSendsQuote: false }, body);
   }
 });

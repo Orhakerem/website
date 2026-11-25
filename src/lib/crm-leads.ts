@@ -5,6 +5,10 @@
 // A failure is logged (status only, never the visitor's data or the key) and the request is
 // still saved and e-mailed by the site as before.
 //
+// The CRM also e-mails the automatic quote to the visitor (PDF + terms). Its answer says so
+// (`autoQuote: 'pending'`), and the site then does not send its own: one quote, not two. When
+// the CRM cannot be reached, or does not take the quote on, the site sends its own as before.
+//
 // Environment (server only):
 //   CRM_LEADS_API_KEY  CRM API key with scope `leads:write`, bound to this brand. Unset → skipped.
 //   CRM_API_URL        optional, defaults to https://admin.45beach.com
@@ -38,7 +42,12 @@ export interface CrmLead {
 }
 
 export type CrmLeadResult =
-  | { sent: true; status: number }
+  | {
+      sent: true;
+      status: number;
+      /** True when the CRM answered that it will e-mail the quote to the visitor itself. */
+      crmSendsQuote: boolean;
+    }
   | { sent: false; reason: 'not_configured' | 'network' | `http_${number}` };
 
 const CONTACT_METHODS = new Set(['email', 'phone', 'whatsapp']);
@@ -81,6 +90,17 @@ export function buildCrmLeadBody(lead: CrmLead): Record<string, string | number>
   return body;
 }
 
+/** `{ data: { autoQuote: 'pending' } }` in the CRM's answer; anything else (old CRM, bad body) is false. */
+async function readsAutoQuotePending(response: Response): Promise<boolean> {
+  try {
+    const body: unknown = await response.json();
+    const data = (body as { data?: { autoQuote?: unknown } } | null)?.data;
+    return data?.autoQuote === 'pending';
+  } catch {
+    return false;
+  }
+}
+
 export interface CrmLeadOptions {
   fetchImpl?: typeof fetch;
   env?: Record<string, string | undefined>;
@@ -106,7 +126,7 @@ export async function sendLeadToCrm(lead: CrmLead, options: CrmLeadOptions = {})
       console.error(`[crm-leads] the CRM answered ${response.status} for a ${lead.kind} lead`);
       return { sent: false, reason: `http_${response.status}` };
     }
-    return { sent: true, status: response.status };
+    return { sent: true, status: response.status, crmSendsQuote: await readsAutoQuotePending(response) };
   } catch (error) {
     console.error(`[crm-leads] could not reach the CRM (${error instanceof Error ? error.name : 'error'})`);
     return { sent: false, reason: 'network' };
