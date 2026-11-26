@@ -445,15 +445,17 @@ export default function ReservationForm({
           <div className="relative">
             <Phone className="absolute start-3 top-1/2 -translate-y-1/2 w-5 h-5 text-black/60" />
             {/*
-              Phone is only required when the visitor actually asked to be reached
-              by phone or WhatsApp. Demanding a number for an email-first enquiry
-              is a well-known drop-off on a first contact.
+              The phone is always required (owner's decision, 2026-11-26), whatever the
+              contact method: the server validation (src/validation.ts) refuses a request
+              without one, so the field must say so before the visitor submits. The two
+              other forms (property page, events) already require it.
             */}
             <input
               type="tel"
               id="phone"
               name="phone"
-              required={contactMethod === 'phone' || contactMethod === 'whatsapp'}
+              autoComplete="tel"
+              required
               className="w-full ps-10 pe-4 py-2 border border-gray-300 rounded-md"
             />
           </div>
